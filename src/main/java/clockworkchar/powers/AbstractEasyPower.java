@@ -29,7 +29,6 @@ public abstract class AbstractEasyPower extends AbstractPower {
         this.amount = amount;
         this.type = powerType;
 
-        System.out.println(ClockworkChar.modID + "Resources/images/powers/" + ID + "84.png");
         Texture normalTexture = TexLoader.getTexture(ClockworkChar.modID + "Resources/images/powers/" + ID.substring(ClockworkChar.modID.length()+1) + "32.png");
         Texture hiDefImage = TexLoader.getTexture(ClockworkChar.modID + "Resources/images/powers/" + ID.substring(ClockworkChar.modID.length()+1) + "84.png");
         if (hiDefImage != null) {
