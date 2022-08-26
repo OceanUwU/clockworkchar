@@ -30,17 +30,17 @@ import java.util.ArrayList;
 
 public class TheClockwork extends CustomPlayer {
     private static final String[] orbTextures = {
-            modID + "Resources/images/char/mainChar/orb/layer1.png",
-            modID + "Resources/images/char/mainChar/orb/layer2.png",
-            modID + "Resources/images/char/mainChar/orb/layer3.png",
-            modID + "Resources/images/char/mainChar/orb/layer4.png",
-            modID + "Resources/images/char/mainChar/orb/layer5.png",
-            modID + "Resources/images/char/mainChar/orb/layer6.png",
-            modID + "Resources/images/char/mainChar/orb/layer1d.png",
-            modID + "Resources/images/char/mainChar/orb/layer2d.png",
-            modID + "Resources/images/char/mainChar/orb/layer3d.png",
-            modID + "Resources/images/char/mainChar/orb/layer4d.png",
-            modID + "Resources/images/char/mainChar/orb/layer5d.png",};
+            modID + "Resources/images/char/mainChar/orb/l1.png",
+            modID + "Resources/images/char/mainChar/orb/l2.png",
+            modID + "Resources/images/char/mainChar/orb/l3.png",
+            modID + "Resources/images/char/mainChar/orb/empty.png",
+            modID + "Resources/images/char/mainChar/orb/empty.png",
+            modID + "Resources/images/char/mainChar/orb/l4.png",
+            modID + "Resources/images/char/mainChar/orb/l1d.png",
+            modID + "Resources/images/char/mainChar/orb/l2d.png",
+            modID + "Resources/images/char/mainChar/orb/l3d.png",
+            modID + "Resources/images/char/mainChar/orb/empty.png",
+            modID + "Resources/images/char/mainChar/orb/empty.png",};
     static final String ID = makeID("TheClockwork");
     public static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     static final String[] NAMES = characterStrings.NAMES;
@@ -48,7 +48,7 @@ public class TheClockwork extends CustomPlayer {
 
 
     public TheClockwork(String name, PlayerClass setClass) {
-        super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", null), new SpriterAnimation(
+        super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", (new float[]{0.0F, 0.0F, 32.0F, 0.0F, 0.0F})), new SpriterAnimation(
                 modID + "Resources/images/char/mainChar/static.scml"));
         initializeClass(null,
                 SHOULDER1,

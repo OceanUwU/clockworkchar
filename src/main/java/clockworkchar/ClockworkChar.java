@@ -87,19 +87,19 @@ public class ClockworkChar implements
     }
 
     public static String makeImagePath(String resourcePath) {
-        return modID + "Resources/images/" + resourcePath;
+        return makePath("images/" + resourcePath);
     }
 
     public static String makeRelicPath(String resourcePath) {
-        return modID + "Resources/images/relics/" + resourcePath;
+        return makeImagePath("relics/" + resourcePath);
     }
 
     public static String makePowerPath(String resourcePath) {
-        return modID + "Resources/images/powers/" + resourcePath;
+        return makeImagePath("powers/" + resourcePath);
     }
 
     public static String makeCardPath(String resourcePath) {
-        return modID + "Resources/images/cards/" + resourcePath;
+        return makeImagePath("cards/" + resourcePath);
     }
 
     public static void initialize() {

@@ -11,8 +11,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-import clockworkchar.ClockworkChar;
-
 public class ExampleTwoAmountPower extends AbstractEasyPower implements OnReceivePowerPower {
     public static String ID = makeID("ExampleTwoAmount");
 
