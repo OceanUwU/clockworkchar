@@ -1,9 +1,9 @@
 package clockworkchar.cards;
 
-import static clockworkchar.ClockworkChar.makeID;
-
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import static clockworkchar.ClockworkChar.makeID;
 
 public class Defend extends AbstractEasyCard {
     public final static String ID = makeID("Defend");

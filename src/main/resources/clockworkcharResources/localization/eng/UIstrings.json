@@ -1,0 +1,8 @@
+{
+  "${ModID}:WinderElement": {
+    "TEXT": [
+      "Winder",
+      "Your current charge count. NL Some cards need charge to perform effects."
+    ]
+  }
+}

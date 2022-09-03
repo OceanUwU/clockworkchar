@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
+import com.esotericsoftware.spine.Bone;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -49,7 +50,8 @@ public class TheClockwork extends CustomPlayer {
     public static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     static final String[] NAMES = characterStrings.NAMES;
     static final String[] TEXT = characterStrings.TEXT;
-
+    
+    public Bone winderBone;
 
     public TheClockwork(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", (new float[]{0.0F, 0.0F, 32.0F, 0.0F, 0.0F})), new SpineAnimation(modID + "Resources/images/char/mainChar/cranky.atlas", modID + "Resources/images/char/mainChar/cranky.json", SIZE_SCALE));
@@ -58,6 +60,8 @@ public class TheClockwork extends CustomPlayer {
                 SHOULDER2,
                 CORPSE,
                 getLoadout(), -5.0F, -10.0F, 172.0F, 268.0F, new EnergyManager(3));
+        
+        winderBone = this.skeleton.findSlot("winder").getBone();
 
 
         dialogX = (drawX + 0.0F * Settings.scale);

@@ -9,7 +9,7 @@ import clockworkchar.cards.cardvars.SecondDamage;
 import clockworkchar.cards.cardvars.SecondMagicNumber;
 import clockworkchar.characters.TheClockwork;
 import clockworkchar.relics.AbstractEasyRelic;
-
+import clockworkchar.ui.Winder;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
@@ -17,10 +17,13 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -34,7 +37,9 @@ public class ClockworkChar implements
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
-        EditCharactersSubscriber {
+        EditCharactersSubscriber,
+        OnStartBattleSubscriber,
+        PostInitializeSubscriber {
 
     public static final String modID = "clockworkchar";
 
@@ -59,6 +64,8 @@ public class ClockworkChar implements
     private static final String CHARSELECT_BUTTON = makeImagePath("charSelect/charButton.png");
     private static final String CHARSELECT_PORTRAIT = makeImagePath("charSelect/charBG.png");
 
+    public static Winder winder;
+
     public static Settings.GameLanguage[] SupportedLanguages = {
             Settings.GameLanguage.ENG,
     };
@@ -76,10 +83,10 @@ public class ClockworkChar implements
         BaseMod.subscribe(this);
 
         BaseMod.addColor(TheClockwork.Enums.CLOCKWORK_BROWN_COLOR, characterColor, characterColor, characterColor,
-                characterColor, characterColor, characterColor, characterColor,
-                ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
-                ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
-                CARD_ENERGY_L, TEXT_ENERGY);
+            characterColor, characterColor, characterColor, characterColor,
+            ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
+            ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
+            CARD_ENERGY_L, TEXT_ENERGY);
     }
 
     public static String makePath(String resourcePath) {
@@ -115,17 +122,17 @@ public class ClockworkChar implements
     @Override
     public void receiveEditRelics() {
         new AutoAdd(modID)
-                .packageFilter(AbstractEasyRelic.class)
-                .any(AbstractEasyRelic.class, (info, relic) -> {
-                    if (relic.color == null) {
-                        BaseMod.addRelic(relic, RelicType.SHARED);
-                    } else {
-                        BaseMod.addRelicToCustomPool(relic, relic.color);
-                    }
-                    if (!info.seen) {
-                        UnlockTracker.markRelicAsSeen(relic.relicId);
-                    }
-                });
+            .packageFilter(AbstractEasyRelic.class)
+            .any(AbstractEasyRelic.class, (info, relic) -> {
+                if (relic.color == null) {
+                    BaseMod.addRelic(relic, RelicType.SHARED);
+                } else {
+                    BaseMod.addRelicToCustomPool(relic, relic.color);
+                }
+                if (!info.seen) {
+                    UnlockTracker.markRelicAsSeen(relic.relicId);
+                }
+            });
     }
 
     @Override
@@ -133,21 +140,18 @@ public class ClockworkChar implements
         BaseMod.addDynamicVariable(new SecondMagicNumber());
         BaseMod.addDynamicVariable(new SecondDamage());
         new AutoAdd(modID)
-                .packageFilter(AbstractEasyCard.class)
-                .setDefaultSeen(true)
-                .cards();
+            .packageFilter(AbstractEasyCard.class)
+            .setDefaultSeen(true)
+            .cards();
     }
-
 
     @Override
     public void receiveEditStrings() {
         BaseMod.loadCustomStringsFile(CardStrings.class, modID + "Resources/localization/" + getLangString() + "/Cardstrings.json");
-
         BaseMod.loadCustomStringsFile(RelicStrings.class, modID + "Resources/localization/" + getLangString() + "/Relicstrings.json");
-
         BaseMod.loadCustomStringsFile(CharacterStrings.class, modID + "Resources/localization/" + getLangString() + "/Charstrings.json");
-
         BaseMod.loadCustomStringsFile(PowerStrings.class, modID + "Resources/localization/" + getLangString() + "/Powerstrings.json");
+        BaseMod.loadCustomStringsFile(UIStrings.class, modID + "Resources/localization/" + getLangString() + "/UIstrings.json");
     }
 
     @Override
@@ -161,5 +165,15 @@ public class ClockworkChar implements
                 BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }
+    }
+
+    @Override
+    public void receivePostInitialize() {
+        winder = new Winder();
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom room) {
+        winder.reset();
     }
 }
