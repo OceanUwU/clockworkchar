@@ -42,22 +42,22 @@ public class ClockworkChar implements
         return modID + ":" + idText;
     }
 
-    public static Color characterColor = new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1); // This should be changed eventually
+    public static Color characterColor = new Color(0.43F, 0.28F, 0.19F, 1);
 
-    public static final String SHOULDER1 = modID + "Resources/images/char/mainChar/shoulder.png";
-    public static final String SHOULDER2 = modID + "Resources/images/char/mainChar/shoulder2.png";
-    public static final String CORPSE = modID + "Resources/images/char/mainChar/corpse.png";
-    private static final String ATTACK_S_ART = modID + "Resources/images/512/attack.png";
-    private static final String SKILL_S_ART = modID + "Resources/images/512/skill.png";
-    private static final String POWER_S_ART = modID + "Resources/images/512/power.png";
-    private static final String CARD_ENERGY_S = modID + "Resources/images/512/energy.png";
-    private static final String TEXT_ENERGY = modID + "Resources/images/512/text_energy.png";
-    private static final String ATTACK_L_ART = modID + "Resources/images/1024/attack.png";
-    private static final String SKILL_L_ART = modID + "Resources/images/1024/skill.png";
-    private static final String POWER_L_ART = modID + "Resources/images/1024/power.png";
-    private static final String CARD_ENERGY_L = modID + "Resources/images/1024/energy.png";
-    private static final String CHARSELECT_BUTTON = modID + "Resources/images/charSelect/charButton.png";
-    private static final String CHARSELECT_PORTRAIT = modID + "Resources/images/charSelect/charBG.png";
+    public static final String SHOULDER1 = makeImagePath("char/mainChar/shoulder.png");
+    public static final String SHOULDER2 = makeImagePath("char/mainChar/shoulder2.png");
+    public static final String CORPSE = makeImagePath("char/mainChar/corpse.png");
+    private static final String ATTACK_S_ART = makeImagePath("512/attack.png");
+    private static final String SKILL_S_ART = makeImagePath("512/skill.png");
+    private static final String POWER_S_ART = makeImagePath("512/power.png");
+    private static final String CARD_ENERGY_S = makeImagePath("512/energy.png");
+    private static final String TEXT_ENERGY = makeImagePath("512/text_energy.png");
+    private static final String ATTACK_L_ART = makeImagePath("1024/attack.png");
+    private static final String SKILL_L_ART = makeImagePath("1024/skill.png");
+    private static final String POWER_L_ART = makeImagePath("1024/power.png");
+    private static final String CARD_ENERGY_L = makeImagePath("1024/energy.png");
+    private static final String CHARSELECT_BUTTON = makeImagePath("charSelect/charButton.png");
+    private static final String CHARSELECT_PORTRAIT = makeImagePath("charSelect/charBG.png");
 
     public static Settings.GameLanguage[] SupportedLanguages = {
             Settings.GameLanguage.ENG,

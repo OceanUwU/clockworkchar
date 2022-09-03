@@ -2,7 +2,7 @@ package clockworkchar.characters;
 
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
+import basemod.animations.SpineAnimation;
 import clockworkchar.cards.Defend;
 import clockworkchar.cards.Strike;
 import clockworkchar.relics.TodoItem;
@@ -10,9 +10,11 @@ import clockworkchar.relics.TodoItem;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
+import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -41,6 +43,8 @@ public class TheClockwork extends CustomPlayer {
             modID + "Resources/images/char/mainChar/orb/l3d.png",
             modID + "Resources/images/char/mainChar/orb/empty.png",
             modID + "Resources/images/char/mainChar/orb/empty.png",};
+    private static final Float SIZE_SCALE = 1.2F;
+    private static final Float ANIMATION_SPEED = 0.8F;
     static final String ID = makeID("TheClockwork");
     public static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     static final String[] NAMES = characterStrings.NAMES;
@@ -48,17 +52,32 @@ public class TheClockwork extends CustomPlayer {
 
 
     public TheClockwork(String name, PlayerClass setClass) {
-        super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", (new float[]{0.0F, 0.0F, 32.0F, 0.0F, 0.0F})), new SpriterAnimation(
-                modID + "Resources/images/char/mainChar/static.scml"));
+        super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", (new float[]{0.0F, 0.0F, 32.0F, 0.0F, 0.0F})), new SpineAnimation(modID + "Resources/images/char/mainChar/cranky.atlas", modID + "Resources/images/char/mainChar/cranky.json", SIZE_SCALE));
         initializeClass(null,
                 SHOULDER1,
                 SHOULDER2,
                 CORPSE,
-                getLoadout(), 20.0F, -10.0F, 166.0F, 327.0F, new EnergyManager(3));
+                getLoadout(), -5.0F, -10.0F, 172.0F, 268.0F, new EnergyManager(3));
 
 
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 240.0F * Settings.scale);
+
+        
+        AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
+        this.stateData.setMix("Hit", "Idle", 0.5F);
+        e.setTimeScale(ANIMATION_SPEED);
+    }
+
+    public void damage(DamageInfo info) {
+        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output - this.currentBlock > 0) {
+            AnimationState.TrackEntry e = this.state.setAnimation(0, "Hit", false);
+            AnimationState.TrackEntry e2 = this.state.addAnimation(0, "Idle", true, 0.0F);
+            e.setTimeScale(ANIMATION_SPEED);
+            e2.setTimeScale(ANIMATION_SPEED);
+        }
+
+        super.damage(info);
     }
 
     @Override
