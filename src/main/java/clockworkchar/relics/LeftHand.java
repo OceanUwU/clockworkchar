@@ -15,7 +15,7 @@ public class LeftHand extends AbstractEasyRelic {
     private static final int WIND_AMOUNT = 8;
 
     public LeftHand() {
-        super(ID, RelicTier.STARTER, LandingSound.FLAT, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);
+        super(ID, RelicTier.STARTER, LandingSound.HEAVY, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);
     }
 
     public String getUpdatedDescription() {

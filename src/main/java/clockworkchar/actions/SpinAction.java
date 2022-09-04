@@ -9,8 +9,8 @@ import static clockworkchar.ClockworkChar.makeID;
 import java.util.function.Consumer;
 
 public class SpinAction extends AbstractGameAction {
-    boolean sound;
-    Consumer<Boolean> cb;
+    private boolean sound;
+    private Consumer<Boolean> cb;
 
     public SpinAction(int amount, Consumer<Boolean> callback) {
         this(amount, true, callback);

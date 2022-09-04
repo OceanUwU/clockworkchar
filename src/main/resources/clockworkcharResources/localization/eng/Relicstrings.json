@@ -1,9 +1,17 @@
 {
   "${ModID}:LeftHand": {
     "NAME": "Salvaged Hand",
-    "FLAVOR": "TODO: make this a sweet relic.",
+    "FLAVOR": "\"It's my dominant hand, but I can't say it's my favourite.\" - Cranky",
     "DESCRIPTIONS": [
       "At the start of combat, #y${ModID}:Wind_Up #b",
+      "."
+    ]
+  },
+  "${ModID}:Drill": {
+    "NAME": "Diamond-Tipped Drill",
+    "FLAVOR": "\"I take back what I said earlier...\" - Cranky",
+    "DESCRIPTIONS": [
+      "Replaces #ySalvaged #yHand. Whenever you play a card, #y${ModID}:Wind_Up #b",
       "."
     ]
   }

@@ -13,51 +13,44 @@ shadow
   index: -1
 001-005-001-002
   rotate: false
-  xy: 79, 171
+  xy: 1, 197
   size: 51, 39
   orig: 51, 39
   offset: 0, 0
   index: -1
 001-005-001-000
   rotate: false
-  xy: 54, 212
+  xy: 223, 212
   size: 25, 63
   orig: 25, 63
   offset: 0, 0
   index: -1
 001-005-001-001
   rotate: false
-  xy: 223, 127
+  xy: 219, 51
   size: 27, 74
   orig: 27, 74
   offset: 0, 0
   index: -1
 001-005-002-002
   rotate: false
-  xy: 1, 197
+  xy: 79, 171
   size: 51, 39
   orig: 51, 39
   offset: 0, 0
   index: -1
 001-005-002-000
   rotate: false
-  xy: 1, 238
+  xy: 54, 212
   size: 25, 63
   orig: 25, 63
   offset: 0, 0
   index: -1
 001-005-002-001
   rotate: false
-  xy: 219, 51
+  xy: 223, 127
   size: 27, 74
   orig: 27, 74
-  offset: 0, 0
-  index: -1
-001-004-003
-  rotate: false
-  xy: 166, 203
-  size: 60, 21
-  orig: 60, 21
   offset: 0, 0
   index: -1
 001-004-002
@@ -67,9 +60,16 @@ shadow
   orig: 62, 33
   offset: 0, 0
   index: -1
+001-004-003
+  rotate: false
+  xy: 81, 240
+  size: 60, 21
+  orig: 60, 21
+  offset: 0, 0
+  index: -1
 001-004-001
   rotate: false
-  xy: 81, 212
+  xy: 143, 240
   size: 30, 34
   orig: 30, 34
   offset: 0, 0
@@ -97,21 +97,21 @@ shadow
   index: -1
 001-001-001
   rotate: false
-  xy: 81, 248
+  xy: 175, 272
   size: 28, 34
   orig: 28, 34
   offset: 0, 0
   index: -1
 001-002-003
   rotate: false
-  xy: 132, 203
+  xy: 189, 212
   size: 32, 58
   orig: 32, 58
   offset: 0, 0
   index: -1
 001-002-002
   rotate: false
-  xy: 111, 248
+  xy: 143, 277
   size: 19, 34
   orig: 19, 34
   offset: 0, 0
@@ -125,7 +125,7 @@ shadow
   index: -1
 001-002-000
   rotate: false
-  xy: 166, 226
+  xy: 81, 263
   size: 60, 21
   orig: 60, 21
   offset: 0, 0
@@ -135,5 +135,12 @@ shadow
   xy: 79, 73
   size: 78, 96
   orig: 78, 96
+  offset: 0, 0
+  index: -1
+drill
+  rotate: false
+  xy: 132, 203
+  size: 55, 35
+  orig: 55, 35
   offset: 0, 0
   index: -1

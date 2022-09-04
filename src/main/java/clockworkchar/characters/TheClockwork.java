@@ -53,6 +53,8 @@ public class TheClockwork extends CustomPlayer {
     static final String[] TEXT = characterStrings.TEXT;
     
     public Bone winderBone;
+    public Bone handBone;
+    public Bone drillBone;
 
     public TheClockwork(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", (new float[]{0.0F, 0.0F, 32.0F, 0.0F, 0.0F})), new SpineAnimation(modID + "Resources/images/char/mainChar/cranky.atlas", modID + "Resources/images/char/mainChar/cranky.json", SIZE_SCALE));
@@ -62,7 +64,10 @@ public class TheClockwork extends CustomPlayer {
                 CORPSE,
                 getLoadout(), -5.0F, -10.0F, 172.0F, 268.0F, new EnergyManager(3));
         
-        winderBone = this.skeleton.findSlot("winder").getBone();
+        winderBone = this.skeleton.findBone("winder");
+        handBone = this.skeleton.findBone("hand");
+        drillBone = this.skeleton.findBone("drill");
+        drillBone.setScale(0.0F);
 
 
         dialogX = (drawX + 0.0F * Settings.scale);
