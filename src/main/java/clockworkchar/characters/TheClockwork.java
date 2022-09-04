@@ -5,8 +5,9 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpineAnimation;
 import clockworkchar.cards.Defend;
 import clockworkchar.cards.Strike;
-import clockworkchar.relics.TodoItem;
-
+import clockworkchar.cards.Twist;
+import clockworkchar.cards.Waddle;
+import clockworkchar.relics.LeftHand;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -100,25 +101,27 @@ public class TheClockwork extends CustomPlayer {
         for (int i = 0; i < 4; i++) {
             retVal.add(Defend.ID);
         }
+        retVal.add(Twist.ID);
+        retVal.add(Waddle.ID);
         return retVal;
     }
 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(TodoItem.ID);
+        retVal.add(LeftHand.ID);
         return retVal;
     }
 
     @Override
     public void doCharSelectScreenSelectEffect() {
-        CardCrawlGame.sound.playA("UNLOCK_PING", MathUtils.random(-0.2F, 0.2F));
+        CardCrawlGame.sound.playA(makeID("WIND_UP"), MathUtils.random(-0.2F, 0.2F));
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.SHORT,
                 false);
     }
 
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "UNLOCK_PING";
+        return makeID("WIND_UP");
     }
 
     @Override

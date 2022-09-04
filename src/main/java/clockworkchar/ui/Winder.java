@@ -50,13 +50,13 @@ public class Winder {
 
     public void update() {
         if (toTwistForward > 0) {
-            angle += Gdx.graphics.getDeltaTime() * 540.0F;
+            angle += Gdx.graphics.getDeltaTime() * 240.0F * toTwistForward;
             if (angle >= 180.0F) {
                 angle -= 180.0F;
                 toTwistForward--;
             }
         } else if (toTwistBack > 0) {
-            angle -= Gdx.graphics.getDeltaTime() * 810.0F;
+            angle -= Gdx.graphics.getDeltaTime() * 320.0F * toTwistBack;
             if (angle <= -180.0F) {
                 angle += 180.0F;
                 toTwistBack--;
@@ -99,6 +99,10 @@ public class Winder {
     public void gainCharge(int amount) {
         shouldRender = true;
         charge += amount;
+        if (toTwistBack > 0) {
+            toTwistBack = 0;
+            angle = 0.0F;
+        }
         toTwistForward += amount;
         fontScale = 2.0F;
     }
@@ -106,6 +110,10 @@ public class Winder {
     public boolean useCharge(int amount) {
         if (charge >= amount) {
             charge -= amount;
+            if (toTwistForward > 0) {
+                toTwistForward = 0;
+                angle = 0.0F;
+            }
             toTwistBack += amount;
             if (amount != 0)
                 fontScale = 2.0F; 
@@ -116,8 +124,7 @@ public class Winder {
 
     public int useAllCharge() {
         int chargeUsed = charge;
-        charge = 0;
-        fontScale = 2.0F;
+        useCharge(chargeUsed);
         return chargeUsed;
     }
 

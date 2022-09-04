@@ -1,27 +1,28 @@
 [
   {
-    "PROPER_NAME": "CHARGE",
+    "PROPER_NAME": "Charge",
     "NAMES": [
       "charge"
     ],
-    "DESCRIPTION": "A secondary form of energy."
+    "DESCRIPTION": "A secondary form of energy gained by Winding up."
   },
   {
-    "PROPER_NAME": "WIND UP",
+    "PROPER_NAME": "Wind Up",
     "NAMES": [
-      "wind up"
+      "wind up",
+      "wind_up"
     ],
     "DESCRIPTION": "Turn your winder, gaining some amount of charge."
   },
   {
-    "PROPER_NAME": "SPIN",
+    "PROPER_NAME": "Spin",
     "NAMES": [
       "spin"
     ],
     "DESCRIPTION": "Spend some of your charge to perform an action. If you don't have enough charge, you lose none and the action isn't performed."
   },
   {
-    "PROPER_NAME": "LET GO",
+    "PROPER_NAME": "Let Go",
     "NAMES": [
       "let go"
     ],

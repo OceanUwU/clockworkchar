@@ -7,6 +7,14 @@
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
   },
+  "${ModID}:Twist": {
+    "NAME": "Twist",
+    "DESCRIPTION": "${ModID}:Wind_Up !M!."
+  },
+  "${ModID}:Waddle": {
+    "NAME": "Waddle",
+    "DESCRIPTION": "${ModID}:Spin !M!: Deal !D! damage. NL ${ModID}:Spin !M!: Gain !B! Block."
+  },
   "${ModID}:ExampleTwoAmountPowerCard": {
     "NAME": "Two Amount Power",
     "DESCRIPTION": "At the start of your turn, gain !M! Strength and !${ModID}:m2! Dexterity."

@@ -1,9 +1,10 @@
 {
-  "${ModID}:TodoItem": {
-    "NAME": "Todo Item",
+  "${ModID}:LeftHand": {
+    "NAME": "Salvaged Hand",
     "FLAVOR": "TODO: make this a sweet relic.",
     "DESCRIPTIONS": [
-      "Has no effect."
+      "At the start of combat, #y${ModID}:Wind_Up #b",
+      "."
     ]
   }
 }

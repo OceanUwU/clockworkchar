@@ -1,0 +1,8 @@
+{
+  "${ModID}:somepotion": {
+    "NAME": "some potion",
+    "DESCRIPTIONS": [
+      "win."
+    ]
+  }
+}
