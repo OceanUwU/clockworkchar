@@ -5,9 +5,9 @@ import basemod.BaseMod;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import clockworkchar.cards.AbstractEasyCard;
-import clockworkchar.cards.cardvars.SecondDamage;
-import clockworkchar.cards.cardvars.SecondMagicNumber;
+import clockworkchar.cards.cardvars.*;
 import clockworkchar.characters.TheClockwork;
+import clockworkchar.potions.*;
 import clockworkchar.relics.AbstractEasyRelic;
 import clockworkchar.ui.Winder;
 import com.badlogic.gdx.Gdx;
@@ -119,7 +119,9 @@ public class ClockworkChar implements
     @Override
     public void receiveEditCharacters() {
         BaseMod.addCharacter(new TheClockwork(TheClockwork.characterStrings.NAMES[1], TheClockwork.Enums.THE_CLOCKWORK),
-                CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, TheClockwork.Enums.THE_CLOCKWORK);
+            CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, TheClockwork.Enums.THE_CLOCKWORK);
+        
+        BaseMod.addPotion(HandInAJar.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), HandInAJar.POTION_ID, TheClockwork.Enums.THE_CLOCKWORK);
     }
 
     @Override
@@ -141,7 +143,10 @@ public class ClockworkChar implements
     @Override
     public void receiveEditCards() {
         BaseMod.addDynamicVariable(new SecondMagicNumber());
+        BaseMod.addDynamicVariable(new ThirdMagicNumber());
         BaseMod.addDynamicVariable(new SecondDamage());
+        BaseMod.addDynamicVariable(new SecondBlock());
+        BaseMod.addDynamicVariable(new SpinAmount());
         new AutoAdd(modID)
             .packageFilter(AbstractEasyCard.class)
             .setDefaultSeen(true)
@@ -175,6 +180,7 @@ public class ClockworkChar implements
     public void receiveAddAudio() {
         BaseMod.addAudio(makeID("WIND_UP"), modID + "Resources/audio/windup.ogg");
         BaseMod.addAudio(makeID("SPIN"), modID + "Resources/audio/spin.ogg");
+        BaseMod.addAudio(makeID("BREAK"), modID + "Resources/audio/break.ogg");
     }
 
     @Override

@@ -6,13 +6,14 @@ import clockworkchar.util.CardArtRoller;
 
 import static clockworkchar.ClockworkChar.makeImagePath;
 import static clockworkchar.ClockworkChar.modID;
-import static clockworkchar.util.Wiz.atb;
-import static clockworkchar.util.Wiz.att;
+import static clockworkchar.util.Wiz.*;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -28,15 +29,32 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     protected final CardStrings cardStrings;
 
+    public boolean part = false;
+
     public int secondMagic;
     public int baseSecondMagic;
     public boolean upgradedSecondMagic;
     public boolean isSecondMagicModified;
 
+    public int thirdMagic;
+    public int baseThirdMagic;
+    public boolean upgradedThirdMagic;
+    public boolean isThirdMagicModified;
+
     public int secondDamage;
     public int baseSecondDamage;
     public boolean upgradedSecondDamage;
     public boolean isSecondDamageModified;
+
+    public int secondBlock;
+    public int baseSecondBlock;
+    public boolean upgradedSecondBlock;
+    public boolean isSecondBlockModified;
+
+    public int spinAmount;
+    public int baseSpinAmount;
+    public boolean upgradedSpinAmount;
+    public boolean isSpinAmountModified;
 
     private boolean needsArtRefresh = false;
 
@@ -111,6 +129,25 @@ public abstract class AbstractEasyCard extends CustomCard {
     }
 
     @Override
+    protected void applyPowersToBlock() {
+        if (baseSecondBlock > -1) {
+            secondBlock = baseSecondBlock;
+
+            int tmp = baseBlock;
+            baseBlock = baseSecondBlock;
+
+            super.applyPowersToBlock();
+
+            secondBlock = block;
+            baseBlock = tmp;
+
+            super.applyPowersToBlock();
+
+            isSecondBlockModified = (secondBlock != baseSecondBlock);
+        } else super.applyPowersToBlock();
+    }
+
+    @Override
     public void calculateCardDamage(AbstractMonster mo) {
         if (baseSecondDamage > -1) {
             secondDamage = baseSecondDamage;
@@ -133,8 +170,14 @@ public abstract class AbstractEasyCard extends CustomCard {
         super.resetAttributes();
         secondMagic = baseSecondMagic;
         isSecondMagicModified = false;
+        thirdMagic = baseThirdMagic;
+        isThirdMagicModified = false;
         secondDamage = baseSecondDamage;
         isSecondDamageModified = false;
+        secondBlock = baseSecondBlock;
+        isSecondBlockModified = false;
+        spinAmount = baseSpinAmount;
+        isSpinAmountModified = false;
     }
 
     public void displayUpgrades() {
@@ -143,9 +186,21 @@ public abstract class AbstractEasyCard extends CustomCard {
             secondMagic = baseSecondMagic;
             isSecondMagicModified = true;
         }
+        if (upgradedThirdMagic) {
+            thirdMagic = baseThirdMagic;
+            isThirdMagicModified = true;
+        }
         if (upgradedSecondDamage) {
             secondDamage = baseSecondDamage;
             isSecondDamageModified = true;
+        }
+        if (upgradedSecondBlock) {
+            secondBlock = baseSecondBlock;
+            isSecondBlockModified = true;
+        }
+        if (upgradedSpinAmount) {
+            spinAmount = baseSpinAmount;
+            isSpinAmountModified = true;
         }
     }
 
@@ -155,10 +210,28 @@ public abstract class AbstractEasyCard extends CustomCard {
         upgradedSecondMagic = true;
     }
 
+    protected void upgradedThirdMagic(int amount) {
+        baseThirdMagic += amount;
+        thirdMagic = baseThirdMagic;
+        upgradedThirdMagic = true;
+    }
+
     protected void upgradeSecondDamage(int amount) {
         baseSecondDamage += amount;
         secondDamage = baseSecondDamage;
         upgradedSecondDamage = true;
+    }
+
+    protected void upgradeSecondBlock(int amount) {
+        baseSecondBlock += amount;
+        secondBlock = baseSpinAmount;
+        upgradedSecondBlock = true;
+    }
+
+    protected void upgradeSpinAmount(int amount) {
+        baseSpinAmount -= amount;
+        spinAmount = baseSpinAmount;
+        upgradedSpinAmount = true;
     }
 
     protected void uDesc() {
@@ -175,6 +248,38 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     public abstract void upp();
 
+    public void activate() {};
+
+    public AbstractGameAction partActivation() {
+        if (part) {
+            return new AbstractGameAction() {
+                public void update() {
+                    isDone = true;
+                    int timesToActivate = 1;
+                    if (AbstractDungeon.player.hasPower(Efficiency.EfficiencyPower.POWER_ID)) {
+                        AbstractDungeon.player.getPower(Efficiency.EfficiencyPower.POWER_ID).flash();
+                        timesToActivate += pwrAmt(AbstractDungeon.player, Efficiency.EfficiencyPower.POWER_ID);
+                    }
+                    for (int i = 0; i < timesToActivate; i++)
+                        att(new AbstractGameAction() {
+                            public void update() {
+                                isDone = true;
+                                flash(Color.WHITE.cpy());
+                                activate();
+                            }
+                        });
+                }
+            };
+        }
+        return null;
+    }
+
+    public void triggerOnEndOfTurnForPlayingCard() {
+        AbstractGameAction partAction = partActivation();
+        if (partAction != null)
+            atb(partAction);
+    };
+
     public void update() {
         super.update();
         if (needsArtRefresh) {
@@ -190,13 +295,21 @@ public abstract class AbstractEasyCard extends CustomCard {
     protected void dmgTop(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
         att(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), fx));
     }
+    
+    protected void randomDmg(AbstractGameAction.AttackEffect fx) {
+        atb(new AttackDamageRandomEnemyAction(this, fx));
+    }
+    
+    protected void randomDmgTop(AbstractGameAction.AttackEffect fx) {
+        att(new AttackDamageRandomEnemyAction(this, fx));
+    }
 
     protected void allDmg(AbstractGameAction.AttackEffect fx) {
-        atb(new DamageAllEnemiesAction(AbstractDungeon.player, multiDamage, damageTypeForTurn, fx));
+        atb(new DamageAllEnemiesAction(AbstractDungeon.player, baseDamage, damageTypeForTurn, fx));
     }
 
     protected void allDmgTop(AbstractGameAction.AttackEffect fx) {
-        att(new DamageAllEnemiesAction(AbstractDungeon.player, multiDamage, damageTypeForTurn, fx));
+        att(new DamageAllEnemiesAction(AbstractDungeon.player, baseDamage, damageTypeForTurn, fx));
     }
 
     protected void altDmg(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
@@ -207,23 +320,23 @@ public abstract class AbstractEasyCard extends CustomCard {
         atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
     }
 
+    protected void blckTop() {
+        att(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
+    }
+
+    protected void altBlck() {
+        atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, secondBlock));
+    }
+
+    protected void altBlckTop() {
+        att(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, secondBlock));
+    }
+
     public String cardArtCopy() {
         return null;
     }
 
     public CardArtRoller.ReskinInfo reskinInfo(String ID) {
         return null;
-    }
-
-    protected void upMagic(int x) {
-        upgradeMagicNumber(x);
-    }
-
-    protected void upSecondMagic(int x) {
-        upgradeSecondMagic(x);
-    }
-
-    protected void upSecondDamage(int x) {
-        upgradeSecondDamage(x);
     }
 }

@@ -9,65 +9,218 @@
   },
   "${ModID}:Twist": {
     "NAME": "Twist",
-    "DESCRIPTION": "${ModID}:Wind_Up !M!."
+    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL ${ModID}:Part: ${ModID}:Wind_Up !${ModID}:m2!."
   },
   "${ModID}:Waddle": {
     "NAME": "Waddle",
-    "DESCRIPTION": "${ModID}:Spin !M!: Deal !D! damage. NL ${ModID}:Spin !M!: Gain !B! Block."
+    "DESCRIPTION": "${ModID}:Spin !${ModID}:s!: Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Gain !B! Block."
   },
-  "${ModID}:ExampleTwoAmountPowerCard": {
-    "NAME": "Two Amount Power",
-    "DESCRIPTION": "At the start of your turn, gain !M! Strength and !${ModID}:m2! Dexterity."
+  "${ModID}:ScatterNails": {
+    "NAME": "Scatter Nails",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL At the start of their turn, they lose !M! HP."
   },
-  "${ModID}:InlinePowerDemo": {
-    "NAME": "Inline Power",
-    "DESCRIPTION": "Strikes deal !M! more damage. NL At the end of your turn, gain !M! Block.",
+  "${ModID}:JackInABox": {
+    "NAME": "Jack-in-a-Box",
+    "DESCRIPTION": "Deal !D! damage to a random enemy."
+  },
+  "${ModID}:Whirl": {
+    "NAME": "Whirl",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL ${ModID}:Spin !${ModID}:s!: Draw !M! card."
+  },
+  "${ModID}:TwistingStrike": {
+    "NAME": "Twisting Strike",
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Wind_Up !M!."
+  },
+  "${ModID}:LetRip": {
+    "NAME": "Let 'er Rip",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Discard !M! cards."
+  },
+  "${ModID}:LostCog": {
+    "NAME": "Lost Cog",
+    "DESCRIPTION": "Deal !D! damage. NL If the last card you played this combat ${ModID}:Spun, deal !D! damage again."
+  },
+  "${ModID}:Blurrier": {
+    "NAME": "Blurrier",
+    "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Spin !${ModID}:s!: Gain !B! Block again."
+  },
+  "${ModID}:ReadyUp": {
+    "NAME": "Ready Up",
+    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL Next turn, gain [E]."
+  },
+  "${ModID}:Solder": {
+    "NAME": "Solder",
+    "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Wind_Up !M!."
+  },
+  "${ModID}:BoostedBlow": {
+    "NAME": "Boosted Blow",
+    "DESCRIPTION": "${ModID}:Let_Go: Deal damage equal to !M! times charge spent.",
     "EXTENDED_DESCRIPTION": [
-      "Strike+, Block+",
-      "#yStrikes deal #b",
-      " additional damage. At the end of your turn, gain #b",
-      " #yBlock."
+      " NL (Deals !D! damage.)"
     ]
   },
-  "${ModID}:SelectCardsPlusCardMods": {
-    "NAME": "Cool Card Stuff",
-    "DESCRIPTION": "Choose from 1 of 3 cost 0 cards from any class. NL Add it into your hand. NL It gains Ethereal and Exhaust.",
-    "EXTENDED_DESCRIPTION": [
-      "Choose a card to add into your hand with Ethereal and Exhaust."
-    ]
+  "${ModID}:ExtendoGrip": {
+    "NAME": "Extendo Grip",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL ${ModID}:Wind_Up !M!."
   },
-  "${ModID}:EasyXCostDemo": {
-    "NAME": "Easy X Cost",
-    "DESCRIPTION": "Deal !D! damage X times. NL Gain X Strength. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage X+1 times. NL Gain X+1 Strength. NL Exhaust."
+  "${ModID}:Cogwheels": {
+    "NAME": "Cogwheels",
+    "DESCRIPTION": "Gain !M! ${ModID}:Cogwheels."
   },
-  "${ModID}:EasyModalChoiceDemo": {
-    "NAME": "Easy Modal Choice",
-    "DESCRIPTION": "Choose one: Draw !M! cards or gain !${ModID}:m2! Strength.",
-    "EXTENDED_DESCRIPTION": [
-      "Draw",
-      "Draw ",
-      " cards.",
-      "Strength",
-      "Gain ",
-      " Strength."
-    ]
+  "${ModID}:MechanicalManoeuvre": {
+    "NAME": "Mechanical Manoeuvre",
+    "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Spin !${ModID}:s!: Gain [E]."
   },
-  "${ModID}:DrawAndShiv": {
-    "NAME": "Draw and Shiv",
-    "DESCRIPTION": "Draw 1 card. NL Add 1 *Shiv into your hand."
+  "${ModID}:Rejig": {
+    "NAME": "Rejig",
+    "DESCRIPTION": "${ModID}:Spin !${ModID}:s!: Gain !M! Strength."
   },
-  "${ModID}:TwoTypesOfDamage": {
-    "NAME": "Two Damage Values",
-    "DESCRIPTION": "Deal !D! damage. NL If you're Vulnerable, deal !${ModID}:sd! damage instead."
+  "${ModID}:Synchronise": {
+    "NAME": "Synchronise",
+    "DESCRIPTION": "${ModID}:Let_Go. NL ${ModID}:Wind_Up !M!."
   },
-  "${ModID}:StartupBlockCard": {
-    "NAME": "Startup And AOE",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Startup: Gain !M! Block."
+  "${ModID}:MetalSheet": {
+    "NAME": "Metal Sheet",
+    "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Part: Gain !${ModID}:sb! Block."
   },
-  "${ModID}:MultiCardPreviewAndDrawCallback": {
-    "NAME": "Previews and Callbacks",
-    "DESCRIPTION": "Shuffle *Smite and *Safety into your draw pile. NL Draw 1 card. NL If it's Colorless, deal !D! damage to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Shuffle *Smite and *Safety into your draw pile. NL Draw 1 card. NL If it's Colorless, deal !D! damage to ALL enemies."
+  "${ModID}:Fidget": {
+    "NAME": "Fidget",
+    "DESCRIPTION": "Retain. NL Unplayable ${ModID}:Part: ${ModID}:Wind_Up !M!."
+  },
+  "${ModID}:Gyroscope": {
+    "NAME": "Gyroscope",
+    "DESCRIPTION": "Unplayable ${ModID}:Part: NL ${ModID}:Spin !${ModID}:s! to deal !D! damage to a random enemy and Retain this."
+  },
+  "${ModID}:Crank": {
+    "NAME": "Crank",
+    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL Exhaust."
+  },
+  "${ModID}:Advance": {
+    "NAME": "Advance",
+    "DESCRIPTION": "Draw a card. NL ${ModID}:Spin !${ModID}:s!: Gain [E] and an *Advance. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw a card. NL ${ModID}:Spin !${ModID}:s!: Gain [E] and an *Advance+. NL Exhaust."
+  },
+  "${ModID}:Inertia": {
+    "NAME": "Inertia",
+    "DESCRIPTION": "Whenever you ${ModID}:Wind_Up, you have !M! additional Strength until you next ${ModID}:Spin."
+  },
+  "${ModID}:DangerousDeterrent": {
+    "NAME": "Dangerous Deterrent",
+    "DESCRIPTION": "Lose !${ModID}:m2! HP. NL Gain !M! *Spinners. NL Exhaust."
+  },
+  "${ModID}:Spinner": {
+    "NAME": "Spinner",
+    "DESCRIPTION": "Unplayable ${ModID}:Part: NL Deal !D! damage to ALL enemies and increase this damage by !M!."
+  },
+  "${ModID}:GatherParts": {
+    "NAME": "Gather Parts",
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, heal !M! HP. NL Exhaust."
+  },
+  "${ModID}:Accelerate": {
+    "NAME": "Accelerate",
+    "DESCRIPTION": "Draw !M! card. NL ${ModID}:Spin !${ModID}:s!: Gain a *Spinner.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL ${ModID}:Spin !${ModID}:s!: Gain a *Spinner."
+  },
+  "${ModID}:FlyingCogs": {
+    "NAME": "Flying Cogs",
+    "DESCRIPTION": "Activate and discard all ${ModID}:Parts in your hand. NL Deal !D! damage for each card discarded."
+  },
+  "${ModID}:CrunchBattery": {
+    "NAME": "Crunch Battery",
+    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL Gain !${ModID}:m2! Strength. NL Gain !${ModID}:m3! ${ModID}:Battery."
+  },
+  "${ModID}:MunchBattery": {
+    "NAME": "Munch Battery",
+    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL Gain !${ModID}:m2! Dexterity. NL Gain !${ModID}:m3! ${ModID}:Battery.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Wind_Up !M!. NL Gain !${ModID}:m2! Dexterity. NL Gain !${ModID}:m3! ${ModID}:Batteries."
+  },
+  "${ModID}:Rewinder": {
+    "NAME": "Rewinder",
+    "DESCRIPTION": "Unplayable ${ModID}:Part: NL ${ModID}:Spin !${ModID}:s! to Retain this and another card."
+  },
+  "${ModID}:Efficiency": {
+    "NAME": "Efficiency",
+    "DESCRIPTION": "When ${ModID}:Parts are activated, activate them an additional time."
+  },
+  "${ModID}:GreasedCogs": {
+    "NAME": "Greased Cogs",
+    "DESCRIPTION": "Next turn, ${ModID}:Winding_Up provides twice as much charge.",
+    "UPGRADE_DESCRIPTION": "Next turn, ${ModID}:Winding_Up provides thrice as much charge."
+  },
+  "${ModID}:Disorient": {
+    "NAME": "Disorient",
+    "DESCRIPTION": "${ModID}:Spin !${ModID}:s!: Apply 2 Weak. NL ${ModID}:Spin !${ModID}:s!: Apply 2 Vulnerable."
+  },
+  "${ModID}:AsFarAsItGoes": {
+    "NAME": "As Far as it Goes",
+    "DESCRIPTION": "${ModID}:Wind_Up !M!X + your Strength. NL If X > 1, gain !B! Block."
+  },
+  "${ModID}:Reassemble": {
+    "NAME": "Reassemble",
+    "DESCRIPTION": "Put ALL ${ModID}:Parts from your discard pile into your hand.",
+    "UPGRADE_DESCRIPTION": "Put ALL ${ModID}:Parts from your draw and discard piles into your hand."
+  },
+  "${ModID}:RotationalChaos": {
+    "NAME": "Rotational Chaos",
+    "DESCRIPTION": "Repeat !M! times: NL ${ModID}:Spin !${ModID}:s!: Play the top card of your draw pile."
+  },
+  "${ModID}:Mesmerise": {
+    "NAME": "Mesmerise",
+    "DESCRIPTION": "Apply !M! Weak and !${ModID}:m2! ${ModID}:Dizzy to ALL enemies. NL Exhaust."
+  },
+  "${ModID}:Rust": {
+    "NAME": "Rust",
+    "DESCRIPTION": "Unplayable. NL ${ModID}:Part: ${ModID}:Spin !${ModID}:s!:."
+  },
+  "${ModID}:ShinyCog": {
+    "NAME": "Shiny Cog",
+    "DESCRIPTION": "If you have played a *Ghostly *Cog this combat, gain !M! Gold. NL Exhaust."
+  },
+  "${ModID}:GhostlyCog": {
+    "NAME": "Ghostly Cog",
+    "DESCRIPTION": "If you have played a *Shiny *Cog this combat, gain !M! Intangible. NL Exhaust."
+  },
+  "${ModID}:Acog": {
+    "NAME": "ACOG",
+    "DESCRIPTION": "If the enemy intends to attack, your next attack deals double damage.",
+    "UPGRADE_DESCRIPTION": "Your next attack deals double damage."
+  },
+  "${ModID}:PotentialEnergy": {
+    "NAME": "Potential Energy",
+    "DESCRIPTION": "For every !M! charge you have, ${ModID}:Spin !${ModID}:s! to gain [E]."
+  },
+  "${ModID}:Whir": {
+    "NAME": "Whir",
+    "DESCRIPTION": "${ModID}:Spin up to !${ModID}:s!: and draw a card for every !M! charge spent."
+  },
+  "${ModID}:ManyMovements": {
+    "NAME": "Many Movements",
+    "DESCRIPTION": "${ModID}:Spin !${ModID}:s!: Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Gain !B! Block. NL ${ModID}:Spin !${ModID}:s!: Apply !M! Weak. NL ${ModID}:Spin !${ModID}:s!: Apply !M! Vulnerable. NL ${ModID}:Spin !${ModID}:s!: Draw a card."
+  },
+  "${ModID}:Tip": {
+    "NAME": "Tip",
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Gain !M! *Spinners.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Gain !M! *Spinners+."
+  },
+  "${ModID}:WearAndTear": {
+    "NAME": "Wear and Tear",
+    "DESCRIPTION": "Deal damage equal to the amount ${ModID}:Wound_Up this combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to the amount ${ModID}:Wound_Up this combat."
+  },
+  "${ModID}:RecursionMechanism": {
+    "NAME": "Recursion Mechanism",
+    "DESCRIPTION": "Retain. Deal damage equal to !M! times the turn number. Exhaust. NL ${ModID}:Part: Deal damage to a random enemy equal to the turn number."
+  },
+  "${ModID}:Reinforce": {
+    "NAME": "Reinforce",
+    "DESCRIPTION": "At the end of your turn, ${ModID}:Let_Go to gain !M! block per charge spent."
+  },
+  "${ModID}:PeepTheHaul": {
+    "NAME": "Peep the haul!",
+    "DESCRIPTION": "At the start of your turn, if you have no ${ModID}:Batteries, gain a ${ModID}:Battery.",
+    "UPGRADE_DESCRIPTION": "Gain a ${ModID}:Battery. At the start of your turn, if you have no ${ModID}:Batteries, gain a ${ModID}:Battery."
+  },
+  "${ModID}:PerpetualForm": {
+    "NAME": "Perpetual Form",
+    "DESCRIPTION": "At the start of your turn, lose [E][E][E]. NL Gain !M! ${ModID}:Cogwheels. Cards can now be played with ${ModID}:Charge (!${ModID}:m2! ${ModID}:Charge per [E])."
   }
 }

@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import clockworkchar.actions.WindUpAction;
 
 import static clockworkchar.ClockworkChar.makeID;
-import static clockworkchar.util.Wiz.atb;
+import static clockworkchar.util.Wiz.*;
 
 public class Twist extends AbstractEasyCard {
     public final static String ID = makeID("Twist");
@@ -13,13 +13,20 @@ public class Twist extends AbstractEasyCard {
     public Twist() {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
         baseMagicNumber = magicNumber = 6;
+        baseSecondMagic = secondMagic = 3;
+        part = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new WindUpAction(magicNumber));
     }
 
+    public void activate() {
+        att(new WindUpAction(secondMagic));
+    }
+
     public void upp() {
-        upgradeBaseCost(0);
+        upgradeMagicNumber(4);
+        upgradeSecondMagic(3);
     }
 }

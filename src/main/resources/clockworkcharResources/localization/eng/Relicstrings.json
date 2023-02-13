@@ -14,5 +14,21 @@
       "Replaces #ySalvaged #yHand. Whenever you play a card, #y${ModID}:Wind_Up #b",
       "."
     ]
+  },
+  "${ModID}:OilCanister": {
+    "NAME": "Oil Canister",
+    "FLAVOR": "\"Yum!\" - Cranky",
+    "DESCRIPTIONS": [
+      "Whenever you #y${ModID}:Wind_Up, #y${ModID}:Wind_Up #b",
+      " more."
+    ]
+  },
+  "${ModID}:FloppyDisk": {
+    "NAME": "Floppy Disk",
+    "FLAVOR": "\"Yum!\" - Cranky",
+    "DESCRIPTIONS": [
+      "#y${ModID}:Charge is now conserved between combats. Upon pickup, gain #b",
+      " #y${ModID}:Charge."
+    ]
   }
 }

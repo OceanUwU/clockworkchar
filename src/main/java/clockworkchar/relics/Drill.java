@@ -45,6 +45,6 @@ public class Drill extends AbstractEasyRelic {
     }
   
     public boolean canSpawn() {
-      return AbstractDungeon.player.hasRelic(LeftHand.ID);
+        return AbstractDungeon.player.hasRelic(LeftHand.ID);
     }
 }

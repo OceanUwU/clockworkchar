@@ -2,23 +2,20 @@ package clockworkchar.ui;
 
 import clockworkchar.ClockworkChar;
 import clockworkchar.characters.TheClockwork;
+import clockworkchar.relics.FloppyDisk;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbInterface;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.helpers.TipHelper;
-
 
 public class Winder {
     private static Texture BASE_TEXTURE = ImageMaster.loadImage(ClockworkChar.modID + "Resources/images/ui/winder/base.png");
@@ -39,10 +36,10 @@ public class Winder {
     private int toTwistForward = 0;
     private int toTwistBack = 0;
     private float angle = 0.0F;
-    private boolean halfway = false;
 
     public boolean shouldRender = false;
     public int charge = 0;
+    public int chargeGained = 0;
 
     public Winder() {
 
@@ -93,18 +90,27 @@ public class Winder {
         toTwistForward = 0;
         toTwistBack = 0;
         angle = 0.0F;
-        charge = 0;
+        if (AbstractDungeon.player.hasRelic(FloppyDisk.ID))
+            charge = AbstractDungeon.player.getRelic(FloppyDisk.ID).counter();
+        else
+            charge = 0;
+        chargeGained = 0;
     }
 
     public void gainCharge(int amount) {
         shouldRender = true;
         charge += amount;
+        chargeGained += amount;
+        if (charge > 999)
+            charge = 999;
         if (toTwistBack > 0) {
             toTwistBack = 0;
             angle = 0.0F;
         }
         toTwistForward += amount;
-        fontScale = 2.0F;
+        toTwistForward = Math.min(toTwistForward, 20);
+        if (amount != 0)
+            fontScale = 2.0F;
     }
 
     public boolean useCharge(int amount) {
@@ -115,6 +121,7 @@ public class Winder {
                 angle = 0.0F;
             }
             toTwistBack += amount;
+            toTwistBack = Math.min(toTwistBack, 20);
             if (amount != 0)
                 fontScale = 2.0F; 
             return true;
@@ -127,9 +134,4 @@ public class Winder {
         useCharge(chargeUsed);
         return chargeUsed;
     }
-
-    /*@Override
-    public void receivePostBattle(AbstractRoom room) {
-        //winder.shouldRender = false;
-    }*/
 }

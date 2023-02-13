@@ -1,10 +1,68 @@
 {
-  "${ModID}:ExampleTwoAmount": {
-    "NAME": "Example 2",
+  "${ModID}:Nails": {
+    "NAME": "Nails",
     "DESCRIPTIONS": [
-      "At the start of your turn, gain #b",
-      " #yStrength and #b",
-      " #yDexterity."
+      "At the start of its turn, loses #b",
+      " HP."
+    ]
+  },
+  "${ModID}:EnergizedCranky": {
+    "NAME": "Energized",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " additional [E] next turn."
+    ]
+  },
+  "${ModID}:Cogwheel": {
+    "NAME": "Cogwheel",
+    "DESCRIPTIONS": [
+      "At the start of your turn, #yWind #yUp #b",
+      "."
+    ]
+  },
+  "${ModID}:InertiaPower": {
+    "NAME": "Inertia",
+    "DESCRIPTIONS": [
+      "Whenever you #yWind #yUp, you have #b",
+      " additional Strength until you next #ySpin. NL You currently have #b",
+      " additional Strength."
+    ]
+  },
+  "${ModID}:Battery": {
+    "NAME": "Battery",
+    "DESCRIPTIONS": [
+      "The next time you try to #ySpin without enough charge, #ySpinning costs no charge",
+      "The next #b",
+      " times you try to #ySpin without enough charge, #ySpinning costs no charge."
+    ]
+  },
+  "${ModID}:EfficiencyPower": {
+    "NAME": "Efficiency",
+    "DESCRIPTIONS": [
+      "When #yParts are activated, they activate #b",
+      " additional time.",
+      " additional times."
+    ]
+  },
+  "${ModID}:GreasedCogsPower": {
+    "NAME": "Greased Cogs",
+    "DESCRIPTIONS": [
+      "Next turn, #yWinding #yUp will provide #b",
+      " times as much charge."
+    ]
+  },
+  "${ModID}:Twisty": {
+    "NAME": "Twisty",
+    "DESCRIPTIONS": [
+      "This turn, #yWinding #yUp provides #b",
+      " times as much charge."
+    ]
+  },
+  "${ModID}:Dizzy": {
+    "NAME": "Dizzy",
+    "DESCRIPTIONS": [
+      "When attacked, loses #b",
+      " #yStrength."
     ]
   }
 }

@@ -1,8 +1,9 @@
 {
-  "${ModID}:somepotion": {
-    "NAME": "some potion",
+  "${ModID}:HandInAJar": {
+    "NAME": "Hand In a Jar",
     "DESCRIPTIONS": [
-      "win."
+      "#yWind #yUp #b",
+      "."
     ]
   }
 }

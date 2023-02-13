@@ -105,7 +105,7 @@ public class Wiz {
         return getRandomItem(list, AbstractDungeon.cardRandomRng);
     }
 
-    private static boolean actuallyHovered(Hitbox hb) {
+    public static boolean actuallyHovered(Hitbox hb) {
         return InputHelper.mX > hb.x && InputHelper.mX < hb.x + hb.width && InputHelper.mY > hb.y && InputHelper.mY < hb.y + hb.height;
     }
 
@@ -157,11 +157,11 @@ public class Wiz {
         topDeck(c, 1);
     }
 
-    public static void applyToEnemy(AbstractMonster m, AbstractPower po) {
+    public static void applyToEnemy(AbstractCreature m, AbstractPower po) {
         atb(new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount));
     }
 
-    public static void applyToEnemyTop(AbstractMonster m, AbstractPower po) {
+    public static void applyToEnemyTop(AbstractCreature m, AbstractPower po) {
         att(new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount));
     }
 
