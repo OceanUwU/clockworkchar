@@ -25,6 +25,7 @@ public class GatherParts extends AbstractEasyCard {
         super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = 16;
         baseMagicNumber = magicNumber = 6;
+        tags.add(CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

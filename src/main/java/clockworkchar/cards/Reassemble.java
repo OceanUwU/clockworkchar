@@ -21,7 +21,6 @@ public class Reassemble extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new AbstractGameAction() {
             public void update() {
-                isDone = true;
                 ArrayList<AbstractCard> cardsToPut = new ArrayList<>();
                 if (upgraded) {
                     for (AbstractCard c : p.drawPile.group)
@@ -40,9 +39,14 @@ public class Reassemble extends AbstractEasyCard {
                     }
                 for (AbstractCard c : cardsToPut)
                     p.discardPile.removeCard(c);
+                p.hand.refreshHandLayout();
+                p.hand.glowCheck();
+                isDone = true;
             }
         });
     }
 
-    public void upp() {}
+    public void upp() {
+        uDesc();
+    }
 }

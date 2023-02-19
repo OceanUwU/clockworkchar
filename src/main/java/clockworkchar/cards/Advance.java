@@ -20,13 +20,14 @@ public class Advance extends AbstractEasyCard {
     public Advance(boolean real) {
         super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         baseSpinAmount = spinAmount = 9;
+        baseMagicNumber = magicNumber = 1;
         exhaust = true;
         if (real)
             cardsToPreview = new Advance(false);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new DrawCardAction(1));
+        atb(new DrawCardAction(magicNumber));
         atb(new SpinAction(spinAmount, spun -> {
             if (spun) {
                 att(new GainEnergyAction(1));

@@ -36,13 +36,14 @@ public class SpinAction extends AbstractGameAction {
                 CardCrawlGame.sound.play(makeID("SPIN"));
             cb.accept(true);
         } else if (AbstractDungeon.player.hasPower(BatteryPower.POWER_ID)) {
+            att(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, BatteryPower.POWER_ID, 1));
             att(new AbstractGameAction() {
                 public void update() {
+                    AbstractDungeon.player.getPower(BatteryPower.POWER_ID).flash();
                     this.isDone = true;
                     cb.accept(true);
                 }
             });
-            att(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, BatteryPower.POWER_ID, 1));
         } else
             cb.accept(false);
         for (AbstractPower p : AbstractDungeon.player.powers)

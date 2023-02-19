@@ -25,10 +25,11 @@
   },
   "${ModID}:FloppyDisk": {
     "NAME": "Floppy Disk",
-    "FLAVOR": "\"Yum!\" - Cranky",
+    "FLAVOR": "z",
     "DESCRIPTIONS": [
-      "#y${ModID}:Charge is now conserved between combats. Upon pickup, gain #b",
-      " #y${ModID}:Charge."
+      "Up to #b",
+      " #y${ModID}:Charge is now conserved between combats. Starts with #b",
+      " #y${ModID}:Charge stored."
     ]
   }
 }

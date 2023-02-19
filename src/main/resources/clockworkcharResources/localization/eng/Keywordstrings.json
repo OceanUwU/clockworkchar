@@ -60,6 +60,6 @@
     "NAMES": [
       "dizzy"
     ],
-    "DESCRIPTION": "Dizzy creatures lose 1 #yStrength when attacked."
+    "DESCRIPTION": "When attacked, dizzy creatures lose #yStrength for that turn."
   }
 ]

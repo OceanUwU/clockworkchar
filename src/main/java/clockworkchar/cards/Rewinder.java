@@ -24,11 +24,16 @@ public class Rewinder extends AbstractEasyCard {
         return false;
     }
 
+    public void atTurnStart() {
+        selfRetain = false;
+    }
+
     public void activate() {
         att(new SpinAction(spinAmount, spun -> {
-            selfRetain = spun;
-            if (spun)
+            if (spun) {
+                selfRetain = true;
                 att(new RetainCardsAction(AbstractDungeon.player, 1));
+            }
         }));
     }
 

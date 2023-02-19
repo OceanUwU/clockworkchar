@@ -1,11 +1,13 @@
 {
   "${ModID}:Strike": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. ${ModID}:Wind_Up !M!."
   },
   "${ModID}:Defend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block."
+    "DESCRIPTION": "Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Deal !B! Block. ${ModID}:Wind_Up !M!."
   },
   "${ModID}:Twist": {
     "NAME": "Twist",
@@ -96,8 +98,8 @@
   },
   "${ModID}:Advance": {
     "NAME": "Advance",
-    "DESCRIPTION": "Draw a card. NL ${ModID}:Spin !${ModID}:s!: Gain [E] and an *Advance. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw a card. NL ${ModID}:Spin !${ModID}:s!: Gain [E] and an *Advance+. NL Exhaust."
+    "DESCRIPTION": "Draw !M! card. NL ${ModID}:Spin !${ModID}:s!: Gain [E] and an *Advance. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw !M! card. NL ${ModID}:Spin !${ModID}:s!: Gain [E] and an *Advance+. NL Exhaust."
   },
   "${ModID}:Inertia": {
     "NAME": "Inertia",
@@ -190,7 +192,7 @@
   },
   "${ModID}:Whir": {
     "NAME": "Whir",
-    "DESCRIPTION": "${ModID}:Spin up to !${ModID}:s!: and draw a card for every !M! charge spent."
+    "DESCRIPTION": "${ModID}:Spin !${ModID}:s!: draw 1 card."
   },
   "${ModID}:ManyMovements": {
     "NAME": "Many Movements",
@@ -222,5 +224,9 @@
   "${ModID}:PerpetualForm": {
     "NAME": "Perpetual Form",
     "DESCRIPTION": "At the start of your turn, lose [E][E][E]. NL Gain !M! ${ModID}:Cogwheels. Cards can now be played with ${ModID}:Charge (!${ModID}:m2! ${ModID}:Charge per [E])."
+  },
+  "${ModID}:MachinicModification": {
+    "NAME": "Machinic Modification",
+    "DESCRIPTION": "Choose a card. Permanently give it ${ModID}:Wind_Up !M!. NL Fleeting."
   }
 }

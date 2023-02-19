@@ -12,6 +12,7 @@ public class FloppyDisk extends AbstractEasyRelic {
     public static final String ID = makeID("FloppyDisk");
 
     private static final int STARTING_CHARGE = 20;
+    private static final int MAX_CHARGE = 50;
 
     public FloppyDisk() {
         super(ID, RelicTier.BOSS, LandingSound.FLAT, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);
@@ -22,7 +23,7 @@ public class FloppyDisk extends AbstractEasyRelic {
     }
 
     public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0] + STARTING_CHARGE + this.DESCRIPTIONS[1];
+        return this.DESCRIPTIONS[0] + MAX_CHARGE + this.DESCRIPTIONS[1] + STARTING_CHARGE + this.DESCRIPTIONS[2];
     }
   
     public void atBattleStart() {
@@ -32,6 +33,6 @@ public class FloppyDisk extends AbstractEasyRelic {
     }
 
     public void onVictory() {
-        this.counter = ClockworkChar.winder.charge;
+        this.counter = Math.min(ClockworkChar.winder.charge, MAX_CHARGE);
     }
 }

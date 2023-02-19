@@ -91,7 +91,7 @@ public class Winder {
         toTwistBack = 0;
         angle = 0.0F;
         if (AbstractDungeon.player.hasRelic(FloppyDisk.ID))
-            charge = AbstractDungeon.player.getRelic(FloppyDisk.ID).counter();
+            charge = AbstractDungeon.player.getRelic(FloppyDisk.ID).counter;
         else
             charge = 0;
         chargeGained = 0;
