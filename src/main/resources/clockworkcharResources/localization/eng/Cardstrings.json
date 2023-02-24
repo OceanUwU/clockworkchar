@@ -223,7 +223,7 @@
   },
   "${ModID}:PerpetualForm": {
     "NAME": "Perpetual Form",
-    "DESCRIPTION": "At the start of your turn, lose [E][E][E]. NL Gain !M! ${ModID}:Cogwheels. Cards can now be played with ${ModID}:Charge (!${ModID}:m2! ${ModID}:Charge per [E])."
+    "DESCRIPTION": "At the start of your turn, lose [ENERGY]. NL Gain !M! ${ModID}:Cogwheels. Cards can now be played with ${ModID}:Charge ( !${ModID}:m2! ${ModID}:Charge per [E] )."
   },
   "${ModID}:MachinicModification": {
     "NAME": "Machinic Modification",
