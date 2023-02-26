@@ -22,7 +22,7 @@ public class ScatterNails extends AbstractEasyCard {
     public final static String ID = makeID("ScatterNails");
 
     public ScatterNails() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
         baseDamage = 2;
         baseMagicNumber = magicNumber = 1;
     }

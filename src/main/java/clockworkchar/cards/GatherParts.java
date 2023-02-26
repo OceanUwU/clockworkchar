@@ -1,8 +1,12 @@
 package clockworkchar.cards;
 
+import basemod.ReflectionHacks;
+import clockworkchar.ClockworkChar;
+import clockworkchar.util.TexLoader;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -10,10 +14,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
-
-import basemod.ReflectionHacks;
-import clockworkchar.ClockworkChar;
-import clockworkchar.util.TexLoader;
 
 import static clockworkchar.ClockworkChar.makeID;
 import static clockworkchar.util.Wiz.atb;
@@ -29,7 +29,7 @@ public class GatherParts extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new GatherPartsAction(m, new DamageInfo(p, damage, damageTypeForTurn), magicNumber));
+        atb(new GatherPartsAction(m, new DamageInfo(p, damage, damageTypeForTurn), magicNumber, this));
     }
 
     public void upp() {
@@ -42,9 +42,11 @@ public class GatherParts extends AbstractEasyCard {
 
         private int healing;
         private DamageInfo info;
+        private GatherParts source;
         
-        public GatherPartsAction(AbstractCreature target, DamageInfo info, int healingAmount) {
+        public GatherPartsAction(AbstractCreature target, DamageInfo info, int healingAmount, GatherParts source) {
             this.info = info;
+            this.source = source;
             setValues(target, info);
             healing = healingAmount;
             actionType = ActionType.DAMAGE;
@@ -59,9 +61,18 @@ public class GatherParts extends AbstractEasyCard {
                     for (int i = 0; i < healing; i++)
                         AbstractDungeon.effectList.add(new GainPartEffect(target));
                     AbstractDungeon.player.heal(healing);
+                    for (AbstractGameAction action : AbstractDungeon.actionManager.actions) {
+                        if (action instanceof UseCardAction) {
+                            UseCardAction useAction = (UseCardAction)action;
+                            if (ReflectionHacks.getPrivate(useAction, UseCardAction.class, "targetCard") == source) {
+                                useAction.exhaustCard = true;
+                                break;
+                            }
+                        }
+                    }
                 }
                 if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead())
-                    AbstractDungeon.actionManager.clearPostCombatActions(); 
+                    AbstractDungeon.actionManager.clearPostCombatActions();
             }
             tickDuration();
         }

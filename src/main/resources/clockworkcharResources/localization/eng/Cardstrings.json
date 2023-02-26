@@ -115,7 +115,7 @@
   },
   "${ModID}:GatherParts": {
     "NAME": "Gather Parts",
-    "DESCRIPTION": "Deal !D! damage. NL If Fatal, heal !M! HP. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, heal !M! HP and Exhaust."
   },
   "${ModID}:Accelerate": {
     "NAME": "Accelerate",
@@ -171,7 +171,7 @@
   },
   "${ModID}:Rust": {
     "NAME": "Rust",
-    "DESCRIPTION": "Unplayable. NL ${ModID}:Part: ${ModID}:Spin !${ModID}:s!:."
+    "DESCRIPTION": "Unplayable. NL ${ModID}:Part: ${ModID}:Spin !${ModID}:s!."
   },
   "${ModID}:ShinyCog": {
     "NAME": "Shiny Cog",
