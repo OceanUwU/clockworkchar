@@ -33,7 +33,7 @@ public class GatherParts extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeDamage(2);
         upgradeMagicNumber(2);
     }
 

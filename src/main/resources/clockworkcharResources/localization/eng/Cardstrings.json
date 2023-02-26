@@ -196,7 +196,7 @@
   },
   "${ModID}:ManyMovements": {
     "NAME": "Many Movements",
-    "DESCRIPTION": "${ModID}:Spin !${ModID}:s!: Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Gain !B! Block. NL ${ModID}:Spin !${ModID}:s!: Apply !M! Weak. NL ${ModID}:Spin !${ModID}:s!: Apply !M! Vulnerable. NL ${ModID}:Spin !${ModID}:s!: Draw a card."
+    "DESCRIPTION": "${ModID}:Spin !${ModID}:s! for each: NL Deal !D! damage. NL Gain !B! Block. NL Apply !M! Weak. NL Apply !M! Vulnerable. NL Draw !${ModID}:m2! card."
   },
   "${ModID}:Tip": {
     "NAME": "Tip",
