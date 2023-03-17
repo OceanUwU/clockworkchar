@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -22,7 +22,7 @@ public class ScatterNails extends AbstractEasyCard {
     public final static String ID = makeID("ScatterNails");
 
     public ScatterNails() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
         baseDamage = 2;
         baseMagicNumber = magicNumber = 1;
     }
@@ -49,7 +49,7 @@ public class ScatterNails extends AbstractEasyCard {
         public void atStartOfTurn() {
             if ((AbstractDungeon.getCurrRoom()).phase == AbstractRoom.RoomPhase.COMBAT && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
                 flashWithoutSound();
-                atb(new PoisonLoseHpAction(this.owner, AbstractDungeon.player, this.amount, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+                atb(new LoseHPAction(this.owner, AbstractDungeon.player, this.amount, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
             }
         }
         

@@ -26,9 +26,10 @@ public class Rewinder extends AbstractEasyCard {
 
     public void activate() {
         att(new SpinAction(spinAmount, spun -> {
-            selfRetain = spun;
-            if (spun)
-                att(new RetainCardsAction(AbstractDungeon.player, 1));
+            if (spun) {
+                retain = true;
+                atb(new RetainCardsAction(AbstractDungeon.player, 1)); //atb so that it triggers after other parts have decided whether to retain or not
+            }
         }));
     }
 

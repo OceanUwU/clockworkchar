@@ -2,11 +2,13 @@ package clockworkchar;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.devcommands.ConsoleCommand;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import clockworkchar.cards.AbstractEasyCard;
 import clockworkchar.cards.cardvars.*;
 import clockworkchar.characters.TheClockwork;
+import clockworkchar.consolecommands.*;
 import clockworkchar.potions.*;
 import clockworkchar.relics.AbstractEasyRelic;
 import clockworkchar.ui.Winder;
@@ -185,6 +187,7 @@ public class ClockworkChar implements
 
     @Override
     public void receivePostInitialize() {
+        ConsoleCommand.addCommand(WinderCommand.COMMAND_NAME, WinderCommand.class);
         winder = new Winder();
     }
 

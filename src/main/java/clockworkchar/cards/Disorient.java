@@ -15,7 +15,7 @@ public class Disorient extends AbstractEasyCard {
     public Disorient() {
         super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseMagicNumber = magicNumber = 2;
-        baseSpinAmount = spinAmount = 4;
+        baseSpinAmount = spinAmount = 3;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -30,6 +30,6 @@ public class Disorient extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeSpinAmount(2);
+        upgradeSpinAmount(1);
     }
 }

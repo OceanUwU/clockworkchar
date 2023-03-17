@@ -64,5 +64,13 @@
       "When attacked, loses #b",
       " #yStrength."
     ]
+  },
+  "${ModID}:PerpetualFormPower": {
+    "NAME": "Perpetual",
+    "DESCRIPTIONS": [
+      "At the start of your turn, lose ",
+      ". Cards can be played with charge, using #b",
+      " charge per energy."
+    ]
   }
 }

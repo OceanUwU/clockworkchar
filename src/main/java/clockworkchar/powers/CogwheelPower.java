@@ -21,7 +21,6 @@ public class CogwheelPower extends AbstractEasyPower {
     }
 
     public void onEnergyRecharge() {
-        flash();
-        atb(new WindUpAction(amount));
+        atb(new WindUpAction(amount, false));
     }
 }
