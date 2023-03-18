@@ -1,37 +1,47 @@
 package clockworkchar.cards;
 
-import clockworkchar.ClockworkChar;
 import clockworkchar.actions.LetGoAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static clockworkchar.ClockworkChar.makeID;
-import static clockworkchar.util.Wiz.atb;
+import static clockworkchar.util.Wiz.*;
 
-public class BoostedBlow extends AbstractEasyCard {
-    public final static String ID = makeID("BoostedBlow");
+public class RecursionMechanism extends AbstractEasyCard {
+    public final static String ID = makeID("RecursionMechanism");
     private final static CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
-    public BoostedBlow() {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseMagicNumber = magicNumber = 2;
+    public RecursionMechanism() {
+        super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        baseMagicNumber = magicNumber = 3;
+        part = true;
+        selfRetain = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new LetGoAction(spent -> {
-            baseDamage = spent * magicNumber;
+            baseDamage = GameActionManager.turn * magicNumber;
             calculateCardDamage(m);
-            dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
+            dmg(m, AbstractGameAction.AttackEffect.SMASH);
             this.rawDescription = cardStrings.DESCRIPTION;
             this.initializeDescription();
         }));
     }
 
+    public void activate() {
+        att(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, GameActionManager.turn, DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+    }
+
     public void applyPowers() {
-        baseDamage = ClockworkChar.winder.charge * magicNumber;
+        baseDamage = GameActionManager.turn * magicNumber;
         super.applyPowers();
         this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         initializeDescription();

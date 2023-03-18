@@ -37,7 +37,7 @@
     "NAMES": [
       "cogwheels"
     ],
-    "DESCRIPTION": "Cogwheels passively #yWind #yUp at the start of your turn."
+    "DESCRIPTION": "Cogwheels passively grant #yCharge at the start of your turn."
   },
   {
     "PROPER_NAME": "Battery",

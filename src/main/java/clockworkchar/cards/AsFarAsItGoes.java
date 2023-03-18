@@ -22,7 +22,7 @@ public class AsFarAsItGoes extends AbstractEasyCard {
         if (this.energyOnUse < EnergyPanel.totalCount)
             this.energyOnUse = EnergyPanel.totalCount;
         atb(new EasyXCostAction(this, (effect, params) -> {
-            if (effect > 1)
+            if (effect >= 2)
                 blckTop();
             att(new WindUpAction(magicNumber * effect + pwrAmt(p, "Strength")));
             return true;

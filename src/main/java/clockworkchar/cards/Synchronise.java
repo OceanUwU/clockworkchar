@@ -18,7 +18,7 @@ public class Synchronise extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new LetGoAction(power -> {}));
+        atb(new LetGoAction(spent -> {}));
         atb(new WindUpAction(magicNumber));
     }
 

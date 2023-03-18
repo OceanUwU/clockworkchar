@@ -1,6 +1,7 @@
 package clockworkchar.powers;
 
-import clockworkchar.actions.WindUpAction;
+import clockworkchar.ClockworkChar;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -21,6 +22,12 @@ public class CogwheelPower extends AbstractEasyPower {
     }
 
     public void onEnergyRecharge() {
-        atb(new WindUpAction(amount, false));
+        int toAdd = amount;
+        atb(new AbstractGameAction() {
+            public void update() {
+                ClockworkChar.winder.gainCharge(toAdd, false);
+                isDone = true;
+            }
+        });
     }
 }

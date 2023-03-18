@@ -103,7 +103,7 @@
   },
   "${ModID}:Inertia": {
     "NAME": "Inertia",
-    "DESCRIPTION": "Whenever you ${ModID}:Wind_Up, you have !M! additional Strength until you next ${ModID}:Spin."
+    "DESCRIPTION": "Whenever you ${ModID}:Wind_Up, you have !M! additional Strength until you next ${ModID}:Spin. NL ${ModID}:Wind_Up !${ModID}:m2!."
   },
   "${ModID}:DangerousDeterrent": {
     "NAME": "Dangerous Deterrent",
@@ -154,7 +154,7 @@
   },
   "${ModID}:AsFarAsItGoes": {
     "NAME": "As Far as it Goes",
-    "DESCRIPTION": "${ModID}:Wind_Up !M!X + your Strength. NL If X > 1, gain !B! Block."
+    "DESCRIPTION": "${ModID}:Wind_Up !M!X + your Strength. NL If X is at least 2, gain !B! Block."
   },
   "${ModID}:Reassemble": {
     "NAME": "Reassemble",
@@ -206,15 +206,21 @@
   "${ModID}:WearAndTear": {
     "NAME": "Wear and Tear",
     "DESCRIPTION": "Deal damage equal to the amount ${ModID}:Wound_Up this combat. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal damage equal to the amount ${ModID}:Wound_Up this combat."
+    "UPGRADE_DESCRIPTION": "Retain. NL Deal damage equal to the amount ${ModID}:Wound_Up this combat. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "${ModID}:RecursionMechanism": {
     "NAME": "Recursion Mechanism",
-    "DESCRIPTION": "Retain. Deal damage equal to !M! times the turn number. Exhaust. NL ${ModID}:Part: Deal damage to a random enemy equal to the turn number."
+    "DESCRIPTION": "Retain. Deal damage equal to !M! times the turn number. Exhaust. NL ${ModID}:Part: Deal damage to a random enemy equal to the turn number.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
   },
   "${ModID}:Reinforce": {
     "NAME": "Reinforce",
-    "DESCRIPTION": "At the end of your turn, ${ModID}:Let_Go to gain !M! block per charge spent."
+    "DESCRIPTION": "At the end of your turn, ${ModID}:Let_Go to gain !M! Block per charge spent."
   },
   "${ModID}:PeepTheHaul": {
     "NAME": "Peep the haul!",

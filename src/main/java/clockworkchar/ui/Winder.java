@@ -97,10 +97,11 @@ public class Winder {
         chargeGained = 0;
     }
 
-    public void gainCharge(int amount) {
+    public void gainCharge(int amount, boolean fromWindUp) {
         shouldRender = true;
         charge += amount;
-        chargeGained += amount;
+        if (fromWindUp)
+            chargeGained += amount;
         if (charge > 999)
             charge = 999;
         if (toTwistBack > 0) {

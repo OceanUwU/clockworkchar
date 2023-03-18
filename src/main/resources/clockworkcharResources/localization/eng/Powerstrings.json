@@ -16,8 +16,8 @@
   "${ModID}:Cogwheel": {
     "NAME": "Cogwheel",
     "DESCRIPTIONS": [
-      "At the start of your turn, #yWind #yUp #b",
-      "."
+      "At the start of your turn, gain #b",
+      " charge."
     ]
   },
   "${ModID}:InertiaPower": {
@@ -71,6 +71,13 @@
       "At the start of your turn, lose ",
       ". Cards can be played with charge, using #b",
       " charge per energy."
+    ]
+  },
+  "${ModID}:ReinforcedPower": {
+    "NAME": "Reinforced",
+    "DESCRIPTIONS": [
+      "At the end of your turn, #yLet #yGo to gain #b",
+      " block per #yCharge spent."
     ]
   }
 }

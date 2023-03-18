@@ -1,5 +1,6 @@
 package clockworkchar.cards;
 
+import clockworkchar.actions.WindUpAction;
 import clockworkchar.powers.AbstractEasyPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -9,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static clockworkchar.ClockworkChar.makeID;
-import static clockworkchar.util.Wiz.applyToSelf;
+import static clockworkchar.util.Wiz.*;
 
 public class Inertia extends AbstractEasyCard {
     public final static String ID = makeID("Inertia");
@@ -17,10 +18,12 @@ public class Inertia extends AbstractEasyCard {
     public Inertia() {
         super(ID, 1, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 4;
+        baseSecondMagic = secondMagic = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new InertiaPower(p, magicNumber));
+        atb(new WindUpAction(secondMagic));
     }
 
     public void upp() {
@@ -41,7 +44,7 @@ public class Inertia extends AbstractEasyCard {
             description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[1] + strengthApplied + powerStrings.DESCRIPTIONS[2];
         }
 
-        public void onGainCharge(int chargeAmount) {
+        public void onGainCCharge(int chargeAmount) {
             if (chargeAmount > 0) {
                 if (strengthApplied < amount) {
                     int toApply = amount - strengthApplied;

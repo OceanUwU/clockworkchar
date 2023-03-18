@@ -33,7 +33,7 @@ public class WinderCommand extends ConsoleCommand {
 
     public void execute(String[] tokens, int depth) {
         if (tokens[1].toLowerCase().equals("add") && tokens.length > 2) {
-            ClockworkChar.winder.gainCharge(ConvertHelper.tryParseInt(tokens[2], 0));
+            ClockworkChar.winder.gainCharge(ConvertHelper.tryParseInt(tokens[2], 0), true);
         } else if (tokens[1].toLowerCase().equals("lose") && tokens.length > 2) {
             ClockworkChar.winder.useCharge(Math.min(ConvertHelper.tryParseInt(tokens[2], 0), ClockworkChar.winder.charge));
         } else errorMsg();
