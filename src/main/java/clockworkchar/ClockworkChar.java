@@ -11,6 +11,7 @@ import clockworkchar.characters.TheClockwork;
 import clockworkchar.consolecommands.*;
 import clockworkchar.potions.*;
 import clockworkchar.relics.AbstractEasyRelic;
+import clockworkchar.ui.ToolSlot;
 import clockworkchar.ui.Winder;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -23,6 +24,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.KeywordStrings;
+import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
@@ -43,7 +45,6 @@ public class ClockworkChar implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         EditCharactersSubscriber,
-        OnStartBattleSubscriber,
         PostInitializeSubscriber {
 
     public static final String modID = "clockworkchar";
@@ -70,6 +71,7 @@ public class ClockworkChar implements
     private static final String CHARSELECT_PORTRAIT = makeImagePath("charSelect/charBG.png");
 
     public static Winder winder;
+    public static ToolSlot toolSlot;
 
     public static Settings.GameLanguage[] SupportedLanguages = {
             Settings.GameLanguage.ENG,
@@ -163,6 +165,7 @@ public class ClockworkChar implements
         BaseMod.loadCustomStringsFile(PowerStrings.class, modID + "Resources/localization/" + getLangString() + "/Powerstrings.json");
         BaseMod.loadCustomStringsFile(PotionStrings.class, modID + "Resources/localization/" + getLangString() + "/Potionstrings.json");
         BaseMod.loadCustomStringsFile(UIStrings.class, modID + "Resources/localization/" + getLangString() + "/UIstrings.json");
+        BaseMod.loadCustomStringsFile(OrbStrings.class, modID + "Resources/localization/" + getLangString() + "/Orbstrings.json");
     }
 
     @Override
@@ -188,11 +191,8 @@ public class ClockworkChar implements
     @Override
     public void receivePostInitialize() {
         ConsoleCommand.addCommand(WinderCommand.COMMAND_NAME, WinderCommand.class);
+        ConsoleCommand.addCommand(ToolCommand.COMMAND_NAME, ToolCommand.class);
         winder = new Winder();
-    }
-
-    @Override
-    public void receiveOnBattleStart(AbstractRoom room) {
-        winder.reset();
+        toolSlot = new ToolSlot();
     }
 }

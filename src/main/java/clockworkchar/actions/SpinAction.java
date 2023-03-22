@@ -1,6 +1,7 @@
 package clockworkchar.actions;
 
 import clockworkchar.ClockworkChar;
+import clockworkchar.cards.Inertia;
 import clockworkchar.powers.BatteryPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -46,8 +47,8 @@ public class SpinAction extends AbstractGameAction {
             });
         } else
             cb.accept(false);
-        for (AbstractPower p : AbstractDungeon.player.powers)
-            p.onGainCharge(-amount);
+            if (AbstractDungeon.player.hasPower(Inertia.InertiaPower.POWER_ID))
+                ((Inertia.InertiaPower)AbstractDungeon.player.getPower(Inertia.InertiaPower.POWER_ID)).onGainCCharge(-amount);
         isDone = true;
     }
 }
