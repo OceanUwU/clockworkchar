@@ -16,6 +16,7 @@ public class EquipToolAction extends AbstractGameAction {
     public void update() {
         isDone = true;
         System.out.println(tool);
+        ClockworkChar.toolSlot.tool.dequipping = true;
         att(new SetToolAction(tool));
         att(new UseToolAction(AbstractTool.DEQUIP_USE_TIMES));
     }
@@ -29,6 +30,8 @@ public class EquipToolAction extends AbstractGameAction {
     
         public void update() {
             isDone = true;
+            ClockworkChar.toolSlot.dequipped.add(ClockworkChar.toolSlot.tool);
+            ClockworkChar.toolSlot.tool.dequip();
             ClockworkChar.toolSlot.tool = tool;
         }
     }

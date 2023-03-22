@@ -13,6 +13,7 @@ public class UseToolAction extends AbstractGameAction {
     public void update() {
         isDone = true;
         ClockworkChar.toolSlot.shouldRender = true;
+        ClockworkChar.toolSlot.tool.fontScale = 1.0F;
         for (int i = 0; i < times; i++)
             ClockworkChar.toolSlot.tool.use();
     }

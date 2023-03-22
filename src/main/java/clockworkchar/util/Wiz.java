@@ -125,7 +125,15 @@ public class Wiz {
         atb(new VFXAction(gameEffect));
     }
 
+    public static void vfxTop(AbstractGameEffect gameEffect) {
+        att(new VFXAction(gameEffect));
+    }
+
     public static void vfx(AbstractGameEffect gameEffect, float duration) {
+        atb(new VFXAction(gameEffect, duration));
+    }
+
+    public static void vfxTop(AbstractGameEffect gameEffect, float duration) {
         atb(new VFXAction(gameEffect, duration));
     }
 
@@ -163,6 +171,10 @@ public class Wiz {
 
     public static void applyToEnemyTop(AbstractCreature m, AbstractPower po) {
         att(new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount));
+    }
+
+    public static void applyToEnemyTopFast(AbstractCreature m, AbstractPower po) {
+        att(new ApplyPowerAction(m, AbstractDungeon.player, po, po.amount, true));
     }
 
     public static void applyToSelf(AbstractPower po) {

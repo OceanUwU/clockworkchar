@@ -42,7 +42,8 @@ public class Spanner extends AbstractTool {
 
     public void updateAnimation() {
         super.updateAnimation();
-        angle += Gdx.graphics.getDeltaTime() * SPIN_SPEED;
+        if (!dequipped)
+            angle += Gdx.graphics.getDeltaTime() * SPIN_SPEED;
     }
 
     private static class ChuckSpannerAction extends AbstractGameAction {
