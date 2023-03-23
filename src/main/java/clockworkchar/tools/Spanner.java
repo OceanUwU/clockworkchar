@@ -2,14 +2,17 @@ package clockworkchar.tools;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import clockworkchar.ClockworkChar;
 
 import static clockworkchar.ClockworkChar.makeID;
@@ -20,15 +23,18 @@ public class Spanner extends AbstractTool {
     private static OrbStrings orbStrings = CardCrawlGame.languagePack.getOrbString(TOOL_ID);
     private static Texture SPANNER_TEXTURE = ImageMaster.loadImage(ClockworkChar.makeImagePath("tools/spanner.png"));
     private static float SPIN_SPEED = 40.0F;
+    private static float FLY_SPIN_SPEED = 280.0F;
 
     private static int DAMAGE = 3;
+
+    private boolean flyingTowardEnemy = false;
 
     public Spanner() {
         super(TOOL_ID, orbStrings.NAME, SPANNER_TEXTURE);
     }
 
     public void use() {
-        att(new ChuckSpannerAction(AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng), this, passiveAmount, false));
+        att(new ChuckSpannerAction(this, passiveAmount));
     }
 
     public void applyPowers() {
@@ -43,28 +49,91 @@ public class Spanner extends AbstractTool {
     public void updateAnimation() {
         super.updateAnimation();
         if (!dequipped)
-            angle += Gdx.graphics.getDeltaTime() * SPIN_SPEED;
+            angle += Gdx.graphics.getDeltaTime() * (flyingTowardEnemy ? FLY_SPIN_SPEED : SPIN_SPEED);
     }
 
     private static class ChuckSpannerAction extends AbstractGameAction {
-        private static float DURATION = 1.0F;
+        private static float DURATION = 0.2F;
 
-        private Spanner owner;
+        private float timer = 0.0F;
+        private Spanner spanner;
         private int damage;
-        private boolean dequipping;
         private AbstractMonster target;
+        private float oX; //original x
+        private float oY; //original y
+        private float tX; //target x
+        private float tY; //target y
 
-        public ChuckSpannerAction(AbstractMonster target, Spanner owner, int damage, boolean dequipping) {
-            this.target = target;
-            this.owner = owner;
+        public ChuckSpannerAction(Spanner spanner, int damage) {
+            this.spanner = spanner;
             this.damage = damage;
-            this.dequipping = dequipping;
-            duration = DURATION;
         }
 
         public void update() {
-            isDone = true; //temp
-            att(new DamageAction(target, new DamageInfo(source, damage, DamageInfo.DamageType.THORNS)));
+            if (timer == 0f) {
+                target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+                oX = spanner.cX;
+                oY = spanner.cY;
+                tX = target.hb.cX;
+                tY = target.hb.cY;
+            }
+            spanner.flyingTowardEnemy = true;
+            timer += Gdx.graphics.getDeltaTime();
+            if (timer >= DURATION) {
+                timer = DURATION;
+                spanner.flyingTowardEnemy = false;
+                att(new DamageAction(target, new DamageInfo(source, damage, DamageInfo.DamageType.THORNS)));
+                vfxTop(new SpannerReturnEffect(spanner));
+                CardCrawlGame.sound.play("BLUNT_FAST");
+                isDone = true;
+            }
+            spanner.cX = oX + (tX - oX) * (timer / DURATION);
+            spanner.cY = oY + (tY - oY) * (timer / DURATION);
+        }
+
+        private static class SpannerReturnEffect extends AbstractGameEffect {
+            private static final float DURATION = 0.9f;
+            private static final float JUMP_HEIGHT = 80.0f;
+
+            private Spanner spanner;
+            private float oX; //original x
+            private float oY; //original y
+            private float tX; //target x
+            private float tY; //target y
+            private float cY; //centerpoint y
+            private float timer = 0.0f;
+
+            public SpannerReturnEffect(Spanner spanner) {
+                this.spanner = spanner;
+                oX = spanner.cX;
+                oY = spanner.cY;
+                tX = spanner.hb.cX;
+                tY = spanner.hb.cY;
+                cY = tY + JUMP_HEIGHT * 2f * Settings.scale;
+            }
+
+            public void update() {
+                if (spanner.flyingTowardEnemy || spanner.dequipped) {
+                    isDone = true;
+                    return;
+                }
+                timer += Gdx.graphics.getDeltaTime();
+                if (timer >= DURATION) {
+                    timer = DURATION;
+                    isDone = true;
+                }
+                float t = timer / DURATION; //time elapsed from 0 (just started) to 1 (just completed)
+                spanner.cX = oX + (tX - oX) * t;
+                t *= 2f;
+                if (t > 1f) {
+                    t -= 1f;
+                    spanner.cY = cY + (tY - cY) * (1 - (float)Math.cos((t * Math.PI / 2)));
+                } else
+                    spanner.cY = oY + (cY - oY) * ((float)Math.sin((t * Math.PI / 2)));
+            }
+
+            public void render(SpriteBatch sb) {};
+            public void dispose() {};
         }
     }
 }

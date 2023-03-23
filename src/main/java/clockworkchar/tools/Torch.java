@@ -76,6 +76,7 @@ public class Torch extends AbstractTool {
 
     @Override
     public void render(SpriteBatch sb) {
+        sb.setColor(color);
         if (lightOn)
             sb.draw(FLASH_TEXTURE, cX - FLASH_CENTRE, cY - FLASH_CENTRE, FLASH_CENTRE, FLASH_CENTRE, FLASH_SIZE, FLASH_SIZE, 1.0f, 1.0f, angle);
         super.render(sb);
@@ -91,19 +92,17 @@ public class Torch extends AbstractTool {
         }
     
         public void update() {
-            if (timer == 0.0F) {
+            if (timer == 0.0F)
                 CardCrawlGame.sound.play(makeID("TORCH"));
-                owner.lightOn = true;
-            }
+            owner.lightOn = true;
             if (timer >= duration) {
-                this.isDone = true;
                 owner.lightOn = false;
+                this.isDone = true;
             }
             timer += Gdx.graphics.getDeltaTime();
         }
     
         public void render(SpriteBatch sb) {}
-
         public void dispose() {}
     }
 }

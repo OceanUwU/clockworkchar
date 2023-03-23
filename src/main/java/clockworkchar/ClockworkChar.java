@@ -192,7 +192,8 @@ public class ClockworkChar implements
     @Override
     public void receivePostInitialize() {
         ConsoleCommand.addCommand(WinderCommand.COMMAND_NAME, WinderCommand.class);
-        ConsoleCommand.addCommand(ToolCommand.COMMAND_NAME, ToolCommand.class);
+        ConsoleCommand.addCommand(EquipToolCommand.COMMAND_NAME, EquipToolCommand.class);
+        ConsoleCommand.addCommand(UseToolCommand.COMMAND_NAME, UseToolCommand.class);
         winder = new Winder();
         toolSlot = new ToolSlot();
     }

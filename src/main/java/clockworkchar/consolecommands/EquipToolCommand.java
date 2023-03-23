@@ -10,10 +10,10 @@ import java.util.ArrayList;
 
 import static clockworkchar.util.Wiz.*;
 
-public class ToolCommand extends ConsoleCommand {
+public class EquipToolCommand extends ConsoleCommand {
     public static String COMMAND_NAME = "equiptool";
 
-    public ToolCommand() {
+    public EquipToolCommand() {
         minExtraTokens = 1;
         maxExtraTokens = 1;
     }

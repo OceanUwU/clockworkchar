@@ -1,7 +1,6 @@
 package clockworkchar.patches;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -9,10 +8,9 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import clockworkchar.ClockworkChar;
 
 public class ToolSlotPatches {
-    @SpirePatch(clz=AbstractPlayer.class, method="render")
+    @SpirePatch(clz=AbstractPlayer.class, method="renderPlayerBattleUi")
     public static class RenderPatch {
-        @SpireInsertPatch(loc=2113)
-        public static void Insert(AbstractPlayer __instance, SpriteBatch sb) {
+        public static void Prefix(AbstractPlayer __instance, SpriteBatch sb) {
             if (ClockworkChar.toolSlot.shouldRender)
                 ClockworkChar.toolSlot.render(sb);
         }
