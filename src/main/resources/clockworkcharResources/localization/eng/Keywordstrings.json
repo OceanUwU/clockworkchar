@@ -61,5 +61,13 @@
       "dizzy"
     ],
     "DESCRIPTION": "When attacked, dizzy creatures lose #yStrength for that turn."
+  },
+  {
+    "PROPER_NAME": "Attuned",
+    "NAMES": [
+      "attuned",
+      "attune"
+    ],
+    "DESCRIPTION": "Attuned cards trigger the current tool's effect when they're played or their part effect is activated."
   }
 ]

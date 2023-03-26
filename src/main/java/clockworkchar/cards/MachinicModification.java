@@ -4,7 +4,7 @@ import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 import clockworkchar.ClockworkChar;
 import clockworkchar.actions.WindUpAction;
-
+import clockworkchar.patches.AttunedPatches;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -56,11 +56,7 @@ public class MachinicModification extends AbstractEasyCard {
             if (this.duration == Settings.ACTION_DUR_FAST) {
                 for (AbstractCard c : p.hand.group) {
                     boolean modifiable = false;
-                    for (AbstractCard dc : p.masterDeck.group)
-                        if (dc.uuid.equals(c.uuid)) {
-                            modifiable = true;
-                            break;
-                        }
+                    modifiable = AttunedPatches.CardFields.deckCard.get(c) != null;
                     if (!modifiable)
                         cannotModify.add(c);
                 }
@@ -73,9 +69,7 @@ public class MachinicModification extends AbstractEasyCard {
             } else if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
                 for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
                     MachinicCardModification modification = new MachinicCardModification(wind);
-                    for (AbstractCard dc : p.masterDeck.group)
-                        if (dc.uuid.equals(c.uuid))
-                            CardModifierManager.addModifier(dc, modification);
+                    CardModifierManager.addModifier(AttunedPatches.CardFields.deckCard.get(c), modification);
                     CardModifierManager.addModifier(c, modification.makeCopy());
                     float x = p.drawX;
                     float y = p.drawY + p.hb_h;

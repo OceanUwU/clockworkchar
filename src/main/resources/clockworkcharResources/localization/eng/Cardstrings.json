@@ -1,13 +1,11 @@
 {
   "${ModID}:Strike": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. ${ModID}:Wind_Up !M!."
+    "DESCRIPTION": "Deal !D! damage."
   },
   "${ModID}:Defend": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block.",
-    "UPGRADE_DESCRIPTION": "Deal !B! Block. ${ModID}:Wind_Up !M!."
+    "DESCRIPTION": "Gain !B! Block."
   },
   "${ModID}:Twist": {
     "NAME": "Twist",
@@ -234,5 +232,9 @@
   "${ModID}:MachinicModification": {
     "NAME": "Machinic Modification",
     "DESCRIPTION": "Choose a card. Permanently give it ${ModID}:Wind_Up !M!. NL Fleeting."
+  },
+  "${ModID}:Rearrange": {
+    "NAME": "Rearrange",
+    "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Attune all cards in your hand for the rest of combat."
   }
 }

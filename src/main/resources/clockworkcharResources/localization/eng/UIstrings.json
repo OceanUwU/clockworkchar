@@ -11,5 +11,19 @@
       "${ModID}:Wind_Up ",
       "."
     ]
+  },
+  "${ModID}:AttuneCampfireOption": {
+    "TEXT": [
+      "Integrate",
+      "Attune a card in your deck. Must have played the card ",
+      " times.",
+      "No attunable cards. You must play a card ",
+      " times before you can attune it."
+    ]
+  },
+  "${ModID}:AttuneCampfireEffect": {
+    "TEXT": [
+      "Select Cards to Attune."
+    ]
   }
 }

@@ -16,6 +16,7 @@ public class Tip extends AbstractEasyCard {
         baseDamage = 1;
         baseSpinAmount = spinAmount = 15;
         baseMagicNumber = magicNumber = 4;
+        cardsToPreview = new Spinner();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -24,7 +25,7 @@ public class Tip extends AbstractEasyCard {
             if (spun) {
                 Spinner s = new Spinner();
                 if (upgraded) s.upgrade();
-                makeInHand(s, 4);
+                makeInHand(s, magicNumber);
             }
         }));
     }

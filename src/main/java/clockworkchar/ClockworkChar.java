@@ -9,6 +9,7 @@ import clockworkchar.cards.AbstractEasyCard;
 import clockworkchar.cards.cardvars.*;
 import clockworkchar.characters.TheClockwork;
 import clockworkchar.consolecommands.*;
+import clockworkchar.patches.AttunedPatches;
 import clockworkchar.potions.*;
 import clockworkchar.relics.AbstractEasyRelic;
 import clockworkchar.ui.ToolSlot;
@@ -187,6 +188,7 @@ public class ClockworkChar implements
         BaseMod.addAudio(makeID("SPIN"), modID + "Resources/audio/spin.ogg");
         BaseMod.addAudio(makeID("BREAK"), modID + "Resources/audio/break.ogg");
         BaseMod.addAudio(makeID("TORCH"), modID + "Resources/audio/torch.ogg");
+        BaseMod.addAudio(makeID("ATTUNE"), modID + "Resources/audio/attune.ogg");
     }
 
     @Override
@@ -194,6 +196,8 @@ public class ClockworkChar implements
         ConsoleCommand.addCommand(WinderCommand.COMMAND_NAME, WinderCommand.class);
         ConsoleCommand.addCommand(EquipToolCommand.COMMAND_NAME, EquipToolCommand.class);
         ConsoleCommand.addCommand(UseToolCommand.COMMAND_NAME, UseToolCommand.class);
+        BaseMod.addSaveField(makeID("times_played_cards"), AttunedPatches.TimesPlayedSavable);
+        BaseMod.addSaveField(makeID("attuned"), AttunedPatches.AttunedSavable);
         winder = new Winder();
         toolSlot = new ToolSlot();
     }

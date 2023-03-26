@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import clockworkchar.ClockworkChar;
 
@@ -71,7 +72,17 @@ public class Spanner extends AbstractTool {
 
         public void update() {
             if (timer == 0f) {
-                target = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+                MonsterGroup monsters = AbstractDungeon.getMonsters();
+                if (monsters.areMonstersBasicallyDead()) {
+                    isDone = true;
+                    return;
+                }
+                for (AbstractMonster m : monsters.monsters)
+                    if (m.halfDead) {
+                        isDone = true;
+                        return;
+                    }
+                target = monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
                 oX = spanner.cX;
                 oY = spanner.cY;
                 tX = target.hb.cX;

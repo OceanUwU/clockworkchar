@@ -2,6 +2,7 @@ package clockworkchar.cards;
 
 import basemod.abstracts.CustomCard;
 import clockworkchar.characters.TheClockwork;
+import clockworkchar.patches.AttunedPatches;
 import clockworkchar.util.CardArtRoller;
 
 import static clockworkchar.ClockworkChar.makeImagePath;
@@ -252,6 +253,7 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     public AbstractGameAction partActivation() {
         if (part) {
+            AbstractCard c = this;
             return new AbstractGameAction() {
                 public void update() {
                     isDone = true;
@@ -266,6 +268,7 @@ public abstract class AbstractEasyCard extends CustomCard {
                                 isDone = true;
                                 flash(Color.WHITE.cpy());
                                 activate();
+                                AttunedPatches.CountPlay.count(c, false);
                             }
                         });
                 }
