@@ -236,5 +236,9 @@
   "${ModID}:Rearrange": {
     "NAME": "Rearrange",
     "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Attune all cards in your hand for the rest of combat."
+  },
+  "${ModID}:Teddy": {
+    "NAME": "Teddy",
+    "DESCRIPTION": "Gain !B! Block. NL Can be ${ModID}:Attuned at campfires any number of times."
   }
 }

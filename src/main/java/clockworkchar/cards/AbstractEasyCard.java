@@ -31,6 +31,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     protected final CardStrings cardStrings;
 
     public boolean part = false;
+    public int extraAttunings = 0;
 
     public int secondMagic;
     public int baseSecondMagic;
@@ -248,6 +249,11 @@ public abstract class AbstractEasyCard extends CustomCard {
     }
 
     public abstract void upp();
+
+    public void attune(int times) {
+        extraAttunings += times;
+        AttunedPatches.attune(this, times);
+    };
 
     public void activate() {};
 

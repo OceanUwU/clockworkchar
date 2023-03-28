@@ -23,8 +23,4 @@ public class Strike extends AbstractEasyCard {
     public void upp() {
         upgradeDamage(3);
     }
-
-    public void branchUpgrade() {
-        uDesc();
-    }
 }

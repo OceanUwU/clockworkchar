@@ -5,13 +5,13 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static clockworkchar.ClockworkChar.makeID;
 
-public class Defend extends AbstractEasyCard {
-    public final static String ID = makeID("Defend");
+public class Teddy extends AbstractEasyCard {
+    public final static String ID = makeID("Teddy");
 
-    public Defend() {
-        super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
-        baseBlock = 5;
-        tags.add(CardTags.STARTER_DEFEND);
+    public Teddy() {
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        baseBlock = 7;
+        attune(1);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -19,6 +19,7 @@ public class Defend extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeBlock(3);
+        upgradeBlock(1);
+        attune(1);
     }
 }
