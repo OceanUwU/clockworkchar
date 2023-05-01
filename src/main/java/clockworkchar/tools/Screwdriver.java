@@ -16,6 +16,8 @@ public class Screwdriver extends AbstractTool {
     private static String TOOL_ID = makeID("Screwdriver");
     private static OrbStrings orbStrings = CardCrawlGame.languagePack.getOrbString(TOOL_ID);
     private static Texture SCREWDRIVER_TEXTURE = ImageMaster.loadImage(ClockworkChar.makeImagePath("tools/screwdriver.png"));
+    private static float OSCILLATE_SPEED = 2.5f;
+    private static float OSCILLATE_AMOUNT = 10.0f;
 
     private static int BLOCK_GAIN = 2;
 
@@ -25,6 +27,7 @@ public class Screwdriver extends AbstractTool {
 
     public void updateAnimation() {
         super.updateAnimation();
+        angle = (float)Math.sin(vfxTimer * OSCILLATE_SPEED) * OSCILLATE_AMOUNT;
     }
 
     public void use() {

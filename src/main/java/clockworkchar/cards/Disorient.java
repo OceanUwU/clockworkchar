@@ -13,7 +13,7 @@ public class Disorient extends AbstractEasyCard {
     public final static String ID = makeID("Disorient");
 
     public Disorient() {
-        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
         baseMagicNumber = magicNumber = 2;
         baseSpinAmount = spinAmount = 3;
     }

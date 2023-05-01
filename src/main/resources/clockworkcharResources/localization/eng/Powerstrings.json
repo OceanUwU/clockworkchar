@@ -72,12 +72,5 @@
       ". Cards can be played with charge, using #b",
       " charge per energy."
     ]
-  },
-  "${ModID}:ReinforcedPower": {
-    "NAME": "Reinforced",
-    "DESCRIPTIONS": [
-      "At the end of your turn, #yLet #yGo to gain #b",
-      " block per #yCharge spent."
-    ]
   }
 }

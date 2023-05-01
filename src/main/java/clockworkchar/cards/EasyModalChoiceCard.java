@@ -10,13 +10,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 @AutoAdd.Ignore
 public class EasyModalChoiceCard extends AbstractEasyCard {
-
     private Runnable onUseOrChosen;
+    private String passedId;
     private String passedName;
     private String passedDesc;
 
-    public EasyModalChoiceCard(String name, String description, Runnable onUseOrChosen) {
-        super(makeID(name), -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, CardColor.COLORLESS);
+    public EasyModalChoiceCard(String id, String name, String description, Runnable onUseOrChosen) {
+        super(makeID(id), -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.NONE, CardColor.COLORLESS);
+        this.passedId = id;
         this.name = this.originalName = passedName = name;
         this.rawDescription = passedDesc = description;
         this.onUseOrChosen = onUseOrChosen;
@@ -50,6 +51,6 @@ public class EasyModalChoiceCard extends AbstractEasyCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return new EasyModalChoiceCard(passedName, passedDesc, onUseOrChosen);
+        return new EasyModalChoiceCard(passedId, passedName, passedDesc, onUseOrChosen);
     }
 }

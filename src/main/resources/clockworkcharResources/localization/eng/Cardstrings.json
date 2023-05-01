@@ -218,7 +218,7 @@
   },
   "${ModID}:Reinforce": {
     "NAME": "Reinforce",
-    "DESCRIPTION": "At the end of your turn, ${ModID}:Let_Go to gain !M! Block per charge spent."
+    "DESCRIPTION": "${ModID}:Let_Go: Gain 1 Plated Armor per !M! charge spent. Exhaust."
   },
   "${ModID}:PeepTheHaul": {
     "NAME": "Peep the haul!",
@@ -234,11 +234,35 @@
     "DESCRIPTION": "Choose a card. Permanently give it ${ModID}:Wind_Up !M!. NL Fleeting."
   },
   "${ModID}:Rearrange": {
-    "NAME": "Rearrange",
+    "NAME": "Tinker",
     "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Attune all cards in your hand for the rest of combat."
   },
   "${ModID}:Teddy": {
     "NAME": "Teddy",
     "DESCRIPTION": "Gain !B! Block. NL Can be ${ModID}:Attuned at campfires any number of times."
+  },
+  "${ModID}:QuickFix": {
+    "NAME": "Quick Fix",
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Use."
+  },
+  "${ModID}:Mend": {
+    "NAME": "Mend",
+    "DESCRIPTION": "${ModID}:Use !M! times."
+  },
+  "${ModID}:HastySweep": {
+    "NAME": "Hasty Sweep",
+    "DESCRIPTION": "Deal !D! damage. Unless you ${ModID}:Spin !${ModID}:s!: Gain !M! Weak."
+  },
+  "${ModID}:SwiftStomps": {
+    "NAME": "Swift Stomps",
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Deal !D! damage."
+  },
+  "${ModID}:UnleashRage": {
+    "NAME": "Unleash Rage",
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Part: Lose !M! HP."
+  },
+  "${ModID}:RearrangeAttack": {
+    "NAME": "Rearrange",
+    "DESCRIPTION": "Deal !D! damage. NL Swap the positions of a card in your discard pile and a card in your draw pile."
   }
 }

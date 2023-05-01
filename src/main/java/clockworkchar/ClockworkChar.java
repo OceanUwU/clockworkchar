@@ -127,6 +127,7 @@ public class ClockworkChar implements
             CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, TheClockwork.Enums.THE_CLOCKWORK);
         
         BaseMod.addPotion(HandInAJar.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), HandInAJar.POTION_ID, TheClockwork.Enums.THE_CLOCKWORK);
+        BaseMod.addPotion(SpareNails.class, Color.WHITE.cpy(), Color.WHITE.cpy().set(0,0,0,0), Color.WHITE.cpy().set(0,0,0,0), SpareNails.POTION_ID, TheClockwork.Enums.THE_CLOCKWORK);
     }
 
     @Override

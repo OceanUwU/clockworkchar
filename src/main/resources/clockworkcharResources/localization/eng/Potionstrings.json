@@ -1,9 +1,27 @@
 {
   "${ModID}:HandInAJar": {
-    "NAME": "Hand In a Jar",
+    "NAME": "Hand in a Jar",
     "DESCRIPTIONS": [
       "#yWind #yUp #b",
       "."
+    ]
+  },
+  "${ModID}:SpareNails": {
+    "NAME": "Spare Nails",
+    "DESCRIPTIONS": [
+      "Choose #b1 of #b",
+      " Tools to #yEquip. #yAttune all cards in your hand.",
+      " Tools to #yEquip. #yAttune all cards in your hand #b",
+      " times.",
+      "${ModID}:Equip a ",
+      "${ModID}:Equip an ",
+      "${ModID}:",
+      "Spanner",
+      "Screwdriver",
+      "Torch",
+      "Allen_Key",
+      ".",
+      "Choose a Tool to Equip."
     ]
   }
 }

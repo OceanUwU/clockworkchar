@@ -63,11 +63,54 @@
     "DESCRIPTION": "When attacked, dizzy creatures lose #yStrength for that turn."
   },
   {
+    "PROPER_NAME": "Equip",
+    "NAMES": [
+      "equip"
+    ],
+    "DESCRIPTION": "Activate the effect of the currently equipped tool twice, then replace it with a new one."
+  },
+  {
     "PROPER_NAME": "Attuned",
     "NAMES": [
       "attuned",
       "attune"
     ],
-    "DESCRIPTION": "Attuned cards trigger the current tool's effect when they're played or their part effect is activated."
+    "DESCRIPTION": "Attuned cards trigger the equipped tool's effect when they're played or their part effect is activated."
+  },
+  {
+    "PROPER_NAME": "Use",
+    "NAMES": [
+      "use"
+    ],
+    "DESCRIPTION": "Activate the effect of your equipped tool."
+  },
+  {
+    "PROPER_NAME": "Spanner",
+    "NAMES": [
+      "spanner"
+    ],
+    "DESCRIPTION": "Tool. Deals damage to random enemies."
+  },
+  {
+    "PROPER_NAME": "Screwdriver",
+    "NAMES": [
+      "screwdriver"
+    ],
+    "DESCRIPTION": "Tool. Gains #yBlock."
+  },
+  {
+    "PROPER_NAME": "Allen Key",
+    "NAMES": [
+      "allen key",
+      "allen_key"
+    ],
+    "DESCRIPTION": "Tool. #yWinds #yUp."
+  },
+  {
+    "PROPER_NAME": "Torch",
+    "NAMES": [
+      "torch"
+    ],
+    "DESCRIPTION": "Tool. Reduces the #yStrength of all enemies for the turn."
   }
 ]

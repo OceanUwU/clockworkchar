@@ -25,5 +25,11 @@
     "TEXT": [
       "Select Cards to Attune."
     ]
+  },
+  "${ModID}:SwapDrawAndDiscardAction": {
+    "TEXT": [
+      "Select a card from your discard pile to switch positions.",
+      "Select a card from your draw pile to switch positions."
+    ]
   }
 }
