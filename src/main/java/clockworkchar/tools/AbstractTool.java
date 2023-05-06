@@ -1,5 +1,6 @@
 package clockworkchar.tools;
 
+import clockworkchar.powers.ProficiencyPower;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -66,6 +67,8 @@ public abstract class AbstractTool {
     };
 
     public void applyPowers() {
+        if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower(ProficiencyPower.POWER_ID))
+            passiveAmount += AbstractDungeon.player.getPower(ProficiencyPower.POWER_ID).amount;
         updateDescription();
     };
 

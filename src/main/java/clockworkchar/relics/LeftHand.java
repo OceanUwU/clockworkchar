@@ -2,12 +2,11 @@ package clockworkchar.relics;
 
 import clockworkchar.actions.WindUpAction;
 import clockworkchar.characters.TheClockwork;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import static clockworkchar.ClockworkChar.makeID;
 import static clockworkchar.util.Wiz.atb;
-
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class LeftHand extends AbstractEasyRelic {
     public static final String ID = makeID("LeftHand");

@@ -35,7 +35,8 @@
   {
     "PROPER_NAME": "Cogwheels",
     "NAMES": [
-      "cogwheels"
+      "cogwheels",
+      "cogwheel"
     ],
     "DESCRIPTION": "Cogwheels passively grant #yCharge at the start of your turn."
   },
@@ -112,5 +113,12 @@
       "torch"
     ],
     "DESCRIPTION": "Tool. Reduces the #yStrength of all enemies for the turn."
+  },
+  {
+    "PROPER_NAME": "Proficiency",
+    "NAMES": [
+      "proficiency"
+    ],
+    "DESCRIPTION": "Proficiency increases the effectiveness of Tools."
   }
 ]

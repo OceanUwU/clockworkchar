@@ -72,5 +72,12 @@
       ". Cards can be played with charge, using #b",
       " charge per energy."
     ]
+  },
+  "${ModID}:Proficiency": {
+    "NAME": "Proficiency",
+    "DESCRIPTIONS": [
+      "Increases the effectiveness of Tools by #b",
+      "."
+    ]
   }
 }

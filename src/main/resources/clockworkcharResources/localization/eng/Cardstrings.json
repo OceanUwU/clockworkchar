@@ -264,5 +264,9 @@
   "${ModID}:RearrangeAttack": {
     "NAME": "Rearrange",
     "DESCRIPTION": "Deal !D! damage. NL Swap the positions of a card in your discard pile and a card in your draw pile."
+  },
+  "${ModID}:ReadInstructions": {
+    "NAME": "Read Instructions",
+    "DESCRIPTION": "Gain !M! ${ModID}:Proficiency."
   }
 }

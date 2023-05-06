@@ -31,5 +31,28 @@
       " #y${ModID}:Charge is now conserved between combats. Starts with #b",
       " #y${ModID}:Charge stored."
     ]
+  },
+  "${ModID}:SevenSegmentDisplay": {
+    "NAME": "Seven Segment Display",
+    "FLAVOR": "z",
+    "DESCRIPTIONS": [
+      "At the end of your turn, for every #b",
+      " #y${ModID}:Charge you have stored, deal #b1 damage to all enemies."
+    ]
+  },
+  "${ModID}:Scrap": {
+    "NAME": "Scrap",
+    "FLAVOR": "z",
+    "DESCRIPTIONS": [
+      "Start each combat with #b",
+      " #y${ModID}:Cogwheel."
+    ]
+  },
+  "${ModID}:SwissArmyKnife": {
+    "NAME": "Swiss Army Knife",
+    "FLAVOR": "z",
+    "DESCRIPTIONS": [
+      "#y${ModID}:Attune the first card in each card reward."
+    ]
   }
 }

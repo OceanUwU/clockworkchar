@@ -1,10 +1,12 @@
 package clockworkchar.tools;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 
 import clockworkchar.ClockworkChar;
@@ -20,6 +22,7 @@ public class Screwdriver extends AbstractTool {
     private static float OSCILLATE_AMOUNT = 10.0f;
 
     private static int BLOCK_GAIN = 2;
+    private static float offsetAngle = 0f;
 
     public Screwdriver() {
         super(TOOL_ID, orbStrings.NAME, SCREWDRIVER_TEXTURE);
@@ -27,11 +30,18 @@ public class Screwdriver extends AbstractTool {
 
     public void updateAnimation() {
         super.updateAnimation();
-        angle = (float)Math.sin(vfxTimer * OSCILLATE_SPEED) * OSCILLATE_AMOUNT;
+        angle = (float)Math.sin(vfxTimer * OSCILLATE_SPEED) * OSCILLATE_AMOUNT + offsetAngle;
+        offsetAngle = MathHelper.angleLerpSnap(offsetAngle, 0f);
     }
 
     public void use() {
-        att(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, passiveAmount));
+        att(new GainBlockAction(AbstractDungeon.player, passiveAmount, true));
+        att(new AbstractGameAction() {
+            public void update() {
+                offsetAngle -= 360f;
+                isDone = true;
+            }
+        });
     }
 
     public void applyPowers() {

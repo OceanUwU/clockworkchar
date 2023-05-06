@@ -3,6 +3,8 @@ package clockworkchar.ui;
 import clockworkchar.ClockworkChar;
 import clockworkchar.characters.TheClockwork;
 import clockworkchar.relics.FloppyDisk;
+import clockworkchar.relics.SevenSegmentDisplay;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -112,6 +114,7 @@ public class Winder {
         toTwistForward = Math.min(toTwistForward, 20);
         if (amount != 0)
             fontScale = 2.0F;
+        chargeChanged();
     }
 
     public boolean useCharge(int amount) {
@@ -125,9 +128,15 @@ public class Winder {
             toTwistBack = Math.min(toTwistBack, 20);
             if (amount != 0)
                 fontScale = 2.0F; 
+            chargeChanged();
             return true;
         }
         return false;
+    }
+
+    public void chargeChanged() {
+        if (AbstractDungeon.player.hasRelic(SevenSegmentDisplay.ID))
+            ((SevenSegmentDisplay)AbstractDungeon.player.getRelic(SevenSegmentDisplay.ID)).updateDisplay();
     }
 
     public int useAllCharge() {

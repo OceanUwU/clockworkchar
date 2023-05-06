@@ -13,7 +13,7 @@ public class HastySweep extends AbstractEasyCard {
     public final static String ID = makeID("HastySweep");
 
     public HastySweep() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = 30;
         baseSpinAmount = spinAmount = 7;
         baseMagicNumber = magicNumber = 3;
