@@ -1,5 +1,6 @@
 package clockworkchar.tools;
 
+import clockworkchar.ClockworkChar;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -14,7 +15,7 @@ import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import clockworkchar.ClockworkChar;
+import com.megacrit.cardcrawl.vfx.WallopEffect;
 
 import static clockworkchar.ClockworkChar.makeID;
 import static clockworkchar.util.Wiz.*;
@@ -93,7 +94,8 @@ public class Spanner extends AbstractTool {
             if (timer >= DURATION) {
                 timer = DURATION;
                 spanner.flyingTowardEnemy = false;
-                att(new DamageAction(target, new DamageInfo(source, damage, DamageInfo.DamageType.THORNS)));
+                vfxTop(new WallopEffect(damage, tX, tY));
+                att(new DamageAction(target, new DamageInfo(source, damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
                 vfxTop(new SpannerReturnEffect(spanner));
                 CardCrawlGame.sound.play("BLUNT_FAST");
                 isDone = true;

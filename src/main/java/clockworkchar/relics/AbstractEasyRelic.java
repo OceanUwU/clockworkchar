@@ -2,12 +2,11 @@ package clockworkchar.relics;
 
 import basemod.abstracts.CustomRelic;
 import clockworkchar.util.TexLoader;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import static clockworkchar.ClockworkChar.makeRelicPath;
 import static clockworkchar.ClockworkChar.modID;
-
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public abstract class AbstractEasyRelic extends CustomRelic {
     public AbstractCard.CardColor color;

@@ -38,7 +38,7 @@ public class Screwdriver extends AbstractTool {
         att(new GainBlockAction(AbstractDungeon.player, passiveAmount, true));
         att(new AbstractGameAction() {
             public void update() {
-                offsetAngle -= 360f;
+                offsetAngle += 360f;
                 isDone = true;
             }
         });

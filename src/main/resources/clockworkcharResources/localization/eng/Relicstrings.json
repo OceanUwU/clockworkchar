@@ -25,7 +25,7 @@
   },
   "${ModID}:FloppyDisk": {
     "NAME": "Floppy Disk",
-    "FLAVOR": "z",
+    "FLAVOR": "Stores over a million bytes!",
     "DESCRIPTIONS": [
       "Up to #b",
       " #y${ModID}:Charge is now conserved between combats. Starts with #b",
@@ -41,7 +41,7 @@
     ]
   },
   "${ModID}:Scrap": {
-    "NAME": "Scrap",
+    "NAME": "Scrap Metal",
     "FLAVOR": "z",
     "DESCRIPTIONS": [
       "Start each combat with #b",
@@ -53,6 +53,37 @@
     "FLAVOR": "z",
     "DESCRIPTIONS": [
       "#y${ModID}:Attune the first card in each card reward."
+    ]
+  },
+  "${ModID}:BeltDrive": {
+    "NAME": "Belt Drive",
+    "FLAVOR": "z",
+    "DESCRIPTIONS": [
+      "Whenever you play #b",
+      " #ySkills in a row, draw #b",
+      " cards."
+    ]
+  },
+  "${ModID}:InstructionBooklet": {
+    "NAME": "Instruction Booklet",
+    "FLAVOR": "z",
+    "DESCRIPTIONS": [
+      "Start each combat with #b",
+      " #y${ModID}:Proficiency."
+    ]
+  },
+  "${ModID}:Gearbox": {
+    "NAME": "Gearbox",
+    "FLAVOR": "This one may have fallen apart.",
+    "DESCRIPTIONS": [
+      "The first time you #y${ModID}:Wind_Up each turn, gain [E] ."
+    ]
+  },
+  "${ModID}:MetalBottle": {
+    "NAME": "Metal Bottle",
+    "FLAVOR": "z",
+    "DESCRIPTIONS": [
+      "The first time you #y${ModID}:Wind_Up each turn, gain [E] ."
     ]
   }
 }
