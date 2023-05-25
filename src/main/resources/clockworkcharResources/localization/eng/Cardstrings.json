@@ -251,7 +251,7 @@
   },
   "${ModID}:HastySweep": {
     "NAME": "Hasty Sweep",
-    "DESCRIPTION": "Deal !D! damage. Unless you ${ModID}:Spin !${ModID}:s!: Gain !M! Weak."
+    "DESCRIPTION": "Deal !D! damage. NL Unless you ${ModID}:Spin !${ModID}:s!: Gain !M! Weak."
   },
   "${ModID}:SwiftStomps": {
     "NAME": "Swift Stomps",
