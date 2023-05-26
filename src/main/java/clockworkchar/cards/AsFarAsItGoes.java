@@ -24,7 +24,7 @@ public class AsFarAsItGoes extends AbstractEasyCard {
         atb(new EasyXCostAction(this, (effect, params) -> {
             if (effect >= 2)
                 blckTop();
-            att(new WindUpAction(magicNumber * effect + pwrAmt(p, "Strength")));
+            att(new WindUpAction(magicNumber * effect));
             return true;
         }));
     }

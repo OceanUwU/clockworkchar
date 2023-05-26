@@ -152,7 +152,7 @@
   },
   "${ModID}:AsFarAsItGoes": {
     "NAME": "As Far as it Goes",
-    "DESCRIPTION": "${ModID}:Wind_Up !M!X + your Strength. NL If X is at least 2, gain !B! Block."
+    "DESCRIPTION": "${ModID}:Wind_Up !M!X. NL If X is at least 2, gain !B! Block."
   },
   "${ModID}:Reassemble": {
     "NAME": "Reassemble",
@@ -268,5 +268,28 @@
   "${ModID}:ReadInstructions": {
     "NAME": "Read Instructions",
     "DESCRIPTION": "Gain !M! ${ModID}:Proficiency."
+  },
+  "${ModID}:FixUp": {
+    "NAME": "Fix-up",
+    "DESCRIPTION": "${ModID}:Equip a ${ModID}:Screwdriver. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Equip a ${ModID}:Screwdriver. NL ${ModID}:Attune a card in your hand. NL Exhaust."
+  },
+  "${ModID}:DazzlingDevice": {
+    "NAME": "Dazzling Device",
+    "DESCRIPTION": "${ModID}:Equip a ${ModID}:Torch. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Equip a ${ModID}:Torch. NL ${ModID}:Attune a card in your draw pile. NL Exhaust."
+  },
+  "${ModID}:NewWinder": {
+    "NAME": "New Winder",
+    "DESCRIPTION": "${ModID}:Equip an ${ModID}:Allen_Key. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Equip an ${ModID}:Allen_Key. NL ${ModID}:Attune a card in your discard pile. NL Exhaust."
+  },
+  "${ModID}:Scanner": {
+    "NAME": "Scanner",
+    "DESCRIPTION": "Whenever you play a card, ${ModID}:Attune it."
+  },
+  "${ModID}:EmergencyStop": {
+    "NAME": "Emergency Stop",
+    "DESCRIPTION": "Deal !D! damage. This card cannot kill enemies. End your turn."
   }
 }

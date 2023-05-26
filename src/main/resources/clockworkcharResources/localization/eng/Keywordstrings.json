@@ -4,7 +4,7 @@
     "NAMES": [
       "charge"
     ],
-    "DESCRIPTION": "A secondary resource, similar to energy. Gained by #yWinding #yUp."
+    "DESCRIPTION": "A secondary resource, displayed above energy. Gained by #yWinding #yUp."
   },
   {
     "PROPER_NAME": "Wind Up",
@@ -22,7 +22,7 @@
       "spin",
       "spun"
     ],
-    "DESCRIPTION": "Spend some of your charge to perform an action. If you don't have enough charge, you lose none and the action isn't performed."
+    "DESCRIPTION": "Spend charge to perform an action."
   },
   {
     "PROPER_NAME": "Let Go",
@@ -30,7 +30,7 @@
       "let go",
       "let_go"
     ],
-    "DESCRIPTION": "Spend ALL charge to perform an action. The action's power depends on how much charge was spent."
+    "DESCRIPTION": "Spend ALL charge to perform an action."
   },
   {
     "PROPER_NAME": "Cogwheels",

@@ -25,7 +25,7 @@ public class Rearrange extends AbstractEasyCard {
         atb(new AbstractGameAction() {
             public void update() {
                 for (AbstractCard c : p.hand.group)
-                    att(new AttuneAction(c, 1));
+                    att(new AttuneAction(c));
                 boolean first = true;
                 for (AbstractCard c : p.hand.group) {
                     att(new VFXAction(p, new AttuneCardEffect(c, first), 0.0f, true));

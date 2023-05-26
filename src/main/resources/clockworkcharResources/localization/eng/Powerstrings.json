@@ -79,5 +79,13 @@
       "Increases the effectiveness of Tools by #b",
       "."
     ]
+  },
+  "${ModID}:ScannerPower": {
+    "NAME": "Scanner",
+    "DESCRIPTIONS": [
+      "Whenever you play a card, #yAttune it #b",
+      " time.",
+      " times."
+    ]
   }
 }
