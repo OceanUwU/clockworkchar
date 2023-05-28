@@ -20,9 +20,10 @@ public class Screwdriver extends AbstractTool {
     private static Texture SCREWDRIVER_TEXTURE = ImageMaster.loadImage(ClockworkChar.makeImagePath("tools/screwdriver.png"));
     private static float OSCILLATE_SPEED = 2.5f;
     private static float OSCILLATE_AMOUNT = 10.0f;
-
+    
     private static int BLOCK_GAIN = 2;
-    private static float offsetAngle = 0f;
+
+    private float offsetAngle = 0f;
 
     public Screwdriver() {
         super(TOOL_ID, orbStrings.NAME, SCREWDRIVER_TEXTURE);

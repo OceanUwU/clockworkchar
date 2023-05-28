@@ -143,7 +143,7 @@
   },
   "${ModID}:GreasedCogs": {
     "NAME": "Greased Cogs",
-    "DESCRIPTION": "Next turn, ${ModID}:Winding_Up provides twice as much charge.",
+    "DESCRIPTION": "Next turn, ${ModID}:Winding_Up provides !M! times as much charge.",
     "UPGRADE_DESCRIPTION": "Next turn, ${ModID}:Winding_Up provides thrice as much charge."
   },
   "${ModID}:Disorient": {
@@ -186,11 +186,11 @@
   },
   "${ModID}:PotentialEnergy": {
     "NAME": "Potential Energy",
-    "DESCRIPTION": "For every !M! charge you have, ${ModID}:Spin !${ModID}:s! to gain [E]."
+    "DESCRIPTION": "For every !M! ${ModID}:Charge you have, ${ModID}:Spin !${ModID}:s! to gain [E]."
   },
   "${ModID}:Whir": {
     "NAME": "Whir",
-    "DESCRIPTION": "${ModID}:Spin !${ModID}:s!: draw 1 card."
+    "DESCRIPTION": "${ModID}:Spin !${ModID}:s!: Draw 1 card."
   },
   "${ModID}:ManyMovements": {
     "NAME": "Many Movements",
@@ -221,9 +221,9 @@
     "DESCRIPTION": "${ModID}:Let_Go: Gain 1 Plated Armor per !M! charge spent. Exhaust."
   },
   "${ModID}:PeepTheHaul": {
-    "NAME": "Peep the haul!",
+    "NAME": "Peep the Haul!",
     "DESCRIPTION": "At the start of your turn, if you have no ${ModID}:Batteries, gain a ${ModID}:Battery.",
-    "UPGRADE_DESCRIPTION": "Gain a ${ModID}:Battery. At the start of your turn, if you have no ${ModID}:Batteries, gain a ${ModID}:Battery."
+    "UPGRADE_DESCRIPTION": "Gain a ${ModID}:Battery. NL At the start of your turn, if you have no ${ModID}:Batteries, gain a ${ModID}:Battery."
   },
   "${ModID}:PerpetualForm": {
     "NAME": "Perpetual Form",
@@ -247,7 +247,8 @@
   },
   "${ModID}:Mend": {
     "NAME": "Mend",
-    "DESCRIPTION": "${ModID}:Use !M! times."
+    "DESCRIPTION": "${ModID}:Use. NL ${ModID}:Attune a card at random.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Use. NL ${ModID}:Attune !${ModID}:m2! cards at random."
   },
   "${ModID}:HastySweep": {
     "NAME": "Hasty Sweep",
@@ -290,6 +291,61 @@
   },
   "${ModID}:EmergencyStop": {
     "NAME": "Emergency Stop",
-    "DESCRIPTION": "Deal !D! damage. This card cannot kill enemies. End your turn."
+    "DESCRIPTION": "Deal !D! damage if the enemy has more than !D! HP. NL End your turn."
+  },
+  "${ModID}:PreciseTuning": {
+    "NAME": "Precise Tuning",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Discard all cards drawn this way that aren't ${ModID}:Attuned."
+  },
+  "${ModID}:WormGear": {
+    "NAME": "Worm Gear",
+    "DESCRIPTION": "Draw !M! card. If it's a ${ModID}:Part, activate it and repeat this.",
+    "UPGRADE_DESCRIPTION": "Draw !M! card. If it's a ${ModID}:Part, activate it !${ModID}:m2! times and repeat this."
+  },
+  "${ModID}:Futureproofing": {
+    "NAME": "Futureproofing",
+    "DESCRIPTION": "Draw !M! cards. NL ${ModID}:Part: Draw !${ModID}:m2! cards and Retain them."
+  },
+  "${ModID}:Salvage": {
+    "NAME": "Salvage",
+    "DESCRIPTION": "Deal !D! damage. ${ModID}:Equip a random Tool."
+  },
+  "${ModID}:Resonance": {
+    "NAME": "Resonance",
+    "DESCRIPTION": "Ethereal. NL ${ModID}:Spin !${ModID}:s!. NL Every 3rd time you play this, gain !B! Block.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Played ",
+      " time)",
+      " times)"
+    ]
+  },
+  "${ModID}:GearRatio": {
+    "NAME": "Gear Ratio",
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Double this card's damage this combat."
+  },
+  "${ModID}:Toolerang": {
+    "NAME": "Toolerang",
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Attune this card !M! times."
+  },
+  "${ModID}:KineticServo": {
+    "NAME": "Kinetic Servo",
+    "DESCRIPTION": "Gain !B! Block. NL Whenever you are attacked this turn, ${ModID}:Wind_Up !M!."
+  },
+  "${ModID}:PitchPoint": {
+    "NAME": "Pitch Point",
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Wind_Up !M!. NL Whenever you ${ModID}:Spin, return this from the discard pile to your hand."
+  },
+  "${ModID}:Masterwork": {
+    "NAME": "Masterwork",
+    "DESCRIPTION": "${ModID}:Spin !${ModID}:s!: ${ModID}:Attune your hand, draw pile, and discard pile."
+  },
+  "${ModID}:VexingGlare": {
+    "NAME": "Vexing Glare",
+    "DESCRIPTION": "Whenever ${ModID}:Parts are activated, deal !M! damage to ALL enemies."
+  },
+  "${ModID}:DiligentWork": {
+    "NAME": "Diligent Work",
+    "DESCRIPTION": "At the start of your turn, ${ModID}:Use.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, ${ModID}:Use !M! times."
   }
 }

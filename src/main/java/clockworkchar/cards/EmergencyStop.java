@@ -1,10 +1,12 @@
 package clockworkchar.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.util.Wiz.*;
 
 public class EmergencyStop extends AbstractEasyCard {
     public final static String ID = makeID("EmergencyStop");
@@ -15,7 +17,9 @@ public class EmergencyStop extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        dmg(m, AbstractGameAction.AttackEffect.SMASH);
+        if (m.currentHealth > damage)
+            dmg(m, AbstractGameAction.AttackEffect.SMASH);
+        atb(new PressEndTurnButtonAction());
     }
 
     public void upp() {

@@ -54,7 +54,7 @@
       "part",
       "parts"
     ],
-    "DESCRIPTION": "Parts are cards which, if in your hand at the end of your turn, activate to perform an effect. They can also be activated by certain other cards."
+    "DESCRIPTION": "Parts are cards which activate to perform an effect if in your hand at the end of your turn."
   },
   {
     "PROPER_NAME": "Dizzy",

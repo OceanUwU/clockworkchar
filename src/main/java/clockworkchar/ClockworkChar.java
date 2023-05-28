@@ -128,6 +128,7 @@ public class ClockworkChar implements
         
         BaseMod.addPotion(HandInAJar.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), HandInAJar.POTION_ID, TheClockwork.Enums.THE_CLOCKWORK);
         BaseMod.addPotion(SpareNails.class, Color.WHITE.cpy(), Color.WHITE.cpy().set(0,0,0,0), Color.WHITE.cpy().set(0,0,0,0), SpareNails.POTION_ID, TheClockwork.Enums.THE_CLOCKWORK);
+        BaseMod.addPotion(Sawblade.class, Color.WHITE.cpy().set(0,0,0,0), Color.WHITE.cpy().set(0,0,0,0), Color.WHITE.cpy().set(0,0,0,0), Sawblade.POTION_ID, TheClockwork.Enums.THE_CLOCKWORK);
     }
 
     @Override
@@ -190,6 +191,7 @@ public class ClockworkChar implements
         BaseMod.addAudio(makeID("BREAK"), modID + "Resources/audio/break.ogg");
         BaseMod.addAudio(makeID("TORCH"), modID + "Resources/audio/torch.ogg");
         BaseMod.addAudio(makeID("ATTUNE"), modID + "Resources/audio/attune.ogg");
+        BaseMod.addAudio(makeID("RESONANCE"), modID + "Resources/audio/resonance.ogg");
     }
 
     @Override

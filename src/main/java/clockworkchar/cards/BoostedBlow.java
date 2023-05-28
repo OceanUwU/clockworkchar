@@ -16,7 +16,7 @@ public class BoostedBlow extends AbstractEasyCard {
     private final static CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public BoostedBlow() {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
         baseMagicNumber = magicNumber = 2;
     }
 
@@ -45,6 +45,6 @@ public class BoostedBlow extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+        upgradeBaseCost(1);
     }
 }

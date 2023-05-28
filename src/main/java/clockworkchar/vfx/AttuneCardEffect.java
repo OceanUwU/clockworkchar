@@ -20,12 +20,26 @@ public class AttuneCardEffect extends AbstractGameEffect {
     private static final float DURATION = 1.6f;
 
     private AbstractCard card;
+    private float x;
+    private float y;
     private boolean playSound = true;
     private ArrayList<TiltingSpanner> spanners = new ArrayList<>();
+
+    public AttuneCardEffect(float x, float y, boolean playSound) {
+        this.x = x;
+        this.y = y;
+        this.playSound = playSound;
+        duration = DURATION;
+        initSpanners();
+    }
 
     public AttuneCardEffect(AbstractCard c) {
         this.card = c;
         duration = DURATION;
+        initSpanners();
+    }
+
+    private void initSpanners() {
         spanners.add(new TiltingSpanner(-70f, -40f, 150f, 1f, 0.0f));
         spanners.add(new TiltingSpanner(90f, 20f, 0f, -1f, 0.42f));
         spanners.add(new TiltingSpanner(-50f, 120f, 280f, 1f, 0.84f));
@@ -50,7 +64,10 @@ public class AttuneCardEffect extends AbstractGameEffect {
 
     public void render(SpriteBatch sb) {
         for (TiltingSpanner s : spanners)
-            s.render(sb, card);
+            if (card == null)
+                s.render(sb, x, y, 1f, 0);
+            else
+                s.render(sb, card);
     }
 
     public void dispose() {}
@@ -100,10 +117,14 @@ public class AttuneCardEffect extends AbstractGameEffect {
         }
 
         public void render(SpriteBatch sb, AbstractCard c) {
-            float drawX = c.current_x + x * Settings.scale;
-            float drawY = c.current_y + y * Settings.scale;
+            render(sb, c.current_x, c.current_y, c.drawScale, c.angle);
+        }
+
+        public void render(SpriteBatch sb, float tX, float tY, float scale, float offsetAngle) {
+            float drawX = tX + x * Settings.scale;
+            float drawY = tY + y * Settings.scale;
             sb.setColor(color);
-            sb.draw(TEXTURE_REGION, drawX - SIZE / 2f, drawY - SIZE / 2F, SIZE / 2f, SIZE / 2f, SIZE, SIZE, c.drawScale * Settings.scale, c.drawScale * Settings.scale, c.angle+angle);
+            sb.draw(TEXTURE_REGION, drawX - SIZE / 2f, drawY - SIZE / 2F, SIZE / 2f, SIZE / 2f, SIZE, SIZE, scale * Settings.scale, scale * Settings.scale, offsetAngle+angle);
         }
     }
 }

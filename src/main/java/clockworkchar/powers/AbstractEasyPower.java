@@ -60,4 +60,6 @@ public abstract class AbstractEasyPower extends AbstractPower {
             FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(amount2), x, y + 15.0F * Settings.scale, fontScale, c);
         }
     }
+
+    public void onPartActivation() {}
 }

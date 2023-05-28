@@ -9,7 +9,7 @@
   },
   "${ModID}:Drill": {
     "NAME": "Diamond-Tipped Drill",
-    "FLAVOR": "\"I take back what I said earlier...\" - Cranky",
+    "FLAVOR": "Most commonly found at y-level 12.",
     "DESCRIPTIONS": [
       "Replaces #ySalvaged #yHand. Whenever you play a card, #y${ModID}:Wind_Up #b",
       "."
@@ -34,7 +34,7 @@
   },
   "${ModID}:SevenSegmentDisplay": {
     "NAME": "Seven Segment Display",
-    "FLAVOR": "z",
+    "FLAVOR": "88",
     "DESCRIPTIONS": [
       "At the end of your turn, for every #b",
       " #y${ModID}:Charge you have stored, deal #b1 damage to all enemies."
@@ -42,7 +42,7 @@
   },
   "${ModID}:Scrap": {
     "NAME": "Scrap Metal",
-    "FLAVOR": "z",
+    "FLAVOR": "Picking stuff up from the floor, eh? Suit yourself.",
     "DESCRIPTIONS": [
       "Start each combat with #b",
       " #y${ModID}:Cogwheel."
@@ -50,14 +50,14 @@
   },
   "${ModID}:SwissArmyKnife": {
     "NAME": "Swiss Army Knife",
-    "FLAVOR": "z",
+    "FLAVOR": "Passed down from great grandcrank, to grandcrank, to crank, and now bestowed upon you. Use it for good.",
     "DESCRIPTIONS": [
       "#y${ModID}:Attune the first card in each card reward."
     ]
   },
   "${ModID}:BeltDrive": {
     "NAME": "Belt Drive",
-    "FLAVOR": "z",
+    "FLAVOR": "Who doesn't love a bit o' wearable tech?",
     "DESCRIPTIONS": [
       "Whenever you play #b",
       " #ySkills in a row, draw #b",
@@ -66,7 +66,7 @@
   },
   "${ModID}:InstructionBooklet": {
     "NAME": "Instruction Booklet",
-    "FLAVOR": "z",
+    "FLAVOR": "Trust me, don't just skip to the good bits.",
     "DESCRIPTIONS": [
       "Start each combat with #b",
       " #y${ModID}:Proficiency."
@@ -79,11 +79,11 @@
       "The first time you #y${ModID}:Wind_Up each turn, gain [E] ."
     ]
   },
-  "${ModID}:MetalBottle": {
-    "NAME": "Metal Bottle",
-    "FLAVOR": "z",
+  "${ModID}:TorqueWrench": {
+    "NAME": "Torque Wrench",
+    "FLAVOR": "Can dismantle even the grumpiest Crankies.",
     "DESCRIPTIONS": [
-      "The first time you #y${ModID}:Wind_Up each turn, gain [E] ."
+      "#yUnplayable #y${ModID}:Parts can now be played. NL Whenever you play a card, activate its #y${ModID}:Part effect."
     ]
   }
 }

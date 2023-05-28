@@ -3,6 +3,8 @@ package clockworkchar.cards;
 import basemod.abstracts.CustomCard;
 import clockworkchar.characters.TheClockwork;
 import clockworkchar.patches.AttunedPatches;
+import clockworkchar.powers.AbstractEasyPower;
+import clockworkchar.relics.TorqueWrench;
 import clockworkchar.util.CardArtRoller;
 
 import static clockworkchar.ClockworkChar.makeImagePath;
@@ -25,12 +27,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public abstract class AbstractEasyCard extends CustomCard {
 
     protected final CardStrings cardStrings;
 
     public boolean part = false;
+    public boolean showDequipValue = false;
     public int extraAttunings = 0;
 
     public int secondMagic;
@@ -255,7 +259,13 @@ public abstract class AbstractEasyCard extends CustomCard {
         AttunedPatches.attune(this, times);
     };
 
+    public boolean canPlayUnplayablePart() {
+        return AbstractDungeon.player.hasRelic(TorqueWrench.ID);
+    };
+
     public void activate() {};
+
+    public void triggerInDiscardPileOnSpin() {};
 
     public AbstractGameAction partActivation() {
         if (part) {
@@ -273,6 +283,9 @@ public abstract class AbstractEasyCard extends CustomCard {
                             public void update() {
                                 isDone = true;
                                 flash(Color.WHITE.cpy());
+                                for (AbstractPower p : AbstractDungeon.player.powers)
+                                    if (p instanceof AbstractEasyPower)
+                                        ((AbstractEasyPower)p).onPartActivation();
                                 activate();
                                 AttunedPatches.CountPlay.count(c, false);
                             }

@@ -13,7 +13,7 @@ public class Solder extends AbstractEasyCard {
     public Solder() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         baseBlock = 7;
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 3;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -23,6 +23,6 @@ public class Solder extends AbstractEasyCard {
 
     public void upp() {
         upgradeBlock(2);
-        upgradeSpinAmount(2);
+        upgradeMagicNumber(2);
     }
 }

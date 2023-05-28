@@ -87,5 +87,44 @@
       " time.",
       " times."
     ]
+  },
+  "${ModID}:WindOnHit": {
+    "NAME": "Kinetic Servo",
+    "DESCRIPTIONS": [
+      "When attacked, #yWinds #yUp #b",
+      "."
+    ]
+  },
+  "${ModID}:Glare": {
+    "NAME": "Vexing Glare",
+    "DESCRIPTIONS": [
+      "Whenever #yParts are activated, deal #b",
+      " damage to ALL enemies."
+    ]
+  },
+  "${ModID}:DiligentWork": {
+    "NAME": "Diligent Work",
+    "DESCRIPTIONS": [
+      "At the start of your turn, #yUse #b",
+      " time.",
+      " times."
+    ]
+  },
+  "${ModID}:PeepTheHaul": {
+    "NAME": "Peep the Haul!",
+    "DESCRIPTIONS": [
+      "At the start of your turn, if you have no #yBatteries, gain a #yBattery",
+      "At the start of your turn, if you have fewer than #b",
+      " #yBatteries, gain #yBatteries until you have #b",
+      "."
+    ]
+  },
+  "${ModID}:Sawblade": {
+    "NAME": "Sawblade",
+    "DESCRIPTIONS": [
+      "Whenever you draw a #ySpinner, draw #b",
+      " card.",
+      " cards."
+    ]
   }
 }

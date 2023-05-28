@@ -66,6 +66,15 @@ public abstract class AbstractTool {
         dequipSpinSpeed = MathUtils.random(50f, 130f) * (MathUtils.random(0, 1) * 2 - 1);
     };
 
+    public void showDequipValue() {
+        dequipping = true;
+        fontScale = 1.5f;
+    }
+
+    public void hideDequipValue() {
+        dequipping = false;
+    }
+
     public void applyPowers() {
         if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower(ProficiencyPower.POWER_ID))
             passiveAmount += AbstractDungeon.player.getPower(ProficiencyPower.POWER_ID).amount;
@@ -96,7 +105,7 @@ public abstract class AbstractTool {
 
     public void render(SpriteBatch sb) {
         sb.setColor(color);
-        sb.draw(texture, cX - CENTRE, cY - CENTRE, CENTRE, CENTRE, SIZE, SIZE, 1.0f, 1.0f, angle);
+        sb.draw(texture, cX - CENTRE*Settings.scale, cY - CENTRE*Settings.scale, CENTRE, CENTRE, SIZE, SIZE, Settings.scale, Settings.scale, angle);
     };
 
     public void renderText(SpriteBatch sb) {

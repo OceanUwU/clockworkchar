@@ -12,7 +12,7 @@ public class Blurrier extends AbstractEasyCard {
 
     public Blurrier() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 5;
+        baseBlock = 6;
         baseSpinAmount = spinAmount = 4;
     }
 
@@ -26,7 +26,7 @@ public class Blurrier extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeBlock(2);
+        upgradeBlock(1);
         upgradeSpinAmount(1);
     }
 }

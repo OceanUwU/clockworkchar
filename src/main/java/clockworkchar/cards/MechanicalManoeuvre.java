@@ -13,8 +13,8 @@ public class MechanicalManoeuvre extends AbstractEasyCard {
     public final static String ID = makeID("MechanicalManoeuvre");
 
     public MechanicalManoeuvre() {
-        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 6;
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        baseBlock = 7;
         baseSpinAmount = spinAmount = 4;
     }
 

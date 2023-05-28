@@ -20,7 +20,7 @@ public class Fidget extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {}
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return false;
+        return canPlayUnplayablePart();
     }
 
     public void activate() {

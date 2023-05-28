@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
 import static clockworkchar.ClockworkChar.makeID;
 
 public class BreakEffect extends AbstractGameEffect {
-    private static Texture IMAGE = TexLoader.getTexture(ClockworkChar.modID + "Resources/images/vfx/part.png");
+    private static Texture IMAGE = TexLoader.getTexture(ClockworkChar.makeImagePath("vfx/part.png"));
 
     private int count = 0;
     private float timer = 0.0F;
