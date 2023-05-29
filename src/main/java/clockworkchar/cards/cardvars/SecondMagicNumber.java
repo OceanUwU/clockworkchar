@@ -2,10 +2,9 @@ package clockworkchar.cards.cardvars;
 
 import basemod.abstracts.DynamicVariable;
 import clockworkchar.cards.AbstractEasyCard;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 
 import static clockworkchar.ClockworkChar.makeID;
-
-import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class SecondMagicNumber extends DynamicVariable {
 

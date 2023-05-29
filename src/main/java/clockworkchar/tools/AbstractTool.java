@@ -105,7 +105,7 @@ public abstract class AbstractTool {
 
     public void render(SpriteBatch sb) {
         sb.setColor(color);
-        sb.draw(texture, cX - CENTRE*Settings.scale, cY - CENTRE*Settings.scale, CENTRE, CENTRE, SIZE, SIZE, Settings.scale, Settings.scale, angle);
+        sb.draw(texture, cX - CENTRE, cY - CENTRE, CENTRE, CENTRE, SIZE, SIZE, Settings.scale, Settings.scale, angle);
     };
 
     public void renderText(SpriteBatch sb) {
