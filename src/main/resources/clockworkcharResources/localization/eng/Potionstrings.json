@@ -28,7 +28,7 @@
     "NAME": "Sawblade",
     "DESCRIPTIONS": [
       "Shuffle #b",
-      " #ySpinners into your draw pile. Whenever you draw a spinner this combat, draw 1 card."
+      " #ySpinners into your draw pile. Whenever you draw a #ySpinner this combat, draw 1 card."
     ]
   }
 }

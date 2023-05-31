@@ -32,16 +32,14 @@ public class Drill extends AbstractEasyRelic {
     
     public void obtain() {
         if (AbstractDungeon.player.hasRelic(LeftHand.ID)) {
-            for (int i = 0; i < AbstractDungeon.player.relics.size(); ++i) {
+            for (int i = 0; i < AbstractDungeon.player.relics.size(); ++i)
                 if (StringUtils.equals(AbstractDungeon.player.relics.get(i).relicId, LeftHand.ID)) {
                     instantObtain(AbstractDungeon.player, i, true);
                     HandPatches.switchHand();
                     break;
                 }
-            }
-        } else {
+        } else
             super.obtain();
-        }
     }
   
     public boolean canSpawn() {

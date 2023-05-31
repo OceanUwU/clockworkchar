@@ -5,6 +5,7 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpineAnimation;
 import clockworkchar.cards.Defend;
 import clockworkchar.cards.Strike;
+import clockworkchar.cards.StrikeAttuned;
 import clockworkchar.cards.Twist;
 import clockworkchar.cards.Waddle;
 import clockworkchar.powers.CogwheelPower;
@@ -104,19 +105,16 @@ public class TheClockwork extends CustomPlayer {
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(NAMES[0], TEXT[0],
-                72, 72, 0, 99, 5, this, getStartingRelics(),
+                75, 75, 0, 99, 5, this, getStartingRelics(),
                 getStartingDeck(), false);
     }
 
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            retVal.add(Strike.ID);
-        }
-        for (int i = 0; i < 4; i++) {
-            retVal.add(Defend.ID);
-        }
+        for (int i = 0; i < 4; i++) retVal.add(Strike.ID);
+        //retVal.add(StrikeAttuned.ID);
+        for (int i = 0; i < 4; i++) retVal.add(Defend.ID);
         retVal.add(Twist.ID);
         retVal.add(Waddle.ID);
         return retVal;
@@ -193,9 +191,9 @@ public class TheClockwork extends CustomPlayer {
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{
-                AbstractGameAction.AttackEffect.FIRE,
+                AbstractGameAction.AttackEffect.SMASH,
                 AbstractGameAction.AttackEffect.BLUNT_HEAVY,
-                AbstractGameAction.AttackEffect.FIRE};
+                AbstractGameAction.AttackEffect.BLUNT_LIGHT};
     }
 
     @Override
@@ -210,18 +208,18 @@ public class TheClockwork extends CustomPlayer {
 
     @Override
     public Texture getCutsceneBg() {
-        return TexLoader.getTexture("images/scenes/redBg.jpg");
+        return TexLoader.getTexture(makeImagePath("ending/brownBg.png"));
     }
 
-    /*@Override
+    @Override
     public List<CutscenePanel> getCutscenePanels() {
         endEffectStarted = false;
         List<CutscenePanel> panels = new ArrayList<>();
-        panels.add(new CutscenePanel(makeImagePath("ending/ending_1.png"), makeID("WIND_UP")));
-        panels.add(new CutscenePanel(makeImagePath("ending/ending_2.png")));
-        panels.add(new CutscenePanel(makeImagePath("ending/ending_3.png")));
+        panels.add(new CutscenePanel(makeImagePath("ending/1.png"), makeID("WIND_UP")));
+        panels.add(new CutscenePanel(makeImagePath("ending/2.png"), makeID("SPIN")));
+        panels.add(new CutscenePanel(makeImagePath("ending/3.png")));
         return panels;
-    }*/
+    }
 
     @Override
     public void updateVictoryVfx(ArrayList<AbstractGameEffect> effects) {

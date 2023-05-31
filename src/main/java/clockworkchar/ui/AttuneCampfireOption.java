@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.relics.FusionHammer;
 import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 
@@ -31,7 +32,7 @@ public class AttuneCampfireOption extends AbstractCampfireOption {
     }
 
     private void setUsable() {
-        usable = getAttunableCards().group.size() > 0;
+        usable = !AbstractDungeon.player.hasRelic(FusionHammer.ID) && getAttunableCards().group.size() > 0;
         description = usable ? DESCRIPTIONS[1]+AttunedPatches.PLAYS_TO_ATTUNE+DESCRIPTIONS[2] : DESCRIPTIONS[3]+AttunedPatches.PLAYS_TO_ATTUNE+DESCRIPTIONS[4];
         img = usable ? TEXTURE : DISABLED_TEXTURE;
     }

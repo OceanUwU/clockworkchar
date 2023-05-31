@@ -78,11 +78,11 @@ public class Winder {
         float widthMult = Math.abs(MathUtils.cosDeg(angle));
         if (AbstractDungeon.player instanceof TheClockwork)
             ((TheClockwork)AbstractDungeon.player).winderBone.setScaleX(widthMult);
-        float gripX = x + halfSize + widthMult * (1 - size) * 0.5F;
-        sb.draw(BASE_TEXTURE, x, y);
-        sb.draw(GRIP2_TEXTURE, gripX, y, size * widthMult, size);
-        sb.draw(ROD_TEXTURE, x, y);
-        sb.draw(GRIP1_TEXTURE, gripX, y, size * widthMult, size);
+        float gripX = x + (halfSize + widthMult * (1 - size) * 0.5F) * Settings.scale;
+        sb.draw(BASE_TEXTURE, x, y, size * Settings.scale, size * Settings.scale);
+        sb.draw(GRIP2_TEXTURE, gripX, y, size * widthMult * Settings.scale, size * Settings.scale);
+        sb.draw(ROD_TEXTURE, x, y, size * Settings.scale, size * Settings.scale);
+        sb.draw(GRIP1_TEXTURE, gripX, y, size * widthMult * Settings.scale, size * Settings.scale);
         AbstractDungeon.player.getEnergyNumFont().getData().setScale(fontScale);
         FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), String.valueOf(charge), x-offset, y-offset, Color.WHITE);
     }

@@ -32,7 +32,7 @@ public class TiltingSpannerVictoryEffect extends AbstractGameEffect {
             nuts.add(row);
         }
         for (float i = 0f; i <= 6; i++)
-            spanners.add(new Spanner(Settings.HEIGHT / 2f + 174f * (i-3.5f), new ArrayList<>(nuts.subList((int)i, ((int)i)+2)), (int)i));
+            spanners.add(new Spanner(new ArrayList<>(nuts.subList((int)i, ((int)i)+2)), (int)i));
     }
 
     public void update() {
@@ -60,15 +60,14 @@ public class TiltingSpannerVictoryEffect extends AbstractGameEffect {
         private static float ANGLE_OFFSET = 30.0f;
         private static float ONE_ROTATION = -60.0f;
 
-        private float timer = 0f;
-        private float x, y, progress, angle;
+        private float timer = (float)Math.random() * TURN_DURATION;
+        private float progress, angle;
         private ArrayList<ArrayList<Nut>> nuts;
         private Nut attached;
         private boolean top;
         private int nutIndex;
 
-        public Spanner(float y, ArrayList<ArrayList<Nut>> nuts, int offset) {
-            this.y = y;
+        public Spanner(ArrayList<ArrayList<Nut>> nuts, int offset) {
             this.nuts = nuts;
             nutIndex = offset / 2;
             nutIndex *= 8;
@@ -95,7 +94,6 @@ public class TiltingSpannerVictoryEffect extends AbstractGameEffect {
             progress = -((float)Math.cos(Math.PI * (double)(timer / TURN_DURATION)) - 1) / 2;
             attached.progress = top ? 1 - progress : progress;
             attached.update();
-            x = attached.x + 100f * (progress - 0.5f) * Settings.scale;
             angle = ANGLE_OFFSET + ONE_ROTATION * (top ? progress : 1 - progress);
         }
 

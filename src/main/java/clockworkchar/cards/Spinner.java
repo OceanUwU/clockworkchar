@@ -16,7 +16,7 @@ public class Spinner extends AbstractEasyCard {
     public Spinner() {
         super(ID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ALL_ENEMY, CardColor.COLORLESS);
         baseDamage = 6;
-        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = 3;
         damageType = DamageType.THORNS;
         damageTypeForTurn = DamageType.THORNS;
         isMultiDamage = true;

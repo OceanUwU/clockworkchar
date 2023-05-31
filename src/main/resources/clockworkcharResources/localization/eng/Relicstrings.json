@@ -85,5 +85,13 @@
     "DESCRIPTIONS": [
       "#yUnplayable #y${ModID}:Parts can now be played. NL Whenever you play a card, activate its #y${ModID}:Part effect."
     ]
+  },
+  "${ModID}:FusionHammer": {
+    "NAME": "Fusion Hammer",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      " at the start of your turn. You can no longer #ySmith or #yIntegrate at Rest Sites.",
+      "Gain [E]"
+    ]
   }
 }
