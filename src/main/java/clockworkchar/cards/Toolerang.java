@@ -64,7 +64,6 @@ public class Toolerang extends AbstractEasyCard {
             duration += Gdx.graphics.getDeltaTime();
             isDone = duration > DURATION;
             progress = (float)Math.sin((duration / DURATION) * (float)Math.PI);
-            System.out.println(progress);
             angle = duration * SPIN_SPEED;
             x = sX + (tX - sX) * progress;
             y = sY + (tY - sY) * progress;

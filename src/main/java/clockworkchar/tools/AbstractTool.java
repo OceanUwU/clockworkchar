@@ -53,7 +53,7 @@ public abstract class AbstractTool {
         if (AbstractDungeon.player != null) {
             cX = 120.0f * Settings.scale + AbstractDungeon.player.drawX;
             cY = 120.0f * Settings.scale + AbstractDungeon.player.drawY + AbstractDungeon.player.hb_h / 2.0F;
-            hb = new Hitbox(cX - SIZE / 2.0F, cY - SIZE / 2.0F, SIZE, SIZE);
+            hb = new Hitbox(cX - SIZE * Settings.scale / 2.0F, cY - SIZE * Settings.scale / 2.0F, SIZE * Settings.scale, SIZE * Settings.scale);
         }
     }
 

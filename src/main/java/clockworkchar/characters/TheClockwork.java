@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TheClockwork extends CustomPlayer {
-    private static final String[] orbTextures = {
+    public static final String[] orbTextures = {
             modID + "Resources/images/char/mainChar/orb/l1.png",
             modID + "Resources/images/char/mainChar/orb/l2.png",
             modID + "Resources/images/char/mainChar/orb/l3.png",
@@ -51,8 +51,9 @@ public class TheClockwork extends CustomPlayer {
             modID + "Resources/images/char/mainChar/orb/l3d.png",
             modID + "Resources/images/char/mainChar/orb/empty.png",
             modID + "Resources/images/char/mainChar/orb/empty.png",};
+    public static final float[] orbRotationValues = new float[]{0.0F, 0.0F, 32.0F, 0.0F, 0.0F};
     private static final Float SIZE_SCALE = 1.2F;
-    private static final Float ANIMATION_SPEED = 0.8F;
+    public static final Float ANIMATION_SPEED = 0.8F;
     static final String ID = makeID("TheClockwork");
     public static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     public static boolean endEffectStarted = false;
@@ -64,7 +65,7 @@ public class TheClockwork extends CustomPlayer {
     public Bone drillBone;
 
     public TheClockwork(String name, PlayerClass setClass) {
-        super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", (new float[]{0.0F, 0.0F, 32.0F, 0.0F, 0.0F})), new SpineAnimation(modID + "Resources/images/char/mainChar/cranky.atlas", modID + "Resources/images/char/mainChar/cranky.json", SIZE_SCALE));
+        super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", orbRotationValues), new SpineAnimation(modID + "Resources/images/char/mainChar/cranky.atlas", modID + "Resources/images/char/mainChar/cranky.json", SIZE_SCALE));
         initializeClass(null,
                 SHOULDER1,
                 SHOULDER2,

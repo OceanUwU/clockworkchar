@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class HandPatches {
     public static void switchHand() {
@@ -19,6 +20,13 @@ public class HandPatches {
 
     @SpirePatch(clz=AbstractPlayer.class, method="loseRelic")
     public static class RelicLossPatch {
+        public static void Postfix() {
+            switchHand();
+        }
+    }
+
+    @SpirePatch(clz=AbstractRelic.class, method="relicTip")
+    public static class RelicTipPatch {
         public static void Postfix() {
             switchHand();
         }
