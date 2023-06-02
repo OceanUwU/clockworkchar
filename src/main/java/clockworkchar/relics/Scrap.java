@@ -1,13 +1,12 @@
 package clockworkchar.relics;
 
+import clockworkchar.actions.GainCogwheelsAction;
 import clockworkchar.characters.TheClockwork;
-import clockworkchar.powers.CogwheelPower;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import static clockworkchar.ClockworkChar.makeID;
-import static clockworkchar.util.Wiz.atb;
-import static clockworkchar.util.Wiz.applyToSelfTop;
+import static clockworkchar.util.Wiz.*;
 
 public class Scrap extends AbstractEasyRelic {
     public static final String ID = makeID("Scrap");
@@ -24,7 +23,7 @@ public class Scrap extends AbstractEasyRelic {
   
     public void atBattleStartPreDraw() {
         flash();
-        atb(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        applyToSelfTop(new CogwheelPower(AbstractDungeon.player, COGWHEELS));
+        att(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        att(new GainCogwheelsAction(COGWHEELS));
     }
 }

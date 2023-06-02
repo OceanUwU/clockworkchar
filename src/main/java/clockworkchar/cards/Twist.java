@@ -2,6 +2,7 @@ package clockworkchar.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import clockworkchar.actions.UseToolAction;
 import clockworkchar.actions.WindUpAction;
 
 import static clockworkchar.ClockworkChar.makeID;
@@ -19,6 +20,7 @@ public class Twist extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new WindUpAction(magicNumber));
+        atb(new UseToolAction(1));
     }
 
     public void activate() {

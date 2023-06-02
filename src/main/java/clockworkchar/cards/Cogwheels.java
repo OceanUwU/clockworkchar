@@ -1,11 +1,12 @@
 package clockworkchar.cards;
 
-import clockworkchar.powers.CogwheelPower;
+import clockworkchar.actions.GainCogwheelsAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static clockworkchar.ClockworkChar.makeID;
-import static clockworkchar.util.Wiz.applyToSelf;
+import static clockworkchar.util.Wiz.*;
+
 
 public class Cogwheels extends AbstractEasyCard {
     public final static String ID = makeID("Cogwheels");
@@ -16,7 +17,7 @@ public class Cogwheels extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new CogwheelPower(p, magicNumber));
+        atb(new GainCogwheelsAction(magicNumber));
     }
 
     public void upp() {

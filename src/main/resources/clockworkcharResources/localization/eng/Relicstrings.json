@@ -45,7 +45,7 @@
     "FLAVOR": "Picking stuff up from the floor, eh? Suit yourself.",
     "DESCRIPTIONS": [
       "Start each combat with #b",
-      " #y${ModID}:Cogwheel."
+      " additional #y${ModID}:Cogwheel."
     ]
   },
   "${ModID}:SwissArmyKnife": {

@@ -1,7 +1,9 @@
 package clockworkchar.patches;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAndEnableControlsAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -18,6 +20,21 @@ public class WinderPatches {
     public static class RenderPatch {
         public static void Postfix(EnergyPanel __instance, SpriteBatch sb) {
             if (shouldRenderWinder()) ClockworkChar.winder.render(sb);
+        }
+    }
+
+    @SpirePatch(clz=GainEnergyAndEnableControlsAction.class, method="update")
+    public static class ApplyCogwheelsStartCombatPatch {
+        @SpireInsertPatch(rloc=12)
+        public static void Insert() {
+            ClockworkChar.winder.triggerCogwheels();
+        }
+    }
+
+    @SpirePatch(clz=EnergyManager.class, method="recharge")
+    public static class ApplyCogwheelsPatch {
+        public static void Postfix() {
+            ClockworkChar.winder.triggerCogwheels();
         }
     }
 

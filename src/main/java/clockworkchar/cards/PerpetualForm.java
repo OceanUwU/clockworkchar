@@ -2,8 +2,8 @@ package clockworkchar.cards;
 
 import basemod.interfaces.AlternateCardCostModifier;
 import clockworkchar.ClockworkChar;
+import clockworkchar.actions.GainCogwheelsAction;
 import clockworkchar.powers.AbstractEasyPower;
-import clockworkchar.powers.CogwheelPower;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -40,7 +40,7 @@ public class PerpetualForm extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         applyToSelf(new PerpetualFormPower(p, ENERGY_LOST));
-        applyToSelf(new CogwheelPower(p, magicNumber));
+        atb(new GainCogwheelsAction(magicNumber));
     }
 
     public void upp() {

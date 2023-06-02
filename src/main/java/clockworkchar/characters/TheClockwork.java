@@ -5,10 +5,8 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpineAnimation;
 import clockworkchar.cards.Defend;
 import clockworkchar.cards.Strike;
-import clockworkchar.cards.StrikeAttuned;
 import clockworkchar.cards.Twist;
 import clockworkchar.cards.Waddle;
-import clockworkchar.powers.CogwheelPower;
 import clockworkchar.relics.LeftHand;
 import clockworkchar.util.TexLoader;
 import clockworkchar.vfx.TiltingSpannerVictoryEffect;
@@ -27,7 +25,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
@@ -61,8 +58,6 @@ public class TheClockwork extends CustomPlayer {
     public static boolean endEffectStarted = false;
     static final String[] NAMES = characterStrings.NAMES;
     static final String[] TEXT = characterStrings.TEXT;
-
-    private static int FREE_CHARGE_PER_TURN = 2;
     
     public Bone winderBone;
     public Bone handBone;
@@ -227,13 +222,6 @@ public class TheClockwork extends CustomPlayer {
             effects.add(new TiltingSpannerVictoryEffect());
             endEffectStarted = true;
         }
-    }
-
-    @Override
-    public void preBattlePrep() {
-        super.preBattlePrep();
-        powers.add(new CogwheelPower(this, FREE_CHARGE_PER_TURN));
-        AbstractDungeon.onModifyPower();
     }
 
     public static class Enums {

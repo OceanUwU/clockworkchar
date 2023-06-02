@@ -13,7 +13,7 @@
   },
   "${ModID}:Twist": {
     "NAME": "Twist",
-    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL ${ModID}:Part: ${ModID}:Wind_Up !${ModID}:m2!."
+    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL ${ModID}:Use. NL ${ModID}:Part: ${ModID}:Wind_Up !${ModID}:m2!."
   },
   "${ModID}:Waddle": {
     "NAME": "Waddle",
@@ -277,7 +277,7 @@
   "${ModID}:FixUp": {
     "NAME": "Fix-up",
     "DESCRIPTION": "${ModID}:Equip a ${ModID}:Screwdriver. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "${ModID}:Equip a ${ModID}:Screwdriver. NL ${ModID}:Attune a card in your hand. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "${ModID}:Equip a ${ModID}:Screwdriver. NL ${ModID}:Attune a card. NL Exhaust."
   },
   "${ModID}:DazzlingDevice": {
     "NAME": "Dazzling Device",

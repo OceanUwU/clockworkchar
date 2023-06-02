@@ -26,7 +26,8 @@ public class Winder {
     private static Texture GRIP2_TEXTURE = ImageMaster.loadImage(ClockworkChar.modID + "Resources/images/ui/winder/backgrip.png");
     private static float size = BASE_TEXTURE.getWidth();
     private static float halfSize = size / 2.0F;
-    private static float fontScale = 1.0F;
+    private static int STARTING_COGWHEELS = 2;
+    private static float COGWHEELS_FONT_SCALE = 0.6f;
 
     private static String[] TEXT = CardCrawlGame.languagePack.getUIString(ClockworkChar.modID + ":WinderElement").TEXT;
 
@@ -38,13 +39,23 @@ public class Winder {
     private int toTwistForward = 0;
     private int toTwistBack = 0;
     private float angle = 0.0F;
+    private float fontScale = 1.0F;
+    private float cogwheelsFontScale = COGWHEELS_FONT_SCALE;
+    private float scale;
+    private boolean showTooltip = false;
 
     public boolean shouldRender = false;
     public int charge = 0;
     public int chargeGained = 0;
+    public int cogwheels = 0;
 
     public Winder() {
+        this(1.0f, true);
+    }
 
+    public Winder(float scale, boolean showTooltip) {
+        this.showTooltip = showTooltip;
+        this.scale = scale * Settings.scale;
     }
 
     public void update() {
@@ -64,12 +75,14 @@ public class Winder {
 
         if (fontScale != 1.0F)
             fontScale = MathHelper.scaleLerpSnap(fontScale, 1.0F); 
+        if (cogwheelsFontScale != COGWHEELS_FONT_SCALE)
+            cogwheelsFontScale = MathHelper.scaleLerpSnap(cogwheelsFontScale, COGWHEELS_FONT_SCALE); 
         
-        offset = - halfSize * Settings.scale;
+        offset = - halfSize * scale;
         x = AbstractDungeon.overlayMenu.energyPanel.current_x + offset;
         y = AbstractDungeon.overlayMenu.energyPanel.current_y + 150.0F * Settings.scale + offset;
         hb.update(x, y);
-        if (hb.hovered)
+        if (showTooltip && hb.hovered)
             TipHelper.renderGenericTip(50.0F * Settings.scale, y + 275.0F * Settings.scale, TEXT[0], TEXT[1]);
     }
 
@@ -78,32 +91,35 @@ public class Winder {
         float widthMult = Math.abs(MathUtils.cosDeg(angle));
         if (AbstractDungeon.player instanceof TheClockwork)
             ((TheClockwork)AbstractDungeon.player).winderBone.setScaleX(widthMult);
-        float gripX = x + (halfSize + widthMult * (1 - size) * 0.5F) * Settings.scale;
-        sb.draw(BASE_TEXTURE, x, y, size * Settings.scale, size * Settings.scale);
-        sb.draw(GRIP2_TEXTURE, gripX, y, size * widthMult * Settings.scale, size * Settings.scale);
-        sb.draw(ROD_TEXTURE, x, y, size * Settings.scale, size * Settings.scale);
-        sb.draw(GRIP1_TEXTURE, gripX, y, size * widthMult * Settings.scale, size * Settings.scale);
-        AbstractDungeon.player.getEnergyNumFont().getData().setScale(fontScale);
+        float gripX = x + (halfSize + widthMult * (1 - size) * 0.5F) * scale;
+        sb.draw(BASE_TEXTURE, x, y, size * scale, size * Settings.scale);
+        sb.draw(GRIP2_TEXTURE, gripX, y, size * widthMult * scale, size * Settings.scale);
+        sb.draw(ROD_TEXTURE, x, y, size * scale, size * scale);
+        sb.draw(GRIP1_TEXTURE, gripX, y, size * widthMult * scale, size * scale);
+        AbstractDungeon.player.getEnergyNumFont().getData().setScale(cogwheelsFontScale * scale);
+        FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), "+"+String.valueOf(cogwheels), x-offset, y-offset*0.5f, Color.WHITE);
+        AbstractDungeon.player.getEnergyNumFont().getData().setScale(fontScale * scale);
         FontHelper.renderFontCentered(sb, AbstractDungeon.player.getEnergyNumFont(), String.valueOf(charge), x-offset, y-offset, Color.WHITE);
     }
 
     public void reset() {
         shouldRender = AbstractDungeon.player instanceof TheClockwork;
+        cogwheels = STARTING_COGWHEELS;
         toTwistForward = 0;
         toTwistBack = 0;
         angle = 0.0F;
+        charge = 0;
         if (AbstractDungeon.player.hasRelic(FloppyDisk.ID))
-            charge = AbstractDungeon.player.getRelic(FloppyDisk.ID).counter;
-        else
-            charge = 0;
+            charge += AbstractDungeon.player.getRelic(FloppyDisk.ID).counter;
         chargeGained = 0;
     }
 
     public void gainCharge(int amount, boolean fromWindUp) {
-        shouldRender = true;
         charge += amount;
-        if (fromWindUp)
+        if (fromWindUp) {
+            shouldRender = true;
             chargeGained += amount;
+        }
         if (charge > 999)
             charge = 999;
         if (toTwistBack > 0) {
@@ -134,6 +150,12 @@ public class Winder {
         return false;
     }
 
+    public void gainCogwheels(int amount) {
+        shouldRender = true;
+        cogwheels += amount;
+        cogwheelsFontScale *= 2f;
+    }
+
     public void chargeChanged() {
         if (AbstractDungeon.player.hasRelic(SevenSegmentDisplay.ID))
             ((SevenSegmentDisplay)AbstractDungeon.player.getRelic(SevenSegmentDisplay.ID)).updateDisplay();
@@ -143,5 +165,32 @@ public class Winder {
         int chargeUsed = charge;
         useCharge(chargeUsed);
         return chargeUsed;
+    }
+
+    public void triggerCogwheels() {
+        gainCharge(cogwheels, false);
+    }
+
+    public void setNonPlayerCharge(int newCharge, boolean pulseText) {
+        if (newCharge > charge) {
+            toTwistForward = newCharge - charge;
+            toTwistBack = 0;
+            angle = 0f;
+            if (pulseText)
+                fontScale = 2.0F;
+        } else if (newCharge < charge) {
+            toTwistBack = charge - newCharge;
+            toTwistForward = 0;
+            angle = 0f;
+            if (pulseText)
+                fontScale = 2.0F;
+        }
+        charge = newCharge;
+    }
+
+    public void setNonPlayerCogwheels(int newCogwheels, boolean pulseText) {
+        cogwheels = newCogwheels;
+        if (pulseText)
+            cogwheelsFontScale *= 2f;
     }
 }

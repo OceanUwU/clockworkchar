@@ -15,8 +15,8 @@ public class HastySweep extends AbstractEasyCard {
     public HastySweep() {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = 30;
-        baseSpinAmount = spinAmount = 7;
-        baseMagicNumber = magicNumber = 3;
+        baseSpinAmount = spinAmount = 10;
+        baseMagicNumber = magicNumber = 5;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
