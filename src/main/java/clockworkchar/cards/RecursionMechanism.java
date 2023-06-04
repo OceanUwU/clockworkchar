@@ -1,6 +1,5 @@
 package clockworkchar.cards;
 
-import clockworkchar.actions.LetGoAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
@@ -21,19 +20,18 @@ public class RecursionMechanism extends AbstractEasyCard {
 
     public RecursionMechanism() {
         super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        baseDamage = 0;
         baseMagicNumber = magicNumber = 3;
         part = true;
         selfRetain = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new LetGoAction(spent -> {
-            baseDamage = GameActionManager.turn * magicNumber;
-            calculateCardDamage(m);
-            dmg(m, AbstractGameAction.AttackEffect.SMASH);
-            this.rawDescription = cardStrings.DESCRIPTION;
-            this.initializeDescription();
-        }));
+        baseDamage = GameActionManager.turn * magicNumber;
+        calculateCardDamage(m);
+        dmg(m, AbstractGameAction.AttackEffect.SMASH);
+        this.rawDescription = cardStrings.DESCRIPTION;
+        this.initializeDescription();
     }
 
     public void activate() {

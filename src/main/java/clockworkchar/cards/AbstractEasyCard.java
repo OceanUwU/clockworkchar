@@ -12,7 +12,6 @@ import static clockworkchar.ClockworkChar.modID;
 import static clockworkchar.util.Wiz.*;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -95,23 +94,9 @@ public abstract class AbstractEasyCard extends CustomCard {
     }
 
     public static String getCardTextureString(final String cardName, final AbstractCard.CardType cardType) {
-        String textureString;
-
-        switch (cardType) {
-            case ATTACK:
-            case POWER:
-            case SKILL:
-                textureString = makeImagePath("cards/" + cardName + ".png");
-                break;
-            default:
-                textureString = makeImagePath("ui/missing.png");
-                break;
-        }
-
-        FileHandle h = Gdx.files.internal(textureString);
-        if (!h.exists()) {
+        String textureString = makeImagePath("cards/" + cardName + ".png");
+        if (!Gdx.files.internal(textureString).exists())
             textureString = makeImagePath("ui/missing.png");
-        }
         return textureString;
     }
 

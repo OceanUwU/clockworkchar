@@ -5,9 +5,10 @@
       "Cranky"
     ],
     "TEXT": [
-      "A clockwork toy who assembled themself from nothing but junk. NL Winds up to charge to their full power.",
+      "A clockwork toy assembled from nothing but junk. NL Winds up to charge to their full power.",
       "NL You wind your winder as far as it goes...",
-      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~mechanical~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~mechanical~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~",
+      "#r~DORMANCY.~ NL NL You feel a twisting sensation from your back, granting you a surge of energy you haven't felt in decades. Your vision flickers on. NL NL In front of you is an unfamiliar whale. She greets you and presents you with one simple objective: #b~\"Kill...\"~ NL NL #r@HELL@ #r@YEAH!!@ NL NL You begin to climb the spire, ready to utilize your newfound strength to bulldoze through anything which tries to get in your way."
     ]
   }
 }

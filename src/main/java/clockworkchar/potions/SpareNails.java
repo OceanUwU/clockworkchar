@@ -29,10 +29,10 @@ public class SpareNails extends AbstractPotion {
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString(POTION_ID);
     private static final int CHOICES = 2;
     private static AbstractCard[] CHOICE_CARDS = {
-        new EasyModalChoiceCard("spanner", potionStrings.DESCRIPTIONS[7], potionStrings.DESCRIPTIONS[4] + potionStrings.DESCRIPTIONS[6] + potionStrings.DESCRIPTIONS[7] + potionStrings.DESCRIPTIONS[11], () -> att(new EquipToolAction(new Spanner()))),
-        new EasyModalChoiceCard("screwdriver", potionStrings.DESCRIPTIONS[8], potionStrings.DESCRIPTIONS[4] + potionStrings.DESCRIPTIONS[6] + potionStrings.DESCRIPTIONS[8] + potionStrings.DESCRIPTIONS[11], () -> att(new EquipToolAction(new Screwdriver()))),
-        new EasyModalChoiceCard("torch", potionStrings.DESCRIPTIONS[9], potionStrings.DESCRIPTIONS[4] + potionStrings.DESCRIPTIONS[6] + potionStrings.DESCRIPTIONS[9] + potionStrings.DESCRIPTIONS[11], () -> att(new EquipToolAction(new Torch()))),
-        new EasyModalChoiceCard("allenkey", potionStrings.DESCRIPTIONS[10].replace("_", " "), potionStrings.DESCRIPTIONS[5] + potionStrings.DESCRIPTIONS[6] + potionStrings.DESCRIPTIONS[10] + potionStrings.DESCRIPTIONS[11], () -> att(new EquipToolAction(new AllenKey()))),
+        new EasyModalChoiceCard("EquipSpanner", potionStrings.DESCRIPTIONS[7], potionStrings.DESCRIPTIONS[4] + potionStrings.DESCRIPTIONS[6] + potionStrings.DESCRIPTIONS[7] + potionStrings.DESCRIPTIONS[11], () -> att(new EquipToolAction(new Spanner()))),
+        new EasyModalChoiceCard("FixUp", potionStrings.DESCRIPTIONS[8], potionStrings.DESCRIPTIONS[4] + potionStrings.DESCRIPTIONS[6] + potionStrings.DESCRIPTIONS[8] + potionStrings.DESCRIPTIONS[11], () -> att(new EquipToolAction(new Screwdriver()))),
+        new EasyModalChoiceCard("DazzlingDevice", potionStrings.DESCRIPTIONS[9], potionStrings.DESCRIPTIONS[4] + potionStrings.DESCRIPTIONS[6] + potionStrings.DESCRIPTIONS[9] + potionStrings.DESCRIPTIONS[11], () -> att(new EquipToolAction(new Torch()))),
+        new EasyModalChoiceCard("NewWinder", potionStrings.DESCRIPTIONS[10].replace("_", " "), potionStrings.DESCRIPTIONS[5] + potionStrings.DESCRIPTIONS[6] + potionStrings.DESCRIPTIONS[10] + potionStrings.DESCRIPTIONS[11], () -> att(new EquipToolAction(new AllenKey()))),
     };
 
     public SpareNails() {

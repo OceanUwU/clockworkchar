@@ -10,16 +10,11 @@ import static clockworkchar.util.Wiz.*;
 
 public class Whir extends AbstractEasyCard {
     public final static String ID = makeID("Whir");
-    
-    private String originalDescription;
 
     public Whir() {
         super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 3;
         baseSpinAmount = spinAmount = 2;
-
-        originalDescription = rawDescription;
-        adjustDescription();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -31,15 +26,7 @@ public class Whir extends AbstractEasyCard {
         }
     }
 
-    public void adjustDescription() {
-        rawDescription = originalDescription;
-        for (int i = 1; i < magicNumber; i++)
-            rawDescription += " NL " + originalDescription;
-        super.initializeDescription();
-    }
-
     public void upp() {
         upgradeMagicNumber(1);
-        adjustDescription();
     }
 }

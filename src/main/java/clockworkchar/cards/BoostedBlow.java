@@ -17,6 +17,7 @@ public class BoostedBlow extends AbstractEasyCard {
 
     public BoostedBlow() {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        baseDamage = 0;
         baseMagicNumber = magicNumber = 2;
     }
 

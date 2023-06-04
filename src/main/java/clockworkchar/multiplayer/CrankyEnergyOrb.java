@@ -7,8 +7,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import spireTogether.modcompat.downfall.characters.energyorbs.CustomizableEnergyOrbCustom;
-import spireTogether.monsters.CharacterEntity;
-import spireTogether.network.P2P.P2PManager;
 
 import static clockworkchar.ClockworkChar.makeImagePath;
 

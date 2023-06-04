@@ -103,14 +103,14 @@ public class NetworkCranky extends NetworkCharPreset {
         setStateDataMix("Hit", "Idle", 0.5f);
     }
   
-    @SpirePatch(clz=SpireTogetherMod.class, method="RegisterModdedChars", optional=true)
+    @SpirePatch(clz=SpireTogetherMod.class, method="RegisterModdedChars", requiredModId="spireTogether")
     public static class Register {
         public static void Postfix() {
             SpireTogetherMod.allCharacterEntities.put(TheClockwork.Enums.THE_CLOCKWORK, new NetworkCranky());
         }
     }
   
-    @SpirePatch(clz=P2PMessageAnalyzer.class, method="AnalyzeMessage", optional=true)
+    @SpirePatch(clz=P2PMessageAnalyzer.class, method="AnalyzeMessage", requiredModId="spireTogether")
     public static class MessageAnalyzer {
         public static void Postfix(NetworkMessage data) {
             String request = data.request;
@@ -137,7 +137,7 @@ public class NetworkCranky extends NetworkCharPreset {
         }
     }
   
-    @SpirePatch(clz=P2PCallbacks.class, method="OnPlayerChangedRelics", optional=true)
+    @SpirePatch(clz=P2PCallbacks.class, method="OnPlayerChangedRelics", requiredModId="spireTogether")
     public static class SwitchHand {
         public static void Postfix(P2PPlayer player) {
             if (player.GetEntity() instanceof NetworkCranky) {
@@ -148,7 +148,7 @@ public class NetworkCranky extends NetworkCharPreset {
         }
     }
   
-    @SpirePatch(clz=UIElements.Nameplates.class, method="Init", optional=true)
+    @SpirePatch(clz=UIElements.Nameplates.class, method="Init", requiredModId="spireTogether")
     public static class AddNameplate {
         public static void Postfix() {
             UIElements.Nameplates.nameplates.add(nameplate);

@@ -41,5 +41,6 @@ public class WindUpAction extends AbstractGameAction {
         ClockworkChar.winder.gainCharge(amount, true);
         if (AbstractDungeon.player.hasPower(Inertia.InertiaPower.POWER_ID))
             ((Inertia.InertiaPower)AbstractDungeon.player.getPower(Inertia.InertiaPower.POWER_ID)).onGainCCharge(amount);
+        AbstractDungeon.player.hand.applyPowers();
     }
 }

@@ -203,6 +203,11 @@ public class TheClockwork extends CustomPlayer {
     }
 
     @Override
+    public String getSensoryStoneText() {
+        return TEXT[3];
+    }
+
+    @Override
     public Texture getCutsceneBg() {
         return TexLoader.getTexture(makeImagePath("ending/brownBg.png"));
     }
