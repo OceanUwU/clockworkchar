@@ -103,25 +103,27 @@ public class Winder {
             y = AbstractDungeon.overlayMenu.energyPanel.current_y + 150.0F * Settings.scale + offset + offsetY;
         }
         hb.update(x, y);
-        if (hb.hovered && InputHelper.justClickedLeft) {
-            startX = InputHelper.mX;
-            startY = InputHelper.mY;
-            hb.clickStarted = true;
-        } else if (hb.hovered && InputHelper.justReleasedClickRight) {
-            offsetX = 0;
-            offsetY = 0;
-            hb.clickStarted = false;
-            hb.clicked = false;
-        } else if (!InputHelper.isMouseDown) {
-            hb.clickStarted = false;
-            hb.clicked = false;
-        }
-        if (hb.clickStarted) {
-            offsetX += InputHelper.mX - startX;
-            offsetY += InputHelper.mY - startY;
-            hb.translate(x + offsetX, y + offsetY);
-            startX = InputHelper.mX;
-            startY = InputHelper.mY;
+        if (draggable) {
+            if (hb.hovered && InputHelper.justClickedLeft) {
+                startX = InputHelper.mX;
+                startY = InputHelper.mY;
+                hb.clickStarted = true;
+            } else if (hb.hovered && InputHelper.justReleasedClickRight) {
+                offsetX = 0;
+                offsetY = 0;
+                hb.clickStarted = false;
+                hb.clicked = false;
+            } else if (!InputHelper.isMouseDown) {
+                hb.clickStarted = false;
+                hb.clicked = false;
+            }
+            if (hb.clickStarted) {
+                offsetX += InputHelper.mX - startX;
+                offsetY += InputHelper.mY - startY;
+                hb.translate(x + offsetX, y + offsetY);
+                startX = InputHelper.mX;
+                startY = InputHelper.mY;
+            }
         }
         if (showTooltip && hb.hovered)
             TipHelper.renderGenericTip(50.0F * Settings.scale + offsetX, y + 275.0F * Settings.scale, TEXT[0], TEXT[1]);

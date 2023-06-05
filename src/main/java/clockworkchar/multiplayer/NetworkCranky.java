@@ -16,6 +16,7 @@ import com.esotericsoftware.spine.Skeleton;
 import com.esotericsoftware.spine.SkeletonData;
 import com.esotericsoftware.spine.SkeletonJson;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbInterface;
 import spireTogether.SpireTogetherMod;
@@ -43,21 +44,29 @@ public class NetworkCranky extends NetworkCharPreset {
         super(new TheClockwork(TheClockwork.characterStrings.NAMES[1], TheClockwork.Enums.THE_CLOCKWORK));
         energyOrb = new CrankyEnergyOrb();
         loadAnimation(makeImagePath("char/mainChar/cranky.atlas"), makeImagePath("char/mainChar/cranky.json"), 1f);
-        lobbyScale *= 2f;
+        lobbyScale = 0.6f;
     }
 
     public String GetThreeLetterID() {
         return "CRA";
     }
 
-    public void GetSkins() {}
+    public void GetSkins() {
+        skins.add(GetDefaultSkin());
+        skins.add(new CrankySkin("RUBY", Unlockable.UnlockMethod.FREE, playerClass));
+        skins.add(new CrankySkin("EMERALD", Unlockable.UnlockMethod.FREE, playerClass));
+        skins.add(new CrankySkin("COBALT", Unlockable.UnlockMethod.FREE, playerClass));
+        skins.add(new CrankySkin("COPPER", Unlockable.UnlockMethod.FREE, playerClass));
+        skins.add(GetGhostSkin());
+        skins.add(new CrankySkin("HEARTSLAYER", Unlockable.UnlockMethod.ACHIEVEMENT, playerClass));
+    }
   
     public PlayerSkin GetDefaultSkin() {
-        return null;
+        return new CrankySkin("BASE", Unlockable.UnlockMethod.FREE, playerClass);
     }
 
     public PlayerSkin GetGhostSkin() {
-        return null;
+        return new CrankySkin("GHOST", Unlockable.UnlockMethod.ACHIEVEMENT, playerClass);
     }
 
     public CharacterEntity CreateNew() {
@@ -86,18 +95,28 @@ public class NetworkCranky extends NetworkCharPreset {
 
     @Override
     public void loadAnimation(String atlasUrl, String skeletonUrl, float scale) {
-        this.atlas = new TextureAtlas(Gdx.files.internal(atlasUrl));
+        atlas = new TextureAtlas(Gdx.files.internal(atlasUrl));
         SkeletonJson json = new SkeletonJson(this.atlas);
         json.setScale(Settings.renderScale / scale);
         SkeletonData skeletonData = json.readSkeletonData(Gdx.files.internal(skeletonUrl));
-        this.skeleton = new Skeleton(skeletonData);
-        this.skeleton.setColor(Color.WHITE);
-        this.stateData = new AnimationStateData(skeletonData);
-        this.state = new AnimationState(this.stateData);
+        skeleton = new Skeleton(skeletonData);
+        skeleton.setColor(Color.WHITE);
+        stateData = new AnimationStateData(skeletonData);
+        state = new AnimationState(this.stateData);
 
-        AnimationState.TrackEntry state = setStateAnimation(0, "Idle", true);
-        state.setTimeScale(TheClockwork.ANIMATION_SPEED);
+        ReflectionHacks.setPrivate(source, AbstractCreature.class, "skeleton", skeleton);
+        ReflectionHacks.setPrivate(source, AbstractCreature.class, "stateData", stateData);
+        source.state = new AnimationState(ReflectionHacks.getPrivate(source, AbstractCreature.class, "stateData"));
+        //ReflectionHacks.privateMethod(AbstractCreature.class, "loadAnimation", String.class, String.class, float.class).invoke(source, atlasUrl, skeletonUrl, scale);
+
+        AnimationState.TrackEntry track = setStateAnimation(0, "Idle", true);
+        track.setTimeScale(TheClockwork.ANIMATION_SPEED);
         setStateDataMix("Hit", "Idle", 0.5f);
+
+        ((TheClockwork)source).winderBone = skeleton.findBone("winder");
+        ((TheClockwork)source).handBone = skeleton.findBone("hand");
+        ((TheClockwork)source).drillBone = skeleton.findBone("drill");
+        ((TheClockwork)source).drillBone.setScale(0.0F);
     }
   
     @SpirePatch(clz=SpireTogetherMod.class, method="RegisterModdedChars", requiredModId="spireTogether")
@@ -149,7 +168,6 @@ public class NetworkCranky extends NetworkCharPreset {
     public static class AddNameplate {
         public static void Postfix() {
             UIElements.Nameplates.nameplates.add(nameplate);
-            System.out.println(nameplate.GetUUID());
         }
     }
 }

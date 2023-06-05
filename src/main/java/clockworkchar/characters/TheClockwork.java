@@ -52,7 +52,7 @@ public class TheClockwork extends CustomPlayer {
             modID + "Resources/images/char/mainChar/orb/empty.png",
             modID + "Resources/images/char/mainChar/orb/empty.png",};
     public static final float[] orbRotationValues = new float[]{0.0F, 0.0F, 32.0F, 0.0F, 0.0F};
-    private static final Float SIZE_SCALE = 1.2F;
+    public static final Float SIZE_SCALE = 1.2F;
     public static final Float ANIMATION_SPEED = 0.8F;
     static final String ID = makeID("TheClockwork");
     public static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
@@ -60,9 +60,7 @@ public class TheClockwork extends CustomPlayer {
     static final String[] NAMES = characterStrings.NAMES;
     static final String[] TEXT = characterStrings.TEXT;
     
-    public Bone winderBone;
-    public Bone handBone;
-    public Bone drillBone;
+    public Bone winderBone, handBone, drillBone;
 
     public TheClockwork(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", orbRotationValues), new SpineAnimation(modID + "Resources/images/char/mainChar/cranky.atlas", modID + "Resources/images/char/mainChar/cranky.json", SIZE_SCALE));
@@ -71,26 +69,27 @@ public class TheClockwork extends CustomPlayer {
                 SHOULDER2,
                 CORPSE,
                 getLoadout(), -5.0F, -10.0F, 172.0F, 268.0F, new EnergyManager(3));
-        
-        winderBone = this.skeleton.findBone("winder");
-        handBone = this.skeleton.findBone("hand");
-        drillBone = this.skeleton.findBone("drill");
-        drillBone.setScale(0.0F);
 
-
+        setupAnimation();
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 240.0F * Settings.scale);
+    }
 
+    public void setupAnimation() {
+        winderBone = skeleton.findBone("winder");
+        handBone = skeleton.findBone("hand");
+        drillBone = skeleton.findBone("drill");
+        drillBone.setScale(0.0F);
         
-        AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
-        this.stateData.setMix("Hit", "Idle", 0.5F);
+        AnimationState.TrackEntry e = state.setAnimation(0, "Idle", true);
+        stateData.setMix("Hit", "Idle", 0.5F);
         e.setTimeScale(ANIMATION_SPEED);
     }
 
     public void damage(DamageInfo info) {
-        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output - this.currentBlock > 0) {
-            AnimationState.TrackEntry e = this.state.setAnimation(0, "Hit", false);
-            AnimationState.TrackEntry e2 = this.state.addAnimation(0, "Idle", true, 0.0F);
+        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.output - currentBlock > 0) {
+            AnimationState.TrackEntry e = state.setAnimation(0, "Hit", false);
+            AnimationState.TrackEntry e2 = state.addAnimation(0, "Idle", true, 0.0F);
             e.setTimeScale(ANIMATION_SPEED);
             e2.setTimeScale(ANIMATION_SPEED);
         }
@@ -100,9 +99,7 @@ public class TheClockwork extends CustomPlayer {
 
     @Override
     public CharSelectInfo getLoadout() {
-        return new CharSelectInfo(NAMES[0], TEXT[0],
-                75, 75, 0, 99, 5, this, getStartingRelics(),
-                getStartingDeck(), false);
+        return new CharSelectInfo(NAMES[0], TEXT[0], 75, 75, 0, 99, 5, this, getStartingRelics(), getStartingDeck(), false);
     }
 
     @Override
