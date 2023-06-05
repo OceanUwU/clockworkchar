@@ -13,7 +13,7 @@ public class Salvage extends AbstractEasyCard {
     public final static String ID = makeID("Salvage");
 
     public Salvage() {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = 10;
         showDequipValue = true;
     }

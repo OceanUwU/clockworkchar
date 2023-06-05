@@ -147,7 +147,7 @@
   },
   "${ModID}:GreasedCogs": {
     "NAME": "Greased Cogs",
-    "DESCRIPTION": "Next turn, ${ModID}:Winding_Up provides !M! times as much charge.",
+    "DESCRIPTION": "Next turn, ${ModID}:Winding_Up provides twice as much charge.",
     "UPGRADE_DESCRIPTION": "Next turn, ${ModID}:Winding_Up provides thrice as much charge."
   },
   "${ModID}:Disorient": {
@@ -217,7 +217,7 @@
     "NAME": "Recursion",
     "DESCRIPTION": "Retain. Deal damage equal to !M! times the turn number. Exhaust. NL ${ModID}:Part: Deal damage to a random enemy equal to the turn number.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Hits !M! times.)"
+      " NL (Deals !D! damage.)"
     ]
   },
   "${ModID}:Reinforce": {
@@ -242,7 +242,7 @@
     "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Attune all cards in your hand for the rest of combat."
   },
   "${ModID}:Teddy": {
-    "NAME": "Teddy",
+    "NAME": "Teddy Bear",
     "DESCRIPTION": "Gain !B! Block. NL Can be ${ModID}:Attuned at campfires any number of times."
   },
   "${ModID}:QuickFix": {
@@ -325,7 +325,7 @@
   },
   "${ModID}:GearRatio": {
     "NAME": "Fool Me Twice",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Double this card's damage this combat."
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Double this card's damage and increase its ${ModID}:Spin cost by !M! this combat."
   },
   "${ModID}:Toolerang": {
     "NAME": "Toolerang",

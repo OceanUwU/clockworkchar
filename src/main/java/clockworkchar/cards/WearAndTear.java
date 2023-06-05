@@ -1,7 +1,6 @@
 package clockworkchar.cards;
 
 import clockworkchar.ClockworkChar;
-import clockworkchar.actions.LetGoAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;

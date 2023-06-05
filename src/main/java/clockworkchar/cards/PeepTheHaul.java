@@ -1,6 +1,5 @@
 package clockworkchar.cards;
 
-import clockworkchar.actions.UseToolAction;
 import clockworkchar.powers.AbstractEasyPower;
 import clockworkchar.powers.BatteryPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

@@ -16,13 +16,17 @@ public class GearRatio extends AbstractEasyCard {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = 8;
         baseSpinAmount = spinAmount = 8;
+        baseMagicNumber = magicNumber = 4;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
-        atb(new SpinAction(baseSpinAmount, spun -> {
-            if (spun)
+        atb(new SpinAction(spinAmount, spun -> {
+            if (spun) {
+                baseSpinAmount += magicNumber;
+                spinAmount = baseSpinAmount;
                 att(new ModifyDamageAction(this.uuid, this.baseDamage));
+            }
         }));
     }
 

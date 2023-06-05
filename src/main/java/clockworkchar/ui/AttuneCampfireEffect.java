@@ -4,11 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
-import com.evacipated.cardcrawl.mod.stslib.patches.cardInterfaces.BranchingUpgradesPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -19,8 +17,8 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
+import com.megacrit.cardcrawl.ui.buttons.CancelButton;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
 import basemod.ReflectionHacks;
@@ -74,7 +72,7 @@ public class AttuneCampfireEffect extends AbstractGameEffect {
     }
 
     public void update() {
-        if (!AbstractDungeon.isScreenUp) {
+        if (!AbstractDungeon.isScreenUp || !AttuningField.attuning.get(AbstractDungeon.gridSelectScreen)) {
             duration -= Gdx.graphics.getDeltaTime();
             if (duration > 1.0f)
                 color.a = Interpolation.fade.apply(1f, 0f, (duration - 1.0f) * 2f);
@@ -87,6 +85,7 @@ public class AttuneCampfireEffect extends AbstractGameEffect {
                     AbstractCard copy = c.makeStatEquivalentCopy();
                     AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(copy));
                     AbstractDungeon.effectsQueue.add(new AttuneCardEffect(copy));
+                    AttuningField.attuning.set(AbstractDungeon.gridSelectScreen, false);
                 }
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
                 ((RestRoom)AbstractDungeon.getCurrRoom()).fadeIn();

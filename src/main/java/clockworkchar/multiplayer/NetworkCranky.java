@@ -39,9 +39,6 @@ public class NetworkCranky extends NetworkCharPreset {
     public static final String REQUEST_CHANGE_COGWHEELS = "cranky_cogwheels";
     public static Nameplate nameplate = new Nameplate("reward_cranky", Color.valueOf("2B2B2B"), Color.valueOf("2B2B2B"), Unlockable.UnlockMethod.ACHIEVEMENT);
 
-    public boolean showHand = true;
-    public boolean showDrill = false;
-
     public NetworkCranky() {
         super(new TheClockwork(TheClockwork.characterStrings.NAMES[1], TheClockwork.Enums.THE_CLOCKWORK));
         energyOrb = new CrankyEnergyOrb();

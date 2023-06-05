@@ -5,7 +5,6 @@ import clockworkchar.cards.Inertia;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static clockworkchar.ClockworkChar.makeID;
 import java.util.function.Consumer;

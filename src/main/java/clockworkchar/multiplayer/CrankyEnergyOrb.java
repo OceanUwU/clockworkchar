@@ -16,7 +16,7 @@ public class CrankyEnergyOrb extends CustomizableEnergyOrbCustom {
 
     public CrankyEnergyOrb() {
         super(TheClockwork.orbTextures, makeImagePath("char/mainChar/orb/vfx.png"), TheClockwork.orbRotationValues);
-        winder = new Winder((float)ReflectionHacks.getPrivateStatic(CustomizableEnergyOrbCustom.class, "ORB_IMG_SCALE") / Settings.scale, false, false, false, FontHelper.energyNumFontRed);
+        winder = new Winder((float)ReflectionHacks.getPrivateStatic(CustomizableEnergyOrbCustom.class, "ORB_IMG_SCALE") / Settings.scale, false, false, false, false, FontHelper.energyNumFontRed);
     }
 
     @Override

@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.helpers.TipHelper;
+import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import spireTogether.SpireTogetherMod;
 import spireTogether.network.P2P.P2PManager;
 
@@ -53,6 +54,8 @@ public class Winder {
     private boolean showTooltip = false;
     private boolean attachToEnergyOrb = false;
     private boolean displayCogwheels = false;
+    private boolean draggable = false;
+    private float startX, startY, offsetX, offsetY;
 
     public boolean shouldRender = false;
     public int charge = 0;
@@ -61,16 +64,17 @@ public class Winder {
     private BitmapFont font;
 
     public Winder() {
-        this(1.0f, true, true, true, null);
+        this(1.0f, true, true, true, true, null);
     }
 
-    public Winder(float scale, boolean showTooltip, boolean attachToEnergyOrb, boolean displayCogwheels, BitmapFont font) {
+    public Winder(float scale, boolean showTooltip, boolean attachToEnergyOrb, boolean displayCogwheels, boolean draggable, BitmapFont font) {
         this.scale = scale;
         hb.width *= scale * Settings.scale;
         hb.height *= scale * Settings.scale;
         this.showTooltip = showTooltip;
         this.attachToEnergyOrb = attachToEnergyOrb;
         this.displayCogwheels = displayCogwheels;
+        this.draggable = draggable;
         this.font = font;
     }
 
@@ -94,14 +98,34 @@ public class Winder {
         if (cogwheelsFontScale != COGWHEELS_FONT_SCALE)
             cogwheelsFontScale = MathHelper.scaleLerpSnap(cogwheelsFontScale, COGWHEELS_FONT_SCALE); 
         
-        offset = - halfSize * scale * Settings.scale;
         if (attachToEnergyOrb) {
-            x = AbstractDungeon.overlayMenu.energyPanel.current_x + offset;
-            y = AbstractDungeon.overlayMenu.energyPanel.current_y + 150.0F * Settings.scale + offset;
+            x = AbstractDungeon.overlayMenu.energyPanel.current_x + offset + offsetX;
+            y = AbstractDungeon.overlayMenu.energyPanel.current_y + 150.0F * Settings.scale + offset + offsetY;
         }
         hb.update(x, y);
+        if (hb.hovered && InputHelper.justClickedLeft) {
+            startX = InputHelper.mX;
+            startY = InputHelper.mY;
+            hb.clickStarted = true;
+        } else if (hb.hovered && InputHelper.justReleasedClickRight) {
+            offsetX = 0;
+            offsetY = 0;
+            hb.clickStarted = false;
+            hb.clicked = false;
+        } else if (!InputHelper.isMouseDown) {
+            hb.clickStarted = false;
+            hb.clicked = false;
+        }
+        if (hb.clickStarted) {
+            offsetX += InputHelper.mX - startX;
+            offsetY += InputHelper.mY - startY;
+            hb.translate(x + offsetX, y + offsetY);
+            startX = InputHelper.mX;
+            startY = InputHelper.mY;
+        }
         if (showTooltip && hb.hovered)
-            TipHelper.renderGenericTip(50.0F * Settings.scale, y + 275.0F * Settings.scale, TEXT[0], TEXT[1]);
+            TipHelper.renderGenericTip(50.0F * Settings.scale + offsetX, y + 275.0F * Settings.scale, TEXT[0], TEXT[1]);
+            offset = - halfSize * scale * Settings.scale;
     }
 
     public void render(SpriteBatch sb) {

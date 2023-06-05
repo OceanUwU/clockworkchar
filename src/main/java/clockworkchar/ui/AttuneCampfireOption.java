@@ -3,6 +3,7 @@ package clockworkchar.ui;
 import basemod.ReflectionHacks;
 import clockworkchar.characters.TheClockwork;
 import clockworkchar.patches.AttunedPatches;
+import clockworkchar.ui.AttuneCampfireEffect.AttuningField;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -48,13 +49,14 @@ public class AttuneCampfireOption extends AbstractCampfireOption {
     public void useOption() {
         setUsable();
         if (usable)
-            AbstractDungeon.effectList.add(new AttuneCampfireEffect());
+            AbstractDungeon.effectList.add(0, new AttuneCampfireEffect());
     }
 
     @SpirePatch(clz=CampfireUI.class, method="initializeButtons")
     public static class AddOption {
         @SpireInsertPatch(loc=97)
         public static void Insert(CampfireUI __instance) {
+            AttuningField.attuning.set(AbstractDungeon.gridSelectScreen, false);
             if (AbstractDungeon.player instanceof TheClockwork)
                 ((ArrayList<AbstractCampfireOption>)ReflectionHacks.getPrivate(__instance, CampfireUI.class, "buttons")).add(new AttuneCampfireOption());
         }
