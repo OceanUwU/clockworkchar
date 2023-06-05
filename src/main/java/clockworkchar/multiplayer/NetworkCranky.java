@@ -30,6 +30,7 @@ import spireTogether.network.P2P.P2PPlayer;
 import spireTogether.skins.PlayerSkin;
 import spireTogether.ui.elements.presets.Nameplate;
 import spireTogether.ui.elements.presets.PlayerInfoBox;
+import spireTogether.util.BundleManager;
 import spireTogether.util.NetworkMessage;
 import spireTogether.util.UIElements;
 
@@ -57,6 +58,7 @@ public class NetworkCranky extends NetworkCharPreset {
         skins.add(new CrankySkin("EMERALD", Unlockable.UnlockMethod.FREE, playerClass));
         skins.add(new CrankySkin("COBALT", Unlockable.UnlockMethod.FREE, playerClass));
         skins.add(new CrankySkin("COPPER", Unlockable.UnlockMethod.FREE, playerClass));
+        skins.add(new CrankySkin("TWITCH", Unlockable.UnlockMethod.PROMOTION, playerClass).SetBundles(new String[] { BundleManager.STREAMER }));
         skins.add(GetGhostSkin());
         skins.add(new CrankySkin("HEARTSLAYER", Unlockable.UnlockMethod.ACHIEVEMENT, playerClass));
     }
@@ -66,7 +68,7 @@ public class NetworkCranky extends NetworkCharPreset {
     }
 
     public PlayerSkin GetGhostSkin() {
-        return new CrankySkin("GHOST", Unlockable.UnlockMethod.ACHIEVEMENT, playerClass);
+        return new CrankySkin("GHOST", Unlockable.UnlockMethod.ACHIEVEMENT, playerClass).SetBundles(new String[] { BundleManager.GHOST });
     }
 
     public CharacterEntity CreateNew() {
