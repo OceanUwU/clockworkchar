@@ -58,6 +58,7 @@ public class NetworkCranky extends NetworkCharPreset {
         skins.add(new CrankySkin("EMERALD", Unlockable.UnlockMethod.FREE, playerClass));
         skins.add(new CrankySkin("COBALT", Unlockable.UnlockMethod.FREE, playerClass));
         skins.add(new CrankySkin("COPPER", Unlockable.UnlockMethod.FREE, playerClass));
+        skins.add(new CrankySkin("CHIBI", Unlockable.UnlockMethod.FREE, playerClass).SetScaleModifier(TheClockwork.SIZE_SCALE * 2f));
         skins.add(new CrankySkin("TWITCH", Unlockable.UnlockMethod.PROMOTION, playerClass).SetBundles(new String[] { BundleManager.STREAMER }));
         skins.add(GetGhostSkin());
         skins.add(new CrankySkin("HEARTSLAYER", Unlockable.UnlockMethod.ACHIEVEMENT, playerClass));

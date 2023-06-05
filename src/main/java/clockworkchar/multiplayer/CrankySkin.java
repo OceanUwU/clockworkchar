@@ -1,5 +1,8 @@
 package clockworkchar.multiplayer;
 
+import basemod.ReflectionHacks;
+import clockworkchar.characters.TheClockwork;
+import com.badlogic.gdx.Gdx;
 import com.esotericsoftware.spine.Bone;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -10,9 +13,6 @@ import spireTogether.skins.AtlasSkin;
 
 import static clockworkchar.ClockworkChar.makeImagePath;
 
-import basemod.ReflectionHacks;
-import clockworkchar.characters.TheClockwork;
-
 public class CrankySkin extends AtlasSkin {
     public Bone winderBone, handBone, drillBone;
 
@@ -22,14 +22,12 @@ public class CrankySkin extends AtlasSkin {
     }
 
     public void LoadResources() {
+        super.LoadResources();
         shoulderIMG = makeImagePath("char/mainChar/shoulder.png");
         shoulder2IMG = makeImagePath("char/mainChar/shoulder2.png");
         corpseIMG = makeImagePath("char/mainChar/corpse.png");
-        jsonLoc = makeImagePath("char/mainChar/cranky.json");
-        if (ID == "BASE")
-            atlasLoc = makeImagePath("char/mainChar/cranky.atlas");
-        else
-            atlasLoc = skinResourceFolder+"cranky.atlas";
+        jsonLoc = Gdx.files.internal(this.skinResourceFolder + "cranky.json").exists() ? (this.skinResourceFolder + "cranky.json") : makeImagePath("char/mainChar/cranky.json");
+        atlasLoc = Gdx.files.internal(this.skinResourceFolder + "cranky.atlas").exists() ? (this.skinResourceFolder + "cranky.atlas") : makeImagePath("char/mainChar/cranky.atlas");
     }
 
     public boolean LoadSkin(CharacterEntity e, float scaleMult) {
