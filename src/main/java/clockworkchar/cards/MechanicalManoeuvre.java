@@ -14,7 +14,7 @@ public class MechanicalManoeuvre extends AbstractEasyCard {
 
     public MechanicalManoeuvre() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseBlock = 7;
+        baseBlock = 8;
         baseSpinAmount = spinAmount = 4;
     }
 
