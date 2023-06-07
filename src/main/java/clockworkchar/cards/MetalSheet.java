@@ -10,8 +10,8 @@ public class MetalSheet extends AbstractEasyCard {
 
     public MetalSheet() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseBlock = 7;
-        baseSecondBlock = secondBlock = 2;
+        baseBlock = 8;
+        baseSecondBlock = secondBlock = 4;
         part = true;
     }
 
@@ -25,6 +25,6 @@ public class MetalSheet extends AbstractEasyCard {
 
     public void upp() {
         upgradeBlock(3);
-        upgradeSecondBlock(2);
+        upgradeSecondBlock(1);
     }
 }

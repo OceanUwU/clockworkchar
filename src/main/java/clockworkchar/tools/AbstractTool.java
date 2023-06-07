@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -50,7 +51,7 @@ public abstract class AbstractTool {
         applyPowers();
         color.a = 0.0f;
         this.texture = new TextureRegion(texture);
-        if (AbstractDungeon.player != null) {
+        if (CardCrawlGame.isInARun()) {
             cX = 120.0f * Settings.scale + AbstractDungeon.player.drawX;
             cY = 120.0f * Settings.scale + AbstractDungeon.player.drawY + AbstractDungeon.player.hb_h / 2.0F;
             hb = new Hitbox(cX - SIZE * Settings.scale / 2.0F, cY - SIZE * Settings.scale / 2.0F, SIZE * Settings.scale, SIZE * Settings.scale);
@@ -76,7 +77,7 @@ public abstract class AbstractTool {
     }
 
     public void applyPowers() {
-        if (AbstractDungeon.player != null && AbstractDungeon.player.hasPower(ProficiencyPower.POWER_ID))
+        if (CardCrawlGame.isInARun() && AbstractDungeon.player.hasPower(ProficiencyPower.POWER_ID))
             passiveAmount += AbstractDungeon.player.getPower(ProficiencyPower.POWER_ID).amount;
         updateDescription();
     };

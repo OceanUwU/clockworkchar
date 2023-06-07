@@ -14,9 +14,13 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
+import spireTogether.SpireTogetherMod;
+import spireTogether.patches.network.CreatureSyncPatches;
 
 import static clockworkchar.ClockworkChar.makeID;
 import static clockworkchar.util.Wiz.*;
+
+import clockworkchar.multiplayer.ModManager;
 
 public class ScatterNails extends AbstractEasyCard {
     public final static String ID = makeID("ScatterNails");
@@ -41,6 +45,7 @@ public class ScatterNails extends AbstractEasyCard {
     public static class NailsPower extends AbstractEasyPower implements HealthBarRenderPower {
         public static String POWER_ID = makeID("Nails");
         private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        private static boolean sync;
     
         public NailsPower(AbstractCreature owner, int amount) {
             super(POWER_ID, powerStrings.NAME, PowerType.DEBUFF, false, owner, amount);
@@ -49,7 +54,23 @@ public class ScatterNails extends AbstractEasyCard {
         public void atStartOfTurn() {
             if ((AbstractDungeon.getCurrRoom()).phase == AbstractRoom.RoomPhase.COMBAT && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
                 flashWithoutSound();
+                atb(new AbstractGameAction() {
+                     public void update() {
+                        isDone = true;
+                        if (ModManager.isMultiplayerLoaded && SpireTogetherMod.isConnected) {
+                            sync = CreatureSyncPatches.syncMonsterDamaged;
+                            CreatureSyncPatches.syncMonsterDamaged = false;
+                        }
+                     }
+                });
                 atb(new LoseHPAction(this.owner, AbstractDungeon.player, this.amount, AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+                atb(new AbstractGameAction() {
+                     public void update() {
+                        isDone = true;
+                        if (ModManager.isMultiplayerLoaded && SpireTogetherMod.isConnected)
+                            CreatureSyncPatches.syncMonsterDamaged = sync;
+                     }
+                });
             }
         }
         

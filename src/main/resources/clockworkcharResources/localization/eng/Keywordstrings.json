@@ -90,14 +90,14 @@
     "NAMES": [
       "spanner"
     ],
-    "DESCRIPTION": "Tool. Deals damage to random enemies."
+    "DESCRIPTION": "Tool. Deals #b??? damage to random enemies."
   },
   {
     "PROPER_NAME": "Screwdriver",
     "NAMES": [
       "screwdriver"
     ],
-    "DESCRIPTION": "Tool. Gains #yBlock."
+    "DESCRIPTION": "Tool. Gains #b??? #yBlock."
   },
   {
     "PROPER_NAME": "Allen Key",
@@ -105,14 +105,14 @@
       "allen key",
       "allen_key"
     ],
-    "DESCRIPTION": "Tool. #yWinds #yUp."
+    "DESCRIPTION": "Tool. #yWinds #yUp #b???."
   },
   {
     "PROPER_NAME": "Torch",
     "NAMES": [
       "torch"
     ],
-    "DESCRIPTION": "Tool. Reduces the #yStrength of all enemies for the turn."
+    "DESCRIPTION": "Tool. Reduces the #yStrength of all enemies by #b??? for the turn."
   },
   {
     "PROPER_NAME": "Proficiency",

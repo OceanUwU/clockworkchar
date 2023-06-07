@@ -9,6 +9,7 @@ import clockworkchar.cards.AbstractEasyCard;
 import clockworkchar.cards.cardvars.*;
 import clockworkchar.characters.TheClockwork;
 import clockworkchar.consolecommands.*;
+import clockworkchar.helpers.ToolLibrary;
 import clockworkchar.patches.AttunedPatches;
 import clockworkchar.potions.*;
 import clockworkchar.relics.AbstractEasyRelic;
@@ -173,12 +174,16 @@ public class ClockworkChar implements
 
     @Override
     public void receiveEditKeywords() {
+        ToolLibrary.initialize();
+
         Gson gson = new Gson();
         String json = Gdx.files.internal(modID + "Resources/localization/eng/Keywordstrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
 
         if (keywords != null) {
             for (Keyword keyword : keywords) {
+                if (keyword.DESCRIPTION.contains("???"))
+                    keyword.DESCRIPTION = keyword.DESCRIPTION.replace("???", Integer.toString(ToolLibrary.getTool(makeID(keyword.PROPER_NAME.replaceAll(" ", ""))).passiveAmount));
                 BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }

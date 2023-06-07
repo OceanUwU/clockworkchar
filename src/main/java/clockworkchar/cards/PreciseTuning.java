@@ -17,7 +17,7 @@ public class PreciseTuning extends AbstractEasyCard {
 
     public PreciseTuning() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 5;
+        baseDamage = 6;
         baseMagicNumber = magicNumber = 3;
     }
 

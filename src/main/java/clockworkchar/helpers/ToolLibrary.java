@@ -1,25 +1,21 @@
 package clockworkchar.helpers;
 
-import basemod.BaseMod;
-import basemod.interfaces.PostInitializeSubscriber;
 import clockworkchar.tools.*;
-import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import java.util.HashMap;
 
-@SpireInitializer
-public class ToolLibrary implements PostInitializeSubscriber {
+public class ToolLibrary {
     public static HashMap<String, AbstractTool> tools = new HashMap<>();
 
     public static void initialize() {
-        BaseMod.subscribe(new ToolLibrary());
-    };
-
-    public void receivePostInitialize() {
         add(new AllenKey());
         add(new Screwdriver());
         add(new Spanner());
         add(new Torch());
+    };
+
+    public static AbstractTool getTool(String id) {
+        return tools.get(id);
     }
 
     public static AbstractTool getRandomTool() {

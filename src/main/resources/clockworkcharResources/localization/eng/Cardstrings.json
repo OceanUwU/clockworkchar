@@ -214,7 +214,7 @@
     ]
   },
   "${ModID}:RecursionMechanism": {
-    "NAME": "Recursion",
+    "NAME": "Recursion Mechanism",
     "DESCRIPTION": "Retain. Deal damage equal to !M! times the turn number. Exhaust. NL ${ModID}:Part: Deal damage to a random enemy equal to the turn number.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
