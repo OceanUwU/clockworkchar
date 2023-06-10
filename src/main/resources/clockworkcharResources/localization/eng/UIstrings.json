@@ -2,7 +2,7 @@
   "${ModID}:WinderElement": {
     "TEXT": [
       "Winder",
-      "Your current charge count. NL Some cards need charge to perform effects."
+      "Your current Charge count. NL Some cards need Charge to perform effects. NL The bottom number is your current #yCogwheel count, which grants Charge at the start of your turn. "
     ]
   },
   "${ModID}:MachinicModificationAction": {

@@ -27,7 +27,7 @@ public class Spanner extends AbstractTool {
     private static float SPIN_SPEED = 40.0F;
     private static float FLY_SPIN_SPEED = 280.0F;
 
-    private static int DAMAGE = 3;
+    private static int DAMAGE = 2;
 
     private boolean flyingTowardEnemy = false;
 
@@ -36,16 +36,17 @@ public class Spanner extends AbstractTool {
     }
 
     public void use() {
-        att(new ChuckSpannerAction(this, passiveAmount));
+        att(new ChuckSpannerAction(this, damage));
+        blckTop();
     }
 
-    public void applyPowers() {
-        passiveAmount = DAMAGE;
-        super.applyPowers();
+    @Override
+    protected int getDamage() {
+        return super.getDamage() + DAMAGE;
     }
 
     public void updateDescription() {
-        description = orbStrings.DESCRIPTION[0] + passiveAmount + orbStrings.DESCRIPTION[1];
+        description = orbStrings.DESCRIPTION[0] + damage + orbStrings.DESCRIPTION[1] + block + orbStrings.DESCRIPTION[2];
     }
 
     public void updateAnimation() {

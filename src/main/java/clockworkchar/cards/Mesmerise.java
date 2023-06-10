@@ -19,6 +19,7 @@ public class Mesmerise extends AbstractEasyCard {
 
     public Mesmerise() {
         super(ID, 3, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+        baseBlock = 10;
         baseMagicNumber = magicNumber = 2;
         baseSecondMagic = secondMagic = 1;
         exhaust = true;
@@ -29,6 +30,7 @@ public class Mesmerise extends AbstractEasyCard {
             applyToEnemy(q, new WeakPower(q, magicNumber, false));
             applyToEnemy(q, new DizzyPower(q, secondMagic));
         });
+        blck();
     }
 
     public void upp() {

@@ -14,11 +14,12 @@ public class EmergencyStop extends AbstractEasyCard {
     public EmergencyStop() {
         super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = 28;
+        baseMagicNumber = magicNumber = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (m.currentHealth > damage)
-            dmg(m, AbstractGameAction.AttackEffect.SMASH);
+        damage = Math.min(damage, m.currentHealth - magicNumber);
+        dmg(m, AbstractGameAction.AttackEffect.SMASH);
         atb(new PressEndTurnButtonAction());
     }
 

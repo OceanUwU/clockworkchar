@@ -19,15 +19,15 @@ public class Resonance extends AbstractEasyCard implements StartupCard {
 
     public Resonance() {
         super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseBlock = 30;
+        baseBlock = 25;
         baseSpinAmount = spinAmount = 1;
+        baseMagicNumber = magicNumber = 2;
         isEthereal = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new SpinAction(spinAmount, spun -> {}));
-        if (++plays >= 3) {
-            plays = 0;
+        if (++plays > magicNumber) {
             atb(new AbstractGameAction() {
                 public void update() {
                     isDone = true;

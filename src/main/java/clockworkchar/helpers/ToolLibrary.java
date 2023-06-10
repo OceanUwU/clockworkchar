@@ -18,8 +18,16 @@ public class ToolLibrary {
         return tools.get(id);
     }
 
+    public static AbstractTool getRandomTool(AbstractTool exclude) {
+        while (true) {
+            AbstractTool tool = ((AbstractTool)tools.values().toArray()[AbstractDungeon.cardRandomRng.random(tools.size() - 1)]);
+            if (exclude == null || tool.getClass() != exclude.getClass())
+                return tool.makeCopy();
+        }
+    }
+
     public static AbstractTool getRandomTool() {
-        return ((AbstractTool)tools.values().toArray()[AbstractDungeon.cardRandomRng.random(tools.size() - 1)]).makeCopy();
+        return getRandomTool(null);
     }
 
     public static void add(AbstractTool tool) {

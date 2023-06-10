@@ -12,8 +12,8 @@ public class Reinforce extends AbstractEasyCard {
     public final static String ID = makeID("Reinforce");
 
     public Reinforce() {
-        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 5;
+        super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+        baseMagicNumber = magicNumber = 4;
         exhaust = true;
     }
 

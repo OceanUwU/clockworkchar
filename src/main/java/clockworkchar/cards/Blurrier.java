@@ -12,16 +12,14 @@ public class Blurrier extends AbstractEasyCard {
 
     public Blurrier() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 6;
+        baseBlock = 7;
         baseSpinAmount = spinAmount = 4;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
         atb(new SpinAction(spinAmount, spun -> {
-            if (spun) {
-                blckTop();
-            }
+            if (spun) blckTop();
         }));
     }
 

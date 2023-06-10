@@ -2,9 +2,11 @@ package clockworkchar.actions;
 
 import clockworkchar.ClockworkChar;
 import clockworkchar.cards.Inertia;
+import clockworkchar.powers.AbstractEasyPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static clockworkchar.ClockworkChar.makeID;
 import java.util.function.Consumer;
@@ -27,8 +29,9 @@ public class LetGoAction extends AbstractGameAction {
         if (chargeUsed > 0) {
             if (sound)
                 CardCrawlGame.sound.play(makeID("SPIN"));
-            if (AbstractDungeon.player.hasPower(Inertia.InertiaPower.POWER_ID))
-                ((Inertia.InertiaPower)AbstractDungeon.player.getPower(Inertia.InertiaPower.POWER_ID)).onGainCCharge(-amount);
+            for (AbstractPower power: AbstractDungeon.player.powers)
+                if (power instanceof AbstractEasyPower)
+                    ((AbstractEasyPower)power).onSpin(chargeUsed);
         }
         cb.accept(chargeUsed);
         isDone = true;

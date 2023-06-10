@@ -13,6 +13,7 @@ import clockworkchar.helpers.ToolLibrary;
 import clockworkchar.patches.AttunedPatches;
 import clockworkchar.potions.*;
 import clockworkchar.relics.AbstractEasyRelic;
+import clockworkchar.tools.AbstractTool;
 import clockworkchar.ui.ToolSlot;
 import clockworkchar.ui.Winder;
 import com.badlogic.gdx.Gdx;
@@ -182,8 +183,12 @@ public class ClockworkChar implements
 
         if (keywords != null) {
             for (Keyword keyword : keywords) {
-                if (keyword.DESCRIPTION.contains("???"))
-                    keyword.DESCRIPTION = keyword.DESCRIPTION.replace("???", Integer.toString(ToolLibrary.getTool(makeID(keyword.PROPER_NAME.replaceAll(" ", ""))).passiveAmount));
+                if (keyword.DESCRIPTION.contains("!D!")) {
+                    AbstractTool tool = ToolLibrary.getTool(makeID(keyword.PROPER_NAME.replaceAll(" ", "")));
+                    keyword.DESCRIPTION = keyword.DESCRIPTION.replace("!D!", Integer.toString(tool.damage));
+                    keyword.DESCRIPTION = keyword.DESCRIPTION.replace("!B!", Integer.toString(tool.block));
+                    keyword.DESCRIPTION = keyword.DESCRIPTION.replace("!M!", Integer.toString(tool.passiveAmount));
+                }
                 BaseMod.addKeyword(modID, keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
             }
         }

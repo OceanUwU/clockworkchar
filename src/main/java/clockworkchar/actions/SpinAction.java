@@ -3,12 +3,14 @@ package clockworkchar.actions;
 import clockworkchar.ClockworkChar;
 import clockworkchar.cards.AbstractEasyCard;
 import clockworkchar.cards.Inertia;
+import clockworkchar.powers.AbstractEasyPower;
 import clockworkchar.powers.BatteryPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static clockworkchar.ClockworkChar.makeID;
 import static clockworkchar.util.Wiz.att;
@@ -55,8 +57,9 @@ public class SpinAction extends AbstractGameAction {
             for (AbstractCard c : AbstractDungeon.player.discardPile.group)
                 if (c instanceof AbstractEasyCard)
                     ((AbstractEasyCard)c).triggerInDiscardPileOnSpin(); 
-            if (AbstractDungeon.player.hasPower(Inertia.InertiaPower.POWER_ID))
-                ((Inertia.InertiaPower)AbstractDungeon.player.getPower(Inertia.InertiaPower.POWER_ID)).onGainCCharge(-amount);
+            for (AbstractPower power: AbstractDungeon.player.powers)
+                if (power instanceof AbstractEasyPower)
+                    ((AbstractEasyPower)power).onSpin(amount);
         }
         isDone = true;
     }

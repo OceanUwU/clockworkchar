@@ -60,7 +60,7 @@ public class PerpetualForm extends AbstractEasyCard {
     public static class PerpetualFormPower extends AbstractEasyPower implements AlternateCardCostModifier {
         public static String POWER_ID = makeID("PerpetualFormPower");
         private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
-        private static boolean perpetual = false;
+        public static boolean perpetual = false;
 
         public PerpetualFormPower(AbstractCreature owner, int amount) {
             super(POWER_ID, powerStrings.NAME, PowerType.BUFF, false, owner, amount);
@@ -79,6 +79,10 @@ public class PerpetualForm extends AbstractEasyCard {
         }
 
         public void onVictory() {
+            perpetual = false;
+        }
+
+        public void onDeath() {
             perpetual = false;
         }
 

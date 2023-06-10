@@ -10,13 +10,17 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import static clockworkchar.ClockworkChar.makeID;
 import static clockworkchar.ClockworkChar.makeCardPath;
+import static clockworkchar.util.Wiz.*;
+
+import clockworkchar.actions.WindUpAction;
 
 public class JackInABox extends AbstractEasyCard {
     public final static String ID = makeID("JackInABox");
 
     public JackInABox() {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
-        baseDamage = 11;
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        baseDamage = 9;
+        baseMagicNumber = magicNumber = 3;
     }
 
     @Override
@@ -30,11 +34,13 @@ public class JackInABox extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        randomDmg(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
+        atb(new WindUpAction(magicNumber));
+        dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
     }
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeDamage(3);
+        upgradeMagicNumber(2);
         loadCardImage(makeCardPath("JackInABoxPlus.png"));
     }
 }

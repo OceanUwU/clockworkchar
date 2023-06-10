@@ -13,8 +13,8 @@ public class Waddle extends AbstractEasyCard {
 
     public Waddle() {
         super(ID, 0, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
-        baseDamage = 5;
-        baseBlock = 4;
+        baseDamage = 7;
+        baseBlock = 6;
         baseSpinAmount = spinAmount = 4;
     }
 

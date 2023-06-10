@@ -13,7 +13,7 @@
   },
   "${ModID}:Twist": {
     "NAME": "Twist",
-    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL ${ModID}:Use. NL ${ModID}:Part: ${ModID}:Wind_Up !${ModID}:m2!."
+    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL ${ModID}:Actuate. NL ${ModID}:Part: ${ModID}:Wind_Up !${ModID}:m2!."
   },
   "${ModID}:Waddle": {
     "NAME": "Waddle",
@@ -25,7 +25,7 @@
   },
   "${ModID}:JackInABox": {
     "NAME": "Jack-in-a-Box",
-    "DESCRIPTION": "Deal !D! damage to a random enemy."
+    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL Deal !D! damage."
   },
   "${ModID}:Whirl": {
     "NAME": "Whirl",
@@ -33,7 +33,7 @@
   },
   "${ModID}:TwistingStrike": {
     "NAME": "Twisting Strike",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Wind_Up !M!."
+    "DESCRIPTION": "Deal !D! damage to a random enemy. NL Put a card from your discard pile into your hand."
   },
   "${ModID}:LetRip": {
     "NAME": "Let 'er Rip",
@@ -103,8 +103,8 @@
   },
   "${ModID}:Advance": {
     "NAME": "Advance",
-    "DESCRIPTION": "Draw !M! card. NL ${ModID}:Spin !${ModID}:s!: Gain [E] and an *Advance. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw !M! card. NL ${ModID}:Spin !${ModID}:s!: Gain [E] and an *Advance+. NL Exhaust."
+    "DESCRIPTION": "Draw !M! card. NL ${ModID}:Spin !${ModID}:s!: Gain [E] and add an *Advance into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw !M! card. NL ${ModID}:Spin !${ModID}:s!: Gain [E] and add an *Advance+ into your hand. NL Exhaust."
   },
   "${ModID}:Inertia": {
     "NAME": "Inertia",
@@ -129,7 +129,7 @@
   },
   "${ModID}:FlyingCogs": {
     "NAME": "Flying Cogs",
-    "DESCRIPTION": "Activate and discard all ${ModID}:Parts in your hand. NL Deal !D! damage for each card discarded."
+    "DESCRIPTION": "Activate and discard all ${ModID}:Parts in your hand. NL Deal !D! damage and draw a card for each card discarded."
   },
   "${ModID}:CrunchBattery": {
     "NAME": "Crunch Battery",
@@ -142,7 +142,7 @@
   },
   "${ModID}:Rewinder": {
     "NAME": "Rewinder",
-    "DESCRIPTION": "Unplayable ${ModID}:Part: NL ${ModID}:Spin !${ModID}:s! to Retain this and another card."
+    "DESCRIPTION": "Retain. NL Unplayable ${ModID}:Part: NL ${ModID}:Spin !${ModID}:s! to Retain another card."
   },
   "${ModID}:Efficiency": {
     "NAME": "Efficiency",
@@ -150,8 +150,7 @@
   },
   "${ModID}:GreasedCogs": {
     "NAME": "Greased Cogs",
-    "DESCRIPTION": "Next turn, ${ModID}:Winding_Up provides twice as much charge.",
-    "UPGRADE_DESCRIPTION": "Next turn, ${ModID}:Winding_Up provides thrice as much charge."
+    "DESCRIPTION": "Whenever you ${ModID}:Spin, gain !M! Block."
   },
   "${ModID}:Disorient": {
     "NAME": "Disorient",
@@ -159,7 +158,10 @@
   },
   "${ModID}:AsFarAsItGoes": {
     "NAME": "As Far as it Goes",
-    "DESCRIPTION": "${ModID}:Wind_Up !M!X. NL If X is at least 2, gain !B! Block."
+    "DESCRIPTION": "Gain !B! Block. NL Shuffle any number of cards from your discard pile into your draw pile.",
+    "EXTENDED_DESCRIPTION": [
+      "Select any number of cards to shuffle into your draw pile."
+    ]
   },
   "${ModID}:Reassemble": {
     "NAME": "Reassemble",
@@ -168,11 +170,11 @@
   },
   "${ModID}:RotationalChaos": {
     "NAME": "Rotational Chaos",
-    "DESCRIPTION": "Repeat !M! times: NL ${ModID}:Spin !${ModID}:s!: Play the top card of your draw pile."
+    "DESCRIPTION": "Add a *Sawblade into your hand. NL ${ModID}:Spin !${ModID}:s!: Play the top !M! cards of your draw pile."
   },
   "${ModID}:Mesmerise": {
     "NAME": "Mesmerise",
-    "DESCRIPTION": "Apply !M! Weak and !${ModID}:m2! ${ModID}:Dizzy to ALL enemies. NL Exhaust."
+    "DESCRIPTION": "Apply !M! Weak and !${ModID}:m2! ${ModID}:Dizzy to ALL enemies. NL Gain !B! Block. NL Exhaust."
   },
   "${ModID}:Rust": {
     "NAME": "Rust",
@@ -249,12 +251,12 @@
   },
   "${ModID}:QuickFix": {
     "NAME": "Quick Fix",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Use."
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Actuate."
   },
   "${ModID}:Mend": {
     "NAME": "Mend",
-    "DESCRIPTION": "${ModID}:Use. NL ${ModID}:Attune a card at random.",
-    "UPGRADE_DESCRIPTION": "${ModID}:Use. NL ${ModID}:Attune !${ModID}:m2! cards at random."
+    "DESCRIPTION": "${ModID}:Actuate. NL ${ModID}:Attune a card at random.",
+    "UPGRADE_DESCRIPTION": "${ModID}:Actuate. NL ${ModID}:Attune !${ModID}:m2! cards at random."
   },
   "${ModID}:HastySweep": {
     "NAME": "Hasty Sweep",
@@ -297,7 +299,7 @@
   },
   "${ModID}:EmergencyStop": {
     "NAME": "Emergency Stop",
-    "DESCRIPTION": "Deal !D! damage if the enemy has more than !D! HP. NL End your turn."
+    "DESCRIPTION": "Deal !D! damage. NL Cannot bring enemies below !M! HP. NL End your turn."
   },
   "${ModID}:PreciseTuning": {
     "NAME": "Precise Tuning",
@@ -305,8 +307,8 @@
   },
   "${ModID}:WormGear": {
     "NAME": "Worm Gear",
-    "DESCRIPTION": "Draw !M! card. If it's a ${ModID}:Part, activate it and repeat this.",
-    "UPGRADE_DESCRIPTION": "Draw !M! card. If it's a ${ModID}:Part, activate it !${ModID}:m2! times and repeat this."
+    "DESCRIPTION": "Draw 1 card. If it's a ${ModID}:Part, activate it and repeat this, otherwise discard it.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. If it's a ${ModID}:Part, activate it !M! times and repeat this, otherwise discard it."
   },
   "${ModID}:Futureproofing": {
     "NAME": "Futureproofing",
@@ -318,7 +320,7 @@
   },
   "${ModID}:Resonance": {
     "NAME": "Resonance",
-    "DESCRIPTION": "Ethereal. NL ${ModID}:Spin !${ModID}:s!. NL Every 3rd time you play this, gain !B! Block.",
+    "DESCRIPTION": "Ethereal. NL ${ModID}:Spin !${ModID}:s!. NL If you've already played this card at least !M! times, gain !B! Block.",
     "EXTENDED_DESCRIPTION": [
       " NL (Played ",
       " time)",
@@ -351,7 +353,7 @@
   },
   "${ModID}:DiligentWork": {
     "NAME": "Diligent Work",
-    "DESCRIPTION": "At the start of your turn, ${ModID}:Use.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, ${ModID}:Use !M! times."
+    "DESCRIPTION": "At the start of your turn, ${ModID}:Actuate X times.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, ${ModID}:Actuate X+!M! times."
   }
 }

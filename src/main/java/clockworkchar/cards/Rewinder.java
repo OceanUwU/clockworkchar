@@ -16,6 +16,7 @@ public class Rewinder extends AbstractEasyCard {
         super(ID, -2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
         baseSpinAmount = spinAmount = 2;
         part = true;
+        selfRetain = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {}
@@ -26,10 +27,8 @@ public class Rewinder extends AbstractEasyCard {
 
     public void activate() {
         att(new SpinAction(spinAmount, spun -> {
-            if (spun) {
-                retain = true;
+            if (spun)
                 atb(new RetainCardsAction(AbstractDungeon.player, 1)); //atb so that it triggers after other parts have decided whether to retain or not
-            }
         }));
     }
 

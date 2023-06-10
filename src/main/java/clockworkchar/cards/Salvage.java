@@ -1,5 +1,6 @@
 package clockworkchar.cards;
 
+import clockworkchar.ClockworkChar;
 import clockworkchar.actions.EquipToolAction;
 import clockworkchar.helpers.ToolLibrary;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -14,16 +15,16 @@ public class Salvage extends AbstractEasyCard {
 
     public Salvage() {
         super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 10;
+        baseDamage = 12;
         showDequipValue = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
-        atb(new EquipToolAction(ToolLibrary.getRandomTool()));
+        atb(new EquipToolAction(ToolLibrary.getRandomTool(ClockworkChar.toolSlot.tool)));
     }
 
     public void upp() {
-        upgradeDamage(5);
+        upgradeDamage(4);
     }
 }

@@ -44,18 +44,19 @@ public class Inertia extends AbstractEasyCard {
             description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[1] + strengthApplied + powerStrings.DESCRIPTIONS[2];
         }
 
-        public void onGainCCharge(int chargeAmount) {
-            if (chargeAmount > 0) {
-                if (strengthApplied < amount) {
-                    int toApply = amount - strengthApplied;
-                    applyToSelf(new StrengthPower(owner, toApply));
-                    strengthApplied += toApply;
-                }
-            } else if (chargeAmount < 0) {
-                if (strengthApplied > 0) {
-                    applyToSelf(new StrengthPower(owner, -strengthApplied));
-                    strengthApplied = 0;
-                }
+        public void onWindUp(int amount) {
+            if (strengthApplied < amount) {
+                int toApply = amount - strengthApplied;
+                applyToSelf(new StrengthPower(owner, toApply));
+                strengthApplied += toApply;
+            }
+            updateDescription();
+        }
+
+        public void onSpin(int cost) {
+            if (strengthApplied > 0) {
+                applyToSelf(new StrengthPower(owner, -strengthApplied));
+                strengthApplied = 0;
             }
             updateDescription();
         }

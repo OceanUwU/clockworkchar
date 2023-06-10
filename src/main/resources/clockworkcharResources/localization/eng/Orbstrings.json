@@ -2,28 +2,34 @@
     "${ModID}:Spanner": {
         "NAME": "Spanner",
         "DESCRIPTION": [
-            "Whenever you play or activate the #yPart effect of an #yAttuned card, deal #b",
+            "When #yActuated, gain #b",
+            " #yBlock and deal #b",
             " damage to a random enemy."
         ]
     },
     "${ModID}:Screwdriver": {
         "NAME": "Screwdriver",
         "DESCRIPTION": [
-            "Whenever you play or activate the #yPart effect of an #yAttuned card, gain #b",
-            " #yBlock."
+            "When #yActuated, gain #b",
+            " #yBlock and deal #b",
+            " damage to a random enemy."
         ]
     },
     "${ModID}:Torch": {
         "NAME": "Torch",
         "DESCRIPTION": [
-            "Whenever you play or activate the #yPart effect of an #yAttuned card, ALL enemies lose #b",
-            " #yStrength."
+            "When #yActuated, gain #b",
+            " #yBlock, deal #b",
+            " damage to a random enemy, and ALL enemies lose #b",
+            " #yStrength this turn."
         ]
     },
     "${ModID}:AllenKey": {
         "NAME": "Allen Key",
         "DESCRIPTION": [
-            "Whenever you play or activate the #yPart effect of an #yAttuned card, gain #b",
+            "When #yActuated, gain #b",
+            " #yBlock, deal ",
+            " damage to a random enemy, and gain #b",
             " #yVigor."
         ]
     }

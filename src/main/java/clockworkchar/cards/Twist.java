@@ -13,7 +13,7 @@ public class Twist extends AbstractEasyCard {
 
     public Twist() {
         super(ID, 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 6;
+        baseMagicNumber = magicNumber = 8;
         baseSecondMagic = secondMagic = 3;
         part = true;
     }

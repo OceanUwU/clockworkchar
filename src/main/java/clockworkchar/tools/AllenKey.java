@@ -36,8 +36,10 @@ public class AllenKey extends AbstractTool {
         }
     }
 
+    @Override
     public void use() {
         applyToSelfTop(new VigorPower(adp(), passiveAmount));
+        super.use();
         att(new AbstractGameAction() {
             public void update() {
                 isDone = true;
@@ -46,12 +48,12 @@ public class AllenKey extends AbstractTool {
         });
     }
 
-    public void applyPowers() {
-        passiveAmount = WINDUP_AMOUNT;
-        super.applyPowers();
+    @Override
+    protected int getPassiveAmount() {
+        return WINDUP_AMOUNT;
     }
 
     public void updateDescription() {
-        description = orbStrings.DESCRIPTION[0] + passiveAmount + orbStrings.DESCRIPTION[1];
+        description = orbStrings.DESCRIPTION[0] + damage + orbStrings.DESCRIPTION[1] + block + orbStrings.DESCRIPTION[2] + passiveAmount + orbStrings.DESCRIPTION[3];
     }
 }

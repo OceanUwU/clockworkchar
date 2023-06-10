@@ -21,7 +21,7 @@ public class Screwdriver extends AbstractTool {
     private static float OSCILLATE_SPEED = 2.5f;
     private static float OSCILLATE_AMOUNT = 10.0f;
     
-    private static int BLOCK_GAIN = 2;
+    private static int BLOCK_GAIN = 3;
 
     private float offsetAngle = 0f;
 
@@ -36,7 +36,8 @@ public class Screwdriver extends AbstractTool {
     }
 
     public void use() {
-        att(new GainBlockAction(AbstractDungeon.player, passiveAmount, true));
+        dmgTop();
+        blckTop();
         att(new AbstractGameAction() {
             public void update() {
                 offsetAngle += 360f;
@@ -45,12 +46,12 @@ public class Screwdriver extends AbstractTool {
         });
     }
 
-    public void applyPowers() {
-        passiveAmount = BLOCK_GAIN;
-        super.applyPowers();
+    @Override
+    protected int getBlock() {
+        return super.getBlock() + BLOCK_GAIN;
     }
 
     public void updateDescription() {
-        description = orbStrings.DESCRIPTION[0] + passiveAmount + orbStrings.DESCRIPTION[1];
+        description = orbStrings.DESCRIPTION[0] + damage + orbStrings.DESCRIPTION[1] + block + orbStrings.DESCRIPTION[2];
     }
 }

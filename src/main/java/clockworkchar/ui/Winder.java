@@ -34,7 +34,7 @@ public class Winder {
     private static Texture GRIP2_TEXTURE = ImageMaster.loadImage(ClockworkChar.modID + "Resources/images/ui/winder/backgrip.png");
     private static float size = BASE_TEXTURE.getWidth();
     private static float halfSize = size / 2.0F;
-    private static int STARTING_COGWHEELS = 2;
+    private static int STARTING_COGWHEELS = 4;
     private static float COGWHEELS_FONT_SCALE = 0.6f;
 
     private static String[] TEXT = CardCrawlGame.languagePack.getUIString(makeID("WinderElement")).TEXT;

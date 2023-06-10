@@ -1,8 +1,7 @@
 package clockworkchar.cards;
 
 import clockworkchar.powers.AbstractEasyPower;
-
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -16,8 +15,8 @@ public class GreasedCogs extends AbstractEasyCard {
     public final static String ID = makeID("GreasedCogs");
 
     public GreasedCogs() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 1;
+        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        baseMagicNumber = magicNumber = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -37,17 +36,16 @@ public class GreasedCogs extends AbstractEasyCard {
             super(POWER_ID, powerStrings.NAME, PowerType.BUFF, false, owner, amount);
         }
 
-        public void atStartOfTurn() {
-            atb(new RemoveSpecificPowerAction(owner, owner, this));
-            applyToSelf(new TwistyPower(owner, amount));
+        public void onSpin(int cost) {
+            atb(new GainBlockAction(adp(), amount));
         }
         
         public void updateDescription() {
-            description = powerStrings.DESCRIPTIONS[0] + (amount + 1) + powerStrings.DESCRIPTIONS[1];
+            description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[1];
         }
     }
         
-    public static class TwistyPower extends AbstractEasyPower {
+    /*public static class TwistyPower extends AbstractEasyPower {
         public static String POWER_ID = makeID("Twisty");
         private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
         
@@ -62,5 +60,5 @@ public class GreasedCogs extends AbstractEasyCard {
         public void updateDescription() {
             description = powerStrings.DESCRIPTIONS[0] + (amount + 1) + powerStrings.DESCRIPTIONS[1];
         }
-    }
+    }*/
 }

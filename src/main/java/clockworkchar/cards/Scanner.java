@@ -18,7 +18,7 @@ public class Scanner extends AbstractEasyCard {
     public final static String ID = makeID("Scanner");
 
     public Scanner() {
-        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
         magicNumber = baseMagicNumber = 1;
     }
 

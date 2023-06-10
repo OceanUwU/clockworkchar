@@ -47,8 +47,8 @@
   "${ModID}:GreasedCogsPower": {
     "NAME": "Greased Cogs",
     "DESCRIPTIONS": [
-      "Next turn, #yWinding #yUp will provide #b",
-      " times as much charge."
+      "Whenever you, #ySpin, gain #b",
+      " #yBlock."
     ]
   },
   "${ModID}:Twisty": {
@@ -76,7 +76,7 @@
   "${ModID}:Proficiency": {
     "NAME": "Proficiency",
     "DESCRIPTIONS": [
-      "Increases the effectiveness of Tools by #b",
+      "Increases the damage and #yBlock of Tools by #b",
       "."
     ]
   },

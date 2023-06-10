@@ -27,7 +27,7 @@ public class ScatterNails extends AbstractEasyCard {
 
     public ScatterNails() {
         super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
-        baseDamage = 2;
+        baseDamage = 3;
         baseMagicNumber = magicNumber = 1;
     }
 

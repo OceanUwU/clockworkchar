@@ -18,7 +18,7 @@ public class ReadyUp extends AbstractEasyCard {
 
     public ReadyUp() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 7;
+        baseMagicNumber = magicNumber = 10;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

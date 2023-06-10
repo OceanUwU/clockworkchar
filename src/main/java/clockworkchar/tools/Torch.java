@@ -44,11 +44,14 @@ public class Torch extends AbstractTool {
     public void use() {
         ArrayList<AbstractMonster> monsters = getEnemies();
         Collections.reverse(monsters);
+        target = getRandomTarget();
         for (AbstractMonster mo : monsters)
             if (!mo.hasPower("Artifact"))
                 att(new ApplyPowerAction(mo, AbstractDungeon.player, new GainStrengthPower(mo, passiveAmount), passiveAmount, true, AbstractGameAction.AttackEffect.NONE));
         for (AbstractMonster mo : monsters) {
-            att(new ApplyPowerAction(mo, AbstractDungeon.player, new StrengthPower(mo, -passiveAmount), -passiveAmount, true, AbstractGameAction.AttackEffect.NONE)); 
+            att(new ApplyPowerAction(mo, AbstractDungeon.player, new StrengthPower(mo, -passiveAmount), -passiveAmount, true, AbstractGameAction.AttackEffect.NONE));
+            if (mo == target)
+                dmgTop();
             att(new AbstractGameAction() {
                 public void update() {
                     mo.useHopAnimation();
@@ -56,16 +59,17 @@ public class Torch extends AbstractTool {
                 }
             });
         };
+        blckTop();
         vfxTop(new TorchFlash(this));
     }
 
     public void updateDescription() {
-        description = orbStrings.DESCRIPTION[0] + passiveAmount + orbStrings.DESCRIPTION[1];
+        description = orbStrings.DESCRIPTION[0] + damage + orbStrings.DESCRIPTION[1] + block + orbStrings.DESCRIPTION[2] + passiveAmount + orbStrings.DESCRIPTION[3];
     }
 
-    public void applyPowers() {
-        passiveAmount = STRENGTH_LOSS;
-        super.applyPowers();
+    @Override
+    protected int getPassiveAmount() {
+        return STRENGTH_LOSS;
     }
 
     public void updateAnimation() {

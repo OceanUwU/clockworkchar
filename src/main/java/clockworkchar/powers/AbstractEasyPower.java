@@ -62,4 +62,6 @@ public abstract class AbstractEasyPower extends AbstractPower {
     }
 
     public void onPartActivation() {}
+    public void onWindUp(int amount) {}
+    public void onSpin(int cost) {}
 }

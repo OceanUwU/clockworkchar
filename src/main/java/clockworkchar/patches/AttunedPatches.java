@@ -32,7 +32,7 @@ import static clockworkchar.ClockworkChar.makeID;
 import static clockworkchar.util.Wiz.*;
 
 public class AttunedPatches {
-    public static final int PLAYS_TO_ATTUNE = 5;
+    public static final int PLAYS_TO_ATTUNE = 0;
     public static final int MAX_TIMES_ATTUNED = 1;
     private static Field colorField;
     private static Method renderHelperMethod;
@@ -163,12 +163,12 @@ public class AttunedPatches {
 
         public static void Postfix(AbstractCard __instance, SpriteBatch sb) {
             try {
-                if (CardCrawlGame.isInARun() && AbstractDungeon.player instanceof TheClockwork && (CardFields.deckCard.get(__instance) != null || AbstractDungeon.player.masterDeck.group.contains(__instance))) {
+                /*if (CardCrawlGame.isInARun() && AbstractDungeon.player instanceof TheClockwork && (CardFields.deckCard.get(__instance) != null || AbstractDungeon.player.masterDeck.group.contains(__instance))) {
                     int times = CardFields.timesPlayed.get(__instance);
                     BitmapFont font = __instance.angle == 0F && __instance.drawScale == 1F ? FontHelper.cardDescFont_N : FontHelper.cardDescFont_L;
                     font.getData().setScale(__instance.drawScale * 0.8F);
                     FontHelper.renderRotatedText(sb, font, Integer.toString(times)+(times < PLAYS_TO_ATTUNE ? "/"+Integer.toString(PLAYS_TO_ATTUNE) : ""), __instance.current_x, __instance.current_y, 0F, -198F * __instance.drawScale * Settings.scale, __instance.angle, false, ((Color)colorField.get(__instance)).cpy().mul(times < PLAYS_TO_ATTUNE ? Settings.CREAM_COLOR : Settings.GOLD_COLOR));
-                }
+                }*/
 
                 int attunedTimes = CardFields.attuned.get(__instance);
                 if (attunedTimes > 0) {

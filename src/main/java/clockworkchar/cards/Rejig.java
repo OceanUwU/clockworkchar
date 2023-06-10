@@ -13,7 +13,7 @@ public class Rejig extends AbstractEasyCard {
 
     public Rejig() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 3;
         baseSpinAmount = spinAmount = 5;
     }
 

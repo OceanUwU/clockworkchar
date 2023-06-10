@@ -61,7 +61,7 @@
     "NAMES": [
       "dizzy"
     ],
-    "DESCRIPTION": "When attacked, Dizzy creatures lose #yStrength for that turn."
+    "DESCRIPTION": "When attacked, creatures lose 1 #yStrength for that turn per stack of Dizzy."
   },
   {
     "PROPER_NAME": "Equip",
@@ -76,12 +76,12 @@
       "attuned",
       "attune"
     ],
-    "DESCRIPTION": "Attuned cards trigger the equipped tool's effect when they're played or their part effect is activated."
+    "DESCRIPTION": "Attuned cards #yActuate when they're played or their part effect is activated."
   },
   {
-    "PROPER_NAME": "Use",
+    "PROPER_NAME": "Actuate",
     "NAMES": [
-      "use"
+      "actuate"
     ],
     "DESCRIPTION": "Activate the effect of your equipped tool."
   },
@@ -90,14 +90,14 @@
     "NAMES": [
       "spanner"
     ],
-    "DESCRIPTION": "Tool. Deals #b??? damage to random enemies."
+    "DESCRIPTION": "Tool. #b!B! #yBlock, #b!D! damage."
   },
   {
     "PROPER_NAME": "Screwdriver",
     "NAMES": [
       "screwdriver"
     ],
-    "DESCRIPTION": "Tool. Gains #b??? #yBlock."
+    "DESCRIPTION": "Tool. #b!B! #yBlock, #b!D! damage."
   },
   {
     "PROPER_NAME": "Allen Key",
@@ -105,20 +105,20 @@
       "allen key",
       "allen_key"
     ],
-    "DESCRIPTION": "Tool. Adds #b??? additional damage to your next attack."
+    "DESCRIPTION": "Tool. #b!B! #yBlock, #b!D! damage, adds #b!M! additional damage to your next attack."
   },
   {
     "PROPER_NAME": "Torch",
     "NAMES": [
       "torch"
     ],
-    "DESCRIPTION": "Tool. Reduces the #yStrength of all enemies by #b??? for the turn."
+    "DESCRIPTION": "Tool. #b!B! #yBlock, #b!D! damage, reduces the #yStrength of all enemies by #b!M! for the turn."
   },
   {
     "PROPER_NAME": "Proficiency",
     "NAMES": [
       "proficiency"
     ],
-    "DESCRIPTION": "Proficiency increases the effectiveness of Tools."
+    "DESCRIPTION": "Proficiency increases the damage and #yBlock of Tools."
   }
 ]
