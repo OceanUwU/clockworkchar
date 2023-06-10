@@ -4,9 +4,9 @@
     <groupId>UnimportantInfo</groupId>
 
     <artifactId>clockworkchar</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.0</version>
     <name>Cranky</name>
-    <description>my sts character :3</description>
+    <description>A Slay the Spire character who winds themself up to gain a second energy.</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

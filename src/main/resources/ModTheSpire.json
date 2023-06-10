@@ -5,7 +5,7 @@
     "ocean",
     "NuclearCyborg"
   ],
-  "credits": "Carbon for extra art",
+  "credits": "Carbon, freesound.org",
   "description": "${project.description}",
   "version": "${project.version}",
   "sts_version": "${SlayTheSpire.version}",

@@ -61,7 +61,7 @@
     "NAMES": [
       "dizzy"
     ],
-    "DESCRIPTION": "When attacked, dizzy creatures lose #yStrength for that turn."
+    "DESCRIPTION": "When attacked, Dizzy creatures lose #yStrength for that turn."
   },
   {
     "PROPER_NAME": "Equip",

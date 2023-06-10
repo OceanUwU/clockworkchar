@@ -27,7 +27,7 @@ public class ReadyUp extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(5);
+        upgradeMagicNumber(4);
     }
 
     public static class EnergizedCrankyPower extends AbstractEasyPower {
