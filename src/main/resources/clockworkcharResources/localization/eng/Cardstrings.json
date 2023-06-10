@@ -71,7 +71,7 @@
     "DESCRIPTION": "Gain !M! ${ModID}:Cogwheels."
   },
   "${ModID}:MechanicalManoeuvre": {
-    "NAME": "Mechanical Manoeuvre",
+    "NAME": "Mecha Manoeuvre",
     "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Spin !${ModID}:s!: Gain [E]."
   },
   "${ModID}:Rejig": {
@@ -80,7 +80,10 @@
   },
   "${ModID}:Synchronise": {
     "NAME": "Synchronise",
-    "DESCRIPTION": "${ModID}:Let_Go. NL ${ModID}:Wind_Up !M!."
+    "DESCRIPTION": "${ModID}:Attune an Attack or Skill. NL ${ModID}:Spin !${ModID}:s!: Add a copy of it into your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "Choose an Attack or Skill to Attune."
+    ]
   },
   "${ModID}:MetalSheet": {
     "NAME": "Metal Sheet",
@@ -109,10 +112,10 @@
   },
   "${ModID}:DangerousDeterrent": {
     "NAME": "Dangerous Deterrent",
-    "DESCRIPTION": "Lose !${ModID}:m2! HP. NL Gain !M! *Spinners. NL Exhaust."
+    "DESCRIPTION": "Lose !${ModID}:m2! HP. NL Add !M! *Sawblades into your hand. NL Exhaust."
   },
   "${ModID}:Spinner": {
-    "NAME": "Spinner",
+    "NAME": "Sawblade",
     "DESCRIPTION": "Unplayable ${ModID}:Part: NL Deal !D! damage to ALL enemies and increase this damage by !M!."
   },
   "${ModID}:GatherParts": {
@@ -121,8 +124,8 @@
   },
   "${ModID}:Accelerate": {
     "NAME": "Accelerate",
-    "DESCRIPTION": "Draw !M! card. NL ${ModID}:Spin !${ModID}:s!: Gain a *Spinner.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL ${ModID}:Spin !${ModID}:s!: Gain a *Spinner."
+    "DESCRIPTION": "Draw !M! card. NL ${ModID}:Spin !${ModID}:s!: Add a *Sawblade into your hand.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards. NL ${ModID}:Spin !${ModID}:s!: Add a *Sawblade into your hand."
   },
   "${ModID}:FlyingCogs": {
     "NAME": "Flying Cogs",
@@ -202,8 +205,7 @@
   },
   "${ModID}:Tip": {
     "NAME": "Tip",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Gain !M! *Spinners.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Gain !M! *Spinners+."
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Enemy loses !M! Strength."
   },
   "${ModID}:WearAndTear": {
     "NAME": "Wear and Tear",
@@ -222,7 +224,7 @@
   },
   "${ModID}:Reinforce": {
     "NAME": "Reinforce",
-    "DESCRIPTION": "${ModID}:Let_Go: Gain 1 Plated Armor per !M! charge spent. Exhaust."
+    "DESCRIPTION": "${ModID}:Let_Go: Gain 1 Plated Armor per !M! charge spent. NL Exhaust."
   },
   "${ModID}:PeepTheHaul": {
     "NAME": "Peep the Haul!",
@@ -243,7 +245,7 @@
   },
   "${ModID}:Teddy": {
     "NAME": "Teddy Bear",
-    "DESCRIPTION": "Gain !B! Block. NL Can be ${ModID}:Attuned at campfires any number of times."
+    "DESCRIPTION": "Gain !B! Block. NL Can be ${ModID}:Attuned at Rest Sites any number of times."
   },
   "${ModID}:QuickFix": {
     "NAME": "Quick Fix",
@@ -312,7 +314,7 @@
   },
   "${ModID}:Salvage": {
     "NAME": "Salvage",
-    "DESCRIPTION": "Deal !D! damage. ${ModID}:Equip a random Tool."
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Equip a random Tool."
   },
   "${ModID}:Resonance": {
     "NAME": "Resonance",

@@ -17,14 +17,14 @@
         "NAME": "Torch",
         "DESCRIPTION": [
             "Whenever you play or activate the #yPart effect of an #yAttuned card, ALL enemies lose #b",
-            " strength."
+            " #yStrength."
         ]
     },
     "${ModID}:AllenKey": {
         "NAME": "Allen Key",
         "DESCRIPTION": [
-            "Whenever you play or activate the #yPart effect of an #yAttuned card, #yWind #yUp #b",
-            "."
+            "Whenever you play or activate the #yPart effect of an #yAttuned card, gain #b",
+            " #yVigor."
         ]
     }
 }

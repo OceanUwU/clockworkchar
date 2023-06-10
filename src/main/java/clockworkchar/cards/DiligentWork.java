@@ -38,7 +38,7 @@ public class DiligentWork extends AbstractEasyCard {
 
         public void atStartOfTurn() {
             flash();
-            att(new UseToolAction(amount));
+            atb(new UseToolAction(amount));
         }
         
         public void updateDescription() {

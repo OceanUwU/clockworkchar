@@ -108,10 +108,9 @@ public class AttunedPatches {
                 CardFields.timesPlayed.set(CardFields.deckCard.get(c), CardFields.timesPlayed.get(c));
             int attunedTimes = CardFields.attuned.get(c);
             if (attunedTimes > 0) {
-                if (top)
-                    att(new UseToolAction(attunedTimes));
-                else
-                    atb(new UseToolAction(attunedTimes));
+                UseToolAction action = new UseToolAction(attunedTimes);
+                if (top) att(action);
+                else atb(action);
             }
         }
 

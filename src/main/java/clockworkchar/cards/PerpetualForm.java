@@ -1,5 +1,6 @@
 package clockworkchar.cards;
 
+import basemod.helpers.BaseModCardTags;
 import basemod.interfaces.AlternateCardCostModifier;
 import clockworkchar.ClockworkChar;
 import clockworkchar.actions.GainCogwheelsAction;
@@ -34,6 +35,7 @@ public class PerpetualForm extends AbstractEasyCard {
 
     public PerpetualForm() {
         super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
+        tags.add(BaseModCardTags.FORM);
         baseMagicNumber = magicNumber = 6;
         baseSecondMagic = secondMagic = CHARGE_PER_ENERGY;
     }

@@ -13,6 +13,10 @@ public class UseToolAction extends AbstractGameAction {
         this.times = times;
     }
 
+    public UseToolAction() {
+        this(1);
+    }
+
     public void update() {
         isDone = true;
         ClockworkChar.toolSlot.shouldRender = true;

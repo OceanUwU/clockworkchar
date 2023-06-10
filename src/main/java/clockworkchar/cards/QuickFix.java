@@ -18,7 +18,7 @@ public class QuickFix extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        atb(new UseToolAction(1));
+        atb(new UseToolAction());
     }
 
     public void upp() {

@@ -25,10 +25,10 @@
     ]
   },
   "${ModID}:Sawblade": {
-    "NAME": "Sawblade",
+    "NAME": "Spinner",
     "DESCRIPTIONS": [
       "Shuffle #b",
-      " #ySpinners into your draw pile. Whenever you draw a #ySpinner this combat, draw 1 card."
+      " #ySawblades into your draw pile. Whenever you draw a #ySawblade this combat, draw 1 card."
     ]
   }
 }

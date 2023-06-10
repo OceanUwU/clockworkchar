@@ -23,7 +23,7 @@ public class UseToolCommand extends ConsoleCommand {
     }
 
     public void execute(String[] tokens, int depth) {
-        atb(new UseToolAction(1));
+        atb(new UseToolAction());
     }
 
     public void errorMsg() {

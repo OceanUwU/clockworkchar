@@ -120,9 +120,9 @@
     ]
   },
   "${ModID}:Sawblade": {
-    "NAME": "Sawblade",
+    "NAME": "Spinner",
     "DESCRIPTIONS": [
-      "Whenever you draw a #ySpinner, draw #b",
+      "Whenever you draw a #ySawblade, draw #b",
       " card.",
       " cards."
     ]

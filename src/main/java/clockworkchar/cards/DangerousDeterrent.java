@@ -13,7 +13,7 @@ public class DangerousDeterrent extends AbstractEasyCard {
 
     public DangerousDeterrent() {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 5;
+        baseMagicNumber = magicNumber = 3;
         baseSecondMagic = secondMagic = 4;
         exhaust = true;
         cardsToPreview = new Spinner();

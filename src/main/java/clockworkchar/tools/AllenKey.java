@@ -7,8 +7,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.localization.OrbStrings;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import clockworkchar.ClockworkChar;
-import clockworkchar.actions.WindUpAction;
 
 import static clockworkchar.ClockworkChar.makeID;
 import static clockworkchar.util.Wiz.*;
@@ -37,7 +37,7 @@ public class AllenKey extends AbstractTool {
     }
 
     public void use() {
-        att(new WindUpAction(passiveAmount));
+        applyToSelfTop(new VigorPower(adp(), passiveAmount));
         att(new AbstractGameAction() {
             public void update() {
                 isDone = true;

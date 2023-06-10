@@ -20,7 +20,7 @@ public class Twist extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new WindUpAction(magicNumber));
-        atb(new UseToolAction(1));
+        atb(new UseToolAction());
     }
 
     public void activate() {
