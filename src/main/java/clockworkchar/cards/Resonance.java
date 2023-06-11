@@ -3,6 +3,7 @@ package clockworkchar.cards;
 import clockworkchar.actions.SpinAction;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -41,6 +42,10 @@ public class Resonance extends AbstractEasyCard implements StartupCard {
 
     public void upp() {
         upgradeBlock(10);
+    }
+
+    public void triggerOnGlowCheck() {
+        glowColor = (plays >= magicNumber ? GOLD_BORDER_GLOW_COLOR : BLUE_BORDER_GLOW_COLOR).cpy();
     }
 
     private void showPlays() {

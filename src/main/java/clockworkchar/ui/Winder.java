@@ -126,7 +126,7 @@ public class Winder {
             }
         }
         if (showTooltip && hb.hovered)
-            TipHelper.renderGenericTip(50.0F * Settings.scale + offsetX, y + 275.0F * Settings.scale, TEXT[0], TEXT[1]);
+            TipHelper.renderGenericTip(50.0F * Settings.scale + offsetX, y + 375.0F * Settings.scale, TEXT[0], TEXT[1]);
             offset = - halfSize * scale * Settings.scale;
     }
 

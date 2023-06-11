@@ -34,7 +34,7 @@ public class AttuneCampfireOption extends AbstractCampfireOption {
 
     private void setUsable() {
         usable = !AbstractDungeon.player.hasRelic(FusionHammer.ID) && getAttunableCards().group.size() > 0;
-        description = usable ? DESCRIPTIONS[1]+AttunedPatches.PLAYS_TO_ATTUNE+DESCRIPTIONS[2] : DESCRIPTIONS[3]+AttunedPatches.PLAYS_TO_ATTUNE+DESCRIPTIONS[4];
+        description = usable ? DESCRIPTIONS[1] : DESCRIPTIONS[2];
         img = usable ? TEXTURE : DISABLED_TEXTURE;
     }
 

@@ -24,7 +24,6 @@ public class GreasedCogs extends AbstractEasyCard {
     }
 
     public void upp() {
-        uDesc();
         upgradeMagicNumber(1);
     }
 

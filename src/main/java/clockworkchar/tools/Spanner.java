@@ -46,7 +46,7 @@ public class Spanner extends AbstractTool {
     }
 
     public void updateDescription() {
-        description = orbStrings.DESCRIPTION[0] + damage + orbStrings.DESCRIPTION[1] + block + orbStrings.DESCRIPTION[2];
+        description = orbStrings.DESCRIPTION[0] + block + orbStrings.DESCRIPTION[1] + damage + orbStrings.DESCRIPTION[2];
     }
 
     public void updateAnimation() {

@@ -31,7 +31,7 @@
   "${ModID}:Battery": {
     "NAME": "Battery",
     "DESCRIPTIONS": [
-      "The next time you try to #ySpin without enough charge, #ySpinning costs no charge",
+      "The next time you try to #ySpin without enough charge, #ySpinning costs no charge.",
       "The next #b",
       " times you try to #ySpin without enough charge, #ySpinning costs no charge."
     ]
