@@ -14,7 +14,6 @@ public class Reinforce extends AbstractEasyCard {
     public Reinforce() {
         super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 4;
-        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

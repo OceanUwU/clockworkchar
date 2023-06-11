@@ -17,7 +17,7 @@ public class Whirl extends AbstractEasyCard {
 
     public Whirl() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
-        baseDamage = 7;
+        baseDamage = 3;
         baseSpinAmount = spinAmount = 1;
         baseMagicNumber = magicNumber = 1;
     }
@@ -25,7 +25,8 @@ public class Whirl extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new SFXAction("ATTACK_WHIRLWIND"));
         atb(new VFXAction(p, new WhirlwindEffect(), 0.1F));
-        allDmg(AbstractGameAction.AttackEffect.NONE);
+        for (int i = 0; i < 2; i++)
+            allDmg(AbstractGameAction.AttackEffect.NONE);
         atb(new SpinAction(spinAmount, spun -> {
             if (spun) {
                 att(new DrawCardAction(magicNumber));

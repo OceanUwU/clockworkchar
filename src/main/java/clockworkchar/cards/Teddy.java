@@ -10,7 +10,7 @@ public class Teddy extends AbstractEasyCard {
 
     public Teddy() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 5;
+        baseBlock = 4;
         attune(2);
     }
 

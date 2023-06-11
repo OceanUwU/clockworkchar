@@ -1,58 +1,35 @@
 package clockworkchar.cards;
 
-import clockworkchar.ClockworkChar;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static clockworkchar.ClockworkChar.makeID;
-import static clockworkchar.util.Wiz.atb;
+import static clockworkchar.util.Wiz.*;
 
 public class WearAndTear extends AbstractEasyCard {
     public final static String ID = makeID("WearAndTear");
-    private final static CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     public WearAndTear() {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
+        baseDamage = 8;
+        baseSecondMagic = secondMagic = 3;
+        baseMagicNumber = magicNumber = 1;
         exhaust = true;
-    }
-
-    private String desc() {
-        if (upgraded) return cardStrings.UPGRADE_DESCRIPTION;
-        return cardStrings.DESCRIPTION;
+        part = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new AbstractGameAction() {
-            public void update() {
-                this.isDone = true;
-                baseDamage = ClockworkChar.winder.chargeGained;
-                calculateCardDamage(m);
-                dmgTop(m, AbstractGameAction.AttackEffect.SMASH);
-                rawDescription = desc();
-                initializeDescription();
-            }
-        });
+        for (int i = 0; i < secondMagic; i++)
+            dmg(m, AbstractGameAction.AttackEffect.SMASH);
     }
 
-    public void applyPowers() {
-        baseDamage = ClockworkChar.winder.chargeGained;
-        super.applyPowers();
-        rawDescription = desc() + cardStrings.EXTENDED_DESCRIPTION[0];
-        initializeDescription();
-    }
-  
-    public void calculateCardDamage(AbstractMonster mo) {
-        super.calculateCardDamage(mo);
-        if (baseMagicNumber > 0)
-            rawDescription = desc() + cardStrings.EXTENDED_DESCRIPTION[0];
-        initializeDescription();
+    public void activate() {
+        applyToSelfTop(new StrengthPower(adp(), magicNumber));
     }
 
     public void upp() {
-        uDesc();
-        selfRetain = true;
+        upgradeDamage(2);
     }
 }

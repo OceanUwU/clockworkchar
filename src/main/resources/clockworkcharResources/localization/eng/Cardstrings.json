@@ -29,7 +29,7 @@
   },
   "${ModID}:Whirl": {
     "NAME": "Whirl",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL ${ModID}:Spin !${ModID}:s!: Draw !M! card."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies twice. NL ${ModID}:Spin !${ModID}:s!: Draw !M! card."
   },
   "${ModID}:TwistingStrike": {
     "NAME": "Twisting Strike",
@@ -211,11 +211,7 @@
   },
   "${ModID}:WearAndTear": {
     "NAME": "Wear and Tear",
-    "DESCRIPTION": "Deal damage equal to the amount ${ModID}:Wound_Up this combat. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Deal damage equal to the amount ${ModID}:Wound_Up this combat. NL Exhaust.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Deals !D! damage.)"
-    ]
+    "DESCRIPTION": "Deal !D! damage !${ModID}:m2! times. NL Exhaust. NL ${ModID}:Part: Gain !M! Strength."
   },
   "${ModID}:RecursionMechanism": {
     "NAME": "Recursion Mechanism",
@@ -226,7 +222,7 @@
   },
   "${ModID}:Reinforce": {
     "NAME": "Reinforce",
-    "DESCRIPTION": "${ModID}:Let_Go: Gain 1 Plated Armor per !M! charge spent. NL Exhaust."
+    "DESCRIPTION": "${ModID}:Let_Go: Gain 1 Plated Armor per !M! charge spent."
   },
   "${ModID}:PeepTheHaul": {
     "NAME": "Peep the Haul!",
@@ -268,7 +264,7 @@
   },
   "${ModID}:UnleashRage": {
     "NAME": "Unleash Rage",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Part: Lose !M! HP."
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Part: Next turn, gain !M! temporary Strength."
   },
   "${ModID}:RearrangeAttack": {
     "NAME": "Rearrange",

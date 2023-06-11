@@ -126,5 +126,12 @@
       " card.",
       " cards."
     ]
+  },
+  "${ModID}:Boiling": {
+    "NAME": "Boiling Rage",
+    "DESCRIPTIONS": [
+      "Next turn, gain #b",
+      " temporary #yStrength."
+    ]
   }
 }

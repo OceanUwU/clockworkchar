@@ -41,7 +41,7 @@ public class DiligentWork extends AbstractEasyCard {
             super(POWER_ID, powerStrings.NAME, PowerType.BUFF, false, owner, amount);
         }
 
-        public void atStartOfTurn() {
+        public void atStartOfTurnPostDraw() {
             flash();
             atb(new UseToolAction(amount));
         }

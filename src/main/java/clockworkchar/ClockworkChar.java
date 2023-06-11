@@ -202,6 +202,7 @@ public class ClockworkChar implements
         BaseMod.addAudio(makeID("TORCH"), modID + "Resources/audio/torch.ogg");
         BaseMod.addAudio(makeID("ATTUNE"), modID + "Resources/audio/attune.ogg");
         BaseMod.addAudio(makeID("RESONANCE"), modID + "Resources/audio/resonance.ogg");
+        BaseMod.addAudio(makeID("BOIL"), modID + "Resources/audio/boil.ogg");
     }
 
     @Override

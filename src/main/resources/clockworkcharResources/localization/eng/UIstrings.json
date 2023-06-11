@@ -26,7 +26,7 @@
   },
   "${ModID}:SelectToAttune": {
     "TEXT": [
-      "Select a card to Attune."
+      "Attune."
     ]
   },
   "${ModID}:SwapDrawAndDiscardAction": {

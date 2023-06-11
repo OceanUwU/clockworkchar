@@ -17,7 +17,7 @@ public class ExtendoGrip extends AbstractEasyCard {
     public ExtendoGrip() {
         super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         baseDamage = 12;
-        baseMagicNumber = magicNumber = 7;
+        baseMagicNumber = magicNumber = 8;
         tags.add(CardTags.STRIKE);
     }
 
