@@ -120,5 +120,12 @@
       "proficiency"
     ],
     "DESCRIPTION": "Proficiency increases the damage and #yBlock of Tools."
+  },
+  {
+    "PROPER_NAME": "Trinket",
+    "NAMES": [
+      "trinket"
+    ],
+    "DESCRIPTION": "Trinkets are cards which draw a card when drawn, and #yExhaust when their part effect is activated."
   }
 ]

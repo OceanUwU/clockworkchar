@@ -15,7 +15,7 @@ public class Spinner extends AbstractEasyCard {
 
     public Spinner() {
         super(ID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.ALL_ENEMY, CardColor.COLORLESS);
-        baseDamage = 6;
+        baseSecondMagic = secondMagic = 6;
         baseMagicNumber = magicNumber = 3;
         damageType = DamageType.THORNS;
         damageTypeForTurn = DamageType.THORNS;
@@ -33,10 +33,11 @@ public class Spinner extends AbstractEasyCard {
         att(new AbstractGameAction() {
             public void update() {
                 isDone = true;
-                baseDamage += magicNumber;
+                baseSecondMagic += magicNumber;
+                secondMagic = baseSecondMagic;
             }
         });
-        att(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(baseDamage, true), damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        att(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(secondMagic, true), damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 
     public void upp() {

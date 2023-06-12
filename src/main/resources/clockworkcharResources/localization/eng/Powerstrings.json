@@ -113,10 +113,9 @@
   "${ModID}:PeepTheHaul": {
     "NAME": "Peep the Haul!",
     "DESCRIPTIONS": [
-      "At the start of your turn, if you have no #yBatteries, gain a #yBattery",
-      "At the start of your turn, if you have fewer than #b",
-      " #yBatteries, gain #yBatteries until you have #b",
-      "."
+      "At the start of your turn, shuffle a random #yTrinket into your draw pile.",
+      "At the start of your turn, shuffle #b",
+      " random #yTrinkets into your draw pile."
     ]
   },
   "${ModID}:Sawblade": {

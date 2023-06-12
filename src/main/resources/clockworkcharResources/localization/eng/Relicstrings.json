@@ -52,7 +52,7 @@
     "NAME": "Swiss Army Knife",
     "FLAVOR": "Passed down from great grandcrank, to grandcrank, to crank, and now bestowed upon you. Use it for good.",
     "DESCRIPTIONS": [
-      "#y${ModID}:Attune the first card in each card reward."
+      "#y${ModID}:Attune the first card in each future card reward."
     ]
   },
   "${ModID}:BeltDrive": {

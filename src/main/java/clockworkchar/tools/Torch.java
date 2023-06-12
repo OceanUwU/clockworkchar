@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -34,6 +36,7 @@ public class Torch extends AbstractTool {
     private static float OSCILLATE_AMOUNT = 20.0f;
 
     private static int STRENGTH_LOSS = 1;
+    private static int DAMAGE_BUFF = 1;
 
     private boolean lightOn = false;
 
@@ -51,7 +54,7 @@ public class Torch extends AbstractTool {
         for (AbstractMonster mo : monsters) {
             att(new ApplyPowerAction(mo, AbstractDungeon.player, new StrengthPower(mo, -passiveAmount), -passiveAmount, true, AbstractGameAction.AttackEffect.NONE));
             if (mo == target)
-                dmgTop();
+                att(new DamageAction(target, new DamageInfo(adp(), damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
             att(new AbstractGameAction() {
                 public void update() {
                     mo.useHopAnimation();
@@ -70,6 +73,11 @@ public class Torch extends AbstractTool {
     @Override
     protected int getPassiveAmount() {
         return STRENGTH_LOSS;
+    }
+
+    @Override
+    protected int getDamage() {
+        return super.getDamage() + DAMAGE_BUFF;
     }
 
     public void updateAnimation() {

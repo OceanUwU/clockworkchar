@@ -27,7 +27,7 @@ public class Scanner extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeBaseCost(2);
+        upgradeBaseCost(1);
     }
 
     public static class ScannerPower extends AbstractEasyPower {

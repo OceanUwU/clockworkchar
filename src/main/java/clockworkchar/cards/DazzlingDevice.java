@@ -22,7 +22,7 @@ public class DazzlingDevice extends AbstractEasyCard {
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString(makeID("SelectToAttune")).TEXT;
 
     public DazzlingDevice() {
-        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         exhaust = true;
         showDequipValue = true;
     }

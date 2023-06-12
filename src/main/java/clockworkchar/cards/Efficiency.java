@@ -14,7 +14,7 @@ public class Efficiency extends AbstractEasyCard {
     public final static String ID = makeID("Efficiency");
 
     public Efficiency() {
-        super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 1;
     }
 
@@ -23,7 +23,7 @@ public class Efficiency extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeBaseCost(1);
+        upgradeBaseCost(2);
     }
 
     public static class EfficiencyPower extends AbstractEasyPower {

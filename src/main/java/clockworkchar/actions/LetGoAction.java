@@ -1,7 +1,6 @@
 package clockworkchar.actions;
 
 import clockworkchar.ClockworkChar;
-import clockworkchar.cards.Inertia;
 import clockworkchar.powers.AbstractEasyPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;

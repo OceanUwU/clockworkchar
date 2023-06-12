@@ -32,6 +32,6 @@ public class Futureproofing extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeSecondMagic(1);
+        upgradeMagicNumber(1);
     }
 }

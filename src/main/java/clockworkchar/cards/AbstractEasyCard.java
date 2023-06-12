@@ -18,6 +18,8 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -33,6 +35,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     protected final CardStrings cardStrings;
 
     public boolean part = false;
+    public boolean trinket = false;
     public boolean showDequipValue = false;
     public int extraAttunings = 0;
 
@@ -252,18 +255,20 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     public void triggerInDiscardPileOnSpin() {};
 
-    public AbstractGameAction partActivation() {
+    public AbstractGameAction partActivation(final int timesToActivate) {
         if (part) {
             AbstractCard c = this;
             return new AbstractGameAction() {
                 public void update() {
                     isDone = true;
-                    int timesToActivate = 1;
+                    int times = timesToActivate;
+                    if (trinket)
+                        att(new ExhaustSpecificCardAction(c, adp().hand));
                     if (AbstractDungeon.player.hasPower(Efficiency.EfficiencyPower.POWER_ID)) {
                         AbstractDungeon.player.getPower(Efficiency.EfficiencyPower.POWER_ID).flash();
-                        timesToActivate += pwrAmt(AbstractDungeon.player, Efficiency.EfficiencyPower.POWER_ID);
+                        times += pwrAmt(AbstractDungeon.player, Efficiency.EfficiencyPower.POWER_ID);
                     }
-                    for (int i = 0; i < timesToActivate; i++)
+                    for (int i = 0; i < times; i++)
                         att(new AbstractGameAction() {
                             public void update() {
                                 isDone = true;
@@ -272,13 +277,17 @@ public abstract class AbstractEasyCard extends CustomCard {
                                     if (p instanceof AbstractEasyPower)
                                         ((AbstractEasyPower)p).onPartActivation();
                                 activate();
-                                AttunedPatches.CountPlay.count(c, false);
                             }
                         });
+                    AttunedPatches.CountPlay.count(c, false);
                 }
             };
         }
         return null;
+    }
+
+    public AbstractGameAction partActivation() {
+        return partActivation(1);
     }
 
     public void triggerOnEndOfTurnForPlayingCard() {
@@ -286,6 +295,11 @@ public abstract class AbstractEasyCard extends CustomCard {
         if (partAction != null)
             atb(partAction);
     };
+
+    public void triggerWhenDrawn() {
+        if (trinket)
+            atb(new DrawCardAction(1));
+    }
 
     public void update() {
         super.update();

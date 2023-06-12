@@ -2,7 +2,6 @@ package clockworkchar.cards;
 
 import clockworkchar.actions.EasyXCostAction;
 import clockworkchar.actions.UseToolAction;
-import clockworkchar.actions.WindUpAction;
 import clockworkchar.powers.AbstractEasyPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -17,7 +16,7 @@ public class DiligentWork extends AbstractEasyCard {
     public final static String ID = makeID("DiligentWork");
 
     public DiligentWork() {
-        super(ID, -1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, -1, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 0;
     }
 

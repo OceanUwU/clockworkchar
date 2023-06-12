@@ -41,8 +41,7 @@ public class WormGear extends AbstractEasyCard {
                         AbstractCard drawn = DrawCardAction.drawnCards.get(0);
                         if (drawn instanceof AbstractEasyCard && ((AbstractEasyCard)drawn).part) {
                             att(new WormGearAction(activations));
-                            for (int i = 0; i < activations; i++)
-                                att(((AbstractEasyCard)drawn).partActivation());
+                            att(((AbstractEasyCard)drawn).partActivation(activations));
                         }
                         else
                             att(new DiscardSpecificCardAction(drawn));

@@ -16,7 +16,7 @@ public class Rearrange extends AbstractEasyCard {
 
     public Rearrange() {
         super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 12;
+        baseBlock = 8;
         tags.add(CardTags.STARTER_DEFEND);
     }
 

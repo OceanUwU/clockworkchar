@@ -29,7 +29,8 @@
   },
   "${ModID}:Whirl": {
     "NAME": "Whirl",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies twice. NL ${ModID}:Spin !${ModID}:s!: Draw !M! card."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies twice. NL ${ModID}:Spin !${ModID}:s!: Draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to ALL enemies twice. NL ${ModID}:Spin !${ModID}:s!: Draw !M! cards."
   },
   "${ModID}:TwistingStrike": {
     "NAME": "Twisting Strike",
@@ -57,7 +58,7 @@
   },
   "${ModID}:BoostedBlow": {
     "NAME": "Boosted Blow",
-    "DESCRIPTION": "${ModID}:Let_Go: Deal damage equal to !M! times charge spent.",
+    "DESCRIPTION": "${ModID}:Let_Go: Deal damage equal to !M! times ${ModID}:Charge spent.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -95,7 +96,7 @@
   },
   "${ModID}:Gyroscope": {
     "NAME": "Gyroscope",
-    "DESCRIPTION": "Unplayable ${ModID}:Part: NL ${ModID}:Spin !${ModID}:s! to deal !D! damage to a random enemy and Retain this."
+    "DESCRIPTION": "Unplayable ${ModID}:Part: NL ${ModID}:Spin !${ModID}:s! to deal !${ModID}:m2! damage to a random enemy and Retain this."
   },
   "${ModID}:Crank": {
     "NAME": "Crank",
@@ -103,8 +104,7 @@
   },
   "${ModID}:Advance": {
     "NAME": "Advance",
-    "DESCRIPTION": "Draw !M! card. NL ${ModID}:Spin !${ModID}:s!: Gain [E] and add an *Advance into your hand. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw !M! card. NL ${ModID}:Spin !${ModID}:s!: Gain [E] and add an *Advance+ into your hand. NL Exhaust."
+    "DESCRIPTION": "Draw !M! card. NL ${ModID}:Spin !${ModID}:s!: Gain [E] and add a copy of this card into your hand. NL Exhaust."
   },
   "${ModID}:Inertia": {
     "NAME": "Inertia",
@@ -116,7 +116,7 @@
   },
   "${ModID}:Spinner": {
     "NAME": "Sawblade",
-    "DESCRIPTION": "Unplayable ${ModID}:Part: NL Deal !D! damage to ALL enemies and increase this damage by !M!."
+    "DESCRIPTION": "Unplayable ${ModID}:Part: NL Deal !${ModID}:m2! damage to ALL enemies and increase this damage by !M!."
   },
   "${ModID}:GatherParts": {
     "NAME": "Gather Parts",
@@ -214,20 +214,17 @@
     "DESCRIPTION": "Deal !D! damage !${ModID}:m2! times. NL Exhaust. NL ${ModID}:Part: Gain !M! Strength."
   },
   "${ModID}:RecursionMechanism": {
-    "NAME": "Recursion Mechanism",
-    "DESCRIPTION": "Retain. Deal damage equal to !M! times the turn number. Exhaust. NL ${ModID}:Part: Deal damage to a random enemy equal to the turn number.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Deals !D! damage.)"
-    ]
+    "NAME": "Cog Surge",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Artifact. NL Exhaust."
   },
   "${ModID}:Reinforce": {
     "NAME": "Reinforce",
-    "DESCRIPTION": "${ModID}:Let_Go: Gain 1 Plated Armor per !M! charge spent."
+    "DESCRIPTION": "${ModID}:Let_Go: Gain 1 *Plated *Armor per !M! ${ModID}:Charge spent."
   },
   "${ModID}:PeepTheHaul": {
     "NAME": "Peep the Haul!",
-    "DESCRIPTION": "At the start of your turn, if you have no ${ModID}:Batteries, gain a ${ModID}:Battery.",
-    "UPGRADE_DESCRIPTION": "Gain a ${ModID}:Battery. NL At the start of your turn, if you have no ${ModID}:Batteries, gain a ${ModID}:Battery."
+    "DESCRIPTION": "At the end of your turn, shuffle a random ${ModID}:Trinket into your draw pile.",
+    "UPGRADE_DESCRIPTION": "Now and at the end of your turn, shuffle a random ${ModID}:Trinket into your draw pile."
   },
   "${ModID}:PerpetualForm": {
     "NAME": "Perpetual Form",
@@ -325,7 +322,8 @@
   },
   "${ModID}:GearRatio": {
     "NAME": "Fool Me Twice",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Double this card's damage and increase its ${ModID}:Spin cost by !M! this combat."
+    "DESCRIPTION": "Deal !D! damage !M! time. NL ${ModID}:Spin !${ModID}:s!: Increase this card's hits by !${ModID}:m2! this combat.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times. NL ${ModID}:Spin !${ModID}:s!: Increase this card's hits by !${ModID}:m2! this combat."
   },
   "${ModID}:Toolerang": {
     "NAME": "Toolerang",
@@ -351,5 +349,21 @@
     "NAME": "Diligent Work",
     "DESCRIPTION": "At the start of your turn, ${ModID}:Actuate X times.",
     "UPGRADE_DESCRIPTION": "At the start of your turn, ${ModID}:Actuate X+!M! times."
+  },
+  "${ModID}:BouncyBall": {
+    "NAME": "Bouncy Ball",
+    "DESCRIPTION": "${ModID}:Trinket. NL ${ModID}:Part: Deal !M! damage to a random enemy."
+  },
+  "${ModID}:Bottlecap": {
+    "NAME": "Bottlecap",
+    "DESCRIPTION": "${ModID}:Trinket. NL ${ModID}:Part: Gain !B! Block."
+  },
+  "${ModID}:RareCoin": {
+    "NAME": "Rare Coin",
+    "DESCRIPTION": "${ModID}:Trinket. NL ${ModID}:Part: ${ModID}:Actuate !M! times."
+  },
+  "${ModID}:LittleCranky": {
+    "NAME": "Little Cranky",
+    "DESCRIPTION": "${ModID}:Trinket. NL ${ModID}:Part: ${ModID}:Wind_Up !M!."
   }
 }

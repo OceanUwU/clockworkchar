@@ -2,7 +2,6 @@ package clockworkchar.cards;
 
 import clockworkchar.actions.SpinAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ModifyDamageAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -15,17 +14,19 @@ public class GearRatio extends AbstractEasyCard {
     public GearRatio() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = 8;
-        baseSpinAmount = spinAmount = 8;
-        baseMagicNumber = magicNumber = 4;
+        baseSpinAmount = spinAmount = 4;
+        baseMagicNumber = magicNumber = 1;
+        baseSecondMagic = secondMagic = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        dmg(m, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
+        for (int i = 0; i < magicNumber; i++)
+            dmg(m, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
         atb(new SpinAction(spinAmount, spun -> {
             if (spun) {
-                baseSpinAmount += magicNumber;
-                spinAmount = baseSpinAmount;
-                att(new ModifyDamageAction(this.uuid, this.baseDamage));
+                baseMagicNumber += secondMagic;
+                magicNumber = baseMagicNumber;
+                uDesc();
             }
         }));
     }

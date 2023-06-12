@@ -22,7 +22,6 @@ import clockworkchar.actions.UseToolAction;
 import clockworkchar.cards.AbstractEasyCard;
 import clockworkchar.cards.PerpetualForm;
 import clockworkchar.cards.Teddy;
-import clockworkchar.characters.TheClockwork;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

@@ -12,7 +12,7 @@ public class FloppyDisk extends AbstractEasyRelic {
     public static final String ID = makeID("FloppyDisk");
 
     private static final int STARTING_CHARGE = 20;
-    private static final int MAX_CHARGE = 50;
+    public static final int MAX_CHARGE = 50;
 
     public FloppyDisk() {
         super(ID, RelicTier.BOSS, LandingSound.FLAT, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);

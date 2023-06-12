@@ -35,6 +35,7 @@ public class Whirl extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeDamage(3);
+        uDesc();
+        upgradeMagicNumber(1);
     }
 }

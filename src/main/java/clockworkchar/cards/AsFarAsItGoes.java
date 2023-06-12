@@ -12,7 +12,7 @@ public class AsFarAsItGoes extends AbstractEasyCard {
 
     public AsFarAsItGoes() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseBlock = 5;
+        baseBlock = 4;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

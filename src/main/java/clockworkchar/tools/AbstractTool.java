@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -20,7 +19,6 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.MonsterGroup;
 
 import static clockworkchar.util.Wiz.*;
 
@@ -29,8 +27,10 @@ public abstract class AbstractTool {
     private static final float CENTRE = SIZE / 2.0f;
     private static final float NUM_X_OFFSET = 25.0F * Settings.scale;
     private static final float NUM_Y_OFFSET = 25.0F * Settings.scale;
-    private static final Color USE_COLOR = Settings.CREAM_COLOR;
-    private static final Color DEQUIP_COLOR = new Color(0.2F, 1.0F, 1.0F, 1.0F);
+    private static final Color DAMAGE_COLOR = Color.SALMON.cpy();
+    private static final Color BLOCK_COLOR = Color.CYAN.cpy();
+    private static final Color PASSIVE_COLOR = Color.ORANGE.cpy();
+    private static final Color DEQUIP_COLOR = Color.CHARTREUSE.cpy();
     private static final float yAcceleration = -500f;
     public static final int DEQUIP_USE_TIMES = 2;
     private static int BASE_BLOCK = 1;
@@ -70,14 +70,8 @@ public abstract class AbstractTool {
         }
     }
 
-    protected AbstractMonster getRandomTarget() {
-        MonsterGroup monsters = AbstractDungeon.getMonsters();
-        if (monsters.areMonstersBasicallyDead())
-            return null;
-        for (AbstractMonster m : monsters.monsters)
-            if (m.halfDead)
-                return null;
-        return monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
+    public AbstractMonster getRandomTarget() {
+        return AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
     }
 
     protected void blckTop() {
@@ -163,11 +157,10 @@ public abstract class AbstractTool {
     };
 
     public void renderText(SpriteBatch sb) {
-        Color color = dequipping ? DEQUIP_COLOR : USE_COLOR;
         if (passiveAmount > 0)
-            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(passiveAmount), hb.cX, hb.cY + NUM_Y_OFFSET, color, fontScale);
-        FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(block), hb.cX - NUM_X_OFFSET, hb.cY - NUM_Y_OFFSET, color, fontScale);
-        FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.damage)+(dequipping ? "x"+Integer.toString(DEQUIP_USE_TIMES) : ""), hb.cX + NUM_X_OFFSET, hb.cY - NUM_Y_OFFSET, color, fontScale);
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(passiveAmount), hb.cX, hb.cY + NUM_Y_OFFSET, dequipping ? DEQUIP_COLOR : PASSIVE_COLOR, fontScale);
+        FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(block), hb.cX - NUM_X_OFFSET, hb.cY - NUM_Y_OFFSET, dequipping ? DEQUIP_COLOR : BLOCK_COLOR, fontScale);
+        FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.damage), hb.cX + NUM_X_OFFSET, hb.cY - NUM_Y_OFFSET, dequipping ? DEQUIP_COLOR : DAMAGE_COLOR, fontScale);
     }
 
 	public AbstractTool makeCopy() {

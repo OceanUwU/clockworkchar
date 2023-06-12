@@ -30,6 +30,7 @@ public class Spanner extends AbstractTool {
     private static int DAMAGE = 2;
 
     private boolean flyingTowardEnemy = false;
+    public boolean returning = false;
 
     public Spanner() {
         super(TOOL_ID, orbStrings.NAME, SPANNER_TEXTURE);
@@ -59,6 +60,7 @@ public class Spanner extends AbstractTool {
         private static float DURATION = 0.2F;
 
         private float timer = 0.0F;
+        private float length = DURATION;
         private Spanner spanner;
         private int damage;
         private AbstractMonster target;
@@ -74,26 +76,22 @@ public class Spanner extends AbstractTool {
 
         public void update() {
             if (timer == 0f) {
-                MonsterGroup monsters = AbstractDungeon.getMonsters();
-                if (monsters.areMonstersBasicallyDead()) {
+                target = spanner.getRandomTarget();
+                if (target == null) {
                     isDone = true;
                     return;
                 }
-                for (AbstractMonster m : monsters.monsters)
-                    if (m.halfDead) {
-                        isDone = true;
-                        return;
-                    }
-                target = monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
                 oX = spanner.cX;
                 oY = spanner.cY;
                 tX = target.hb.cX;
                 tY = target.hb.cY;
+                if (spanner.returning)
+                    length /= 3f;
             }
             spanner.flyingTowardEnemy = true;
             timer += Gdx.graphics.getDeltaTime();
-            if (timer >= DURATION) {
-                timer = DURATION;
+            if (timer >= length) {
+                timer = length;
                 spanner.flyingTowardEnemy = false;
                 vfxTop(new WallopEffect(damage, tX, tY));
                 att(new DamageAction(target, new DamageInfo(source, damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
@@ -101,8 +99,8 @@ public class Spanner extends AbstractTool {
                 CardCrawlGame.sound.play("BLUNT_FAST");
                 isDone = true;
             }
-            spanner.cX = oX + (tX - oX) * (timer / DURATION);
-            spanner.cY = oY + (tY - oY) * (timer / DURATION);
+            spanner.cX = oX + (tX - oX) * (timer / length);
+            spanner.cY = oY + (tY - oY) * (timer / length);
         }
 
         private static class SpannerReturnEffect extends AbstractGameEffect {
@@ -127,6 +125,7 @@ public class Spanner extends AbstractTool {
             }
 
             public void update() {
+                spanner.returning = true;
                 if (spanner.flyingTowardEnemy || spanner.dequipped) {
                     isDone = true;
                     return;
@@ -134,6 +133,7 @@ public class Spanner extends AbstractTool {
                 timer += Gdx.graphics.getDeltaTime();
                 if (timer >= DURATION) {
                     timer = DURATION;
+                    spanner.returning = false;
                     isDone = true;
                 }
                 float t = timer / DURATION; //time elapsed from 0 (just started) to 1 (just completed)

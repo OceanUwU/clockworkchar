@@ -6,6 +6,10 @@ import basemod.devcommands.ConsoleCommand;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import clockworkchar.cards.AbstractEasyCard;
+import clockworkchar.cards.Bottlecap;
+import clockworkchar.cards.BouncyBall;
+import clockworkchar.cards.LittleCranky;
+import clockworkchar.cards.RareCoin;
 import clockworkchar.cards.cardvars.*;
 import clockworkchar.characters.TheClockwork;
 import clockworkchar.consolecommands.*;
@@ -22,6 +26,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -79,6 +84,8 @@ public class ClockworkChar implements
     public static Settings.GameLanguage[] SupportedLanguages = {
             Settings.GameLanguage.ENG,
     };
+
+    public static CardGroup trinkets;
 
     private String getLangString() {
         for (Settings.GameLanguage lang : SupportedLanguages) {
@@ -156,6 +163,11 @@ public class ClockworkChar implements
         BaseMod.addDynamicVariable(new SecondDamage());
         BaseMod.addDynamicVariable(new SecondBlock());
         BaseMod.addDynamicVariable(new SpinAmount());
+        trinkets = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        trinkets.group.add(new BouncyBall());
+        trinkets.group.add(new Bottlecap());
+        trinkets.group.add(new LittleCranky());
+        trinkets.group.add(new RareCoin());
         new AutoAdd(modID)
             .packageFilter(AbstractEasyCard.class)
             .setDefaultSeen(true)

@@ -17,7 +17,7 @@ public class Gyroscope extends AbstractEasyCard {
 
     public Gyroscope() {
         super(ID, -2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
-        baseDamage = 6;
+        baseSecondMagic = secondMagic = 6;
         baseSpinAmount = spinAmount = 2;
         part = true;
     }
@@ -32,11 +32,11 @@ public class Gyroscope extends AbstractEasyCard {
         att(new SpinAction(spinAmount, spun -> {
             retain = spun;
             if (spun)
-                att(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, baseDamage, DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                att(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, secondMagic, DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         }));
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeSecondMagic(3);
     }
 }

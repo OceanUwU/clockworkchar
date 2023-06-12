@@ -19,7 +19,7 @@ public class Advance extends AbstractEasyCard {
 
     public Advance(boolean real) {
         super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
-        baseSpinAmount = spinAmount = 9;
+        baseSpinAmount = spinAmount = 8;
         baseMagicNumber = magicNumber = 1;
         exhaust = true;
         if (real)
@@ -28,19 +28,17 @@ public class Advance extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new DrawCardAction(magicNumber));
+        Advance c = this;
         atb(new SpinAction(spinAmount, spun -> {
             if (spun) {
                 att(new GainEnergyAction(1));
-                Advance card = new Advance(true);
-                if (upgraded) card.upgrade();
-                att(new MakeTempCardInHandAction(card));
+                att(new MakeTempCardInHandAction(c.makeStatEquivalentCopy()));
             }
         }));
     }
 
     public void upp() {
-        uDesc();
-        upgradeSpinAmount(3);
+        upgradeSpinAmount(2);
         if (cardsToPreview != null)
             cardsToPreview.upgrade();
     }

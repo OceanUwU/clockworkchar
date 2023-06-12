@@ -18,7 +18,7 @@ public class EmergencyStop extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        damage = Math.min(damage, m.currentHealth - magicNumber);
+        damage = Math.min(damage, (m.currentHealth + m.currentBlock) - magicNumber);
         dmg(m, AbstractGameAction.AttackEffect.SMASH);
         atb(new PressEndTurnButtonAction());
     }

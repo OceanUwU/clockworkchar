@@ -1,8 +1,6 @@
 package clockworkchar.actions;
 
 import clockworkchar.ClockworkChar;
-import clockworkchar.cards.GreasedCogs;
-import clockworkchar.cards.Inertia;
 import clockworkchar.powers.AbstractEasyPower;
 import clockworkchar.relics.Gearbox;
 import clockworkchar.relics.OilCanister;
@@ -12,7 +10,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import static clockworkchar.ClockworkChar.makeID;
-import static clockworkchar.util.Wiz.pwrAmt;
 
 public class WindUpAction extends AbstractGameAction {
     private boolean sound;
