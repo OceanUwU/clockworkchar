@@ -16,6 +16,7 @@ public class Synchronise extends AbstractEasyCard {
     public Synchronise() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseSpinAmount = spinAmount = 8;
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

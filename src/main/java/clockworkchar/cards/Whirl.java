@@ -18,7 +18,7 @@ public class Whirl extends AbstractEasyCard {
     public Whirl() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
         baseDamage = 3;
-        baseSpinAmount = spinAmount = 1;
+        baseSpinAmount = spinAmount = 2;
         baseMagicNumber = magicNumber = 1;
     }
 

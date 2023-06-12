@@ -1,5 +1,6 @@
 package clockworkchar.cards;
 
+import clockworkchar.actions.SpinAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -13,14 +14,18 @@ public class RecursionMechanism extends AbstractEasyCard {
 
     public RecursionMechanism() {
         super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
-        baseDamage = 11;
+        baseDamage = 12;
         baseMagicNumber = magicNumber = 1;
+        baseSpinAmount = spinAmount = 2;
         exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SMASH);
-        applyToSelf(new ArtifactPower(p, magicNumber));
+        atb(new SpinAction(spinAmount, spun -> {
+            if (spun)
+                applyToSelfTop(new ArtifactPower(p, magicNumber));
+        }));
     }
 
     public void upp() {

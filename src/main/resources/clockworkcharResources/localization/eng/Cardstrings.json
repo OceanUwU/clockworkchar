@@ -81,7 +81,7 @@
   },
   "${ModID}:Synchronise": {
     "NAME": "Synchronise",
-    "DESCRIPTION": "${ModID}:Attune an Attack or Skill. NL ${ModID}:Spin !${ModID}:s!: Add a copy of it into your hand.",
+    "DESCRIPTION": "${ModID}:Attune an Attack or Skill. NL ${ModID}:Spin !${ModID}:s!: Add a copy of it into your hand. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       "Choose an Attack or Skill to Attune."
     ]
@@ -215,7 +215,7 @@
   },
   "${ModID}:RecursionMechanism": {
     "NAME": "Cog Surge",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Artifact. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Gain !M! Artifact. NL Exhaust."
   },
   "${ModID}:Reinforce": {
     "NAME": "Reinforce",
