@@ -30,7 +30,7 @@ public class UnleashRage extends AbstractEasyCard {
 
     public UnleashRage() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 10;
+        baseDamage = 8;
         baseMagicNumber = magicNumber = 2;
         part = true;
     }

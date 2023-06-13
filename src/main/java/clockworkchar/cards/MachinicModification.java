@@ -28,7 +28,7 @@ public class MachinicModification extends AbstractEasyCard {
 
     public MachinicModification() {
         super(ID, 1, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 1;
+        baseMagicNumber = magicNumber = 2;
         FleetingField.fleeting.set(this, true);
         tags.add(CardTags.HEALING);
     }

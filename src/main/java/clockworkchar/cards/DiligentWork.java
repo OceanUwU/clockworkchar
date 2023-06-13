@@ -17,12 +17,13 @@ public class DiligentWork extends AbstractEasyCard {
 
     public DiligentWork() {
         super(ID, -1, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 0;
+        baseMagicNumber = magicNumber = -1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new EasyXCostAction(this, (effect, params) -> {
-            applyToSelfTop(new DiligentWorkPower(p, effect+magicNumber));
+            if (effect+magicNumber > 0)
+                applyToSelfTop(new DiligentWorkPower(p, effect+magicNumber));
             return true;
         }));
     }

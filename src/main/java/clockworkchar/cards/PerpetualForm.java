@@ -31,7 +31,7 @@ public class PerpetualForm extends AbstractEasyCard {
     public final static String ID = makeID("PerpetualForm");
     private final static CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public final static int ENERGY_LOST = 2;
-    public final static int CHARGE_PER_ENERGY = 4;
+    public final static int CHARGE_PER_ENERGY = 8;
 
     public PerpetualForm() {
         super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);

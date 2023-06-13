@@ -347,8 +347,8 @@
   },
   "${ModID}:DiligentWork": {
     "NAME": "Diligent Work",
-    "DESCRIPTION": "At the start of your turn, ${ModID}:Actuate X times.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, ${ModID}:Actuate X+!M! times."
+    "DESCRIPTION": "At the start of your turn, ${ModID}:Actuate X!M! times.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, ${ModID}:Actuate X times."
   },
   "${ModID}:BouncyBall": {
     "NAME": "Bouncy Ball",
