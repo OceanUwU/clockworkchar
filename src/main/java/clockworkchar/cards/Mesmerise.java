@@ -27,7 +27,7 @@ public class Mesmerise extends AbstractEasyCard {
 
     public Mesmerise() {
         super(ID, 3, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
-        baseBlock = 10;
+        baseBlock = 5;
         baseMagicNumber = magicNumber = 2;
         baseSecondMagic = secondMagic = 1;
         exhaust = true;
@@ -42,7 +42,7 @@ public class Mesmerise extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeBaseCost(2);
+        upgradeBlock(5);
     }
 
     public static class DizzyPower extends AbstractEasyPower {

@@ -6,11 +6,14 @@ import java.util.HashMap;
 
 public class ToolLibrary {
     public static HashMap<String, AbstractTool> tools = new HashMap<>();
+    public static AbstractTool defaultTool;
 
     public static void initialize() {
+        Spanner spanner = new Spanner();
+        defaultTool = spanner;
         add(new AllenKey());
         add(new Screwdriver());
-        add(new Spanner());
+        add(spanner);
         add(new Torch());
     };
 

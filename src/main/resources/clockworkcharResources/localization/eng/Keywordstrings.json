@@ -83,7 +83,7 @@
     "NAMES": [
       "actuate"
     ],
-    "DESCRIPTION": "Activate the effect of your equipped tool."
+    "DESCRIPTION": "Activate the effect of your equipped Tool. #ySpanner is the default tool."
   },
   {
     "PROPER_NAME": "Spanner",

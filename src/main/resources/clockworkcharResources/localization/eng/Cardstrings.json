@@ -288,7 +288,7 @@
   },
   "${ModID}:Scanner": {
     "NAME": "Scanner",
-    "DESCRIPTION": "Whenever you play a card, ${ModID}:Attune it."
+    "DESCRIPTION": "After you play a card, ${ModID}:Attune it."
   },
   "${ModID}:EmergencyStop": {
     "NAME": "Emergency Stop",

@@ -62,7 +62,7 @@
     "NAME": "Dizzy",
     "DESCRIPTIONS": [
       "When attacked, loses #b",
-      " #yStrength."
+      " #yStrength until next turn."
     ]
   },
   "${ModID}:PerpetualFormPower": {
