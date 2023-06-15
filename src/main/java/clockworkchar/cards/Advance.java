@@ -14,16 +14,12 @@ public class Advance extends AbstractEasyCard {
     public final static String ID = makeID("Advance");
 
     public Advance() {
-        this(true);
-    }
-
-    public Advance(boolean real) {
         super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
-        baseSpinAmount = spinAmount = 8;
+        baseSpinAmount = spinAmount = 6;
         baseMagicNumber = magicNumber = 1;
+        baseSecondMagic = secondMagic = 1;
+        baseThirdMagic = thirdMagic = 2;
         exhaust = true;
-        if (real)
-            cardsToPreview = new Advance(false);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -31,8 +27,10 @@ public class Advance extends AbstractEasyCard {
         Advance c = this;
         atb(new SpinAction(spinAmount, spun -> {
             if (spun) {
-                att(new GainEnergyAction(1));
-                att(new MakeTempCardInHandAction(c.makeStatEquivalentCopy()));
+                att(new GainEnergyAction(secondMagic));
+                baseSpinAmount += thirdMagic;
+                spinAmount = baseSpinAmount;
+                att(new MakeTempCardInHandAction(c));
             }
         }));
     }

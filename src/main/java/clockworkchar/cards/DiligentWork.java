@@ -30,7 +30,6 @@ public class DiligentWork extends AbstractEasyCard {
 
     public void upp() {
         upgradeMagicNumber(1);
-        uDesc();
     }
 
     public static class DiligentWorkPower extends AbstractEasyPower {

@@ -13,17 +13,18 @@ public class PotentialEnergy extends AbstractEasyCard {
 
     public PotentialEnergy() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 5;
+        baseMagicNumber = magicNumber = 1;
+        baseSecondMagic = secondMagic = 5;
         baseSpinAmount = spinAmount = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         att(new AbstractGameAction() {
             public void update() {
-                int energy = Math.floor(ClockworkChar.winder.charge / magicNumber);
+                int energy = Math.floor(ClockworkChar.winder.charge / secondMagic);
                 att(new SpinAction(energy * spinAmount, spun -> {
                     if (spun)
-                        att(new GainEnergyAction(energy));
+                        att(new GainEnergyAction(energy * magicNumber));
                 }));
                 isDone = true;
             }

@@ -26,7 +26,6 @@ public class GearRatio extends AbstractEasyCard {
             if (spun) {
                 baseMagicNumber += secondMagic;
                 magicNumber = baseMagicNumber;
-                uDesc();
             }
         }));
     }

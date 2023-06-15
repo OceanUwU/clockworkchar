@@ -37,7 +37,5 @@ public class DazzlingDevice extends AbstractEasyCard {
             }));
     }
 
-    public void upp() {
-        uDesc();
-    }
+    public void upp() {}
 }

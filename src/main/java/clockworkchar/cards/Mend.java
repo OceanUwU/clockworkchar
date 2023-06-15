@@ -46,7 +46,6 @@ public class Mend extends AbstractEasyCard {
     }
 
     public void upp() {
-        uDesc();
         upgradeSecondMagic(1);
     }
 }

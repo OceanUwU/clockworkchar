@@ -14,6 +14,7 @@ public class Whir extends AbstractEasyCard {
     public Whir() {
         super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 3;
+        baseSecondMagic = secondMagic = 1;
         baseSpinAmount = spinAmount = 2;
     }
 
@@ -21,7 +22,7 @@ public class Whir extends AbstractEasyCard {
         for (int i = 0; i < magicNumber; i++) {
             atb(new SpinAction(spinAmount, i == 0, spun -> {
                 if (spun)
-                    att(new DrawCardAction(1));
+                    att(new DrawCardAction(secondMagic));
             }));
         }
     }

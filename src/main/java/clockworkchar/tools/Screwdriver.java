@@ -2,9 +2,7 @@ package clockworkchar.tools;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.localization.OrbStrings;
@@ -20,13 +18,11 @@ public class Screwdriver extends AbstractTool {
     private static Texture SCREWDRIVER_TEXTURE = ImageMaster.loadImage(ClockworkChar.makeImagePath("tools/screwdriver.png"));
     private static float OSCILLATE_SPEED = 2.5f;
     private static float OSCILLATE_AMOUNT = 10.0f;
-    
-    private static int BLOCK_GAIN = 3;
 
     private float offsetAngle = 0f;
 
     public Screwdriver() {
-        super(TOOL_ID, orbStrings.NAME, SCREWDRIVER_TEXTURE);
+        super(TOOL_ID, orbStrings.NAME, SCREWDRIVER_TEXTURE, 4, 1, 0);
     }
 
     public void updateAnimation() {
@@ -36,19 +32,13 @@ public class Screwdriver extends AbstractTool {
     }
 
     public void use() {
-        dmgTop();
-        blckTop();
+        super.use();
         att(new AbstractGameAction() {
             public void update() {
                 offsetAngle += 360f;
                 isDone = true;
             }
         });
-    }
-
-    @Override
-    protected int getBlock() {
-        return super.getBlock() + BLOCK_GAIN;
     }
 
     public void updateDescription() {

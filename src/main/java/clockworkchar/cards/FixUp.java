@@ -32,7 +32,5 @@ public class FixUp extends AbstractEasyCard {
             }));
     }
 
-    public void upp() {
-        uDesc();
-    }
+    public void upp() {}
 }

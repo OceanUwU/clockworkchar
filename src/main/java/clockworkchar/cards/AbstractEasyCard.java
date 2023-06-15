@@ -308,6 +308,21 @@ public abstract class AbstractEasyCard extends CustomCard {
         }
     }
 
+    public AbstractCard makeStatEquivalentCopy() {
+        AbstractEasyCard c = (AbstractEasyCard)super.makeStatEquivalentCopy();
+        c.baseSpinAmount = baseSpinAmount;
+        c.spinAmount = c.baseSpinAmount;
+        c.baseSecondDamage = baseSecondDamage;
+        c.secondDamage = c.baseSecondDamage;
+        c.baseSecondBlock = baseSecondBlock;
+        c.secondBlock = c.baseSecondBlock;
+        c.baseSecondMagic = baseSecondMagic;
+        c.secondMagic = c.baseSecondMagic;
+        c.baseThirdMagic = baseThirdMagic;
+        c.thirdMagic = c.baseThirdMagic;
+        return c;
+    }
+
     // These shortcuts are specifically for cards. All other shortcuts that aren't specifically for cards can go in Wiz.
     protected void dmg(AbstractMonster m, AbstractGameAction.AttackEffect fx) {
         atb(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), fx));

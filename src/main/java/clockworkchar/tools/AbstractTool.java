@@ -1,5 +1,6 @@
 package clockworkchar.tools;
 
+import clockworkchar.powers.Blinded;
 import clockworkchar.powers.ProficiencyPower;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -33,8 +35,6 @@ public abstract class AbstractTool {
     private static final Color DEQUIP_COLOR = Color.CHARTREUSE.cpy();
     private static final float yAcceleration = -500f;
     public static final int DEQUIP_USE_TIMES = 2;
-    private static int BASE_BLOCK = 1;
-    private static int BASE_DAMAGE = 1;
     private TextureRegion texture;
     public String id;
     public String name;
@@ -53,12 +53,15 @@ public abstract class AbstractTool {
     private float yVel;
     private float dequipSpinSpeed;
 
-    public int block, damage, passiveAmount;
+    public int baseBlock, baseDamage, basePassiveAmount, block, damage, passiveAmount;
     protected AbstractMonster target;
 
-    public AbstractTool(String id, String name, Texture texture) {
+    public AbstractTool(String id, String name, Texture texture, int baseBlock, int baseDamage, int basePassiveAmount) {
         this.id = id;
         this.name = name;
+        this.baseBlock = baseBlock;
+        this.baseDamage = baseDamage;
+        this.basePassiveAmount = basePassiveAmount;
         updateDescription();
         applyPowers();
         color.a = 0.0f;
@@ -74,6 +77,10 @@ public abstract class AbstractTool {
         return AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
     }
 
+    public int getDamage(AbstractCreature target) {
+        return damage + pwrAmt(target, Blinded.POWER_ID);
+    }
+
     protected void blckTop() {
         att(new GainBlockAction(adp(), block, true));
     }
@@ -81,7 +88,7 @@ public abstract class AbstractTool {
     protected void dmgTop() {
         target = getRandomTarget();
         if (target != null)
-            att(new DamageAction(target, new DamageInfo(adp(), damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
+            att(new DamageAction(target, new DamageInfo(adp(), damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
     }
 
     public void use() {
@@ -105,22 +112,10 @@ public abstract class AbstractTool {
         dequipping = false;
     }
 
-    protected int getDamage() {
-        return BASE_DAMAGE;
-    }
-
-    protected int getBlock() {
-        return BASE_BLOCK;
-    }
-
-    protected int getPassiveAmount() {
-        return 0;
-    }
-
     public void applyPowers() {
-        damage = getDamage();
-        block = getBlock();
-        passiveAmount = getPassiveAmount();
+        damage = baseDamage;
+        block = baseBlock;
+        passiveAmount = basePassiveAmount;
         if (CardCrawlGame.isInARun() && AbstractDungeon.player.hasPower(ProficiencyPower.POWER_ID)) {
             int proficiency = AbstractDungeon.player.getPower(ProficiencyPower.POWER_ID).amount;
             damage += proficiency;

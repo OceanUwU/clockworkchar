@@ -132,5 +132,20 @@
       "Next turn, gain #b",
       " temporary #yStrength."
     ]
+  },
+  "${ModID}:RetainCardsThisTurn": {
+    "NAME": "This Turn Retain",
+    "DESCRIPTIONS": [
+      "At the end of this turn, you may retain #b",
+      " card.",
+      " cards."
+    ]
+  },
+  "${ModID}:Blinded": {
+    "NAME": "Blinded",
+    "DESCRIPTIONS": [
+      "Takes #b",
+      " additional damage from Tools this turn."
+    ]
   }
 }

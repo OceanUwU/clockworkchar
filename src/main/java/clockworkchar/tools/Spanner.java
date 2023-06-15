@@ -9,11 +9,9 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.WallopEffect;
 
@@ -27,23 +25,16 @@ public class Spanner extends AbstractTool {
     private static float SPIN_SPEED = 40.0F;
     private static float FLY_SPIN_SPEED = 280.0F;
 
-    private static int DAMAGE = 2;
-
     private boolean flyingTowardEnemy = false;
     public boolean returning = false;
 
     public Spanner() {
-        super(TOOL_ID, orbStrings.NAME, SPANNER_TEXTURE);
+        super(TOOL_ID, orbStrings.NAME, SPANNER_TEXTURE, 1, 3, 0);
     }
 
     public void use() {
         att(new ChuckSpannerAction(this, damage));
         blckTop();
-    }
-
-    @Override
-    protected int getDamage() {
-        return super.getDamage() + DAMAGE;
     }
 
     public void updateDescription() {
@@ -94,7 +85,7 @@ public class Spanner extends AbstractTool {
                 timer = length;
                 spanner.flyingTowardEnemy = false;
                 vfxTop(new WallopEffect(damage, tX, tY));
-                att(new DamageAction(target, new DamageInfo(source, damage, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE));
+                att(new DamageAction(target, new DamageInfo(source, spanner.getDamage(target), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
                 vfxTop(new SpannerReturnEffect(spanner));
                 CardCrawlGame.sound.play("BLUNT_FAST");
                 isDone = true;

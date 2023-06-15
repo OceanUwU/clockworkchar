@@ -19,11 +19,12 @@ public class ReadyUp extends AbstractEasyCard {
     public ReadyUp() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 10;
+        baseSecondMagic = secondMagic = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new WindUpAction(magicNumber));
-        applyToSelf(new EnergizedCrankyPower(p, 1));
+        applyToSelf(new EnergizedCrankyPower(p, secondMagic));
     }
 
     public void upp() {

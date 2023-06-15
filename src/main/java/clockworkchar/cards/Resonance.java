@@ -5,7 +5,6 @@ import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static clockworkchar.ClockworkChar.makeID;
@@ -13,7 +12,6 @@ import static clockworkchar.util.Wiz.*;
 
 public class Resonance extends AbstractEasyCard implements StartupCard {
     public final static String ID = makeID("Resonance");
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 
     private int plays = 0;
 

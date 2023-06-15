@@ -20,12 +20,10 @@ public class AllenKey extends AbstractTool {
     private static float SPIN_SPEED = 30.0F;
     private static float USE_SPIN_SPEED = 960.0F;
 
-    private static int WINDUP_AMOUNT = 2;
-
     private float spin_speed = SPIN_SPEED;
 
     public AllenKey() {
-        super(TOOL_ID, orbStrings.NAME, KEY_TEXTURE);
+        super(TOOL_ID, orbStrings.NAME, KEY_TEXTURE, 1, 1, 2);
     }
 
     public void updateAnimation() {
@@ -46,11 +44,6 @@ public class AllenKey extends AbstractTool {
                 spin_speed = USE_SPIN_SPEED;
             }
         });
-    }
-
-    @Override
-    protected int getPassiveAmount() {
-        return WINDUP_AMOUNT;
     }
 
     public void updateDescription() {

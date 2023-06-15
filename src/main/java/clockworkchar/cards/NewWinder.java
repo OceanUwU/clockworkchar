@@ -37,7 +37,5 @@ public class NewWinder extends AbstractEasyCard {
             }));
     }
 
-    public void upp() {
-        uDesc();
-    }
+    public void upp() {}
 }

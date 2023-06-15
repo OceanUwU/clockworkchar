@@ -17,7 +17,7 @@ public class Tip extends AbstractEasyCard {
         baseDamage = 10;
         baseSpinAmount = spinAmount = 6;
         baseMagicNumber = magicNumber = 2;
-        cardsToPreview = new Spinner();
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -28,6 +28,6 @@ public class Tip extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeDamage(5);
+        upgradeDamage(4);
     }
 }

@@ -39,8 +39,4 @@ public class Rearrange extends AbstractEasyCard {
     public void upp() {
         upgradeBlock(4);
     }
-
-    public void branchUpgrade() {
-        uDesc();
-    }
 }

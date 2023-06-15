@@ -23,7 +23,6 @@ public class WormGear extends AbstractEasyCard {
     }
 
     public void upp() {
-        uDesc();
         upgradeMagicNumber(1);
     }
 

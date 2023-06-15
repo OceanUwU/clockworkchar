@@ -4,7 +4,7 @@
     <groupId>UnimportantInfo</groupId>
 
     <artifactId>clockworkchar</artifactId>
-    <version>0.2.3</version>
+    <version>0.3.0</version>
     <name>Cranky</name>
     <description>A Slay the Spire character who winds themself up to gain a second energy.</description>
 
@@ -81,6 +81,16 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <delimiters>
+                        <delimiter>${*}</delimiter>
+                    </delimiters>
+                </configuration>
             </plugin>
         </plugins>
 

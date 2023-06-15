@@ -28,8 +28,6 @@ public class Accelerate extends AbstractEasyCard {
     }
 
     public void upp() {
-        uDesc();
         upgradeMagicNumber(1);
-        upgradeSpinAmount(1);
     }
 }

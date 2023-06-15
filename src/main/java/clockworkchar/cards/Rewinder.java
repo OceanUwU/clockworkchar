@@ -1,10 +1,16 @@
 package clockworkchar.cards;
 
 import clockworkchar.actions.SpinAction;
+import clockworkchar.powers.AbstractEasyPower;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.EquilibriumPower;
+import com.megacrit.cardcrawl.relics.RunicPyramid;
 
 import static clockworkchar.ClockworkChar.makeID;
 import static clockworkchar.util.Wiz.*;
@@ -15,6 +21,7 @@ public class Rewinder extends AbstractEasyCard {
     public Rewinder() {
         super(ID, -2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
         baseSpinAmount = spinAmount = 2;
+        baseMagicNumber = magicNumber = 1;
         part = true;
         selfRetain = true;
     }
@@ -29,11 +36,32 @@ public class Rewinder extends AbstractEasyCard {
         att(new SpinAction(spinAmount, spun -> {
             retain = true;
             if (spun)
-                atb(new RetainCardsAction(AbstractDungeon.player, 1)); //atb so that it triggers after other parts have decided whether to retain or not
+                applyToSelfTop(new RetainCardsThisTurnPower(adp(), magicNumber));
         }));
     }
 
     public void upp() {
         upgradeSpinAmount(1);
+    }
+
+    public static class RetainCardsThisTurnPower extends AbstractEasyPower {
+        public static String POWER_ID = makeID("RetainCardsThisTurn");
+        private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+
+        public RetainCardsThisTurnPower(AbstractCreature owner, int amount) {
+            super(POWER_ID, powerStrings.NAME, PowerType.BUFF, true, owner, amount);
+            loadRegion("retain");
+        }
+
+        public void atEndOfTurn(boolean isPlayer) {
+            if (isPlayer && !adp().hand.isEmpty() && !adp().hasRelic(RunicPyramid.ID) && !adp().hasPower(EquilibriumPower.POWER_ID)) {
+                atb(new RetainCardsAction(owner, amount));
+                atb(new RemoveSpecificPowerAction(owner, owner, this));
+            }
+        }
+        
+        public void updateDescription() {
+            description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[amount == 1 ? 1 : 2];
+        }
     }
 }

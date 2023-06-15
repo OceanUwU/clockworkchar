@@ -32,6 +32,7 @@ public class LetGoAction extends AbstractGameAction {
                 if (power instanceof AbstractEasyPower)
                     ((AbstractEasyPower)power).onSpin(chargeUsed);
         }
+        AbstractDungeon.player.hand.applyPowers();
         cb.accept(chargeUsed);
         isDone = true;
     }

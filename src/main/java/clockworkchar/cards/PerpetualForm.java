@@ -30,31 +30,23 @@ import static clockworkchar.util.Wiz.*;
 public class PerpetualForm extends AbstractEasyCard {
     public final static String ID = makeID("PerpetualForm");
     private final static CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    public final static int ENERGY_LOST = 2;
     public final static int CHARGE_PER_ENERGY = 8;
 
     public PerpetualForm() {
         super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
         tags.add(BaseModCardTags.FORM);
         baseMagicNumber = magicNumber = 6;
-        baseSecondMagic = secondMagic = CHARGE_PER_ENERGY;
+        baseSecondMagic = secondMagic = 2;
+        baseThirdMagic = thirdMagic = CHARGE_PER_ENERGY;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        applyToSelf(new PerpetualFormPower(p, ENERGY_LOST));
+        applyToSelf(new PerpetualFormPower(p, secondMagic));
         atb(new GainCogwheelsAction(magicNumber));
     }
 
     public void upp() {
         upgradeMagicNumber(2);
-    }
-
-    public void initializeDescription() {
-        String energyIcons = "";
-        for (int i=0; i<ENERGY_LOST; i++)
-            energyIcons += "[E] ";
-        this.rawDescription = cardStrings.DESCRIPTION.replace("[ENERGY]", energyIcons);
-        super.initializeDescription();
     }
 
     public static class PerpetualFormPower extends AbstractEasyPower implements AlternateCardCostModifier {
@@ -89,6 +81,11 @@ public class PerpetualForm extends AbstractEasyCard {
         public int getAlternateResource(AbstractCard card) {return ClockworkChar.winder.charge / CHARGE_PER_ENERGY;}
         public boolean prioritizeAlternateCost(AbstractCard card) {return false;}
         public boolean canSplitCost(AbstractCard card) {return true;}
+        public static int amountSpentOnCard(AbstractCard card) {
+            if (card.cost == -1)
+                return ClockworkChar.winder.charge - ClockworkChar.winder.charge % CHARGE_PER_ENERGY;
+            return (card.costForTurn - EnergyPanel.totalCount) * CHARGE_PER_ENERGY;
+        }
         public int spendAlternateCost(AbstractCard card, int costToSpend) {
             int chargeToSpend = 0;
             while (costToSpend > 0 && ClockworkChar.winder.charge >= chargeToSpend + CHARGE_PER_ENERGY) {
@@ -110,9 +107,7 @@ public class PerpetualForm extends AbstractEasyCard {
 
             public static void Postfix(AbstractCard __instance, SpriteBatch sb) {
                 if (perpetual && AbstractDungeon.player.hand.contains(__instance)) {
-                    int chargeCost = (__instance.costForTurn - EnergyPanel.totalCount) * CHARGE_PER_ENERGY;
-                    if (__instance.cost == -1)
-                        chargeCost = ClockworkChar.winder.charge - ClockworkChar.winder.charge % CHARGE_PER_ENERGY;
+                    int chargeCost = PerpetualFormPower.amountSpentOnCard(__instance);
                     if (chargeCost > 0) {
                         sb.setColor(Color.WHITE);
                         sb.draw(costDisplayTexture, __instance.current_x - costDisplayTexture.originalWidth / 2.0F, __instance.current_y - costDisplayTexture.originalHeight / 2.0F, costDisplayTexture.originalWidth / 2.0F, costDisplayTexture.originalHeight / 2.0F, costDisplayTexture.packedWidth, costDisplayTexture.packedHeight, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle);

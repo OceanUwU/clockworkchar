@@ -16,13 +16,14 @@ public class MechanicalManoeuvre extends AbstractEasyCard {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseBlock = 8;
         baseSpinAmount = spinAmount = 4;
+        baseMagicNumber = magicNumber = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
         atb(new SpinAction(spinAmount, spun -> {
             if (spun)
-                att(new GainEnergyAction(1));
+                att(new GainEnergyAction(magicNumber));
         }));
     }
 

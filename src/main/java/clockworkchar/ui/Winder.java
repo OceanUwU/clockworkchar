@@ -1,6 +1,7 @@
 package clockworkchar.ui;
 
 import clockworkchar.ClockworkChar;
+import clockworkchar.cards.PerpetualForm;
 import clockworkchar.characters.TheClockwork;
 import clockworkchar.multiplayer.ModManager;
 import clockworkchar.multiplayer.NetworkCranky;
@@ -13,6 +14,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.Bone;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -228,6 +230,13 @@ public class Winder {
         int chargeUsed = charge;
         useCharge(chargeUsed);
         return chargeUsed;
+    }
+
+    public int maxChargeUsedOnCard(AbstractCard card) {
+        if (!CardCrawlGame.isInARun()) return charge;
+        if (PerpetualForm.PerpetualFormPower.perpetual)
+            return Math.max(0, charge - PerpetualForm.PerpetualFormPower.amountSpentOnCard(card));
+        return charge;
     }
 
     public void triggerCogwheels() {

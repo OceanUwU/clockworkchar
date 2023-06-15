@@ -2,15 +2,20 @@ package clockworkchar.actions;
 
 import clockworkchar.ClockworkChar;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 
 import static clockworkchar.util.Wiz.*;
 
 public class UseToolAction extends AbstractGameAction {
     private int times;
+    private boolean first;
+
+    public UseToolAction(int times, boolean first) {
+        this.times = times;
+        this.first = first;
+    }
 
     public UseToolAction(int times) {
-        this.times = times;
+        this(times, true);
     }
 
     public UseToolAction() {
@@ -20,11 +25,10 @@ public class UseToolAction extends AbstractGameAction {
     public void update() {
         isDone = true;
         ClockworkChar.toolSlot.shouldRender = true;
-        ClockworkChar.toolSlot.tool.fontScale *= 2f;
-        for (int i = 0; i < times; i++) {
-            ClockworkChar.toolSlot.tool.use();
-            if (i != times-1)
-                att(new WaitAction(0.2f));
-        }
+        if (first)
+            ClockworkChar.toolSlot.tool.fontScale *= 2f;
+        if (times > 1)
+            att(new UseToolAction(times-1, false));
+        ClockworkChar.toolSlot.tool.use();
     }
 }

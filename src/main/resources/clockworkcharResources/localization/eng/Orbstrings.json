@@ -20,8 +20,8 @@
         "DESCRIPTION": [
             "When #yActuated, gain #b",
             " #yBlock, deal #b",
-            " damage to a random enemy, and ALL enemies lose #b",
-            " #yStrength this turn."
+            " damage to a random enemy, and apply #b",
+            " #yBlinded to them."
         ]
     },
     "${ModID}:AllenKey": {

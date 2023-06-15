@@ -203,9 +203,8 @@ public class Wiz {
 
     public static int pwrAmt(AbstractCreature check, String ID) {
         AbstractPower found = check.getPower(ID);
-        if (found != null) {
+        if (found != null)
             return found.amount;
-        }
         return 0;
     }
 }

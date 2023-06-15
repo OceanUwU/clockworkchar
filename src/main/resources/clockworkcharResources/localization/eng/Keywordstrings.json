@@ -76,7 +76,7 @@
       "attuned",
       "attune"
     ],
-    "DESCRIPTION": "Attuned cards #yActuate when they're played or their part effect is activated."
+    "DESCRIPTION": "Attuned cards #yActuate after they're played or their part effect is activated."
   },
   {
     "PROPER_NAME": "Actuate",
@@ -112,7 +112,7 @@
     "NAMES": [
       "torch"
     ],
-    "DESCRIPTION": "Tool. #b!B! #yBlock, #b!D! damage, reduces the #yStrength of all enemies by #b!M! for the turn."
+    "DESCRIPTION": "Tool. #b!B! #yBlock, #b!D! damage, increases the damage dealt by tools to the enemy damaged by #b!M! for the turn."
   },
   {
     "PROPER_NAME": "Proficiency",
@@ -127,5 +127,12 @@
       "trinket"
     ],
     "DESCRIPTION": "Trinkets are cards which draw a card when drawn, and #yExhaust when their part effect is activated."
+  },
+  {
+    "PROPER_NAME": "Ocean",
+    "NAMES": [
+      "ocean"
+    ],
+    "DESCRIPTION": "Jar escapee."
   }
 ]

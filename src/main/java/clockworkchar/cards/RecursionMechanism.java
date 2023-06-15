@@ -16,7 +16,7 @@ public class RecursionMechanism extends AbstractEasyCard {
         super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
         baseDamage = 12;
         baseMagicNumber = magicNumber = 1;
-        baseSpinAmount = spinAmount = 2;
+        baseSpinAmount = spinAmount = 4;
         exhaust = true;
     }
 

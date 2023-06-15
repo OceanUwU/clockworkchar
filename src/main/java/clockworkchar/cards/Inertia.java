@@ -44,7 +44,7 @@ public class Inertia extends AbstractEasyCard {
             description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[1] + strengthApplied + powerStrings.DESCRIPTIONS[2];
         }
 
-        public void onWindUp(int amount) {
+        public void onWindUp(int amountWoundUp) {
             if (strengthApplied < amount) {
                 int toApply = amount - strengthApplied;
                 applyToSelf(new StrengthPower(owner, toApply));

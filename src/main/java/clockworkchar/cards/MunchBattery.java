@@ -26,7 +26,6 @@ public class MunchBattery extends AbstractEasyCard {
     }
 
     public void upp() {
-        uDesc();
         upgradedThirdMagic(1);
     }
 }

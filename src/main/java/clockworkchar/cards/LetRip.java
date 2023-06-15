@@ -13,7 +13,7 @@ public class LetRip extends AbstractEasyCard {
 
     public LetRip() {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 18;
+        baseDamage = 16;
         baseMagicNumber = magicNumber = 2;
     }
 
@@ -24,6 +24,6 @@ public class LetRip extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeDamage(5);
+        upgradeDamage(4);
     }
 }

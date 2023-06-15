@@ -60,6 +60,7 @@ public class SpinAction extends AbstractGameAction {
                 if (power instanceof AbstractEasyPower)
                     ((AbstractEasyPower)power).onSpin(amount);
         }
+        AbstractDungeon.player.hand.applyPowers();
         isDone = true;
     }
 }

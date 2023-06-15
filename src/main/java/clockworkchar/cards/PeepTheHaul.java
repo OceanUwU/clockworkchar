@@ -31,9 +31,7 @@ public class PeepTheHaul extends AbstractEasyCard {
         applyToSelf(new PeepTheHaulPower(p, magicNumber));
     }
 
-    public void upp() {
-        uDesc();
-    }
+    public void upp() {}
 
     public static class PeepTheHaulPower extends AbstractEasyPower {
         public static String POWER_ID = makeID("PeepTheHaul");
