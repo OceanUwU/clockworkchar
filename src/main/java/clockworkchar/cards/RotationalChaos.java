@@ -18,6 +18,7 @@ public class RotationalChaos extends AbstractEasyCard {
         baseMagicNumber = magicNumber = 2;
         baseSpinAmount = spinAmount = 8;
         cardsToPreview = new Spinner();
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -30,6 +31,6 @@ public class RotationalChaos extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeSpinAmount(3);
+        upgradeSpinAmount(4);
     }
 }

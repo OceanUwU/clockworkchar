@@ -163,7 +163,7 @@
   },
   "${ModID}:RotationalChaos": {
     "NAME": "Rotational Chaos",
-    "DESCRIPTION": "{@@}Add a *Sawblade into your hand. NL ${ModID}:Spin !${ModID}:s!: Play the top !M! card{!M!|>1=s} of your draw pile."
+    "DESCRIPTION": "{@@}Add a *Sawblade into your hand. NL ${ModID}:Spin !${ModID}:s!: Play the top !M! card{!M!|>1=s} of your draw pile. NL Exhaust."
   },
   "${ModID}:Mesmerise": {
     "NAME": "Mesmerise",
@@ -211,7 +211,7 @@
   },
   "${ModID}:Reinforce": {
     "NAME": "Reinforce",
-    "DESCRIPTION": "{@@}${ModID}:Let_Go: Gain 1 *Plated *Armor per !M! ${ModID}:Charge spent.{!Location!|0= NL (Gains !${ModID}:m2! *Plated *Armor)}"
+    "DESCRIPTION": "{@@}${ModID}:Let_Go: Gain 1 *Plated *Armor per !M! ${ModID}:Charge spent.{!Location!|0= NL (Gains !${ModID}:m2! *Plated *Armor.)}"
   },
   "${ModID}:PeepTheHaul": {
     "NAME": "Peep the Haul!",
@@ -346,8 +346,8 @@
     "NAME": "Rare Coin",
     "DESCRIPTION": "{@@}${ModID}:Trinket. NL ${ModID}:Part: ${ModID}:Actuate !M! time{!M!|>1=s}."
   },
-  "${ModID}:Little${ModID}": {
-    "NAME": "Little ${ModID}",
+  "${ModID}:LittleCranky": {
+    "NAME": "Little Cranky",
     "DESCRIPTION": "${ModID}:Trinket. NL ${ModID}:Part: ${ModID}:Wind_Up !M!."
   }
 }

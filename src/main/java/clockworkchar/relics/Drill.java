@@ -3,9 +3,9 @@ package clockworkchar.relics;
 import clockworkchar.actions.WindUpAction;
 import clockworkchar.characters.TheClockwork;
 import clockworkchar.patches.HandPatches;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import org.apache.commons.lang3.StringUtils;
 
 import static clockworkchar.ClockworkChar.makeID;
@@ -25,7 +25,7 @@ public class Drill extends AbstractEasyRelic {
         return this.DESCRIPTIONS[0] + WIND_AMOUNT + this.DESCRIPTIONS[1];
     }
 
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+    public void onUseCard(AbstractCard c, UseCardAction action) {
         flash();
         atb(new WindUpAction(WIND_AMOUNT, false));
     }

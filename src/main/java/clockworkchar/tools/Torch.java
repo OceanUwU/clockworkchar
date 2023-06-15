@@ -32,20 +32,22 @@ public class Torch extends AbstractTool {
     private boolean lightOn = false;
 
     public Torch() {
-        super(TOOL_ID, orbStrings.NAME, TORCH_TEXTURE, 2, 1, 1);
+        super(TOOL_ID, orbStrings.NAME, TORCH_TEXTURE, 2, 0, 1);
     }
 
     public void use() {
         target = getRandomTarget();
-        applyToEnemyTopFast(target, new Blinded(target, passiveAmount));
-        att(new DamageAction(target, new DamageInfo(adp(), getDamage(target), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
-        final AbstractCreature hopper = target;
-        att(new AbstractGameAction() {
-            public void update() {
-                hopper.useHopAnimation();
-                isDone = true;
-            }
-        });
+        if (target != null) {
+            applyToEnemyTopFast(target, new Blinded(target, passiveAmount));
+            att(new DamageAction(target, new DamageInfo(adp(), getDamage(target), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.NONE, true));
+            final AbstractCreature hopper = target;
+            att(new AbstractGameAction() {
+                public void update() {
+                    hopper.useHopAnimation();
+                    isDone = true;
+                }
+            });
+        }
         blckTop();
         vfxTop(new TorchFlash(this));
     }
