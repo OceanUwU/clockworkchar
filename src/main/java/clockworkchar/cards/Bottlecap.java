@@ -13,6 +13,7 @@ public class Bottlecap extends AbstractEasyCard {
         baseBlock = 8;
         trinket = true;
         part = true;
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {}

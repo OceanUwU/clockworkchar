@@ -263,15 +263,15 @@
   },
   "${ModID}:FixUp": {
     "NAME": "Fix-up",
-    "DESCRIPTION": "{@@}${ModID}:Equip a ${ModID}:Screwdriver.{!Upgrades!|@=|>0= NL ${ModID}:Attune a card.} NL Exhaust."
+    "DESCRIPTION": "{@@}{!Upgrades!|@=|>0=Innate. NL }${ModID}:Equip a ${ModID}:Screwdriver. NL Exhaust."
   },
   "${ModID}:DazzlingDevice": {
     "NAME": "Dazzling Device",
-    "DESCRIPTION": "{@@}${ModID}:Equip a ${ModID}:Torch.{!Upgrades!|@=|>0= NL ${ModID}:Attune a card in your draw pile.} NL Exhaust."
+    "DESCRIPTION": "{@@}{!Upgrades!|@=|>0=Innate. NL }${ModID}:Equip a ${ModID}:Torch. NL Exhaust."
   },
   "${ModID}:NewWinder": {
     "NAME": "New Winder",
-    "DESCRIPTION": "{@@}${ModID}:Equip an ${ModID}:Allen_Key.{!Upgrades!|@=|>0= NL ${ModID}:Attune a card in your discard pile.} NL Exhaust."
+    "DESCRIPTION": "{@@}{!Upgrades!|@=|>0=Innate. NL }${ModID}:Equip an ${ModID}:Allen_Key. NL Exhaust."
   },
   "${ModID}:Scanner": {
     "NAME": "Scanner",

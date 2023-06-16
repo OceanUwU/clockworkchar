@@ -16,10 +16,14 @@ public class Reinforce extends AbstractEasyCard {
         super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 4;
         baseSecondMagic = secondMagic = 0;
+        baseSpinAmount = spinAmount = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new LetGoAction(spent -> applyToSelfTop(new PlatedArmorPower(p, spent / magicNumber))));
+        atb(new LetGoAction(spent -> {
+            if (spent / magicNumber > 0)
+                applyToSelfTop(new PlatedArmorPower(p, spent / magicNumber));
+        }));
     }
 
     public void applyPowers() {

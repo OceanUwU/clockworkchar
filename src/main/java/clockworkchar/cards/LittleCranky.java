@@ -15,6 +15,7 @@ public class LittleCranky extends AbstractEasyCard {
         baseMagicNumber = magicNumber = 8;
         trinket = true;
         part = true;
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {}

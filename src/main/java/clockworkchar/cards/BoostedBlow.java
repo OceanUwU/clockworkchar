@@ -16,13 +16,14 @@ public class BoostedBlow extends AbstractEasyCard {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
         baseDamage = 0;
         baseMagicNumber = magicNumber = 2;
+        baseSpinAmount = spinAmount = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new LetGoAction(spent -> {
             baseDamage = spent * magicNumber;
             calculateCardDamage(m);
-            dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
+            dmgTop(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
             this.initializeDescription();
         }));
     }

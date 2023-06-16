@@ -113,8 +113,8 @@
   "${ModID}:PeepTheHaul": {
     "NAME": "Peep the Haul!",
     "DESCRIPTIONS": [
-      "At the start of your turn, shuffle a random #yTrinket into your draw pile.",
-      "At the start of your turn, shuffle #b",
+      "At the end of your turn, shuffle a random #yTrinket into your draw pile.",
+      "At the end of your turn, shuffle #b",
       " random #yTrinkets into your draw pile."
     ]
   },

@@ -81,7 +81,7 @@ public class UnleashRage extends AbstractEasyCard {
 
             public void update() {
                 if (duration == DUR)
-                    CardCrawlGame.sound.play(makeID("BOIL"));
+                    CardCrawlGame.sound.playV(makeID("BOIL"), 0.6f);
                 duration -= Gdx.graphics.getDeltaTime();
                 float shouldveEmitted = (1 - duration / DUR) * (float)PARTICLES;
                 while (emitted < shouldveEmitted)

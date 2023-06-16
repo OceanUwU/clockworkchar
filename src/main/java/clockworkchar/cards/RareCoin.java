@@ -15,6 +15,7 @@ public class RareCoin extends AbstractEasyCard {
         baseMagicNumber = magicNumber = 2;
         trinket = true;
         part = true;
+        exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {}

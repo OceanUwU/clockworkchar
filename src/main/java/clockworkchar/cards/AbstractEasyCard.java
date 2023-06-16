@@ -1,5 +1,6 @@
 package clockworkchar.cards;
 
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
 import clockworkchar.characters.TheClockwork;
 import clockworkchar.patches.AttunedPatches;
@@ -21,6 +22,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -268,6 +270,7 @@ public abstract class AbstractEasyCard extends CustomCard {
                         AbstractDungeon.player.getPower(Efficiency.EfficiencyPower.POWER_ID).flash();
                         times += pwrAmt(AbstractDungeon.player, Efficiency.EfficiencyPower.POWER_ID);
                     }
+                    AttunedPatches.CountPlay.count(c, true);
                     for (int i = 0; i < times; i++)
                         att(new AbstractGameAction() {
                             public void update() {
@@ -279,7 +282,6 @@ public abstract class AbstractEasyCard extends CustomCard {
                                 activate();
                             }
                         });
-                    AttunedPatches.CountPlay.count(c, false);
                 }
             };
         }

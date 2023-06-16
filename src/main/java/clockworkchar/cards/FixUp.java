@@ -1,11 +1,7 @@
 package clockworkchar.cards;
 
-import clockworkchar.actions.AttuneAction;
 import clockworkchar.actions.EquipToolAction;
 import clockworkchar.tools.Screwdriver;
-import clockworkchar.vfx.AttuneCardEffect;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -25,12 +21,9 @@ public class FixUp extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new EquipToolAction(new Screwdriver()));
-        if (upgraded)
-            atb(new SelectCardsInHandAction(TEXT[0], c -> {
-                att(new VFXAction(p, new AttuneCardEffect(c.get(0)), 0.0f, true));
-                att(new AttuneAction(c.get(0)));
-            }));
     }
 
-    public void upp() {}
+    public void upp() {
+        isInnate = true;
+    }
 }
