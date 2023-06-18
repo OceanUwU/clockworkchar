@@ -22,7 +22,7 @@ public class Screwdriver extends AbstractTool {
     private float offsetAngle = 0f;
 
     public Screwdriver() {
-        super(TOOL_ID, orbStrings.NAME, SCREWDRIVER_TEXTURE, 4, 1, 0);
+        super(TOOL_ID, orbStrings.NAME, SCREWDRIVER_TEXTURE, 3, 1, 0);
     }
 
     public void updateAnimation() {

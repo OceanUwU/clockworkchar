@@ -1,6 +1,8 @@
 package clockworkchar.powers;
 
 import clockworkchar.ClockworkChar;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -13,10 +15,12 @@ public class ProficiencyPower extends AbstractEasyPower {
 
     public ProficiencyPower(AbstractCreature owner, int amount) {
         super(POWER_ID, powerStrings.NAME, PowerType.BUFF, false, owner, amount);
+        canGoNegative = true;
     }
     
     public void updateDescription() {
-        description = powerStrings.DESCRIPTIONS[0] + amount + powerStrings.DESCRIPTIONS[1];
+        description = powerStrings.DESCRIPTIONS[amount > 0 ? 0 : 1] + Math.abs(amount) + powerStrings.DESCRIPTIONS[2];
+        type = amount > 0 ? PowerType.BUFF : PowerType.DEBUFF;
     }
 
     public void onInitialApplication() {
@@ -25,11 +29,17 @@ public class ProficiencyPower extends AbstractEasyPower {
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
+        amount = Math.max(-999, Math.min(999, amount));
+        if (this.amount == 0)
+            addToTop((AbstractGameAction)new RemoveSpecificPowerAction(owner, owner, this));
         ClockworkChar.toolSlot.tool.applyPowers();
     }
 
     public void reducePower(int stackAmount) {
         super.reducePower(stackAmount);
+        amount = Math.max(-999, Math.min(999, amount));
+        if (this.amount == 0)
+            addToTop((AbstractGameAction)new RemoveSpecificPowerAction(owner, owner, this)); 
         ClockworkChar.toolSlot.tool.applyPowers();
     }
 }

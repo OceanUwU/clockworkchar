@@ -121,6 +121,8 @@ public abstract class AbstractTool {
             damage += proficiency;
             block += proficiency;
         }
+        damage = Math.max(0, damage);
+        block = Math.max(0, block);
         updateDescription();
     };
 

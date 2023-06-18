@@ -27,7 +27,7 @@ public class PeepTheHaul extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (upgraded)
-            PeepTheHaulPower.shuffleRandomTrinket();
+            PeepTheHaulPower.shuffleRandomTrinket(magicNumber);
         applyToSelf(new PeepTheHaulPower(p, magicNumber));
     }
 
@@ -41,13 +41,13 @@ public class PeepTheHaul extends AbstractEasyCard {
             super(POWER_ID, powerStrings.NAME, PowerType.BUFF, false, owner, amount);
         }
 
-        public static void shuffleRandomTrinket() {
-            shuffleIn(ClockworkChar.trinkets.getRandomCard(AbstractDungeon.cardRandomRng).makeCopy());
+        public static void shuffleRandomTrinket(int num) {
+            for (int i = 0; i < num; i++)
+                shuffleIn(ClockworkChar.trinkets.getRandomCard(AbstractDungeon.cardRandomRng).makeCopy());
         }
 
         public void atEndOfTurn(boolean playerTurn) {
-            for (int i = 0; i < amount; i++)
-                shuffleRandomTrinket();
+            shuffleRandomTrinket(amount);
         }
         
         public void updateDescription() {

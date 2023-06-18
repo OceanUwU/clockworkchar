@@ -20,7 +20,7 @@ public class Rewinder extends AbstractEasyCard {
 
     public Rewinder() {
         super(ID, -2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
-        baseSpinAmount = spinAmount = 2;
+        baseSpinAmount = spinAmount = 3;
         baseMagicNumber = magicNumber = 1;
         part = true;
         selfRetain = true;

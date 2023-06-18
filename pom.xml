@@ -4,7 +4,7 @@
     <groupId>UnimportantInfo</groupId>
 
     <artifactId>clockworkchar</artifactId>
-    <version>0.3.2</version>
+    <version>0.3.3</version>
     <name>Cranky</name>
     <description>A Slay the Spire character who winds themself up to gain a second energy.</description>
 
@@ -56,6 +56,13 @@
             <version>5.1.2</version>
             <scope>system</scope>
             <systemPath>${Steam.path}/workshop/content/646570/2384072973/TogetherInSpire.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>CardAugments</groupId>
+            <artifactId>CardAugments</artifactId>
+            <version>0.7.1</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/2970981743/CardAugments.jar</systemPath>
         </dependency>
     </dependencies>
 

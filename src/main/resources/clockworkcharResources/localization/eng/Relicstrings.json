@@ -19,8 +19,8 @@
     "NAME": "Oil Canister",
     "FLAVOR": "\"Yum!\" - Cranky",
     "DESCRIPTIONS": [
-      "Whenever you #y${ModID}:Wind_Up, #y${ModID}:Wind_Up #b",
-      " more."
+      "At the start of combat, shuffle #b",
+      " random #y${ModID}:Trinkets into your draw pile."
     ]
   },
   "${ModID}:FloppyDisk": {

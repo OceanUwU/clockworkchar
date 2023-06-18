@@ -124,7 +124,8 @@
   {
     "PROPER_NAME": "Trinket",
     "NAMES": [
-      "trinket"
+      "trinket",
+      "trinkets"
     ],
     "DESCRIPTION": "Trinkets are cards which draw a card when drawn, and #yExhaust when their part effect is activated."
   },

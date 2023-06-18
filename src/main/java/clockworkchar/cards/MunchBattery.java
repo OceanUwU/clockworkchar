@@ -1,7 +1,7 @@
 package clockworkchar.cards;
 
 import clockworkchar.actions.WindUpAction;
-import clockworkchar.powers.BatteryPower;
+//import clockworkchar.powers.BatteryPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
@@ -14,18 +14,18 @@ public class MunchBattery extends AbstractEasyCard {
 
     public MunchBattery() {
         super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 5;
         baseSecondMagic = secondMagic = 1;
-        baseThirdMagic = thirdMagic = 1;
+        //baseThirdMagic = thirdMagic = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new WindUpAction(magicNumber));
         applyToSelf(new DexterityPower(p, secondMagic));
-        applyToSelf(new BatteryPower(p, thirdMagic));
+        //applyToSelf(new BatteryPower(p, thirdMagic));
     }
 
     public void upp() {
-        upgradedThirdMagic(1);
+        upgradeMagicNumber(4);
     }
 }

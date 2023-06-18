@@ -34,5 +34,18 @@
       "Select a card from your discard pile to switch positions.",
       "Select a card from your draw pile to switch positions."
     ]
+  },
+
+  "${ModID}:ElectricMod": {
+    "TEXT": ["Electric ", "", "Increases cost by 1. NL Sets #ySpin cost to 0."],
+    "EXTRA_TEXT": [""]
+  },
+  "${ModID}:FamiliarMod": {
+    "TEXT": ["Familiar ", "", "Reduces #yBlock and damage by 20%. NL #yAttuned."],
+    "EXTRA_TEXT": [""]
+  },
+  "${ModID}:GearMod": {
+    "TEXT": ["", " Gear", "#yWinds #yUp #b2."],
+    "EXTRA_TEXT": ["${ModID}:Wind_Up %d. NL "]
   }
 }

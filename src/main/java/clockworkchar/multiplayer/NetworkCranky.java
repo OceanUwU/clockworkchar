@@ -18,7 +18,9 @@ import com.esotericsoftware.spine.SkeletonJson;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbInterface;
+import com.megacrit.cardcrawl.vfx.SmokePuffEffect;
 import spireTogether.SpireTogetherMod;
 import spireTogether.Unlockable;
 import spireTogether.monsters.CharacterEntity;
@@ -161,6 +163,9 @@ public class NetworkCranky extends NetworkCharPreset {
         public static void Postfix(P2PPlayer player) {
             if (player.GetEntity() instanceof NetworkCranky) {
                 TheClockwork source = (TheClockwork)((NetworkCranky)player.GetEntity()).source;
+                boolean hadBefore = source.handBone.getScaleX() > 0f;
+                if (!player.hasRelic(LeftHand.ID) && hadBefore)
+                    AbstractDungeon.effectsQueue.add(new SmokePuffEffect(source.getSkeleton().getX() + source.handBone.getWorldX(), source.getSkeleton().getY() + source.handBone.getWorldY()));
                 source.handBone.setScale(player.hasRelic(LeftHand.ID) ? 1.0F : 0.0F);
                 source.drillBone.setScale(player.hasRelic(Drill.ID) ? 1.0F : 0.0F);
             }

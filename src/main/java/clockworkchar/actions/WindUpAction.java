@@ -3,7 +3,7 @@ package clockworkchar.actions;
 import clockworkchar.ClockworkChar;
 import clockworkchar.powers.AbstractEasyPower;
 import clockworkchar.relics.Gearbox;
-import clockworkchar.relics.OilCanister;
+//import clockworkchar.relics.OilCanister;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,10 +31,10 @@ public class WindUpAction extends AbstractGameAction {
             AbstractDungeon.player.getPower(GreasedCogs.TwistyPower.POWER_ID).flash();
             amount *= pwrAmt(AbstractDungeon.player, GreasedCogs.TwistyPower.POWER_ID) + 1;
         }*/
-        if (AbstractDungeon.player.hasRelic(OilCanister.ID)) {
+        /*if (AbstractDungeon.player.hasRelic(OilCanister.ID)) {
             AbstractDungeon.player.getRelic(OilCanister.ID).flash();
             amount += OilCanister.EXTRA_WIND_AMOUNT;
-        }
+        }*/
         if (AbstractDungeon.player.hasRelic(Gearbox.ID))
             ((Gearbox)AbstractDungeon.player.getRelic(Gearbox.ID)).onWind(amount);
         ClockworkChar.winder.gainCharge(amount, true);

@@ -20,10 +20,12 @@ import clockworkchar.relics.AbstractEasyRelic;
 import clockworkchar.tools.AbstractTool;
 import clockworkchar.ui.ToolSlot;
 import clockworkchar.ui.Winder;
+import clockworkchar.util.CardAugmentsLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -224,6 +226,8 @@ public class ClockworkChar implements
         ConsoleCommand.addCommand(UseToolCommand.COMMAND_NAME, UseToolCommand.class);
         BaseMod.addSaveField(makeID("times_played_cards"), AttunedPatches.TimesPlayedSavable);
         BaseMod.addSaveField(makeID("attuned"), AttunedPatches.AttunedSavable);
+        if (Loader.isModLoaded("CardAugments"))
+            CardAugmentsLoader.load();
         winder = new Winder();
         toolSlot = new ToolSlot();
     }

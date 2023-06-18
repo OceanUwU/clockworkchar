@@ -128,11 +128,11 @@
   },
   "${ModID}:CrunchBattery": {
     "NAME": "Crunch Battery",
-    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL Gain !${ModID}:m2! Strength. NL Gain !${ModID}:m3! ${ModID}:Battery."
+    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL Gain !${ModID}:m2! Strength."
   },
   "${ModID}:MunchBattery": {
     "NAME": "Munch Battery",
-    "DESCRIPTION": "{@@}${ModID}:Wind_Up !M!. NL Gain !${ModID}:m2! Dexterity. NL Gain !${ModID}:m3! ${ModID}:Batter{!Upgrades!|@=y|>0=ies}."
+    "DESCRIPTION": "{@@}${ModID}:Wind_Up !M!. NL Gain !${ModID}:m2! Dexterity."
   },
   "${ModID}:Rewinder": {
     "NAME": "Rewinder",

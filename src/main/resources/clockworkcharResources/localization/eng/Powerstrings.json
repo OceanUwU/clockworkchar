@@ -77,6 +77,7 @@
     "NAME": "Proficiency",
     "DESCRIPTIONS": [
       "Increases the damage and #yBlock of Tools by #b",
+      "Decreases the damage and #yBlock of Tools by #b",
       "."
     ]
   },
