@@ -197,7 +197,7 @@ public class AttunedPatches {
                 int attunedTimes = CardFields.attuned.get(c);
                 if (attunedTimes > 0) {
                     sb.draw(ATTUNED_TEXTURE_L, Settings.WIDTH / 2f - 270f * Settings.scale - HALFSIZE, Settings.HEIGHT / 2f + 240f * Settings.scale - HALFSIZE, HALFSIZE, HALFSIZE, SIZE, SIZE, Settings.scale, Settings.scale, 0f);
-                    FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(attunedTimes), Settings.WIDTH / 2f - (attunedTimes == 1 ? 284f : 292f) * Settings.scale, Settings.WIDTH / 2f - 98f * Settings.scale, Settings.CREAM_COLOR);
+                    FontHelper.renderFont(sb, FontHelper.SCP_cardEnergyFont, Integer.toString(attunedTimes), Settings.WIDTH / 2f - (attunedTimes == 1 ? 284f : 292f) * Settings.scale, Settings.HEIGHT / 2f + 255f * Settings.scale, Settings.CREAM_COLOR);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
