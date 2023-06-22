@@ -4,9 +4,9 @@
     <groupId>UnimportantInfo</groupId>
 
     <artifactId>clockworkchar</artifactId>
-    <version>0.3.3</version>
+    <version>1.0.0</version>
     <name>Cranky</name>
-    <description>A Slay the Spire character who winds themself up to gain a second energy.</description>
+    <description>A Slay the Spire character who winds themself up to gain charge, a secondary energy resource.</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
