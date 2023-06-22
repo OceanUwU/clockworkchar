@@ -1,6 +1,6 @@
 package clockworkchar.relics;
 
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import clockworkchar.patches.AttunedPatches;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -8,13 +8,13 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 
 public class SwissArmyKnife extends AbstractEasyRelic {
     public static final String ID = makeID("SwissArmyKnife");
 
     public SwissArmyKnife() {
-        super(ID, RelicTier.COMMON, LandingSound.HEAVY, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);
+        super(ID, RelicTier.COMMON, LandingSound.HEAVY, Cranky.Enums.CLOCKWORK_BROWN_COLOR);
     }
 
     public String getUpdatedDescription() {

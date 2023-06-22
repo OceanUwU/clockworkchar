@@ -5,12 +5,12 @@ import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 import clockworkchar.actions.WindUpAction;
 
-public class PitchPoint extends AbstractEasyCard {
+public class PitchPoint extends AbstractCrankyCard {
     public final static String ID = makeID("PitchPoint");
 
     public PitchPoint() {

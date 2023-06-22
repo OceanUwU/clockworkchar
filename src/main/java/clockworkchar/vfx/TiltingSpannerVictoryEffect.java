@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import java.util.ArrayList;
 
-import static clockworkchar.ClockworkChar.makeImagePath;
+import static clockworkchar.CrankyMod.makeImagePath;
 
 //DO NOT TOUCH THIS UNLESS YOU WANT TO GO INSANE!!!!!!!!
 public class TiltingSpannerVictoryEffect extends AbstractGameEffect {

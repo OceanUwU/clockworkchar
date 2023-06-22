@@ -1,15 +1,15 @@
 package clockworkchar.cards;
 
 import clockworkchar.actions.LetGoAction;
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Reinforce extends AbstractEasyCard {
+public class Reinforce extends AbstractCrankyCard {
     public final static String ID = makeID("Reinforce");
 
     public Reinforce() {
@@ -27,7 +27,7 @@ public class Reinforce extends AbstractEasyCard {
     }
 
     public void applyPowers() {
-        baseSecondMagic = secondMagic = ClockworkChar.winder.maxChargeUsedOnCard(this) / magicNumber;
+        baseSecondMagic = secondMagic = CrankyMod.winder.maxChargeUsedOnCard(this) / magicNumber;
     }
 
     public void upp() {

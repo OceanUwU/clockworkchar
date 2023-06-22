@@ -3,13 +3,13 @@ package clockworkchar.cardmods;
 import CardAugments.cardmods.AbstractAugment;
 import basemod.abstracts.AbstractCardModifier;
 import clockworkchar.actions.WindUpAction;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 
 public class GearMod extends AbstractAugment {
     public static final String ID = makeID("GearMod");
@@ -20,7 +20,7 @@ public class GearMod extends AbstractAugment {
 
     @Override
     public boolean validCard(AbstractCard card) {
-        return isNormalCard(card) && characterCheck(p -> p instanceof TheClockwork) && card.cost >= 0;
+        return isNormalCard(card) && characterCheck(p -> p instanceof Cranky) && card.cost >= 0;
     }
 
     @Override

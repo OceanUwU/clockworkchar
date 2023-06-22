@@ -1,6 +1,6 @@
 package clockworkchar.actions;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 
 import static clockworkchar.util.Wiz.*;
@@ -24,11 +24,11 @@ public class UseToolAction extends AbstractGameAction {
 
     public void update() {
         isDone = true;
-        ClockworkChar.toolSlot.shouldRender = true;
+        CrankyMod.toolSlot.shouldRender = true;
         if (first)
-            ClockworkChar.toolSlot.tool.fontScale *= 2f;
+            CrankyMod.toolSlot.tool.fontScale *= 2f;
         if (times > 1)
             att(new UseToolAction(times-1, false));
-        ClockworkChar.toolSlot.tool.use();
+        CrankyMod.toolSlot.tool.use();
     }
 }

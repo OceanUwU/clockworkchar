@@ -1,7 +1,7 @@
 package clockworkchar.actions;
 
-import clockworkchar.ClockworkChar;
-import clockworkchar.cards.AbstractEasyCard;
+import clockworkchar.CrankyMod;
+import clockworkchar.cards.AbstractCrankyCard;
 import clockworkchar.powers.AbstractEasyPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import java.util.function.Consumer;
 
 public class LetGoAction extends AbstractGameAction {
@@ -26,13 +26,13 @@ public class LetGoAction extends AbstractGameAction {
     }
 
     public void update() {
-        int chargeUsed = ClockworkChar.winder.useAllCharge();
+        int chargeUsed = CrankyMod.winder.useAllCharge();
         if (chargeUsed > 0) {
             if (sound)
                 CardCrawlGame.sound.play(makeID("SPIN"));
             for (AbstractCard c : AbstractDungeon.player.discardPile.group)
-                if (c instanceof AbstractEasyCard)
-                    ((AbstractEasyCard)c).triggerInDiscardPileOnSpin(); 
+                if (c instanceof AbstractCrankyCard)
+                    ((AbstractCrankyCard)c).triggerInDiscardPileOnSpin(); 
             for (AbstractPower power: AbstractDungeon.player.powers)
                 if (power instanceof AbstractEasyPower)
                     ((AbstractEasyPower)power).onSpin(chargeUsed);

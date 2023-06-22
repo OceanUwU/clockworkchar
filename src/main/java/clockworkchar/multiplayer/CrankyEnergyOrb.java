@@ -1,21 +1,21 @@
 package clockworkchar.multiplayer;
 
 import basemod.ReflectionHacks;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import clockworkchar.ui.Winder;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import spireTogether.modcompat.downfall.characters.energyorbs.CustomizableEnergyOrbCustom;
 
-import static clockworkchar.ClockworkChar.makeImagePath;
+import static clockworkchar.CrankyMod.makeImagePath;
 
 public class CrankyEnergyOrb extends CustomizableEnergyOrbCustom {
     public Winder winder;
-    public TheClockwork source;
+    public Cranky source;
 
     public CrankyEnergyOrb() {
-        super(TheClockwork.orbTextures, makeImagePath("char/mainChar/orb/vfx.png"), TheClockwork.orbRotationValues);
+        super(Cranky.orbTextures, makeImagePath("char/mainChar/orb/vfx.png"), Cranky.orbRotationValues);
         winder = new Winder((float)ReflectionHacks.getPrivateStatic(CustomizableEnergyOrbCustom.class, "ORB_IMG_SCALE") / Settings.scale, false, false, false, false, FontHelper.energyNumFontRed);
     }
 

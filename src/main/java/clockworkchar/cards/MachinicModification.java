@@ -2,7 +2,7 @@ package clockworkchar.cards;
 
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.actions.WindUpAction;
 import clockworkchar.patches.AttunedPatches;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
@@ -18,12 +18,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 import java.util.ArrayList;
 
-public class MachinicModification extends AbstractEasyCard {
+public class MachinicModification extends AbstractCrankyCard {
     public final static String ID = makeID("MachinicModification");
 
     public MachinicModification() {
@@ -42,7 +42,7 @@ public class MachinicModification extends AbstractEasyCard {
     }
 
     public static class MachinicallyModifyAction extends AbstractGameAction {
-        private static String[] TEXT = CardCrawlGame.languagePack.getUIString(ClockworkChar.modID + ":MachinicModificationAction").TEXT;
+        private static String[] TEXT = CardCrawlGame.languagePack.getUIString(CrankyMod.modID + ":MachinicModificationAction").TEXT;
         private int wind;
         private ArrayList<AbstractCard> cannotModify = new ArrayList<>();
 

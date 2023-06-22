@@ -11,10 +11,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.ReflectionHacks;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class RearrangeAttack extends AbstractEasyCard {
+public class RearrangeAttack extends AbstractCrankyCard {
     public final static String ID = makeID("RearrangeAttack");
 
     public RearrangeAttack() {

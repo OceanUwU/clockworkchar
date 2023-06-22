@@ -1,15 +1,15 @@
 package clockworkchar.cards;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.actions.LetGoAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class BoostedBlow extends AbstractEasyCard {
+public class BoostedBlow extends AbstractCrankyCard {
     public final static String ID = makeID("BoostedBlow");
 
     public BoostedBlow() {
@@ -29,7 +29,7 @@ public class BoostedBlow extends AbstractEasyCard {
     }
 
     public void applyPowers() {
-        baseDamage = ClockworkChar.winder.maxChargeUsedOnCard(this) * magicNumber;
+        baseDamage = CrankyMod.winder.maxChargeUsedOnCard(this) * magicNumber;
         super.applyPowers();
     }
   

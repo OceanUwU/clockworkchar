@@ -2,7 +2,7 @@ package clockworkchar.potions;
 
 import basemod.ReflectionHacks;
 import basemod.helpers.CardPowerTip;
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.cards.Spinner;
 import clockworkchar.powers.AbstractEasyPower;
 import clockworkchar.util.TexLoader;
@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 public class Sawblade extends AbstractPotion {
@@ -25,9 +25,9 @@ public class Sawblade extends AbstractPotion {
 
     public Sawblade() {
         super(potionStrings.NAME, POTION_ID, PotionRarity.RARE, PotionSize.S, PotionColor.WHITE);
-        ReflectionHacks.setPrivate(this, AbstractPotion.class, "containerImg", TexLoader.getTexture(ClockworkChar.modID + "Resources/images/potions/Sawblade.png"));
-        ReflectionHacks.setPrivate(this, AbstractPotion.class, "outlineImg", TexLoader.getTexture(ClockworkChar.modID + "Resources/images/potions/SawbladeOutline.png"));
-        labOutlineColor = ClockworkChar.characterColor;
+        ReflectionHacks.setPrivate(this, AbstractPotion.class, "containerImg", TexLoader.getTexture(CrankyMod.modID + "Resources/images/potions/Sawblade.png"));
+        ReflectionHacks.setPrivate(this, AbstractPotion.class, "outlineImg", TexLoader.getTexture(CrankyMod.modID + "Resources/images/potions/SawbladeOutline.png"));
+        labOutlineColor = CrankyMod.characterColor;
     }
 
     public void initializeData() {

@@ -4,9 +4,9 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 
-public class Strike extends AbstractEasyCard {
+public class Strike extends AbstractCrankyCard {
     public final static String ID = makeID("Strike");
 
     public Strike() {

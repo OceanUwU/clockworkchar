@@ -8,15 +8,15 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 public class AllenKey extends AbstractTool {
     private static String TOOL_ID = makeID("AllenKey");
     private static OrbStrings orbStrings = CardCrawlGame.languagePack.getOrbString(TOOL_ID);
-    private static Texture KEY_TEXTURE = ImageMaster.loadImage(ClockworkChar.makeImagePath("tools/allenkey.png"));
+    private static Texture KEY_TEXTURE = ImageMaster.loadImage(CrankyMod.makeImagePath("tools/allenkey.png"));
     private static float SPIN_SPEED = 30.0F;
     private static float USE_SPIN_SPEED = 960.0F;
 

@@ -5,8 +5,8 @@ import clockworkchar.util.TexLoader;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
-import static clockworkchar.ClockworkChar.makeRelicPath;
-import static clockworkchar.ClockworkChar.modID;
+import static clockworkchar.CrankyMod.makeRelicPath;
+import static clockworkchar.CrankyMod.modID;
 
 public abstract class AbstractEasyRelic extends CustomRelic {
     public AbstractCard.CardColor color;

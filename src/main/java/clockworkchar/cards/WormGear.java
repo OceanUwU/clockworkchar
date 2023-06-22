@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class WormGear extends AbstractEasyCard {
+public class WormGear extends AbstractCrankyCard {
     public final static String ID = makeID("WormGear");
 
     public WormGear() {
@@ -38,9 +38,9 @@ public class WormGear extends AbstractEasyCard {
                 public void update() {
                     if (DrawCardAction.drawnCards.size() > 0) {
                         AbstractCard drawn = DrawCardAction.drawnCards.get(0);
-                        if (drawn instanceof AbstractEasyCard && ((AbstractEasyCard)drawn).part) {
+                        if (drawn instanceof AbstractCrankyCard && ((AbstractCrankyCard)drawn).part) {
                             att(new WormGearAction(activations));
-                            att(((AbstractEasyCard)drawn).partActivation(activations));
+                            att(((AbstractCrankyCard)drawn).partActivation(activations));
                         }
                         else
                             att(new DiscardSpecificCardAction(drawn));

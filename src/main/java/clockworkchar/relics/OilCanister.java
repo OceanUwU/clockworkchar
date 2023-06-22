@@ -1,10 +1,10 @@
 package clockworkchar.relics;
 
 import clockworkchar.cards.PeepTheHaul;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 public class OilCanister extends AbstractEasyRelic {
@@ -13,7 +13,7 @@ public class OilCanister extends AbstractEasyRelic {
     public static final int TRINKETS_SHUFFLED = 2;
 
     public OilCanister() {
-        super(ID, RelicTier.RARE, LandingSound.FLAT, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);
+        super(ID, RelicTier.RARE, LandingSound.FLAT, Cranky.Enums.CLOCKWORK_BROWN_COLOR);
     }
 
     public void atBattleStart() {

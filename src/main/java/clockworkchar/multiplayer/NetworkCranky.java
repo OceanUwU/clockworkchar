@@ -1,10 +1,10 @@
 package clockworkchar.multiplayer;
 
 import basemod.ReflectionHacks;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import clockworkchar.relics.Drill;
 import clockworkchar.relics.LeftHand;
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.util.TexLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -36,7 +36,7 @@ import spireTogether.util.BundleManager;
 import spireTogether.util.NetworkMessage;
 import spireTogether.util.UIElements;
 
-import static clockworkchar.ClockworkChar.makeImagePath;
+import static clockworkchar.CrankyMod.makeImagePath;
 
 public class NetworkCranky extends NetworkCharPreset {
     public static final String REQUEST_CHANGE_CHARGE = "cranky_charge";
@@ -44,7 +44,7 @@ public class NetworkCranky extends NetworkCharPreset {
     public static Nameplate nameplate = new Nameplate("reward_cranky", Color.valueOf("2B2B2B"), Color.valueOf("2B2B2B"), Unlockable.UnlockMethod.ACHIEVEMENT);
 
     public NetworkCranky() {
-        super(new TheClockwork(TheClockwork.characterStrings.NAMES[1], TheClockwork.Enums.THE_CLOCKWORK));
+        super(new Cranky(Cranky.characterStrings.NAMES[1], Cranky.Enums.THE_CLOCKWORK));
         energyOrb = new CrankyEnergyOrb();
         loadAnimation(makeImagePath("char/mainChar/cranky.atlas"), makeImagePath("char/mainChar/cranky.json"), 1f);
         lobbyScale = 0.6f;
@@ -60,7 +60,7 @@ public class NetworkCranky extends NetworkCharPreset {
         skins.add(new CrankySkin("EMERALD", Unlockable.UnlockMethod.FREE, playerClass));
         skins.add(new CrankySkin("COBALT", Unlockable.UnlockMethod.FREE, playerClass));
         skins.add(new CrankySkin("COPPER", Unlockable.UnlockMethod.FREE, playerClass));
-        skins.add(new CrankySkin("CHIBI", Unlockable.UnlockMethod.FREE, playerClass).SetScaleModifier(TheClockwork.SIZE_SCALE * 2f));
+        skins.add(new CrankySkin("CHIBI", Unlockable.UnlockMethod.FREE, playerClass).SetScaleModifier(Cranky.SIZE_SCALE * 2f));
         skins.add(new CrankySkin("TWITCH", Unlockable.UnlockMethod.PROMOTION, playerClass).SetBundles(new String[] { BundleManager.STREAMER }));
         skins.add(GetGhostSkin());
         skins.add(new CrankySkin("HEARTSLAYER", Unlockable.UnlockMethod.ACHIEVEMENT, playerClass));
@@ -91,7 +91,7 @@ public class NetworkCranky extends NetworkCharPreset {
     }
 
     public Color GetCharColor() {
-        return ClockworkChar.characterColor.cpy();
+        return CrankyMod.characterColor.cpy();
     }
   
     public Nameplate GetNameplateUnlock() {
@@ -115,19 +115,19 @@ public class NetworkCranky extends NetworkCharPreset {
         //ReflectionHacks.privateMethod(AbstractCreature.class, "loadAnimation", String.class, String.class, float.class).invoke(source, atlasUrl, skeletonUrl, scale);
 
         AnimationState.TrackEntry track = setStateAnimation(0, "Idle", true);
-        track.setTimeScale(TheClockwork.ANIMATION_SPEED);
+        track.setTimeScale(Cranky.ANIMATION_SPEED);
         setStateDataMix("Hit", "Idle", 0.5f);
 
-        ((TheClockwork)source).winderBone = skeleton.findBone("winder");
-        ((TheClockwork)source).handBone = skeleton.findBone("hand");
-        ((TheClockwork)source).drillBone = skeleton.findBone("drill");
-        ((TheClockwork)source).drillBone.setScale(0.0F);
+        ((Cranky)source).winderBone = skeleton.findBone("winder");
+        ((Cranky)source).handBone = skeleton.findBone("hand");
+        ((Cranky)source).drillBone = skeleton.findBone("drill");
+        ((Cranky)source).drillBone.setScale(0.0F);
     }
   
     @SpirePatch(clz=SpireTogetherMod.class, method="RegisterModdedChars", requiredModId="spireTogether")
     public static class Register {
         public static void Postfix() {
-            SpireTogetherMod.allCharacterEntities.put(TheClockwork.Enums.THE_CLOCKWORK, new NetworkCranky());
+            SpireTogetherMod.allCharacterEntities.put(Cranky.Enums.THE_CLOCKWORK, new NetworkCranky());
         }
     }
   
@@ -142,7 +142,7 @@ public class NetworkCranky extends NetworkCharPreset {
                 PlayerInfoBox infoBox = p.GetInfobox();
                 EnergyOrbInterface energyOrb = ReflectionHacks.getPrivate(infoBox, PlayerInfoBox.class, "energyOrb");
                 if (energyOrb instanceof CrankyEnergyOrb)
-                    ((CrankyEnergyOrb)energyOrb).source = (TheClockwork)((NetworkCranky)p.GetEntity()).source;
+                    ((CrankyEnergyOrb)energyOrb).source = (Cranky)((NetworkCranky)p.GetEntity()).source;
                 switch (request) {
                     case REQUEST_CHANGE_CHARGE:
                         if (energyOrb instanceof CrankyEnergyOrb)
@@ -162,7 +162,7 @@ public class NetworkCranky extends NetworkCharPreset {
     public static class SwitchHand {
         public static void Postfix(P2PPlayer player) {
             if (player.GetEntity() instanceof NetworkCranky) {
-                TheClockwork source = (TheClockwork)((NetworkCranky)player.GetEntity()).source;
+                Cranky source = (Cranky)((NetworkCranky)player.GetEntity()).source;
                 boolean hadBefore = source.handBone.getScaleX() > 0f;
                 if (!player.hasRelic(LeftHand.ID) && hadBefore)
                     AbstractDungeon.effectsQueue.add(new SmokePuffEffect(source.getSkeleton().getX() + source.handBone.getWorldX(), source.getSkeleton().getY() + source.handBone.getWorldY()));

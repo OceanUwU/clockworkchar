@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Reassemble extends AbstractEasyCard {
+public class Reassemble extends AbstractCrankyCard {
     public final static String ID = makeID("Reassemble");
 
     public Reassemble() {
@@ -22,10 +22,10 @@ public class Reassemble extends AbstractEasyCard {
             public void update() {
                 if (upgraded)
                     for (AbstractCard c : p.drawPile.group)
-                        if (c instanceof AbstractEasyCard && ((AbstractEasyCard)c).part)
+                        if (c instanceof AbstractCrankyCard && ((AbstractCrankyCard)c).part)
                             atb(new FetchAction(p.drawPile, card -> card == c));
                 for (AbstractCard c : p.discardPile.group)
-                    if (c instanceof AbstractEasyCard && ((AbstractEasyCard)c).part)
+                    if (c instanceof AbstractCrankyCard && ((AbstractCrankyCard)c).part)
                         atb(new DiscardToHandAction(c));
                 isDone = true;
             }

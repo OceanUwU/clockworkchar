@@ -1,18 +1,18 @@
 package clockworkchar.relics;
 
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.atb;
 
 public class Gearbox extends AbstractEasyRelic {
     public static final String ID = makeID("Gearbox");
 
     public Gearbox() {
-        super(ID, RelicTier.BOSS, LandingSound.FLAT, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);
+        super(ID, RelicTier.BOSS, LandingSound.FLAT, Cranky.Enums.CLOCKWORK_BROWN_COLOR);
     }
 
     public String getUpdatedDescription() {

@@ -4,10 +4,10 @@ import clockworkchar.actions.WindUpAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class LittleCranky extends AbstractEasyCard {
+public class LittleCranky extends AbstractCrankyCard {
     public final static String ID = makeID("LittleCranky");
 
     public LittleCranky() {

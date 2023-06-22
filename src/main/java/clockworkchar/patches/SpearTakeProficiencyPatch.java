@@ -1,6 +1,6 @@
 package clockworkchar.patches;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.powers.ProficiencyPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.ending.SpireShield;
 public class SpearTakeProficiencyPatch {
     @SpireInsertPatch(rloc=8)
     public static SpireReturn<Void> Insert(SpireShield __instance) {
-        if (ClockworkChar.toolSlot.shouldRender && AbstractDungeon.aiRng.randomBoolean()) {
+        if (CrankyMod.toolSlot.shouldRender && AbstractDungeon.aiRng.randomBoolean()) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, __instance, new ProficiencyPower(AbstractDungeon.player, -1), -1));
             AbstractDungeon.actionManager.addToBottom(new RollMoveAction(__instance));
             return SpireReturn.Return();

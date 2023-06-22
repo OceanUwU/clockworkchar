@@ -1,11 +1,11 @@
 package clockworkchar.relics;
 
 import clockworkchar.actions.GainCogwheelsAction;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 public class Scrap extends AbstractEasyRelic {
@@ -14,7 +14,7 @@ public class Scrap extends AbstractEasyRelic {
     private static final int COGWHEELS = 1;
 
     public Scrap() {
-        super(ID, RelicTier.COMMON, LandingSound.FLAT, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);
+        super(ID, RelicTier.COMMON, LandingSound.FLAT, Cranky.Enums.CLOCKWORK_BROWN_COLOR);
     }
 
     public String getUpdatedDescription() {

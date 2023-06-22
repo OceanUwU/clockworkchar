@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class FlyingCogs extends AbstractEasyCard {
+public class FlyingCogs extends AbstractCrankyCard {
     public final static String ID = makeID("FlyingCogs");
 
     public FlyingCogs() {
@@ -24,15 +24,15 @@ public class FlyingCogs extends AbstractEasyCard {
             public void update() {
                 isDone = true;
                 for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                    if (c instanceof AbstractEasyCard && ((AbstractEasyCard)c).part) {
+                    if (c instanceof AbstractCrankyCard && ((AbstractCrankyCard)c).part) {
                         att(new DrawCardAction(1));
                         dmgTop(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
                     }
                 }
                 for (int i = AbstractDungeon.player.hand.group.size() - 1; i >= 0; i--) {
                     AbstractCard c = AbstractDungeon.player.hand.group.get(i);
-                    if (c instanceof AbstractEasyCard && ((AbstractEasyCard)c).part) {
-                        AbstractGameAction partAction = ((AbstractEasyCard)c).partActivation();
+                    if (c instanceof AbstractCrankyCard && ((AbstractCrankyCard)c).part) {
+                        AbstractGameAction partAction = ((AbstractCrankyCard)c).partActivation();
                         if (partAction != null) {
                             att(new DiscardSpecificCardAction(c));
                             att(partAction);

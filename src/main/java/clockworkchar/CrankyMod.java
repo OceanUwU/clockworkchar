@@ -5,13 +5,13 @@ import basemod.BaseMod;
 import basemod.devcommands.ConsoleCommand;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
-import clockworkchar.cards.AbstractEasyCard;
+import clockworkchar.cards.AbstractCrankyCard;
 import clockworkchar.cards.Bottlecap;
 import clockworkchar.cards.BouncyBall;
 import clockworkchar.cards.LittleCranky;
 import clockworkchar.cards.RareCoin;
 import clockworkchar.cards.cardvars.*;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import clockworkchar.consolecommands.*;
 import clockworkchar.helpers.ToolLibrary;
 import clockworkchar.patches.AttunedPatches;
@@ -48,7 +48,7 @@ import java.nio.charset.StandardCharsets;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
 @SpireInitializer
-public class ClockworkChar implements
+public class CrankyMod implements
         AddAudioSubscriber,
         EditCardsSubscriber,
         EditRelicsSubscriber,
@@ -98,10 +98,10 @@ public class ClockworkChar implements
         return "eng";
     }
 
-    public ClockworkChar() {
+    public CrankyMod() {
         BaseMod.subscribe(this);
 
-        BaseMod.addColor(TheClockwork.Enums.CLOCKWORK_BROWN_COLOR, characterColor, characterColor, characterColor,
+        BaseMod.addColor(Cranky.Enums.CLOCKWORK_BROWN_COLOR, characterColor, characterColor, characterColor,
             characterColor, characterColor, characterColor, characterColor,
             ATTACK_S_ART, SKILL_S_ART, POWER_S_ART, CARD_ENERGY_S,
             ATTACK_L_ART, SKILL_L_ART, POWER_L_ART,
@@ -129,17 +129,17 @@ public class ClockworkChar implements
     }
 
     public static void initialize() {
-        ClockworkChar thismod = new ClockworkChar();
+        CrankyMod thismod = new CrankyMod();
     }
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new TheClockwork(TheClockwork.characterStrings.NAMES[1], TheClockwork.Enums.THE_CLOCKWORK),
-            CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, TheClockwork.Enums.THE_CLOCKWORK);
+        BaseMod.addCharacter(new Cranky(Cranky.characterStrings.NAMES[1], Cranky.Enums.THE_CLOCKWORK),
+            CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, Cranky.Enums.THE_CLOCKWORK);
         
-        BaseMod.addPotion(HandInAJar.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), HandInAJar.POTION_ID, TheClockwork.Enums.THE_CLOCKWORK);
-        BaseMod.addPotion(SpareNails.class, Color.WHITE.cpy(), Color.WHITE.cpy().set(0,0,0,0), Color.WHITE.cpy().set(0,0,0,0), SpareNails.POTION_ID, TheClockwork.Enums.THE_CLOCKWORK);
-        BaseMod.addPotion(Sawblade.class, Color.WHITE.cpy().set(0,0,0,0), Color.WHITE.cpy().set(0,0,0,0), Color.WHITE.cpy().set(0,0,0,0), Sawblade.POTION_ID, TheClockwork.Enums.THE_CLOCKWORK);
+        BaseMod.addPotion(HandInAJar.class, Color.WHITE.cpy(), Color.WHITE.cpy(), Color.WHITE.cpy(), HandInAJar.POTION_ID, Cranky.Enums.THE_CLOCKWORK);
+        BaseMod.addPotion(SpareNails.class, Color.WHITE.cpy(), Color.WHITE.cpy().set(0,0,0,0), Color.WHITE.cpy().set(0,0,0,0), SpareNails.POTION_ID, Cranky.Enums.THE_CLOCKWORK);
+        BaseMod.addPotion(Sawblade.class, Color.WHITE.cpy().set(0,0,0,0), Color.WHITE.cpy().set(0,0,0,0), Color.WHITE.cpy().set(0,0,0,0), Sawblade.POTION_ID, Cranky.Enums.THE_CLOCKWORK);
     }
 
     @Override
@@ -171,7 +171,7 @@ public class ClockworkChar implements
         trinkets.group.add(new LittleCranky());
         trinkets.group.add(new RareCoin());
         new AutoAdd(modID)
-            .packageFilter(AbstractEasyCard.class)
+            .packageFilter(AbstractCrankyCard.class)
             .setDefaultSeen(true)
             .cards();
     }

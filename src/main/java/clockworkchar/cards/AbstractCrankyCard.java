@@ -1,17 +1,11 @@
 package clockworkchar.cards;
 
-import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import clockworkchar.patches.AttunedPatches;
 import clockworkchar.powers.AbstractEasyPower;
 import clockworkchar.relics.TorqueWrench;
 import clockworkchar.util.CardArtRoller;
-
-import static clockworkchar.ClockworkChar.makeImagePath;
-import static clockworkchar.ClockworkChar.modID;
-import static clockworkchar.util.Wiz.*;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -22,7 +16,6 @@ import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -32,7 +25,11 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public abstract class AbstractEasyCard extends CustomCard {
+import static clockworkchar.CrankyMod.makeImagePath;
+import static clockworkchar.CrankyMod.modID;
+import static clockworkchar.util.Wiz.*;
+
+public abstract class AbstractCrankyCard extends CustomCard {
 
     protected final CardStrings cardStrings;
 
@@ -68,11 +65,11 @@ public abstract class AbstractEasyCard extends CustomCard {
 
     private boolean needsArtRefresh = false;
 
-    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
-        this(cardID, cost, type, rarity, target, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);
+    public AbstractCrankyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target) {
+        this(cardID, cost, type, rarity, target, Cranky.Enums.CLOCKWORK_BROWN_COLOR);
     }
 
-    public AbstractEasyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
+    public AbstractCrankyCard(final String cardID, final int cost, final CardType type, final CardRarity rarity, final CardTarget target, final CardColor color) {
         super(cardID, "", getCardTextureString(cardID.replace(modID + ":", ""), type),
                 cost, "", type, color, rarity, target);
         cardStrings = CardCrawlGame.languagePack.getCardStrings(this.cardID);
@@ -311,7 +308,7 @@ public abstract class AbstractEasyCard extends CustomCard {
     }
 
     public AbstractCard makeStatEquivalentCopy() {
-        AbstractEasyCard c = (AbstractEasyCard)super.makeStatEquivalentCopy();
+        AbstractCrankyCard c = (AbstractCrankyCard)super.makeStatEquivalentCopy();
         c.baseSpinAmount = baseSpinAmount;
         c.spinAmount = c.baseSpinAmount;
         c.baseSecondDamage = baseSecondDamage;

@@ -17,12 +17,12 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 import basemod.ReflectionHacks;
 
-public class Mesmerise extends AbstractEasyCard {
+public class Mesmerise extends AbstractCrankyCard {
     public final static String ID = makeID("Mesmerise");
 
     public Mesmerise() {

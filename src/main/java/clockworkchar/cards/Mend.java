@@ -10,10 +10,10 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Mend extends AbstractEasyCard {
+public class Mend extends AbstractCrankyCard {
     public final static String ID = makeID("Mend");
 
     public Mend() {

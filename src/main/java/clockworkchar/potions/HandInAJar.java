@@ -2,7 +2,7 @@ package clockworkchar.potions;
 
 import basemod.BaseMod;
 import basemod.ReflectionHacks;
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.actions.WindUpAction;
 import clockworkchar.relics.FloppyDisk;
 import clockworkchar.util.TexLoader;
@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.atb;
 
 public class HandInAJar extends AbstractPotion {
@@ -23,8 +23,8 @@ public class HandInAJar extends AbstractPotion {
 
     public HandInAJar() {
         super(potionStrings.NAME, POTION_ID, PotionRarity.COMMON, PotionSize.GHOST, PotionColor.WHITE);
-        ReflectionHacks.setPrivate(this, AbstractPotion.class, "liquidImg", TexLoader.getTexture(ClockworkChar.modID + "Resources/images/potions/HandInAJar.png"));
-        labOutlineColor = ClockworkChar.characterColor;
+        ReflectionHacks.setPrivate(this, AbstractPotion.class, "liquidImg", TexLoader.getTexture(CrankyMod.modID + "Resources/images/potions/HandInAJar.png"));
+        labOutlineColor = CrankyMod.characterColor;
     }
 
     public void initializeData() {

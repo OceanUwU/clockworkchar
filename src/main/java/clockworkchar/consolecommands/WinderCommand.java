@@ -3,7 +3,7 @@ package clockworkchar.consolecommands;
 import basemod.DevConsole;
 import basemod.devcommands.ConsoleCommand;
 import basemod.helpers.ConvertHelper;
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 
 import java.util.ArrayList;
 
@@ -33,9 +33,9 @@ public class WinderCommand extends ConsoleCommand {
 
     public void execute(String[] tokens, int depth) {
         if (tokens[1].toLowerCase().equals("add") && tokens.length > 2) {
-            ClockworkChar.winder.gainCharge(ConvertHelper.tryParseInt(tokens[2], 0), true);
+            CrankyMod.winder.gainCharge(ConvertHelper.tryParseInt(tokens[2], 0), true);
         } else if (tokens[1].toLowerCase().equals("lose") && tokens.length > 2) {
-            ClockworkChar.winder.useCharge(Math.min(ConvertHelper.tryParseInt(tokens[2], 0), ClockworkChar.winder.charge));
+            CrankyMod.winder.useCharge(Math.min(ConvertHelper.tryParseInt(tokens[2], 0), CrankyMod.winder.charge));
         } else errorMsg();
     }
 

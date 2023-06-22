@@ -2,7 +2,7 @@ package clockworkchar.cards;
 
 import basemod.helpers.BaseModCardTags;
 import basemod.interfaces.AlternateCardCostModifier;
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.actions.GainCogwheelsAction;
 import clockworkchar.powers.AbstractEasyPower;
 import com.badlogic.gdx.graphics.Color;
@@ -19,17 +19,15 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class PerpetualForm extends AbstractEasyCard {
+public class PerpetualForm extends AbstractCrankyCard {
     public final static String ID = makeID("PerpetualForm");
-    private final static CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public final static int CHARGE_PER_ENERGY = 8;
 
     public PerpetualForm() {
@@ -78,23 +76,23 @@ public class PerpetualForm extends AbstractEasyCard {
             perpetual = false;
         }
 
-        public int getAlternateResource(AbstractCard card) {return ClockworkChar.winder.charge / CHARGE_PER_ENERGY;}
+        public int getAlternateResource(AbstractCard card) {return CrankyMod.winder.charge / CHARGE_PER_ENERGY;}
         public boolean prioritizeAlternateCost(AbstractCard card) {return false;}
         public boolean canSplitCost(AbstractCard card) {return true;}
         public static int amountSpentOnCard(AbstractCard card) {
             if (card.cost == -1)
-                return ClockworkChar.winder.charge - ClockworkChar.winder.charge % CHARGE_PER_ENERGY;
+                return CrankyMod.winder.charge - CrankyMod.winder.charge % CHARGE_PER_ENERGY;
             return (card.costForTurn - EnergyPanel.totalCount) * CHARGE_PER_ENERGY;
         }
         public int spendAlternateCost(AbstractCard card, int costToSpend) {
             int chargeToSpend = 0;
-            while (costToSpend > 0 && ClockworkChar.winder.charge >= chargeToSpend + CHARGE_PER_ENERGY) {
+            while (costToSpend > 0 && CrankyMod.winder.charge >= chargeToSpend + CHARGE_PER_ENERGY) {
                 chargeToSpend += CHARGE_PER_ENERGY;
                 costToSpend--;
             }
             final int spendingCharge = chargeToSpend;
             if (spendingCharge > 0) {
-                att(new AbstractGameAction() {public void update() {ClockworkChar.winder.useCharge(spendingCharge);isDone=true;}});
+                att(new AbstractGameAction() {public void update() {CrankyMod.winder.useCharge(spendingCharge);isDone=true;}});
                 flash();
             }
             return costToSpend;
@@ -102,7 +100,7 @@ public class PerpetualForm extends AbstractEasyCard {
 
         @SpirePatch(clz=AbstractCard.class, method="renderEnergy")
         public static class ChargeCostDisplay {
-            private static TextureAtlas.AtlasRegion costDisplayTexture = new TextureAtlas.AtlasRegion(new Texture(ClockworkChar.makeImagePath("512/chargeCost.png")), 0, 0, 512, 512);
+            private static TextureAtlas.AtlasRegion costDisplayTexture = new TextureAtlas.AtlasRegion(new Texture(CrankyMod.makeImagePath("512/chargeCost.png")), 0, 0, 512, 512);
             private static Color COST_RESTRICTED_COLOR = new Color(1.0F, 0.3F, 0.3F, 1.0F);
 
             public static void Postfix(AbstractCard __instance, SpriteBatch sb) {
@@ -111,7 +109,7 @@ public class PerpetualForm extends AbstractEasyCard {
                     if (chargeCost > 0) {
                         sb.setColor(Color.WHITE);
                         sb.draw(costDisplayTexture, __instance.current_x - costDisplayTexture.originalWidth / 2.0F, __instance.current_y - costDisplayTexture.originalHeight / 2.0F, costDisplayTexture.originalWidth / 2.0F, costDisplayTexture.originalHeight / 2.0F, costDisplayTexture.packedWidth, costDisplayTexture.packedHeight, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle);
-                        FontHelper.renderRotatedText(sb, FontHelper.cardEnergyFont_L, Integer.toString(chargeCost), __instance.current_x, __instance.current_y, -132.0F * __instance.drawScale * Settings.scale, 118.0F * __instance.drawScale * Settings.scale, __instance.angle, false, ClockworkChar.winder.charge >= chargeCost ? Color.WHITE : COST_RESTRICTED_COLOR);
+                        FontHelper.renderRotatedText(sb, FontHelper.cardEnergyFont_L, Integer.toString(chargeCost), __instance.current_x, __instance.current_y, -132.0F * __instance.drawScale * Settings.scale, 118.0F * __instance.drawScale * Settings.scale, __instance.angle, false, CrankyMod.winder.charge >= chargeCost ? Color.WHITE : COST_RESTRICTED_COLOR);
                     }
                 }
             }

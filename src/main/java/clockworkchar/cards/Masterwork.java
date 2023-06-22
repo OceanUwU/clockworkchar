@@ -13,10 +13,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.DiscardPilePanel;
 import com.megacrit.cardcrawl.ui.panels.DrawPilePanel;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Masterwork extends AbstractEasyCard {
+public class Masterwork extends AbstractCrankyCard {
     public final static String ID = makeID("Masterwork");
 
     public Masterwork() {

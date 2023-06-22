@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.att;
 
-public class Spinner extends AbstractEasyCard {
+public class Spinner extends AbstractCrankyCard {
     public final static String ID = makeID("Spinner");
 
     public Spinner() {

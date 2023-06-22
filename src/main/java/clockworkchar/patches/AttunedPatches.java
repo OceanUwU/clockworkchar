@@ -17,9 +17,9 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.actions.UseToolAction;
-import clockworkchar.cards.AbstractEasyCard;
+import clockworkchar.cards.AbstractCrankyCard;
 import clockworkchar.cards.PerpetualForm;
 import clockworkchar.cards.Teddy;
 
@@ -27,7 +27,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 public class AttunedPatches {
@@ -88,7 +88,7 @@ public class AttunedPatches {
         public void onLoad(ArrayList<Integer> allAttuned) {
             int i = 0;
             for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
-                attune(c, allAttuned.get(i++) - (c instanceof AbstractEasyCard ? ((AbstractEasyCard)c).extraAttunings : 0));
+                attune(c, allAttuned.get(i++) - (c instanceof AbstractCrankyCard ? ((AbstractCrankyCard)c).extraAttunings : 0));
         }
 
         public ArrayList<Integer> onSave() {
@@ -157,8 +157,8 @@ public class AttunedPatches {
 
     @SpirePatch(clz=AbstractCard.class, method="renderType")
     public static class RenderTimes {
-        private static TextureAtlas.AtlasRegion ATTUNED_TEXTURE = new TextureAtlas.AtlasRegion(new Texture(ClockworkChar.makeImagePath("512/attuned.png")), 0, 0, 512, 512);
-        private static TextureAtlas.AtlasRegion ATTUNED_TEXTURE_DOWN = new TextureAtlas.AtlasRegion(new Texture(ClockworkChar.makeImagePath("512/attuneddown.png")), 0, 0, 512, 512);
+        private static TextureAtlas.AtlasRegion ATTUNED_TEXTURE = new TextureAtlas.AtlasRegion(new Texture(CrankyMod.makeImagePath("512/attuned.png")), 0, 0, 512, 512);
+        private static TextureAtlas.AtlasRegion ATTUNED_TEXTURE_DOWN = new TextureAtlas.AtlasRegion(new Texture(CrankyMod.makeImagePath("512/attuneddown.png")), 0, 0, 512, 512);
 
         public static void Postfix(AbstractCard __instance, SpriteBatch sb) {
             try {
@@ -186,7 +186,7 @@ public class AttunedPatches {
 
     @SpirePatch(clz=SingleCardViewPopup.class, method="renderCost")
     public static class RenderAttunedSCV {
-        private static TextureAtlas.AtlasRegion ATTUNED_TEXTURE_L = new TextureAtlas.AtlasRegion(new Texture(ClockworkChar.makeImagePath("1024/attuned.png")), 0, 0, 164, 164);
+        private static TextureAtlas.AtlasRegion ATTUNED_TEXTURE_L = new TextureAtlas.AtlasRegion(new Texture(CrankyMod.makeImagePath("1024/attuned.png")), 0, 0, 164, 164);
         private static float SIZE = 164f;
         private static float HALFSIZE = SIZE / 2f;
         private static Field cardField = ReflectionHacks.getCachedField(SingleCardViewPopup.class, "card");

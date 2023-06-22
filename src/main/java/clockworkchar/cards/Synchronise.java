@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import clockworkchar.actions.AttuneAction;
 import clockworkchar.actions.SpinAction;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Synchronise extends AbstractEasyCard {
+public class Synchronise extends AbstractCrankyCard {
     public final static String ID = makeID("Synchronise");
 
     public Synchronise() {

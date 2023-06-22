@@ -1,9 +1,9 @@
 package clockworkchar.cards.cardvars;
 
 import basemod.abstracts.DynamicVariable;
-import clockworkchar.cards.AbstractEasyCard;
+import clockworkchar.cards.AbstractCrankyCard;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
@@ -16,38 +16,38 @@ public class ThirdMagicNumber extends DynamicVariable {
 
     @Override
     public boolean isModified(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).isThirdMagicModified;
+        if (card instanceof AbstractCrankyCard) {
+            return ((AbstractCrankyCard) card).isThirdMagicModified;
         }
         return false;
     }
 
     @Override
     public int value(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).thirdMagic;
+        if (card instanceof AbstractCrankyCard) {
+            return ((AbstractCrankyCard) card).thirdMagic;
         }
         return -1;
     }
 
     public void setIsModified(AbstractCard card, boolean v) {
-        if (card instanceof AbstractEasyCard) {
-            ((AbstractEasyCard) card).isThirdMagicModified = v;
+        if (card instanceof AbstractCrankyCard) {
+            ((AbstractCrankyCard) card).isThirdMagicModified = v;
         }
     }
 
     @Override
     public int baseValue(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).baseThirdMagic;
+        if (card instanceof AbstractCrankyCard) {
+            return ((AbstractCrankyCard) card).baseThirdMagic;
         }
         return -1;
     }
 
     @Override
     public boolean upgraded(AbstractCard card) {
-        if (card instanceof AbstractEasyCard) {
-            return ((AbstractEasyCard) card).upgradedThirdMagic;
+        if (card instanceof AbstractCrankyCard) {
+            return ((AbstractCrankyCard) card).upgradedThirdMagic;
         }
         return false;
     }

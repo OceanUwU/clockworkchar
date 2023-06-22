@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.atb;
 
-public class LostCog extends AbstractEasyCard {
+public class LostCog extends AbstractCrankyCard {
     public final static String ID = makeID("LostCog");
 
     public LostCog() {
@@ -24,7 +24,7 @@ public class LostCog extends AbstractEasyCard {
                 isDone = true;
                 if (AbstractDungeon.actionManager.cardsPlayedThisCombat.size() >= 2) {
                     AbstractCard lastCard = ((AbstractCard)AbstractDungeon.actionManager.cardsPlayedThisCombat.get(AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 2));
-                    if (lastCard instanceof AbstractEasyCard && ((AbstractEasyCard)lastCard).spinAmount > 0) {
+                    if (lastCard instanceof AbstractCrankyCard && ((AbstractCrankyCard)lastCard).spinAmount > 0) {
                         dmgTop(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
                     }
                 }
@@ -35,7 +35,7 @@ public class LostCog extends AbstractEasyCard {
     public void triggerOnGlowCheck() {
         if (!AbstractDungeon.actionManager.cardsPlayedThisCombat.isEmpty()) {
             AbstractCard lastCard = ((AbstractCard)AbstractDungeon.actionManager.cardsPlayedThisCombat.get(AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 1));
-            if (lastCard instanceof AbstractEasyCard && ((AbstractEasyCard)lastCard).spinAmount > 0) {
+            if (lastCard instanceof AbstractCrankyCard && ((AbstractCrankyCard)lastCard).spinAmount > 0) {
                 glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
                 return;
             }

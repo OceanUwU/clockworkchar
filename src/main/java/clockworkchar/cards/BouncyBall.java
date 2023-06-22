@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class BouncyBall extends AbstractEasyCard {
+public class BouncyBall extends AbstractCrankyCard {
     public final static String ID = makeID("BouncyBall");
 
     public BouncyBall() {

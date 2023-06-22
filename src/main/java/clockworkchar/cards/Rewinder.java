@@ -12,10 +12,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EquilibriumPower;
 import com.megacrit.cardcrawl.relics.RunicPyramid;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Rewinder extends AbstractEasyCard {
+public class Rewinder extends AbstractCrankyCard {
     public final static String ID = makeID("Rewinder");
 
     public Rewinder() {

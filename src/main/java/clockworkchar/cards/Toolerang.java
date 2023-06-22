@@ -1,6 +1,6 @@
 package clockworkchar.cards;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.actions.AttuneAction;
 import clockworkchar.util.TexLoader;
 import clockworkchar.vfx.AttuneCardEffect;
@@ -16,10 +16,10 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Toolerang extends AbstractEasyCard {
+public class Toolerang extends AbstractCrankyCard {
     public final static String ID = makeID("Toolerang");
 
     public Toolerang() {
@@ -43,7 +43,7 @@ public class Toolerang extends AbstractEasyCard {
 
     public static class ToolerangEffect extends AbstractGameEffect {
         public static float DURATION = 1.4f;
-        private static TextureRegion TOOL_TEXTURE = new TextureRegion(TexLoader.getTexture(ClockworkChar.makeImagePath("vfx/throwabletool.png")));
+        private static TextureRegion TOOL_TEXTURE = new TextureRegion(TexLoader.getTexture(CrankyMod.makeImagePath("vfx/throwabletool.png")));
         private static float W = TOOL_TEXTURE.getTexture().getWidth() / 2;
         private static float H = TOOL_TEXTURE.getTexture().getWidth() / 2;
         private static float SPIN_SPEED = 300f;

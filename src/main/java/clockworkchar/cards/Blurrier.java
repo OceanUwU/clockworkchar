@@ -4,10 +4,10 @@ import clockworkchar.actions.SpinAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.atb;
 
-public class Blurrier extends AbstractEasyCard {
+public class Blurrier extends AbstractCrankyCard {
     public final static String ID = makeID("Blurrier");
 
     public Blurrier() {

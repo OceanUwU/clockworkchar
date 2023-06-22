@@ -4,10 +4,10 @@ import clockworkchar.powers.ProficiencyPower;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.applyToSelf;
 
-public class ReadInstructions extends AbstractEasyCard {
+public class ReadInstructions extends AbstractCrankyCard {
     public final static String ID = makeID("ReadInstructions");
 
     public ReadInstructions() {

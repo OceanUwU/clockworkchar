@@ -5,10 +5,10 @@ import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class DangerousDeterrent extends AbstractEasyCard {
+public class DangerousDeterrent extends AbstractCrankyCard {
     public final static String ID = makeID("DangerousDeterrent");
 
     public DangerousDeterrent() {

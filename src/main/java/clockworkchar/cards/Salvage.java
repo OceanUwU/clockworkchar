@@ -1,16 +1,16 @@
 package clockworkchar.cards;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.actions.EquipToolAction;
 import clockworkchar.helpers.ToolLibrary;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Salvage extends AbstractEasyCard {
+public class Salvage extends AbstractCrankyCard {
     public final static String ID = makeID("Salvage");
 
     public Salvage() {
@@ -21,7 +21,7 @@ public class Salvage extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
-        atb(new EquipToolAction(ToolLibrary.getRandomTool(ClockworkChar.toolSlot.tool)));
+        atb(new EquipToolAction(ToolLibrary.getRandomTool(CrankyMod.toolSlot.tool)));
     }
 
     public void upp() {

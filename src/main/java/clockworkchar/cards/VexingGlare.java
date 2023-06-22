@@ -10,10 +10,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class VexingGlare extends AbstractEasyCard {
+public class VexingGlare extends AbstractCrankyCard {
     public final static String ID = makeID("VexingGlare");
 
     public VexingGlare() {

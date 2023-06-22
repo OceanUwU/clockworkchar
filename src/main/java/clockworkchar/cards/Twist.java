@@ -1,6 +1,5 @@
 package clockworkchar.cards;
 
-import basemod.BaseMod;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
@@ -12,10 +11,10 @@ import clockworkchar.helpers.ToolLibrary;
 import java.util.Arrays;
 import java.util.List;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Twist extends AbstractEasyCard {
+public class Twist extends AbstractCrankyCard {
     public final static String ID = makeID("Twist");
 
     public Twist() {

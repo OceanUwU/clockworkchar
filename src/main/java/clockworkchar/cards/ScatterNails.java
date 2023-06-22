@@ -17,12 +17,12 @@ import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect;
 import spireTogether.SpireTogetherMod;
 import spireTogether.patches.network.CreatureSyncPatches;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 import clockworkchar.multiplayer.ModManager;
 
-public class ScatterNails extends AbstractEasyCard {
+public class ScatterNails extends AbstractCrankyCard {
     public final static String ID = makeID("ScatterNails");
 
     public ScatterNails() {

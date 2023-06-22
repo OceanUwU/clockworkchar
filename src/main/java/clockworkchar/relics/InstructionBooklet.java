@@ -1,11 +1,11 @@
 package clockworkchar.relics;
 
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import clockworkchar.powers.ProficiencyPower;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 public class InstructionBooklet extends AbstractEasyRelic {
@@ -14,7 +14,7 @@ public class InstructionBooklet extends AbstractEasyRelic {
     private static final int PROFICIENCY_AMOUNT = 1;
 
     public InstructionBooklet() {
-        super(ID, RelicTier.RARE, LandingSound.FLAT, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);
+        super(ID, RelicTier.RARE, LandingSound.FLAT, Cranky.Enums.CLOCKWORK_BROWN_COLOR);
     }
 
     public String getUpdatedDescription() {

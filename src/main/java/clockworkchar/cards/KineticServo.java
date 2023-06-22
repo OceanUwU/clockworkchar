@@ -11,10 +11,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class KineticServo extends AbstractEasyCard {
+public class KineticServo extends AbstractCrankyCard {
     public final static String ID = makeID("KineticServo");
 
     public KineticServo() {

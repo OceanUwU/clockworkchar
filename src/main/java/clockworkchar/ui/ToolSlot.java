@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import clockworkchar.helpers.ToolLibrary;
 import clockworkchar.tools.AbstractTool;
 
@@ -15,7 +15,7 @@ public class ToolSlot {
     public AbstractTool tool = reset();
 
     public AbstractTool reset() {
-        shouldRender = AbstractDungeon.player instanceof TheClockwork;
+        shouldRender = AbstractDungeon.player instanceof Cranky;
         dequipped.clear();
         tool = ToolLibrary.defaultTool.makeCopy();
         return tool;

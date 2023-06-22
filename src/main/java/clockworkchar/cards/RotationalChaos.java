@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class RotationalChaos extends AbstractEasyCard {
+public class RotationalChaos extends AbstractCrankyCard {
     public final static String ID = makeID("RotationalChaos");
 
     public RotationalChaos() {

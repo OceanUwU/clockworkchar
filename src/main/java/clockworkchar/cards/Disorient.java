@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Disorient extends AbstractEasyCard {
+public class Disorient extends AbstractCrankyCard {
     public final static String ID = makeID("Disorient");
 
     public Disorient() {

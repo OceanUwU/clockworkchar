@@ -9,10 +9,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class DiligentWork extends AbstractEasyCard {
+public class DiligentWork extends AbstractCrankyCard {
     public final static String ID = makeID("DiligentWork");
 
     public DiligentWork() {

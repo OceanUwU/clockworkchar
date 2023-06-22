@@ -1,7 +1,7 @@
 package clockworkchar.multiplayer;
 
 import basemod.ReflectionHacks;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import com.badlogic.gdx.Gdx;
 import com.esotericsoftware.spine.Bone;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,14 +11,14 @@ import spireTogether.Unlockable;
 import spireTogether.monsters.CharacterEntity;
 import spireTogether.skins.AtlasSkin;
 
-import static clockworkchar.ClockworkChar.makeImagePath;
+import static clockworkchar.CrankyMod.makeImagePath;
 
 public class CrankySkin extends AtlasSkin {
     public Bone winderBone, handBone, drillBone;
 
     public CrankySkin(String ID, Unlockable.UnlockMethod skinType, AbstractPlayer.PlayerClass playerClass) {
         super(ID, makeImagePath("char/mainChar/multiplayer/skins"), skinType, playerClass);
-        scale = TheClockwork.SIZE_SCALE;
+        scale = Cranky.SIZE_SCALE;
     }
 
     public void LoadResources() {
@@ -38,7 +38,7 @@ public class CrankySkin extends AtlasSkin {
     public void LoadSkinOnPlayer() {
         if (this.playerClass.equals(AbstractDungeon.player.chosenClass)) {
             ReflectionHacks.privateMethod(AbstractCreature.class, "loadAnimation", String.class, String.class, float.class).invoke(AbstractDungeon.player, atlasLoc, jsonLoc, scale);
-            ((TheClockwork)AbstractDungeon.player).setupAnimation();
+            ((Cranky)AbstractDungeon.player).setupAnimation();
         }
     }
 }

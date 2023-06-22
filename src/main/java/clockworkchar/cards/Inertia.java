@@ -9,10 +9,10 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Inertia extends AbstractEasyCard {
+public class Inertia extends AbstractCrankyCard {
     public final static String ID = makeID("Inertia");
 
     public Inertia() {

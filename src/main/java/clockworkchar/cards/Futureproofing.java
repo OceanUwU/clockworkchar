@@ -5,10 +5,10 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Futureproofing extends AbstractEasyCard {
+public class Futureproofing extends AbstractCrankyCard {
     public final static String ID = makeID("Futureproofing");
 
     public Futureproofing() {

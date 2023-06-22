@@ -1,6 +1,6 @@
 package clockworkchar.actions;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.tools.AbstractTool;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 
@@ -15,7 +15,7 @@ public class EquipToolAction extends AbstractGameAction {
 
     public void update() {
         isDone = true;
-        ClockworkChar.toolSlot.tool.dequipping = true;
+        CrankyMod.toolSlot.tool.dequipping = true;
         att(new SetToolAction(tool));
         att(new UseToolAction(AbstractTool.DEQUIP_USE_TIMES));
     }
@@ -29,9 +29,9 @@ public class EquipToolAction extends AbstractGameAction {
     
         public void update() {
             isDone = true;
-            ClockworkChar.toolSlot.dequipped.add(ClockworkChar.toolSlot.tool);
-            ClockworkChar.toolSlot.tool.dequip();
-            ClockworkChar.toolSlot.tool = tool;
+            CrankyMod.toolSlot.dequipped.add(CrankyMod.toolSlot.tool);
+            CrankyMod.toolSlot.tool.dequip();
+            CrankyMod.toolSlot.tool = tool;
         }
     }
 }

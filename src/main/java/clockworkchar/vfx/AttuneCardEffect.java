@@ -12,8 +12,8 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import java.util.ArrayList;
 
-import static clockworkchar.ClockworkChar.makeID;
-import static clockworkchar.ClockworkChar.makeImagePath;
+import static clockworkchar.CrankyMod.makeID;
+import static clockworkchar.CrankyMod.makeImagePath;
 
 public class AttuneCardEffect extends AbstractGameEffect {
     private static final String AUDIO_KEY = makeID("ATTUNE");

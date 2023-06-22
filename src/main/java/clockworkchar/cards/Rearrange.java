@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import clockworkchar.actions.AttuneAction;
 import clockworkchar.vfx.AttuneCardEffect;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Rearrange extends AbstractEasyCard {
+public class Rearrange extends AbstractCrankyCard {
     public final static String ID = makeID("Rearrange");
 
     public Rearrange() {

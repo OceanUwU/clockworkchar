@@ -19,13 +19,13 @@ import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import clockworkchar.powers.AbstractEasyPower;
 
-public class UnleashRage extends AbstractEasyCard {
+public class UnleashRage extends AbstractCrankyCard {
     public final static String ID = makeID("UnleashRage");
 
     public UnleashRage() {
@@ -61,7 +61,7 @@ public class UnleashRage extends AbstractEasyCard {
             applyToEnemyTop(owner, new LoseStrengthPower(owner, amount));
             applyToEnemyTop(owner, new StrengthPower(owner, amount));
             addToTop(new RemoveSpecificPowerAction(owner, owner, this));
-            if (adp() instanceof TheClockwork)
+            if (adp() instanceof Cranky)
                 vfxTop(new BoilEffect());
         }
 
@@ -111,8 +111,8 @@ public class UnleashRage extends AbstractEasyCard {
                     color = new Color(tint, tint, tint + 0.05f, 1f);
                     img = MathUtils.randomBoolean() ? ImageMaster.EXHAUST_L : ImageMaster.EXHAUST_S;
                     dir = right ? 1f : -1f;
-                    x = ((TheClockwork)adp()).getSkeleton().getX() + ((TheClockwork)adp()).getSkeleton().findBone("head").getWorldX() + XOFFSET * Settings.scale + XGAP * Settings.scale * dir;
-                    y = ((TheClockwork)adp()).getSkeleton().getY() + ((TheClockwork)adp()).getSkeleton().findBone("head").getWorldY() + YOFFSET * Settings.scale;
+                    x = ((Cranky)adp()).getSkeleton().getX() + ((Cranky)adp()).getSkeleton().findBone("head").getWorldX() + XOFFSET * Settings.scale + XGAP * Settings.scale * dir;
+                    y = ((Cranky)adp()).getSkeleton().getY() + ((Cranky)adp()).getSkeleton().findBone("head").getWorldY() + YOFFSET * Settings.scale;
                     rotation = MathUtils.random(360f);
                     rotationSpeed = MathUtils.random(-80f, 80f);
                     scale = 0f;

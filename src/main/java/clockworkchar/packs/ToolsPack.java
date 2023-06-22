@@ -1,9 +1,9 @@
 package clockworkchar.packs;
 
 import basemod.ReflectionHacks;
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.cards.*;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import clockworkchar.potions.SpareNails;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
@@ -31,9 +31,9 @@ import thePackmaster.summaries.PackSummary;
 import thePackmaster.summaries.PackSummaryReader;
 import thePackmaster.ui.PackFilterMenu;
 
-import static clockworkchar.ClockworkChar.makeID;
-import static clockworkchar.ClockworkChar.makeCardPath;
-import static clockworkchar.ClockworkChar.makeImagePath;
+import static clockworkchar.CrankyMod.makeID;
+import static clockworkchar.CrankyMod.makeCardPath;
+import static clockworkchar.CrankyMod.makeImagePath;
 
 public class ToolsPack extends AbstractCardPack {
     public static final String ID = makeID("ToolsPack");
@@ -79,7 +79,7 @@ public class ToolsPack extends AbstractCardPack {
     @SpirePatch2(clz=RenderBaseGameCardPackTopTextPatches.class, method="shouldShowPackName", requiredModId="anniv5")
     public static class ShowPackName {
         public static SpireReturn<Boolean> Prefix(AbstractCard c) {
-            if (c instanceof AbstractEasyCard && !Settings.hideCards && ((boolean)ReflectionHacks.privateStaticMethod(RenderBaseGameCardPackTopTextPatches.class, "isInPackmasterRun").invoke() || RenderBaseGameCardPackTopTextPatches.isInPackmasterCardLibraryScreen()))
+            if (c instanceof AbstractCrankyCard && !Settings.hideCards && ((boolean)ReflectionHacks.privateStaticMethod(RenderBaseGameCardPackTopTextPatches.class, "isInPackmasterRun").invoke() || RenderBaseGameCardPackTopTextPatches.isInPackmasterCardLibraryScreen()))
                 return SpireReturn.Return(true);
             return SpireReturn.Continue();
         }
@@ -89,7 +89,7 @@ public class ToolsPack extends AbstractCardPack {
     public static class ShowInCompendium {
         @SpireInsertPatch(locator=Locator.class, localvars="group")
         public static void Insert(CardGroup group) {
-            group.group.addAll(CardLibrary.getAllCards().stream().filter(c -> c.color == TheClockwork.Enums.CLOCKWORK_BROWN_COLOR && SpireAnniversary5Mod.cardParentMap.containsKey(c.cardID)).collect(Collectors.toList()));
+            group.group.addAll(CardLibrary.getAllCards().stream().filter(c -> c.color == Cranky.Enums.CLOCKWORK_BROWN_COLOR && SpireAnniversary5Mod.cardParentMap.containsKey(c.cardID)).collect(Collectors.toList()));
         }
 
         private static class Locator extends SpireInsertLocator {
@@ -103,7 +103,7 @@ public class ToolsPack extends AbstractCardPack {
     public static class GetCorrectHatPath {
         public static SpireReturn<String> Prefix(String hatID) {
             if (hatID == ID)
-                return SpireReturn.Return(makeImagePath("hats/"+hatID.replace(ClockworkChar.modID + ":", "")+"Hat.png"));
+                return SpireReturn.Return(makeImagePath("hats/"+hatID.replace(CrankyMod.modID + ":", "")+"Hat.png"));
             return SpireReturn.Continue();
         }
     }
@@ -112,7 +112,7 @@ public class ToolsPack extends AbstractCardPack {
     public static class GetCorrectPortraitPath {
         public static SpireReturn<String> Prefix(String cardName) {
             if (cardName == ID)
-                return SpireReturn.Return(makeCardPath(cardName.replace(ClockworkChar.modID + ":", "")+".png"));
+                return SpireReturn.Return(makeCardPath(cardName.replace(CrankyMod.modID + ":", "")+".png"));
             return SpireReturn.Continue();
         }
     }

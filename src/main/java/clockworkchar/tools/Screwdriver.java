@@ -7,15 +7,15 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.MathHelper;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 public class Screwdriver extends AbstractTool {
     private static String TOOL_ID = makeID("Screwdriver");
     private static OrbStrings orbStrings = CardCrawlGame.languagePack.getOrbString(TOOL_ID);
-    private static Texture SCREWDRIVER_TEXTURE = ImageMaster.loadImage(ClockworkChar.makeImagePath("tools/screwdriver.png"));
+    private static Texture SCREWDRIVER_TEXTURE = ImageMaster.loadImage(CrankyMod.makeImagePath("tools/screwdriver.png"));
     private static float OSCILLATE_SPEED = 2.5f;
     private static float OSCILLATE_AMOUNT = 10.0f;
 

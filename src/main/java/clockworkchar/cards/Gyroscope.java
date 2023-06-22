@@ -9,10 +9,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.att;
 
-public class Gyroscope extends AbstractEasyCard {
+public class Gyroscope extends AbstractCrankyCard {
     public final static String ID = makeID("Gyroscope");
 
     public Gyroscope() {

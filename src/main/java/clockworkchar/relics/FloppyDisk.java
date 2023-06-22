@@ -1,11 +1,11 @@
 package clockworkchar.relics;
 
-import clockworkchar.ClockworkChar;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.CrankyMod;
+import clockworkchar.characters.Cranky;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.atb;
 
 public class FloppyDisk extends AbstractEasyRelic {
@@ -15,7 +15,7 @@ public class FloppyDisk extends AbstractEasyRelic {
     public static final int MAX_CHARGE = 50;
 
     public FloppyDisk() {
-        super(ID, RelicTier.BOSS, LandingSound.FLAT, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);
+        super(ID, RelicTier.BOSS, LandingSound.FLAT, Cranky.Enums.CLOCKWORK_BROWN_COLOR);
     }
   
     public void onEquip() {
@@ -33,6 +33,6 @@ public class FloppyDisk extends AbstractEasyRelic {
     }
 
     public void onVictory() {
-        this.counter = Math.min(ClockworkChar.winder.charge, MAX_CHARGE);
+        this.counter = Math.min(CrankyMod.winder.charge, MAX_CHARGE);
     }
 }

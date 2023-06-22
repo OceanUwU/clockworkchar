@@ -8,13 +8,13 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
-import static clockworkchar.ClockworkChar.makeID;
-import static clockworkchar.ClockworkChar.makeCardPath;
+import static clockworkchar.CrankyMod.makeID;
+import static clockworkchar.CrankyMod.makeCardPath;
 import static clockworkchar.util.Wiz.*;
 
 import clockworkchar.actions.WindUpAction;
 
-public class JackInABox extends AbstractEasyCard {
+public class JackInABox extends AbstractCrankyCard {
     public final static String ID = makeID("JackInABox");
 
     public JackInABox() {

@@ -1,6 +1,6 @@
 package clockworkchar.tools;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.powers.Blinded;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -15,14 +15,14 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 public class Torch extends AbstractTool {
     private static String TOOL_ID = makeID("Torch");
     private static OrbStrings orbStrings = CardCrawlGame.languagePack.getOrbString(TOOL_ID);
-    private static Texture TORCH_TEXTURE = ImageMaster.loadImage(ClockworkChar.makeImagePath("tools/torch.png"));
-    private static TextureRegion FLASH_TEXTURE = new TextureRegion(ImageMaster.loadImage(ClockworkChar.makeImagePath("tools/flash.png")));
+    private static Texture TORCH_TEXTURE = ImageMaster.loadImage(CrankyMod.makeImagePath("tools/torch.png"));
+    private static TextureRegion FLASH_TEXTURE = new TextureRegion(ImageMaster.loadImage(CrankyMod.makeImagePath("tools/flash.png")));
     private static float FLASH_SIZE = 400.0f;
     private static float FLASH_CENTRE = FLASH_SIZE / 2.0f;
     private static float ANGLE_OFFSET = -10.0f;

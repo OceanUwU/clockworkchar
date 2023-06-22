@@ -1,6 +1,6 @@
 package clockworkchar.tools;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -15,13 +15,13 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.WallopEffect;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 public class Spanner extends AbstractTool {
     private static String TOOL_ID = makeID("Spanner");
     private static OrbStrings orbStrings = CardCrawlGame.languagePack.getOrbString(TOOL_ID);
-    private static Texture SPANNER_TEXTURE = ImageMaster.loadImage(ClockworkChar.makeImagePath("tools/spanner.png"));
+    private static Texture SPANNER_TEXTURE = ImageMaster.loadImage(CrankyMod.makeImagePath("tools/spanner.png"));
     private static float SPIN_SPEED = 40.0F;
     private static float FLY_SPIN_SPEED = 280.0F;
 

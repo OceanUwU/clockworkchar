@@ -23,7 +23,7 @@ import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 
 public class AttuneCampfireEffect extends AbstractGameEffect {
     private static final String[] TEXT = CardCrawlGame.languagePack.getUIString(makeID("AttuneCampfireEffect")).TEXT;

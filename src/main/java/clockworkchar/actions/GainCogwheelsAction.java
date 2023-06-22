@@ -1,6 +1,6 @@
 package clockworkchar.actions;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 
 public class GainCogwheelsAction extends AbstractGameAction {
@@ -12,6 +12,6 @@ public class GainCogwheelsAction extends AbstractGameAction {
 
     public void update() {
         this.isDone = true;
-        ClockworkChar.winder.gainCogwheels(amount);
+        CrankyMod.winder.gainCogwheels(amount);
     }
 }

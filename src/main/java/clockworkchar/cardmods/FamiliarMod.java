@@ -2,14 +2,14 @@ package clockworkchar.cardmods;
 
 import CardAugments.cardmods.AbstractAugment;
 import basemod.abstracts.AbstractCardModifier;
-import clockworkchar.cards.AbstractEasyCard;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.cards.AbstractCrankyCard;
+import clockworkchar.characters.Cranky;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 
 public class FamiliarMod extends AbstractAugment {
     public static final String ID = makeID("FamiliarMod");
@@ -18,12 +18,12 @@ public class FamiliarMod extends AbstractAugment {
 
     @Override
     public boolean validCard(AbstractCard card) {
-        return isNormalCard(card) && card instanceof AbstractEasyCard && characterCheck(p -> p instanceof TheClockwork) && (card.baseDamage > 1 || card.baseBlock > 1);
+        return isNormalCard(card) && card instanceof AbstractCrankyCard && characterCheck(p -> p instanceof Cranky) && (card.baseDamage > 1 || card.baseBlock > 1);
     }
 
     @Override
     public void onInitialApplication(AbstractCard card) {
-        ((AbstractEasyCard)card).attune(1);
+        ((AbstractCrankyCard)card).attune(1);
     }
 
     @Override

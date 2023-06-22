@@ -1,8 +1,8 @@
 package clockworkchar.ui;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.cards.PerpetualForm;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import clockworkchar.multiplayer.ModManager;
 import clockworkchar.multiplayer.NetworkCranky;
 import clockworkchar.relics.FloppyDisk;
@@ -27,13 +27,13 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import spireTogether.SpireTogetherMod;
 import spireTogether.network.P2P.P2PManager;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 
 public class Winder {
-    private static Texture BASE_TEXTURE = ImageMaster.loadImage(ClockworkChar.modID + "Resources/images/ui/winder/base.png");
-    private static Texture GRIP1_TEXTURE = ImageMaster.loadImage(ClockworkChar.modID + "Resources/images/ui/winder/frontgrip.png");
-    private static Texture ROD_TEXTURE = ImageMaster.loadImage(ClockworkChar.modID + "Resources/images/ui/winder/rod.png");
-    private static Texture GRIP2_TEXTURE = ImageMaster.loadImage(ClockworkChar.modID + "Resources/images/ui/winder/backgrip.png");
+    private static Texture BASE_TEXTURE = ImageMaster.loadImage(CrankyMod.modID + "Resources/images/ui/winder/base.png");
+    private static Texture GRIP1_TEXTURE = ImageMaster.loadImage(CrankyMod.modID + "Resources/images/ui/winder/frontgrip.png");
+    private static Texture ROD_TEXTURE = ImageMaster.loadImage(CrankyMod.modID + "Resources/images/ui/winder/rod.png");
+    private static Texture GRIP2_TEXTURE = ImageMaster.loadImage(CrankyMod.modID + "Resources/images/ui/winder/backgrip.png");
     private static float size = BASE_TEXTURE.getWidth();
     private static float halfSize = size / 2.0F;
     private static int STARTING_COGWHEELS = 4;
@@ -135,8 +135,8 @@ public class Winder {
     public void render(SpriteBatch sb) {
         sb.setColor(Color.WHITE);
         widthMult = Math.abs(MathUtils.cosDeg(angle));
-        if (attachToEnergyOrb && AbstractDungeon.player instanceof TheClockwork)
-            spinSkinWinder(((TheClockwork)AbstractDungeon.player).winderBone);
+        if (attachToEnergyOrb && AbstractDungeon.player instanceof Cranky)
+            spinSkinWinder(((Cranky)AbstractDungeon.player).winderBone);
         float gripX = x + (halfSize + widthMult * (1 - size) * 0.5F) * scale * Settings.scale;
         sb.draw(BASE_TEXTURE, x, y, size * scale * Settings.scale, size * scale * Settings.scale);
         sb.draw(GRIP2_TEXTURE, gripX, y, size * widthMult * scale * Settings.scale, size * scale * Settings.scale);
@@ -156,7 +156,7 @@ public class Winder {
     }
 
     public void reset() {
-        shouldRender = AbstractDungeon.player instanceof TheClockwork;
+        shouldRender = AbstractDungeon.player instanceof Cranky;
         cogwheels = STARTING_COGWHEELS;
         toTwistForward = 0;
         toTwistBack = 0;

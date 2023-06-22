@@ -7,12 +7,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 import clockworkchar.patches.AttunedPatches;
 
-public class PreciseTuning extends AbstractEasyCard {
+public class PreciseTuning extends AbstractCrankyCard {
     public final static String ID = makeID("PreciseTuning");
 
     public PreciseTuning() {

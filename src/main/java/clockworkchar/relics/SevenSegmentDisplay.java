@@ -1,7 +1,7 @@
 package clockworkchar.relics;
 
-import clockworkchar.ClockworkChar;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.CrankyMod;
+import clockworkchar.characters.Cranky;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -13,8 +13,8 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.ReflectionHacks;
 
-import static clockworkchar.ClockworkChar.makeID;
-import static clockworkchar.ClockworkChar.makeRelicPath;
+import static clockworkchar.CrankyMod.makeID;
+import static clockworkchar.CrankyMod.makeRelicPath;
 import static clockworkchar.util.Wiz.atb;
 
 import java.lang.reflect.Field;
@@ -29,7 +29,7 @@ public class SevenSegmentDisplay extends AbstractEasyRelic {
     private int damage = 0;
 
     public SevenSegmentDisplay() {
-        super(ID, RelicTier.UNCOMMON, LandingSound.SOLID, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);
+        super(ID, RelicTier.UNCOMMON, LandingSound.SOLID, Cranky.Enums.CLOCKWORK_BROWN_COLOR);
     }
 
     public String getUpdatedDescription() {
@@ -45,7 +45,7 @@ public class SevenSegmentDisplay extends AbstractEasyRelic {
     }
 
     public void updateDisplay() {
-        int newDamage = ClockworkChar.winder.charge / CHARGE_PER_DAMAGE;
+        int newDamage = CrankyMod.winder.charge / CHARGE_PER_DAMAGE;
         if (newDamage > damage)
             flash();
         damage = newDamage;

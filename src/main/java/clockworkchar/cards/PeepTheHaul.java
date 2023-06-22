@@ -1,6 +1,6 @@
 package clockworkchar.cards;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.powers.AbstractEasyPower;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,18 +10,18 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;
 
-public class PeepTheHaul extends AbstractEasyCard {
+public class PeepTheHaul extends AbstractCrankyCard {
     public final static String ID = makeID("PeepTheHaul");
 
     public PeepTheHaul() {
         super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 1;
-        for (AbstractCard trinket : ClockworkChar.trinkets.group)
+        for (AbstractCard trinket : CrankyMod.trinkets.group)
             MultiCardPreview.add(this, trinket.makeCopy());
     }
 
@@ -43,7 +43,7 @@ public class PeepTheHaul extends AbstractEasyCard {
 
         public static void shuffleRandomTrinket(int num) {
             for (int i = 0; i < num; i++)
-                shuffleIn(ClockworkChar.trinkets.getRandomCard(AbstractDungeon.cardRandomRng).makeCopy());
+                shuffleIn(CrankyMod.trinkets.getRandomCard(AbstractDungeon.cardRandomRng).makeCopy());
         }
 
         public void atEndOfTurn(boolean playerTurn) {

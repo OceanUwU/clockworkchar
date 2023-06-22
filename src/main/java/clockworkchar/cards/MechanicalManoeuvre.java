@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class MechanicalManoeuvre extends AbstractEasyCard {
+public class MechanicalManoeuvre extends AbstractCrankyCard {
     public final static String ID = makeID("MechanicalManoeuvre");
 
     public MechanicalManoeuvre() {

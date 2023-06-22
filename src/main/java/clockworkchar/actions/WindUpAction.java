@@ -1,6 +1,6 @@
 package clockworkchar.actions;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.powers.AbstractEasyPower;
 import clockworkchar.relics.Gearbox;
 //import clockworkchar.relics.OilCanister;
@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 
 public class WindUpAction extends AbstractGameAction {
     private boolean sound;
@@ -37,7 +37,7 @@ public class WindUpAction extends AbstractGameAction {
         }*/
         if (AbstractDungeon.player.hasRelic(Gearbox.ID))
             ((Gearbox)AbstractDungeon.player.getRelic(Gearbox.ID)).onWind(amount);
-        ClockworkChar.winder.gainCharge(amount, true);
+        CrankyMod.winder.gainCharge(amount, true);
         
         for (AbstractPower power: AbstractDungeon.player.powers)
             if (power instanceof AbstractEasyPower)

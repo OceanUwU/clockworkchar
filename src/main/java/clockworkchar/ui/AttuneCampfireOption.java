@@ -1,7 +1,7 @@
 package clockworkchar.ui;
 
 import basemod.ReflectionHacks;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import clockworkchar.patches.AttunedPatches;
 import clockworkchar.ui.AttuneCampfireEffect.AttuningField;
 import com.badlogic.gdx.graphics.Texture;
@@ -18,8 +18,8 @@ import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 
 import java.util.ArrayList;
 
-import static clockworkchar.ClockworkChar.makeID;
-import static clockworkchar.ClockworkChar.makeImagePath;
+import static clockworkchar.CrankyMod.makeID;
+import static clockworkchar.CrankyMod.makeImagePath;
 
 public class AttuneCampfireOption extends AbstractCampfireOption {
     private static final String[] DESCRIPTIONS = CardCrawlGame.languagePack.getUIString(makeID("AttuneCampfireOption")).TEXT;
@@ -57,7 +57,7 @@ public class AttuneCampfireOption extends AbstractCampfireOption {
         @SpireInsertPatch(loc=97)
         public static void Insert(CampfireUI __instance) {
             AttuningField.attuning.set(AbstractDungeon.gridSelectScreen, false);
-            if (AbstractDungeon.player instanceof TheClockwork)
+            if (AbstractDungeon.player instanceof Cranky)
                 ((ArrayList<AbstractCampfireOption>)ReflectionHacks.getPrivate(__instance, CampfireUI.class, "buttons")).add(new AttuneCampfireOption());
         }
     }

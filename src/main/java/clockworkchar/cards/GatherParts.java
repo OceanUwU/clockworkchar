@@ -1,7 +1,7 @@
 package clockworkchar.cards;
 
 import basemod.ReflectionHacks;
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.util.TexLoader;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -15,10 +15,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.atb;
 
-public class GatherParts extends AbstractEasyCard {
+public class GatherParts extends AbstractCrankyCard {
     public final static String ID = makeID("GatherParts");
 
     public GatherParts() {
@@ -78,7 +78,7 @@ public class GatherParts extends AbstractEasyCard {
         }
 
         private static class GainPartEffect extends GainPennyEffect {
-            private static TextureRegion IMAGE = new TextureRegion(TexLoader.getTexture(ClockworkChar.modID + "Resources/images/vfx/part.png"));
+            private static TextureRegion IMAGE = new TextureRegion(TexLoader.getTexture(CrankyMod.modID + "Resources/images/vfx/part.png"));
 
             public GainPartEffect(AbstractCreature target) {
                 super(AbstractDungeon.player, target.hb.cX, target.hb.cY, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, false);

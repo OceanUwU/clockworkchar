@@ -33,13 +33,13 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
-import static clockworkchar.ClockworkChar.*;
-import static clockworkchar.characters.TheClockwork.Enums.CLOCKWORK_BROWN_COLOR;
+import static clockworkchar.CrankyMod.*;
+import static clockworkchar.characters.Cranky.Enums.CLOCKWORK_BROWN_COLOR;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TheClockwork extends CustomPlayer {
+public class Cranky extends CustomPlayer {
     public static final String[] orbTextures = {
             modID + "Resources/images/char/mainChar/orb/l1.png",
             modID + "Resources/images/char/mainChar/orb/l2.png",
@@ -63,7 +63,7 @@ public class TheClockwork extends CustomPlayer {
     
     public Bone winderBone, handBone, drillBone;
 
-    public TheClockwork(String name, PlayerClass setClass) {
+    public Cranky(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", orbRotationValues), new SpineAnimation(modID + "Resources/images/char/mainChar/cranky.atlas", modID + "Resources/images/char/mainChar/cranky.json", SIZE_SCALE));
         initializeClass(null,
                 SHOULDER1,
@@ -173,7 +173,7 @@ public class TheClockwork extends CustomPlayer {
 
     @Override
     public AbstractPlayer newInstance() {
-        return new TheClockwork(name, chosenClass);
+        return new Cranky(name, chosenClass);
     }
 
     @Override

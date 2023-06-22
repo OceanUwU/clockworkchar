@@ -1,13 +1,13 @@
 package clockworkchar.relics;
 
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.atb;
 
 public class BeltDrive extends AbstractEasyRelic {
@@ -17,7 +17,7 @@ public class BeltDrive extends AbstractEasyRelic {
     private static final int CARDS_DRAWN = 2;
 
     public BeltDrive() {
-        super(ID, RelicTier.UNCOMMON, LandingSound.HEAVY, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);
+        super(ID, RelicTier.UNCOMMON, LandingSound.HEAVY, Cranky.Enums.CLOCKWORK_BROWN_COLOR);
         counter = 0;
     }
 

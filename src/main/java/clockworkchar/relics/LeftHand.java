@@ -1,11 +1,11 @@
 package clockworkchar.relics;
 
 import clockworkchar.actions.WindUpAction;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.atb;
 
 public class LeftHand extends AbstractEasyRelic {
@@ -14,7 +14,7 @@ public class LeftHand extends AbstractEasyRelic {
     private static final int WIND_AMOUNT = 8;
 
     public LeftHand() {
-        super(ID, RelicTier.STARTER, LandingSound.HEAVY, TheClockwork.Enums.CLOCKWORK_BROWN_COLOR);
+        super(ID, RelicTier.STARTER, LandingSound.HEAVY, Cranky.Enums.CLOCKWORK_BROWN_COLOR);
     }
 
     public String getUpdatedDescription() {

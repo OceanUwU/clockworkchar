@@ -1,7 +1,7 @@
 package clockworkchar.cards;
 
 import clockworkchar.actions.SpinAction;
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -12,12 +12,12 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.random.Random;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.att;
 
 import java.util.ArrayList;
 
-public class Rust extends AbstractEasyCard {
+public class Rust extends AbstractCrankyCard {
     public final static String ID = makeID("Rust");
 
     public Rust() {
@@ -51,7 +51,7 @@ public class Rust extends AbstractEasyCard {
         }
 
         private static void removeRustFromPool(ArrayList<String> tmp) {
-            if (AbstractDungeon.player == null || !(AbstractDungeon.player instanceof TheClockwork))
+            if (AbstractDungeon.player == null || !(AbstractDungeon.player instanceof Cranky))
                 tmp.remove(Rust.ID);
         }
     }

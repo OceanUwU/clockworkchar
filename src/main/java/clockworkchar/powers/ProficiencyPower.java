@@ -1,13 +1,13 @@
 package clockworkchar.powers;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 
 public class ProficiencyPower extends AbstractEasyPower {
     public static String POWER_ID = makeID("Proficiency");
@@ -24,7 +24,7 @@ public class ProficiencyPower extends AbstractEasyPower {
     }
 
     public void onInitialApplication() {
-        ClockworkChar.toolSlot.tool.applyPowers();
+        CrankyMod.toolSlot.tool.applyPowers();
     }
 
     public void stackPower(int stackAmount) {
@@ -32,7 +32,7 @@ public class ProficiencyPower extends AbstractEasyPower {
         amount = Math.max(-999, Math.min(999, amount));
         if (this.amount == 0)
             addToTop((AbstractGameAction)new RemoveSpecificPowerAction(owner, owner, this));
-        ClockworkChar.toolSlot.tool.applyPowers();
+        CrankyMod.toolSlot.tool.applyPowers();
     }
 
     public void reducePower(int stackAmount) {
@@ -40,6 +40,6 @@ public class ProficiencyPower extends AbstractEasyPower {
         amount = Math.max(-999, Math.min(999, amount));
         if (this.amount == 0)
             addToTop((AbstractGameAction)new RemoveSpecificPowerAction(owner, owner, this)); 
-        ClockworkChar.toolSlot.tool.applyPowers();
+        CrankyMod.toolSlot.tool.applyPowers();
     }
 }

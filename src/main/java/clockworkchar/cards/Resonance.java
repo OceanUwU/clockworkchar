@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class Resonance extends AbstractEasyCard implements StartupCard {
+public class Resonance extends AbstractCrankyCard implements StartupCard {
     public final static String ID = makeID("Resonance");
 
     private int plays = 0;

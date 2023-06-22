@@ -1,7 +1,7 @@
 package clockworkchar.util;
 
 import basemod.patches.whatmod.WhatMod;
-import clockworkchar.cards.AbstractEasyCard;
+import clockworkchar.cards.AbstractCrankyCard;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -116,7 +116,7 @@ public class CardArtRoller {
             CardLibrary.LibraryType.CURSE
     };
 
-    public static void computeCard(AbstractEasyCard c) {
+    public static void computeCard(AbstractCrankyCard c) {
         c.portrait = doneCards.computeIfAbsent(c.cardID, key -> {
             ReskinInfo r = infos.computeIfAbsent(key, key2 -> {
                 Random rng = new Random((long) c.cardID.hashCode());

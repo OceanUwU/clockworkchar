@@ -5,10 +5,10 @@ import com.megacrit.cardcrawl.actions.watcher.PressEndTurnButtonAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class EmergencyStop extends AbstractEasyCard {
+public class EmergencyStop extends AbstractCrankyCard {
     public final static String ID = makeID("EmergencyStop");
 
     public EmergencyStop() {

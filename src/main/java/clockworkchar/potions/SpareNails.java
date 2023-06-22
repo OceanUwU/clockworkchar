@@ -2,7 +2,7 @@ package clockworkchar.potions;
 
 import basemod.BaseMod;
 import basemod.ReflectionHacks;
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.actions.AttuneAction;
 import clockworkchar.actions.EasyModalChoiceAction;
 import clockworkchar.actions.EquipToolAction;
@@ -19,7 +19,7 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
 import java.util.ArrayList;
@@ -37,8 +37,8 @@ public class SpareNails extends AbstractPotion {
 
     public SpareNails() {
         super(potionStrings.NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.SPHERE, PotionColor.WHITE);
-        ReflectionHacks.setPrivate(this, AbstractPotion.class, "liquidImg", TexLoader.getTexture(ClockworkChar.modID + "Resources/images/potions/NailBottle.png"));
-        labOutlineColor = ClockworkChar.characterColor;
+        ReflectionHacks.setPrivate(this, AbstractPotion.class, "liquidImg", TexLoader.getTexture(CrankyMod.modID + "Resources/images/potions/NailBottle.png"));
+        labOutlineColor = CrankyMod.characterColor;
     }
 
     public void initializeData() {

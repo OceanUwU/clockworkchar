@@ -1,15 +1,15 @@
 package clockworkchar.cards;
 
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.actions.SpinAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class PotentialEnergy extends AbstractEasyCard {
+public class PotentialEnergy extends AbstractCrankyCard {
     public final static String ID = makeID("PotentialEnergy");
 
     public PotentialEnergy() {
@@ -20,7 +20,7 @@ public class PotentialEnergy extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int potential = ClockworkChar.winder.charge / secondMagic;
+        int potential = CrankyMod.winder.charge / secondMagic;
         if (potential > 0)
             atb(new SpinAction(potential, spun -> {
                 if (spun)

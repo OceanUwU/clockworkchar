@@ -3,9 +3,9 @@ package clockworkchar.cards;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 
-public class Bottlecap extends AbstractEasyCard {
+public class Bottlecap extends AbstractCrankyCard {
     public final static String ID = makeID("Bottlecap");
 
     public Bottlecap() {

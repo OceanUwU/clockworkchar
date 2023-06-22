@@ -1,7 +1,7 @@
 package clockworkchar.vfx;
 
 import basemod.helpers.VfxBuilder;
-import clockworkchar.ClockworkChar;
+import clockworkchar.CrankyMod;
 import clockworkchar.util.TexLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -13,10 +13,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 
 public class BreakEffect extends AbstractGameEffect {
-    private static Texture IMAGE = TexLoader.getTexture(ClockworkChar.makeImagePath("vfx/part.png"));
+    private static Texture IMAGE = TexLoader.getTexture(CrankyMod.makeImagePath("vfx/part.png"));
 
     private int count = 0;
     private float timer = 0.0F;

@@ -2,11 +2,11 @@ package clockworkchar.cardmods;
 
 import CardAugments.cardmods.AbstractAugment;
 import basemod.abstracts.AbstractCardModifier;
-import clockworkchar.cards.AbstractEasyCard;
+import clockworkchar.cards.AbstractCrankyCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 
 public class ElectricMod extends AbstractAugment {
     public static final String ID = makeID("ElectricMod");
@@ -15,13 +15,13 @@ public class ElectricMod extends AbstractAugment {
 
     @Override
     public boolean validCard(AbstractCard card) {
-        return isNormalCard(card) && card instanceof AbstractEasyCard && card.cost >= 0 && ((AbstractEasyCard)card).baseSpinAmount > 1 && cardCheck(card, c -> doesntUpgradeCost());
+        return isNormalCard(card) && card instanceof AbstractCrankyCard && card.cost >= 0 && ((AbstractCrankyCard)card).baseSpinAmount > 1 && cardCheck(card, c -> doesntUpgradeCost());
     }
 
     @Override
     public void onInitialApplication(AbstractCard card) {
-        ((AbstractEasyCard)card).baseSpinAmount = 0;
-        ((AbstractEasyCard)card).spinAmount = 0;
+        ((AbstractCrankyCard)card).baseSpinAmount = 0;
+        ((AbstractCrankyCard)card).spinAmount = 0;
         card.cost++;
         card.costForTurn = card.cost;
     }

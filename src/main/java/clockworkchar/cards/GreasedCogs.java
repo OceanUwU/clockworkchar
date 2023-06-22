@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-public class GreasedCogs extends AbstractEasyCard {
+public class GreasedCogs extends AbstractCrankyCard {
     public final static String ID = makeID("GreasedCogs");
 
     public GreasedCogs() {

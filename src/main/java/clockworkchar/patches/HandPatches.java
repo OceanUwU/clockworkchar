@@ -1,6 +1,6 @@
 package clockworkchar.patches;
 
-import clockworkchar.characters.TheClockwork;
+import clockworkchar.characters.Cranky;
 import clockworkchar.relics.Drill;
 import clockworkchar.relics.LeftHand;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -12,8 +12,8 @@ import com.megacrit.cardcrawl.vfx.SmokePuffEffect;
 
 public class HandPatches {
     public static void switchHand() {
-        if (AbstractDungeon.player instanceof TheClockwork) {
-            TheClockwork p = ((TheClockwork)AbstractDungeon.player);
+        if (AbstractDungeon.player instanceof Cranky) {
+            Cranky p = ((Cranky)AbstractDungeon.player);
             boolean hadBefore = p.handBone.getScaleX() > 0f;
             if (!AbstractDungeon.player.hasRelic(LeftHand.ID)) {
                 if (hadBefore)

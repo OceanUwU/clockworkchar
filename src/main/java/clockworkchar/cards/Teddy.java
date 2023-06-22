@@ -3,9 +3,9 @@ package clockworkchar.cards;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import static clockworkchar.ClockworkChar.makeID;
+import static clockworkchar.CrankyMod.makeID;
 
-public class Teddy extends AbstractEasyCard {
+public class Teddy extends AbstractCrankyCard {
     public final static String ID = makeID("Teddy");
 
     public Teddy() {
