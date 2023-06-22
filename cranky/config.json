@@ -1,7 +1,11 @@
 {
+  "steamPublishedID": "2992994360",
   "title": "",
   "description": "",
-  "visibility": "private",
+  "visibility": "public",
   "changeNote": "v1.0.0\n    - Workshop release! Patch notes for v1.0.0 and before can be found at https://github.com/OceanUwU/clockworkchar/releases",
-  "tags": ["Character", "English"]
+  "tags": [
+    "Character",
+    "English"
+  ]
 }
