@@ -3,7 +3,7 @@
   "title": "",
   "description": "",
   "visibility": "public",
-  "changeNote": "v1.0.1\n- Teddy now shows its attuned number in the correct position on different screen resolutions",
+  "changeNote": "v1.0.2\n- Rearrange and Tinker no longer count as starter defends",
   "tags": [
     "Character",
     "English"

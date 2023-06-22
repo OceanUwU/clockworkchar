@@ -21,7 +21,6 @@ public class KineticServo extends AbstractCrankyCard {
         super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseBlock = 12;
         baseMagicNumber = magicNumber = 3;
-        tags.add(CardTags.STARTER_DEFEND);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
