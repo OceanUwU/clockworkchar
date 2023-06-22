@@ -5,7 +5,7 @@
     "ocean",
     "NuclearCyborg"
   ],
-  "credits": "Carbon, freesound.org",
+  "credits": "Extra card art: NuclearCyborg, Carbon the Wanderer\nPlaytesting: TheRealEvab, NuclearCyborg, Carbon the Wanderer, LXIXCDXX\nAudio: freesound.org (more info on workshop page)",
   "description": "${project.description}",
   "version": "${project.version}",
   "sts_version": "${SlayTheSpire.version}",

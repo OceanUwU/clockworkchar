@@ -89,7 +89,10 @@ public class RearrangeAttack extends AbstractEasyCard {
                     if (AbstractDungeon.player.drawPile.size() == 1) {
                         AbstractDungeon.gridSelectScreen.selectedCards.add(AbstractDungeon.player.drawPile.getTopCard());
                     } else {
-                        AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.drawPile, 1, TEXT[1], false, false, false, false);
+                        CardGroup unsortedDraw = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+                        for (AbstractCard c : AbstractDungeon.player.drawPile.group)
+                            unsortedDraw.addToRandomSpot(c);
+                        AbstractDungeon.gridSelectScreen.open(unsortedDraw, 1, TEXT[1], false, false, false, false);
                         tickDuration();
                         return;
                     }

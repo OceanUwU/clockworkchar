@@ -47,5 +47,12 @@
   "${ModID}:GearMod": {
     "TEXT": ["", " Gear", "#yWinds #yUp #b2."],
     "EXTRA_TEXT": ["${ModID}:Wind_Up %d. NL "]
+  },
+
+  "${ModID}:ToolsPack": {
+    "TEXT": ["Tools", "Improve your cards to reach their fullest potential.", "ocean"]
+  },
+  "${ModID}:ToolsPackHat": {
+    "TEXT": ["SORRY CAN'T HEAR YOU I'M CRANKIN' THE HOG!!!", "Cranky Cog"]
   }
 }
