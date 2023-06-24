@@ -106,7 +106,7 @@
   "${ModID}:DiligentWork": {
     "NAME": "Diligent Work",
     "DESCRIPTIONS": [
-      "At the start of your turn, #yUse #b",
+      "At the start of your turn, #yActuate #b",
       " time.",
       " times."
     ]

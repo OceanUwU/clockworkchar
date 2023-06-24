@@ -3,7 +3,7 @@
   "title": "",
   "description": "",
   "visibility": "public",
-  "changeNote": "v1.0.2\n- Rearrange and Tinker no longer count as starter defends",
+  "changeNote": "v1.0.5\n- Together in Spire - fix cranky winders all showing the same value",
   "tags": [
     "Character",
     "English"

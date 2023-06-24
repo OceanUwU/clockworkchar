@@ -28,7 +28,8 @@ public class ProficiencyPower extends AbstractEasyPower {
     }
 
     public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
+        fontScale = 8f;
+        amount += stackAmount;
         amount = Math.max(-999, Math.min(999, amount));
         if (this.amount == 0)
             addToTop((AbstractGameAction)new RemoveSpecificPowerAction(owner, owner, this));
@@ -36,7 +37,8 @@ public class ProficiencyPower extends AbstractEasyPower {
     }
 
     public void reducePower(int stackAmount) {
-        super.reducePower(stackAmount);
+        fontScale = 8f;
+        amount -= stackAmount;
         amount = Math.max(-999, Math.min(999, amount));
         if (this.amount == 0)
             addToTop((AbstractGameAction)new RemoveSpecificPowerAction(owner, owner, this)); 

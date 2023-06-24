@@ -19,7 +19,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbInterface;
 import com.megacrit.cardcrawl.vfx.SmokePuffEffect;
 import spireTogether.SpireTogetherMod;
 import spireTogether.Unlockable;
@@ -31,7 +30,6 @@ import spireTogether.network.P2P.P2PMessageAnalyzer;
 import spireTogether.network.P2P.P2PPlayer;
 import spireTogether.skins.PlayerSkin;
 import spireTogether.ui.elements.presets.Nameplate;
-import spireTogether.ui.elements.presets.PlayerInfoBox;
 import spireTogether.util.BundleManager;
 import spireTogether.util.NetworkMessage;
 import spireTogether.util.UIElements;
@@ -134,25 +132,20 @@ public class NetworkCranky extends NetworkCharPreset {
     @SpirePatch(clz=P2PMessageAnalyzer.class, method="AnalyzeMessage", requiredModId="spireTogether")
     public static class MessageAnalyzer {
         public static void Postfix(NetworkMessage data) {
-            String request = data.request;
-            Object object = data.object;
-            Integer senderID = data.senderID;
-            P2PPlayer p = P2PManager.GetPlayer(senderID);
+            P2PPlayer p = P2PManager.GetPlayer(data.senderID);
             if (p != null && p.GetEntity() instanceof NetworkCranky) {
-                PlayerInfoBox infoBox = p.GetInfobox();
-                EnergyOrbInterface energyOrb = ReflectionHacks.getPrivate(infoBox, PlayerInfoBox.class, "energyOrb");
-                if (energyOrb instanceof CrankyEnergyOrb)
-                    ((CrankyEnergyOrb)energyOrb).source = (Cranky)((NetworkCranky)p.GetEntity()).source;
-                switch (request) {
-                    case REQUEST_CHANGE_CHARGE:
-                        if (energyOrb instanceof CrankyEnergyOrb)
-                            ((CrankyEnergyOrb)energyOrb).winder.setNonPlayerCharge((int)object, true);
-                        break;
+                MultiplayerWinder winder = MultiplayerWinder.InfoBoxWinderField.winder.get(p.GetInfobox());
+                if (winder != null) {
+                    winder.source = (Cranky)((NetworkCranky)p.GetEntity()).source;
+                    switch (data.request) {
+                        case REQUEST_CHANGE_CHARGE:
+                            winder.setNonPlayerCharge((int)data.object, true);
+                            break;
 
-                    case REQUEST_CHANGE_COGWHEELS:
-                        if (energyOrb instanceof CrankyEnergyOrb)
-                            ((CrankyEnergyOrb)energyOrb).winder.setNonPlayerCogwheels((int)object, true);
-                        break;
+                        case REQUEST_CHANGE_COGWHEELS:
+                            winder.setNonPlayerCogwheels((int)data.object, true);
+                            break;
+                    }
                 }
             }
         }

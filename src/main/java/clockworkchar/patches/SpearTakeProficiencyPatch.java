@@ -1,6 +1,6 @@
 package clockworkchar.patches;
 
-import clockworkchar.CrankyMod;
+/*import clockworkchar.CrankyMod;
 import clockworkchar.powers.ProficiencyPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -21,4 +21,4 @@ public class SpearTakeProficiencyPatch {
         }
         return SpireReturn.Continue();
     }
-}
+}*/
