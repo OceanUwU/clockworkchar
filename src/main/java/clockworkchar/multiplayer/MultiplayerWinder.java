@@ -36,12 +36,12 @@ public class MultiplayerWinder extends Winder {
             spinSkinWinder(source.winderBone);
     }
 
-    @SpirePatch(clz=PlayerInfoBox.class, method=SpirePatch.CLASS)
+    @SpirePatch(clz=PlayerInfoBox.class, method=SpirePatch.CLASS, requiredModId="spireTogether")
     public static class InfoBoxWinderField {
         public static SpireField<MultiplayerWinder> winder = new SpireField<>(() -> null);
     }
 
-    @SpirePatch2(clz=PlayerInfoBox.class, method="LoadData")
+    @SpirePatch2(clz=PlayerInfoBox.class, method="LoadData", requiredModId="spireTogether")
     public static class CreateWinderForInfoBox {
         @SpireInsertPatch(locator=Locator.class, localvars="sb")
         public static void Insert(PlayerInfoBox __instance, P2PPlayer p) {
@@ -56,7 +56,7 @@ public class MultiplayerWinder extends Winder {
         }
     }
 
-    @SpirePatch2(clz=PlayerInfoBox.class, method="update")
+    @SpirePatch2(clz=PlayerInfoBox.class, method="update", requiredModId="spireTogether")
     public static class UpdateWinderOnInfoBox {
         @SpireInsertPatch(locator=Locator.class, localvars="sb")
         public static void Insert(PlayerInfoBox __instance) {
@@ -72,7 +72,7 @@ public class MultiplayerWinder extends Winder {
         }
     }
 
-    @SpirePatch2(clz=PlayerInfoBox.class, method="renderForeground")
+    @SpirePatch2(clz=PlayerInfoBox.class, method="renderForeground", requiredModId="spireTogether")
     public static class RenderWinderOnInfoBox {
         @SpireInsertPatch(locator=Locator.class, localvars="sb")
         public static void Insert(PlayerInfoBox __instance, SpriteBatch sb) {
