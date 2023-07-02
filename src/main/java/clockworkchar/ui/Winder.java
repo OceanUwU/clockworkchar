@@ -5,6 +5,7 @@ import clockworkchar.cards.PerpetualForm;
 import clockworkchar.characters.Cranky;
 import clockworkchar.multiplayer.ModManager;
 import clockworkchar.multiplayer.NetworkCranky;
+import clockworkchar.packs.ClockworkPack;
 import clockworkchar.relics.FloppyDisk;
 import clockworkchar.relics.SevenSegmentDisplay;
 import com.badlogic.gdx.Gdx;
@@ -14,6 +15,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.Bone;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -26,6 +28,8 @@ import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import spireTogether.SpireTogetherMod;
 import spireTogether.network.P2P.P2PManager;
+import thePackmaster.SpireAnniversary5Mod;
+import thePackmaster.ThePackmaster;
 
 import static clockworkchar.CrankyMod.makeID;
 
@@ -156,7 +160,7 @@ public class Winder {
     }
 
     public void reset() {
-        shouldRender = AbstractDungeon.player instanceof Cranky;
+        shouldRender = AbstractDungeon.player instanceof Cranky || (Loader.isModLoaded("anniv5") &&  AbstractDungeon.player instanceof ThePackmaster && SpireAnniversary5Mod.currentPoolPacks.stream().anyMatch(p -> p instanceof ClockworkPack));
         cogwheels = STARTING_COGWHEELS;
         toTwistForward = 0;
         toTwistBack = 0;
@@ -234,8 +238,8 @@ public class Winder {
 
     public int maxChargeUsedOnCard(AbstractCard card) {
         if (!CardCrawlGame.isInARun()) return charge;
-        if (PerpetualForm.PerpetualFormPower.perpetual)
-            return Math.max(0, charge - PerpetualForm.PerpetualFormPower.amountSpentOnCard(card));
+        if (AbstractDungeon.player.stance instanceof PerpetualForm.PerpetualStance)
+            return Math.max(0, charge - PerpetualForm.PerpetualStance.amountSpentOnCard(card));
         return charge;
     }
 

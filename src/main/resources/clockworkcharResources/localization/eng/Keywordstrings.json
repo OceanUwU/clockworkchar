@@ -30,7 +30,7 @@
       "let go",
       "let_go"
     ],
-    "DESCRIPTION": "Spend ALL charge to perform an action."
+    "DESCRIPTION": "#ySpin ALL charge to perform an action."
   },
   {
     "PROPER_NAME": "Cogwheels",
@@ -68,7 +68,7 @@
     "NAMES": [
       "equip"
     ],
-    "DESCRIPTION": "Activate the effect of the currently equipped tool twice, then replace it with a new one."
+    "DESCRIPTION": "#yActuate twice, then replace your Tool with a new one."
   },
   {
     "PROPER_NAME": "Attuned",
@@ -79,11 +79,19 @@
     "DESCRIPTION": "Attuned cards #yActuate after they're played or their part effect is activated."
   },
   {
+    "PROPER_NAME": "Integrate",
+    "NAMES": [
+      "integrate",
+      "integrated"
+    ],
+    "DESCRIPTION": "#yAttune a card at a Rest Site."
+  },
+  {
     "PROPER_NAME": "Actuate",
     "NAMES": [
       "actuate"
     ],
-    "DESCRIPTION": "Activate the effect of your equipped Tool. #ySpanner is the default tool."
+    "DESCRIPTION": "Activate the effect of your equipped Tool. #ySpanner is the default Tool."
   },
   {
     "PROPER_NAME": "Spanner",
@@ -112,7 +120,7 @@
     "NAMES": [
       "torch"
     ],
-    "DESCRIPTION": "Tool. #b!B! #yBlock, #b!D! damage, increases the damage dealt by tools to the enemy damaged by #b!M! for the turn."
+    "DESCRIPTION": "Tool. #b!B! #yBlock, #b!D! damage, increases the damage dealt by Tools to the enemy damaged by #b!M! for the turn."
   },
   {
     "PROPER_NAME": "Proficiency",
@@ -135,5 +143,12 @@
       "ocean"
     ],
     "DESCRIPTION": "Jar escapee."
+  },
+  {
+    "PROPER_NAME": "Perpetual",
+    "NAMES": [
+      "perpetual"
+    ],
+    "DESCRIPTION": "In this #yStance, you can play cards with #yCharge (8 #yCharge per [E] ). When you start your turn in this #yStance, lose [E] [E] ."
   }
 ]

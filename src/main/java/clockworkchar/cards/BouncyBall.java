@@ -31,6 +31,6 @@ public class BouncyBall extends AbstractCrankyCard {
     }
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeMagicNumber(4);
     }
 }

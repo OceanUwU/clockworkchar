@@ -21,6 +21,7 @@ import clockworkchar.tools.AbstractTool;
 import clockworkchar.ui.ToolSlot;
 import clockworkchar.ui.Winder;
 import clockworkchar.util.CardAugmentsLoader;
+import clockworkchar.util.PackLoader;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
@@ -38,12 +39,13 @@ import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.StanceStrings;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
+import thePackmaster.SpireAnniversary5Mod;
 import java.nio.charset.StandardCharsets;
 
 @SuppressWarnings({"unused", "WeakerAccess"})
@@ -100,6 +102,8 @@ public class CrankyMod implements
 
     public CrankyMod() {
         BaseMod.subscribe(this);
+        //if (Loader.isModLoaded("anniv5"))
+        //    SpireAnniversary5Mod.subscribe(new PackLoader());
 
         BaseMod.addColor(Cranky.Enums.CLOCKWORK_BROWN_COLOR, characterColor, characterColor, characterColor,
             characterColor, characterColor, characterColor, characterColor,
@@ -185,6 +189,7 @@ public class CrankyMod implements
         BaseMod.loadCustomStringsFile(PotionStrings.class, modID + "Resources/localization/" + getLangString() + "/Potionstrings.json");
         BaseMod.loadCustomStringsFile(UIStrings.class, modID + "Resources/localization/" + getLangString() + "/UIstrings.json");
         BaseMod.loadCustomStringsFile(OrbStrings.class, modID + "Resources/localization/" + getLangString() + "/Orbstrings.json");
+        BaseMod.loadCustomStringsFile(StanceStrings.class, modID + "Resources/localization/" + getLangString() + "/Stancestrings.json");
     }
 
     @Override

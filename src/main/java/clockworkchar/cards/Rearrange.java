@@ -16,7 +16,7 @@ public class Rearrange extends AbstractCrankyCard {
 
     public Rearrange() {
         super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 8;
+        baseBlock = 6;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

@@ -22,7 +22,7 @@ public class Synchronise extends AbstractCrankyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new SelectCardsInHandAction(cardStrings.EXTENDED_DESCRIPTION[0], c -> c.type == CardType.SKILL || c.type == CardType.ATTACK, cards -> {
             AbstractCard c = cards.get(0);
-            att(new SpinAction(baseSpinAmount, spun -> {
+            att(new SpinAction(spinAmount, spun -> {
                 if (spun) makeInHand(c.makeStatEquivalentCopy());
             }));
             att(new AttuneAction(c, true));

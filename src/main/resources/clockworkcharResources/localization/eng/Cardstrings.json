@@ -45,7 +45,7 @@
   },
   "${ModID}:Blurrier": {
     "NAME": "Blurrier",
-    "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Spin !${ModID}:s!: Gain !B! Block again."
+    "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Spin !${ModID}:s!: Gain !B! Block."
   },
   "${ModID}:ReadyUp": {
     "NAME": "Ready Up",
@@ -73,7 +73,7 @@
   },
   "${ModID}:Rejig": {
     "NAME": "Rejig",
-    "DESCRIPTION": "${ModID}:Spin !${ModID}:s!: Gain !M! Strength."
+    "DESCRIPTION": "${ModID}:Spin !${ModID}:s!: NL Gain !M! Strength."
   },
   "${ModID}:Synchronise": {
     "NAME": "Synchronise",
@@ -116,7 +116,7 @@
   },
   "${ModID}:GatherParts": {
     "NAME": "Gather Parts",
-    "DESCRIPTION": "Deal !D! damage. NL If Fatal, heal !M! HP and Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, heal !M! HP NL and Exhaust."
   },
   "${ModID}:Accelerate": {
     "NAME": "Accelerate",
@@ -159,7 +159,7 @@
   },
   "${ModID}:Reassemble": {
     "NAME": "Reassemble",
-    "DESCRIPTION": "{@@}Put ALL ${ModID}:Parts from your {!Upgrades!|@=|>0=draw and }discard pile into your hand."
+    "DESCRIPTION": "{@@}Put ALL ${ModID}:Parts from your {!Upgrades!|@=|>0=draw and }discard pile{!Upgrades!|@=|>0=s} into your hand."
   },
   "${ModID}:RotationalChaos": {
     "NAME": "Rotational Chaos",
@@ -167,7 +167,7 @@
   },
   "${ModID}:Mesmerise": {
     "NAME": "Mesmerise",
-    "DESCRIPTION": "Apply !M! Weak and !${ModID}:m2! ${ModID}:Dizzy to ALL enemies. NL Gain !B! Block. NL Exhaust."
+    "DESCRIPTION": "Apply !M! Weak and ${ModID}:Dizzy to ALL enemies. NL Gain !B! Block. NL Exhaust."
   },
   "${ModID}:Rust": {
     "NAME": "Rust",
@@ -203,11 +203,11 @@
   },
   "${ModID}:WearAndTear": {
     "NAME": "Wear and Tear",
-    "DESCRIPTION": "Deal !D! damage !${ModID}:m2! times. NL Exhaust. NL ${ModID}:Part: Gain !M! Strength."
+    "DESCRIPTION": "Deal !D! damage !${ModID}:m2! times. NL ${ModID}:Part: Gain !M! Strength. NL Exhaust."
   },
   "${ModID}:RecursionMechanism": {
     "NAME": "Cog Surge",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: Gain !M! Artifact. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: NL Gain !M! Artifact. NL Exhaust."
   },
   "${ModID}:Reinforce": {
     "NAME": "Reinforce",
@@ -219,7 +219,7 @@
   },
   "${ModID}:PerpetualForm": {
     "NAME": "Perpetual Form",
-    "DESCRIPTION": "{@@}At the start of your turn, lose {!${ModID}:m2!|1=[E]|2=[E] [E]|3=[E] [E] [E]|@=!${ModID}:m2! [E]}. NL Gain !M! ${ModID}:Cogwheels. Cards can now be played with ${ModID}:Charge ( !${ModID}:m3! ${ModID}:Charge per [E] )."
+    "DESCRIPTION": "Enter ${ModID}:Perpetual. NL Gain !M! ${ModID}:Cogwheels."
   },
   "${ModID}:MachinicModification": {
     "NAME": "Machinic Modification",
@@ -227,11 +227,11 @@
   },
   "${ModID}:Rearrange": {
     "NAME": "Tinker",
-    "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Attune all cards in your hand for the rest of combat."
+    "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Attune all cards in your hand."
   },
   "${ModID}:Teddy": {
     "NAME": "Teddy Bear",
-    "DESCRIPTION": "Gain !B! Block. NL Can be ${ModID}:Attuned at Rest Sites any number of times."
+    "DESCRIPTION": "Gain !B! Block. NL Can be ${ModID}:Integrated any number of times."
   },
   "${ModID}:QuickFix": {
     "NAME": "Quick Fix",
@@ -259,7 +259,7 @@
   },
   "${ModID}:ReadInstructions": {
     "NAME": "Read Instructions",
-    "DESCRIPTION": "Gain !M! ${ModID}:Proficiency."
+    "DESCRIPTION": "${ModID}:Spin !${ModID}:s!: NL Gain !M! ${ModID}:Proficiency."
   },
   "${ModID}:FixUp": {
     "NAME": "Fix-up",

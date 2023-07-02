@@ -172,7 +172,7 @@ public class AttunedPatches {
                 int attunedTimes = CardFields.attuned.get(__instance);
                 if (attunedTimes > 0) {
                     sb.setColor((Color)colorField.get(__instance));
-                    boolean perpetual = CardCrawlGame.isInARun() && AbstractDungeon.player.hasPower(PerpetualForm.PerpetualFormPower.POWER_ID);
+                    boolean perpetual = CardCrawlGame.isInARun() && AbstractDungeon.player.stance instanceof PerpetualForm.PerpetualStance;
                     TextureAtlas.AtlasRegion tex = perpetual ? ATTUNED_TEXTURE_DOWN : ATTUNED_TEXTURE;
                     sb.draw(tex, __instance.current_x - tex.originalWidth / 2F, __instance.current_y - tex.originalHeight / 2F, tex.originalWidth / 2F, tex.originalHeight / 2F, tex.packedWidth, tex.packedHeight, __instance.drawScale * Settings.scale, __instance.drawScale * Settings.scale, __instance.angle);
                     FontHelper.renderRotatedText(sb, (BitmapFont)energyFontMethod.invoke(__instance), Integer.toString(attunedTimes), __instance.current_x, __instance.current_y, -132F * __instance.drawScale * Settings.scale, (perpetual ? 44F : 118F) * __instance.drawScale * Settings.scale, __instance.angle, false, (Color)colorField.get(__instance));

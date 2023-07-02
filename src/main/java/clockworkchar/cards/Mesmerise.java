@@ -28,15 +28,14 @@ public class Mesmerise extends AbstractCrankyCard {
     public Mesmerise() {
         super(ID, 3, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         baseBlock = 5;
-        baseMagicNumber = magicNumber = 2;
-        baseSecondMagic = secondMagic = 1;
+        baseMagicNumber = magicNumber = 1;
         exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         forAllMonstersLiving(q -> {
             applyToEnemy(q, new WeakPower(q, magicNumber, false));
-            applyToEnemy(q, new DizzyPower(q, secondMagic));
+            applyToEnemy(q, new DizzyPower(q, magicNumber));
         });
         blck();
     }

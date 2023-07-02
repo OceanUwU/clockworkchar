@@ -66,7 +66,7 @@
   },
   "${ModID}:InstructionBooklet": {
     "NAME": "Instruction Booklet",
-    "FLAVOR": "Trust me, don't just skip to the good bits.",
+    "FLAVOR": "Trust me, don't just \"skip to the good bits\".",
     "DESCRIPTIONS": [
       "Start each combat with #b",
       " #y${ModID}:Proficiency."
@@ -90,7 +90,7 @@
     "NAME": "Fusion Hammer",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      " at the start of your turn. You can no longer #ySmith or #yIntegrate at Rest Sites.",
+      " at the start of your turn. You can no longer #ySmith or #y${ModID}:Integrate at Rest Sites.",
       "Gain [E]"
     ]
   }

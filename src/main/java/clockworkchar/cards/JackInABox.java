@@ -20,7 +20,7 @@ public class JackInABox extends AbstractCrankyCard {
     public JackInABox() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = 9;
-        baseMagicNumber = magicNumber = 3;
+        baseMagicNumber = magicNumber = 4;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class JackInABox extends AbstractCrankyCard {
 
     public void upp() {
         upgradeDamage(3);
-        upgradeMagicNumber(2);
+        upgradeMagicNumber(1);
         loadCardImage(makeCardPath("JackInABoxPlus.png"));
     }
 }

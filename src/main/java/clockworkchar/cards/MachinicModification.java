@@ -38,7 +38,7 @@ public class MachinicModification extends AbstractCrankyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+        upgradeMagicNumber(2);
     }
 
     public static class MachinicallyModifyAction extends AbstractGameAction {

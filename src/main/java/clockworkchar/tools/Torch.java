@@ -32,7 +32,7 @@ public class Torch extends AbstractTool {
     private boolean lightOn = false;
 
     public Torch() {
-        super(TOOL_ID, orbStrings.NAME, TORCH_TEXTURE, 2, 0, 1);
+        super(TOOL_ID, orbStrings.NAME, TORCH_TEXTURE, 1, 0, 1);
     }
 
     public void use() {

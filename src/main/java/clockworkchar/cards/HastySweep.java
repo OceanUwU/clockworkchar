@@ -13,7 +13,7 @@ public class HastySweep extends AbstractCrankyCard {
 
     public HastySweep() {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 26;
+        baseDamage = 28;
         baseSpinAmount = spinAmount = 10;
         baseMagicNumber = magicNumber = 5;
     }

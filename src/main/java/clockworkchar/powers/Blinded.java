@@ -16,7 +16,7 @@ public class Blinded extends AbstractEasyPower {
         super(POWER_ID, powerStrings.NAME, PowerType.DEBUFF, true, owner, amount);
     }
 
-    public void atStartOfTurn() {
+    public void atEndOfRound() {
         atb(new RemoveSpecificPowerAction(owner, owner, this));
     }
     

@@ -12,7 +12,7 @@ public class RareCoin extends AbstractCrankyCard {
 
     public RareCoin() {
         super(ID, -2, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF, CardColor.COLORLESS);
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 3;
         trinket = true;
         part = true;
         exhaust = true;

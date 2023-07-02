@@ -111,7 +111,6 @@ public class Cranky extends CustomPlayer {
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         for (int i = 0; i < 4; i++) retVal.add(Strike.ID);
-        //retVal.add(StrikeAttuned.ID);
         for (int i = 0; i < 4; i++) retVal.add(Defend.ID);
         retVal.add(Twist.ID);
         retVal.add(Waddle.ID);
@@ -138,7 +137,7 @@ public class Cranky extends CustomPlayer {
 
     @Override
     public int getAscensionMaxHPLoss() {
-        return 8;
+        return 4;
     }
 
     @Override

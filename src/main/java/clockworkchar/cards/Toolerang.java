@@ -5,6 +5,7 @@ import clockworkchar.actions.AttuneAction;
 import clockworkchar.util.TexLoader;
 import clockworkchar.vfx.AttuneCardEffect;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -70,6 +71,7 @@ public class Toolerang extends AbstractCrankyCard {
         }
 
         public void render(SpriteBatch sb) {
+            sb.setColor(Color.WHITE);
             sb.draw(TOOL_TEXTURE, x - W * Settings.scale, y - W * Settings.scale, W, H, W*2, H*2, progress, progress, angle);
         }
 

@@ -54,5 +54,17 @@
   },
   "${ModID}:ToolsPackHat": {
     "TEXT": ["SORRY CAN'T HEAR YOU I'M CRANKIN' THE HOG!!!", "Cranky Cog"]
+  },
+  "${ModID}:ClockworkPack": {
+    "TEXT": ["Clockwork", "${ModID}:Wind_Up and ${ModID}:Spin to manipulate a secondary energy source.", "ocean"]
+  },
+  "${ModID}:ClockworkPackHat": {
+    "TEXT": ["For when keeping track of one energy is just too simple.", "Winder"]
+  },
+  "${ModID}:PartsPack": {
+    "TEXT": ["Parts", "Cards which activate when you press end turn.", "ocean"]
+  },
+  "${ModID}:PartsPackHat": {
+    "TEXT": ["The most impactful button you'll ever press.", "End Turn Button"]
   }
 }

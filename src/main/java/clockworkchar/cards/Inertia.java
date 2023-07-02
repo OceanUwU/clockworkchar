@@ -27,7 +27,7 @@ public class Inertia extends AbstractCrankyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+        upgradeMagicNumber(2);
     }
 
     public static class InertiaPower extends AbstractEasyPower {

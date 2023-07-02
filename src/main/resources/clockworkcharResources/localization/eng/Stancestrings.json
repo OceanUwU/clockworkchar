@@ -1,0 +1,8 @@
+{
+    "${ModID}:PerpetualStance": {
+        "NAME": "Perpetual",
+        "DESCRIPTION": [
+            "At the start of your turn, lose [E] [E] . Cards can be played with #yCharge, using #b8 #yCharge per energy."
+        ]
+    }
+}

@@ -41,6 +41,6 @@ public class Spinner extends AbstractCrankyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+        upgradeMagicNumber(2);
     }
 }

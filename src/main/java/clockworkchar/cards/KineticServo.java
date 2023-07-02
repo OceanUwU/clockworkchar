@@ -46,8 +46,10 @@ public class KineticServo extends AbstractCrankyCard {
         }
 
         public int onAttacked(DamageInfo info, int damageAmount) {
-            flash();
-            att(new WindUpAction(amount));
+            if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner) {
+                flash();
+                att(new WindUpAction(amount));
+            }
             return damageAmount;
         }
 

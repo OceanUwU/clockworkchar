@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import clockworkchar.CrankyMod;
-import clockworkchar.cards.PerpetualForm;
 
 public class WinderPatches {
     private static boolean shouldRenderWinder() {
@@ -50,7 +49,6 @@ public class WinderPatches {
     public static class ResetPatch {
         public static void Postfix() {
             CrankyMod.winder.reset();
-            PerpetualForm.PerpetualFormPower.perpetual = false;
         }
     }
 }

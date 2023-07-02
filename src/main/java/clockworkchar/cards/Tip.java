@@ -28,6 +28,7 @@ public class Tip extends AbstractCrankyCard {
     }
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeDamage(2);
+        upgradeMagicNumber(1);
     }
 }

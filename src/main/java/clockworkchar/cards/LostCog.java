@@ -14,7 +14,7 @@ public class LostCog extends AbstractCrankyCard {
 
     public LostCog() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 6;
+        baseDamage = 7;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -24,9 +24,8 @@ public class LostCog extends AbstractCrankyCard {
                 isDone = true;
                 if (AbstractDungeon.actionManager.cardsPlayedThisCombat.size() >= 2) {
                     AbstractCard lastCard = ((AbstractCard)AbstractDungeon.actionManager.cardsPlayedThisCombat.get(AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - 2));
-                    if (lastCard instanceof AbstractCrankyCard && ((AbstractCrankyCard)lastCard).spinAmount > 0) {
+                    if (lastCard instanceof AbstractCrankyCard && ((AbstractCrankyCard)lastCard).spinAmount > 0)
                         dmgTop(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
-                    }
                 }
             }
         });
