@@ -1,5 +1,6 @@
 package clockworkchar.cards;
 
+import basemod.ReflectionHacks;
 import clockworkchar.powers.AbstractEasyPower;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -14,29 +15,23 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 
 import static clockworkchar.CrankyMod.makeID;
 import static clockworkchar.util.Wiz.*;
 
-import basemod.ReflectionHacks;
-
 public class Mesmerise extends AbstractCrankyCard {
     public final static String ID = makeID("Mesmerise");
 
     public Mesmerise() {
-        super(ID, 3, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         baseBlock = 5;
         baseMagicNumber = magicNumber = 1;
         exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        forAllMonstersLiving(q -> {
-            applyToEnemy(q, new WeakPower(q, magicNumber, false));
-            applyToEnemy(q, new DizzyPower(q, magicNumber));
-        });
+        forAllMonstersLiving(q -> applyToEnemy(q, new DizzyPower(q, magicNumber)));
         blck();
     }
 

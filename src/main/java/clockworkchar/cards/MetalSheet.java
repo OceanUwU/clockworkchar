@@ -9,7 +9,7 @@ public class MetalSheet extends AbstractCrankyCard {
     public final static String ID = makeID("MetalSheet");
 
     public MetalSheet() {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         baseBlock = 8;
         baseSecondBlock = secondBlock = 4;
         part = true;
@@ -25,6 +25,6 @@ public class MetalSheet extends AbstractCrankyCard {
 
     public void upp() {
         upgradeBlock(3);
-        upgradeSecondBlock(1);
+        upgradeSecondBlock(2);
     }
 }

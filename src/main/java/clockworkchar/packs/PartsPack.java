@@ -10,7 +10,7 @@ public class PartsPack extends AbstractCrankyPack {
     public static final String ID = makeID("PartsPack");
 
     public PartsPack() {
-        super(ID, new PackSummary(4, 1, 3, 4, 3, "Strength"));
+        super(ID, new PackSummary(4, 1, 3, 4, 3, PackSummary.Tags.Strength));
     }
 
     public ArrayList<String> getCards() {

@@ -92,11 +92,11 @@
   },
   "${ModID}:Gyroscope": {
     "NAME": "Gyroscope",
-    "DESCRIPTION": "Unplayable ${ModID}:Part: NL ${ModID}:Spin !${ModID}:s! to deal !${ModID}:m2! damage to a random enemy and Retain this."
+    "DESCRIPTION": "Unplayable ${ModID}:Part: NL ${ModID}:Spin !${ModID}:s! to deal !M! damage to a random enemy and Retain this."
   },
   "${ModID}:Crank": {
     "NAME": "Crank",
-    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL Exhaust."
+    "DESCRIPTION": "${ModID}:Wind_Up !M!. NL ${ModID}:Part: ${ModID}:Wind_Up !${ModID}:m2!. NL Exhaust."
   },
   "${ModID}:Advance": {
     "NAME": "Advance",
@@ -159,7 +159,7 @@
   },
   "${ModID}:Reassemble": {
     "NAME": "Reassemble",
-    "DESCRIPTION": "{@@}Put ALL ${ModID}:Parts from your {!Upgrades!|@=|>0=draw and }discard pile{!Upgrades!|@=|>0=s} into your hand."
+    "DESCRIPTION": "{@@}The next !M! times you draw a ${ModID}:Part, gain !${ModID}:m2! Block and draw !${ModID}:m3! card{!${ModID}:m3!|>1=s}."
   },
   "${ModID}:RotationalChaos": {
     "NAME": "Rotational Chaos",
@@ -167,7 +167,7 @@
   },
   "${ModID}:Mesmerise": {
     "NAME": "Mesmerise",
-    "DESCRIPTION": "Apply !M! Weak and ${ModID}:Dizzy to ALL enemies. NL Gain !B! Block. NL Exhaust."
+    "DESCRIPTION": "Apply !M! ${ModID}:Dizzy to ALL enemies. NL Gain !B! Block. NL Exhaust."
   },
   "${ModID}:Rust": {
     "NAME": "Rust",
@@ -191,7 +191,7 @@
   },
   "${ModID}:Whir": {
     "NAME": "Whir",
-    "DESCRIPTION": "{@@}Repeat !M! times: NL ${ModID}:Spin !${ModID}:s!: Draw !${ModID}:m2! card{!${ModID}:m2!|>1=s}."
+    "DESCRIPTION": "{@@}{!Upgrades!|>0=${ModID}:Spin !${ModID}:s!: Draw !${ModID}:m3! cards. NL }Repeat !M! times: NL ${ModID}:Spin !${ModID}:s!: Draw !${ModID}:m2! card{!${ModID}:m2!|>1=s}."
   },
   "${ModID}:ManyMovements": {
     "NAME": "Many Movements",
@@ -207,7 +207,7 @@
   },
   "${ModID}:RecursionMechanism": {
     "NAME": "Cog Surge",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: NL Gain !M! Artifact. NL Exhaust."
+    "DESCRIPTION": "{@@}Deal !D! damage. NL ${ModID}:Spin !${ModID}:s!: NL Gain !M! Artifact.{!Upgrades!|0= NL Exhaust.}"
   },
   "${ModID}:Reinforce": {
     "NAME": "Reinforce",
@@ -227,7 +227,7 @@
   },
   "${ModID}:Rearrange": {
     "NAME": "Tinker",
-    "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Attune all cards in your hand."
+    "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Attune your hand."
   },
   "${ModID}:Teddy": {
     "NAME": "Teddy Bear",
@@ -243,7 +243,10 @@
   },
   "${ModID}:HastySweep": {
     "NAME": "Hasty Sweep",
-    "DESCRIPTION": "${ModID}:Spin !${ModID}:s!: Deal !D! damage."
+    "DESCRIPTION": "{@@}Deal !D! damage twice. NL ${ModID}:Spin !${ModID}:s!: Exhaust up to !M! card{!M!|>1=s} in your draw pile.",
+    "EXTENDED_DESCRIPTION": [
+      "Select cards to Exhaust."
+    ]
   },
   "${ModID}:SwiftStomps": {
     "NAME": "Swift Stomps",
@@ -287,7 +290,7 @@
   },
   "${ModID}:WormGear": {
     "NAME": "Worm Gear",
-    "DESCRIPTION": "{@@}Draw 1 card. If it's a ${ModID}:Part, activate it{!M!|@=|>1= !M! times} and repeat this, otherwise discard it."
+    "DESCRIPTION": "{@@}${ModID}:Spin !${ModID}:s!: Scry !${ModID}:m2!. NL Draw 1 card. If it's a ${ModID}:Part, activate it{!M!|@=|>1= !M! times} and repeat this, otherwise discard it."
   },
   "${ModID}:Futureproofing": {
     "NAME": "Futureproofing",
@@ -295,16 +298,11 @@
   },
   "${ModID}:Salvage": {
     "NAME": "Salvage",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Equip a random Tool."
+    "DESCRIPTION": "{@@}Deal !D! damage. NL {!Upgrades!|@=${ModID}:Equip a random Tool|>0=Choose 1 of 2 Tools to ${ModID}:Equip}."
   },
   "${ModID}:Resonance": {
     "NAME": "Resonance",
-    "DESCRIPTION": "Ethereal. NL ${ModID}:Spin !${ModID}:s!. NL If you've already played this card at least !M! times, gain !B! Block.",
-    "EXTENDED_DESCRIPTION": [
-      " NL (Played ",
-      " time)",
-      " times)"
-    ]
+    "DESCRIPTION": "Gain !B! Block. NL ${ModID}:Spin !${ModID}:s!: Increase this card's Block by !M! this combat."
   },
   "${ModID}:GearRatio": {
     "NAME": "Fool Me Twice",
@@ -320,7 +318,7 @@
   },
   "${ModID}:PitchPoint": {
     "NAME": "Pitch Point",
-    "DESCRIPTION": "Deal !D! damage. NL ${ModID}:Wind_Up !M!. NL Whenever you ${ModID}:Spin, return this from the discard pile to your hand."
+    "DESCRIPTION": "{@@}Deal !D! damage. NL {!Upgrades!|>0=${ModID}:Wind_Up !M!. NL }Whenever you ${ModID}:Spin, return this from the discard pile to your hand."
   },
   "${ModID}:Masterwork": {
     "NAME": "Masterwork",
@@ -332,7 +330,7 @@
   },
   "${ModID}:DiligentWork": {
     "NAME": "Diligent Work",
-    "DESCRIPTION": "{@@}At the start of your turn, ${ModID}:Actuate X{!M!|>1=+!M!|<0=!M!} times."
+    "DESCRIPTION": "{@@}At the start of your turn, ${ModID}:Actuate X{!M!|>0=+!M!|<0=!M!|} times."
   },
   "${ModID}:BouncyBall": {
     "NAME": "Bouncy Ball",

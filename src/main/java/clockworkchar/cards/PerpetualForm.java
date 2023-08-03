@@ -1,6 +1,5 @@
 package clockworkchar.cards;
 
-import basemod.ReflectionHacks;
 import basemod.helpers.BaseModCardTags;
 import basemod.interfaces.AlternateCardCostModifier;
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.AlternateCardCosts;
@@ -31,7 +30,6 @@ import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
-import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import java.util.ArrayList;
 
 import static clockworkchar.CrankyMod.makeID;

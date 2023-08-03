@@ -148,5 +148,16 @@
       "Takes #b",
       " additional damage from Tools this turn."
     ]
+  },
+  "${ModID}:ReassemblePower": {
+    "NAME": "Reassemble",
+    "DESCRIPTIONS": [
+      "The next time you draw a #yPart, gain #b",
+      "The next #b",
+      " times you draw a #yPart, gain #b",
+      " #yBlock and draw #b",
+      " card.",
+      " cards."
+    ]
   }
 }

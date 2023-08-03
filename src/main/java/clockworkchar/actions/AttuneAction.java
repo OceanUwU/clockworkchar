@@ -9,12 +9,17 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 public class AttuneAction extends AbstractGameAction {
     private AbstractCard card;
     private int times;
-    private boolean vfx;
+    private boolean vfx, sfx;
 
-    public AttuneAction(AbstractCard c, int times, boolean vfx) {
+    public AttuneAction(AbstractCard c, int times, boolean vfx, boolean sfx) {
         this.card = c;
         this.times = times;
         this.vfx = vfx;
+        this.sfx = sfx;
+    }
+
+    public AttuneAction(AbstractCard c, int times, boolean vfx) {
+        this(c, times, vfx, true);
     }
 
     public AttuneAction(AbstractCard c, int times) {
@@ -32,7 +37,7 @@ public class AttuneAction extends AbstractGameAction {
     public void update() {
         isDone = true;
         if (vfx)
-            AbstractDungeon.topLevelEffects.add(new AttuneCardEffect(card));
+            AbstractDungeon.topLevelEffects.add(new AttuneCardEffect(card, sfx));
         AttunedPatches.attune(card, times);
     }
 }

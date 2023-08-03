@@ -47,7 +47,7 @@ public class Scanner extends AbstractCrankyCard {
         }
 
         public void onUseCard(AbstractCard c, UseCardAction action) {
-            atb(new AttuneAction(c, amount, true));
+            atb(new AttuneAction(c, amount, true, false));
             flash();
         }
     }

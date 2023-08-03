@@ -26,6 +26,6 @@ public class MunchBattery extends AbstractCrankyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(5);
+        upgradeSecondMagic(1);
     }
 }

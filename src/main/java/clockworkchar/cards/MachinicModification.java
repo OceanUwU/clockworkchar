@@ -103,7 +103,7 @@ public class MachinicModification extends AbstractCrankyCard {
 
             public MachinicCardModification makeCopy() {
                 return new MachinicCardModification(wind);
-            };
+            }
         }
     }
 }

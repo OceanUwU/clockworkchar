@@ -17,7 +17,7 @@ public class BouncyBall extends AbstractCrankyCard {
         baseMagicNumber = magicNumber = 12;
         trinket = true;
         part = true;
-        exhaust = true;
+        isEthereal = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {}

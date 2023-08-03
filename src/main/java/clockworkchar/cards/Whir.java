@@ -15,12 +15,18 @@ public class Whir extends AbstractCrankyCard {
         super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseMagicNumber = magicNumber = 3;
         baseSecondMagic = secondMagic = 1;
+        baseThirdMagic = thirdMagic = 2;
         baseSpinAmount = spinAmount = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (upgraded)
+            atb(new SpinAction(spinAmount, true, spun -> {
+                if (spun)
+                    att(new DrawCardAction(thirdMagic));
+            }));
         for (int i = 0; i < magicNumber; i++) {
-            atb(new SpinAction(spinAmount, i == 0, spun -> {
+            atb(new SpinAction(spinAmount, !upgraded && i == 0, spun -> {
                 if (spun)
                     att(new DrawCardAction(secondMagic));
             }));
@@ -28,6 +34,6 @@ public class Whir extends AbstractCrankyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
+        upgradeMagicNumber(-1);
     }
 }

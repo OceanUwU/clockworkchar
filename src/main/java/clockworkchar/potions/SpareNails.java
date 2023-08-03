@@ -54,14 +54,18 @@ public class SpareNails extends AbstractPotion {
         tips.add(new PowerTip(BaseMod.getKeywordTitle(makeID("attuned")), BaseMod.getKeywordDescription(makeID("attuned"))));
     }
 
-    public void use(AbstractCreature abstractCreature) {
+    public static void chooseToolToEquip(int choices) {
         ArrayList<AbstractCard> cards = new ArrayList<>();
-        while (cards.size() < CHOICES) {
+        while (cards.size() < choices) {
             AbstractCard card = CHOICE_CARDS[AbstractDungeon.cardRandomRng.random(CHOICE_CARDS.length-1)];
             if (cards.contains(card)) continue;
             cards.add(card);
         }
         atb(new EasyModalChoiceAction(cards, 1, potionStrings.DESCRIPTIONS[12]));
+    }
+
+    public void use(AbstractCreature abstractCreature) {
+        chooseToolToEquip(CHOICES);
         for (AbstractCard c : AbstractDungeon.player.hand.group)
             atb(new AttuneAction(c, potency));
         boolean first = true;

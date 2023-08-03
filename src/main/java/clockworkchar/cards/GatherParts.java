@@ -34,7 +34,7 @@ public class GatherParts extends AbstractCrankyCard {
 
     public void upp() {
         upgradeDamage(2);
-        upgradeMagicNumber(2);
+        upgradeMagicNumber(3);
     }
 
     private static class GatherPartsAction extends AbstractGameAction {

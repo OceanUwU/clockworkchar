@@ -39,15 +39,15 @@ public class AttuneCardEffect extends AbstractGameEffect {
         initSpanners();
     }
 
+    public AttuneCardEffect(AbstractCard c, boolean playSound) {
+        this(c);
+        this.playSound = playSound;
+    }
+
     private void initSpanners() {
         spanners.add(new TiltingSpanner(-70f, -40f, 150f, 1f, 0.0f));
         spanners.add(new TiltingSpanner(90f, 20f, 0f, -1f, 0.42f));
         spanners.add(new TiltingSpanner(-50f, 120f, 280f, 1f, 0.84f));
-    }
-
-    public AttuneCardEffect(AbstractCard c, boolean playSound) {
-        this(c);
-        this.playSound = playSound;
     }
 
     public void update() {

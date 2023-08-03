@@ -38,7 +38,7 @@ public class ScatterNails extends AbstractCrankyCard {
     }
 
     public void upp() {
-        upgradeDamage(1);
+        upgradeDamage(2);
         upgradeMagicNumber(1);
     }
 

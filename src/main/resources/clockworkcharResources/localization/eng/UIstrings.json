@@ -66,5 +66,37 @@
   },
   "${ModID}:PartsPackHat": {
     "TEXT": ["The most impactful button you'll ever press.", "End Turn Button"]
+  },
+
+  "${ModID}:PMove_clockworkcharWindUp": {
+    "TEXT": [
+      "Wind Up X",
+      "clockworkchar:Wind_Up !A!"
+    ]
+  },
+  "${ModID}:PMove_clockworkcharActuate": {
+    "TEXT": [
+      "Actuate",
+      "clockworkchar:Actuate",
+      "clockworkchar:Actuate !A! times"
+    ]
+  },
+  "${ModID}:PMove_clockworkcharAttune": {
+    "TEXT": [
+      "Attune X",
+      "clockworkchar:Attunement"
+    ]
+  },
+  "${ModID}:PCond_clockworkcharSpin": {
+    "TEXT": [
+      "Spin X",
+      "clockworkchar:Spin !A!"
+    ]
+  },
+  "${ModID}:PCond_clockworkcharPart": {
+    "TEXT": [
+      "Part",
+      "clockworkchar:Part"
+    ]
   }
 }

@@ -22,7 +22,6 @@ import clockworkchar.actions.UseToolAction;
 import clockworkchar.cards.AbstractCrankyCard;
 import clockworkchar.cards.PerpetualForm;
 import clockworkchar.cards.Teddy;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;

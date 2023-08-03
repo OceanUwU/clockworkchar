@@ -39,7 +39,7 @@ public class Toolerang extends AbstractCrankyCard {
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeMagicNumber(1);
     }
 
     public static class ToolerangEffect extends AbstractGameEffect {

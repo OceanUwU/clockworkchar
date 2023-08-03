@@ -28,7 +28,7 @@ public class MechanicalManoeuvre extends AbstractCrankyCard {
     }
 
     public void upp() {
-        upgradeBlock(2);
+        upgradeBlock(3);
         upgradeSpinAmount(1);
     }
 }

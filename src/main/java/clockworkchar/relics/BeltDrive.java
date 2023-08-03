@@ -13,7 +13,7 @@ import static clockworkchar.util.Wiz.atb;
 public class BeltDrive extends AbstractEasyRelic {
     public static final String ID = makeID("BeltDrive");
 
-    private static final int SKILLS_NEEDED = 3;
+    private static final int SKILLS_NEEDED = 4;
     private static final int CARDS_DRAWN = 2;
 
     public BeltDrive() {

@@ -79,20 +79,19 @@ public abstract class AbstractCrankyCard extends CustomCard {
         initializeDescription();
 
         if (textureImg.contains("ui/missing.png")) {
-            if (CardLibrary.getAllCards() != null && !CardLibrary.getAllCards().isEmpty()) {
+            if (CardLibrary.getAllCards() != null && !CardLibrary.getAllCards().isEmpty())
                 CardArtRoller.computeCard(this);
-            } else
+            else
                 needsArtRefresh = true;
         }
     }
 
     @Override
     protected Texture getPortraitImage() {
-        if (textureImg.contains("ui/missing.png")) {
+        if (textureImg.contains("ui/missing.png"))
             return CardArtRoller.getPortraitTexture(this);
-        } else {
+        else
             return super.getPortraitImage();
-        }
     }
 
     public static String getCardTextureString(final String cardName, final AbstractCard.CardType cardType) {

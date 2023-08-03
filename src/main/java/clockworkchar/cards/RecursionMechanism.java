@@ -29,6 +29,6 @@ public class RecursionMechanism extends AbstractCrankyCard {
     }
 
     public void upp() {
-        upgradeDamage(4);
+        exhaust = false;
     }
 }

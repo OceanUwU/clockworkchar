@@ -9,7 +9,7 @@ public class Teddy extends AbstractCrankyCard {
     public final static String ID = makeID("Teddy");
 
     public Teddy() {
-        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         baseBlock = 4;
         attune(2);
     }

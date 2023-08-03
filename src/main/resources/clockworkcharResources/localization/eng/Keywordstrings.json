@@ -74,7 +74,8 @@
     "PROPER_NAME": "Attuned",
     "NAMES": [
       "attuned",
-      "attune"
+      "attune",
+      "attunement"
     ],
     "DESCRIPTION": "Attuned cards #yActuate after they're played or their part effect is activated."
   },
@@ -135,7 +136,7 @@
       "trinket",
       "trinkets"
     ],
-    "DESCRIPTION": "Trinkets are cards which draw a card when drawn, and #yExhaust when their part effect is activated."
+    "DESCRIPTION": "Trinkets are #yEthereal, #yUnplayable, and draw a card when drawn."
   },
   {
     "PROPER_NAME": "Ocean",

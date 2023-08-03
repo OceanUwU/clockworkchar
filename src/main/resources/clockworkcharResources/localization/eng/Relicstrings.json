@@ -37,7 +37,7 @@
     "FLAVOR": "88",
     "DESCRIPTIONS": [
       "At the end of your turn, for every #b",
-      " #y${ModID}:Charge you have stored, deal #b1 damage to all enemies."
+      " #y${ModID}:Charge you have stored, deal #b1 damage to ALL enemies."
     ]
   },
   "${ModID}:Scrap": {

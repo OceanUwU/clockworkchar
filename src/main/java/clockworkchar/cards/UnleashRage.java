@@ -31,7 +31,7 @@ public class UnleashRage extends AbstractCrankyCard {
     public UnleashRage() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = 8;
-        baseMagicNumber = magicNumber = 2;
+        baseMagicNumber = magicNumber = 3;
         part = true;
     }
 

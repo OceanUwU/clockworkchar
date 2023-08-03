@@ -102,8 +102,8 @@ public class CrankyMod implements
 
     public CrankyMod() {
         BaseMod.subscribe(this);
-        //if (Loader.isModLoaded("anniv5"))
-        //    SpireAnniversary5Mod.subscribe(new PackLoader());
+        if (Loader.isModLoaded("anniv5"))
+            SpireAnniversary5Mod.subscribe(new PackLoader());
 
         BaseMod.addColor(Cranky.Enums.CLOCKWORK_BROWN_COLOR, characterColor, characterColor, characterColor,
             characterColor, characterColor, characterColor, characterColor,

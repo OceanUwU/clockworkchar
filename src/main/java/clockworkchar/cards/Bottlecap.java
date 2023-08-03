@@ -13,7 +13,7 @@ public class Bottlecap extends AbstractCrankyCard {
         baseBlock = 8;
         trinket = true;
         part = true;
-        exhaust = true;
+        isEthereal = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {}

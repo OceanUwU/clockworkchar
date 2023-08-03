@@ -21,14 +21,13 @@ public class PitchPoint extends AbstractCrankyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
-        atb(new WindUpAction(magicNumber));
+        if (upgraded)
+            atb(new WindUpAction(magicNumber));
     }
 
     public void triggerInDiscardPileOnSpin() {
         atb(new DiscardToHandAction(this));
     }
 
-    public void upp() {
-        upgradeDamage(2);
-    }
+    public void upp() {}
 }

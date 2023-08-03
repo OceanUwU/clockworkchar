@@ -13,7 +13,7 @@ public class WearAndTear extends AbstractCrankyCard {
 
     public WearAndTear() {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
-        baseDamage = 8;
+        baseDamage = 7;
         baseSecondMagic = secondMagic = 3;
         baseMagicNumber = magicNumber = 1;
         exhaust = true;
@@ -30,6 +30,6 @@ public class WearAndTear extends AbstractCrankyCard {
     }
 
     public void upp() {
-        upgradeDamage(2);
+        upgradeMagicNumber(1);
     }
 }
