@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.ui.panels.energyorb.EnergyOrbInterface;
 import javassist.CtBehavior;
-import spireTogether.modcompat.downfall.characters.energyorbs.CustomizableEnergyOrbCustom;
+import spireTogether.modcompat.generic.energyorbs.CustomizableEnergyOrbCustom;
 import spireTogether.network.P2P.P2PPlayer;
 import spireTogether.ui.elements.presets.PlayerInfoBox;
 import spireTogether.ui.elements.useable.Clickable;

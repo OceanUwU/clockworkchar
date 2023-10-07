@@ -35,10 +35,12 @@ public class CrankySkin extends AtlasSkin {
         return true;
     }
 
-    public void LoadSkinOnPlayer() {
+    public boolean LoadSkinOnPlayer() {
         if (this.playerClass.equals(AbstractDungeon.player.chosenClass)) {
             ReflectionHacks.privateMethod(AbstractCreature.class, "loadAnimation", String.class, String.class, float.class).invoke(AbstractDungeon.player, atlasLoc, jsonLoc, scale);
             ((Cranky)AbstractDungeon.player).setupAnimation();
+            return true;
         }
+        return false;
     }
 }

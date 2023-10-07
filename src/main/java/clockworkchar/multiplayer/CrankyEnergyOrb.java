@@ -1,7 +1,7 @@
 package clockworkchar.multiplayer;
 
 import clockworkchar.characters.Cranky;
-import spireTogether.modcompat.downfall.characters.energyorbs.CustomizableEnergyOrbCustom;
+import spireTogether.modcompat.generic.energyorbs.CustomizableEnergyOrbCustom;
 
 import static clockworkchar.CrankyMod.makeImagePath;
 
