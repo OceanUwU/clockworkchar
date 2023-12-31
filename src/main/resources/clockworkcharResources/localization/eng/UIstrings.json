@@ -98,5 +98,27 @@
       "Part",
       "clockworkchar:Part"
     ]
+  },
+
+  "${ModID}:skinBase": {
+    "TEXT": ["Base"]
+  },
+  "${ModID}:ruby": {
+    "TEXT": ["Ruby"]
+  },
+  "${ModID}:emerald": {
+    "TEXT": ["Emerald"]
+  },
+  "${ModID}:cobalt": {
+    "TEXT": ["Cobalt"]
+  },
+  "${ModID}:copper": {
+    "TEXT": ["Copper"]
+  },
+  "${ModID}:chibi": {
+    "TEXT": ["Chibi"]
+  },
+  "${ModID}:ghost": {
+    "TEXT": ["Ghost"]
   }
 }

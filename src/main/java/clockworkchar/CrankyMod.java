@@ -22,6 +22,7 @@ import clockworkchar.ui.ToolSlot;
 import clockworkchar.ui.Winder;
 import clockworkchar.util.CardAugmentsLoader;
 import clockworkchar.util.PackLoader;
+import clockworkchar.util.Skindexer;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
@@ -102,8 +103,11 @@ public class CrankyMod implements
 
     public CrankyMod() {
         BaseMod.subscribe(this);
+        System.out.println(Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether"));
         if (Loader.isModLoaded("anniv5"))
             SpireAnniversary5Mod.subscribe(new PackLoader());
+        if (Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether"))
+            Skindexer.register();
 
         BaseMod.addColor(Cranky.Enums.CLOCKWORK_BROWN_COLOR, characterColor, characterColor, characterColor,
             characterColor, characterColor, characterColor, characterColor,

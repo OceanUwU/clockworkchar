@@ -3,6 +3,7 @@ package clockworkchar.multiplayer;
 import basemod.ReflectionHacks;
 import clockworkchar.characters.Cranky;
 import clockworkchar.ui.Winder;
+import clockworkchar.util.Skindexer.CrankySkin;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.LineFinder;
 import com.evacipated.cardcrawl.modthespire.lib.Matcher;
@@ -22,7 +23,7 @@ import spireTogether.ui.elements.useable.Clickable;
 import spireTogether.util.SpireVariables;
 
 public class MultiplayerWinder extends Winder {
-    public Cranky source;
+    public CrankySkin source;
 
     public MultiplayerWinder() {
         super((float)ReflectionHacks.getPrivateStatic(CustomizableEnergyOrbCustom.class, "ORB_IMG_SCALE") / Settings.scale, false, false, false, false, FontHelper.energyNumFontRed);
@@ -32,7 +33,7 @@ public class MultiplayerWinder extends Winder {
         x = orb_x - offset - 128f * Settings.scale * 1.25f;
         y = orb_y + offset;
         super.render(sb);
-        if (source != null)
+        if (source != null && source.winderBone != null)
             spinSkinWinder(source.winderBone);
     }
 

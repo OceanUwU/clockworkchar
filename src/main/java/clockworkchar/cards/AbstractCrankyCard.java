@@ -216,7 +216,7 @@ public abstract class AbstractCrankyCard extends CustomCard {
 
     protected void upgradeSecondBlock(int amount) {
         baseSecondBlock += amount;
-        secondBlock = baseSpinAmount;
+        secondBlock = baseSecondBlock;
         upgradedSecondBlock = true;
     }
 
