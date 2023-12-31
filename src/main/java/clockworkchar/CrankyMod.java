@@ -103,7 +103,6 @@ public class CrankyMod implements
 
     public CrankyMod() {
         BaseMod.subscribe(this);
-        System.out.println(Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether"));
         if (Loader.isModLoaded("anniv5"))
             SpireAnniversary5Mod.subscribe(new PackLoader());
         if (Loader.isModLoaded("skindex") || Loader.isModLoaded("spireTogether"))
